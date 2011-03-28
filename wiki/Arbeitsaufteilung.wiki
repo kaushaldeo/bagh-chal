@@ -15,7 +15,7 @@ g x g x x<br/>
 x x x g g<br/>
 t x x x t<br/>
 Vielleicht so - macht das überhaupt Sinn?<br/>
-Einbau Statusmeldung "wer ist ez am Zug" mit konsolenausgabe<br/>
+Einbau Statusmeldung "wer ist ez am Zug" mit Konsolenausgabe<br/>
 Spiel speichern/Laden<br/>
 *Bis wann:* ? 3 Woche April ?<br/>
 <br/>
@@ -27,15 +27,18 @@ Spiel speichern/Laden<br/>
 - Schnittstelle zu Spiellogik.<br/>
 *Bis wann:* ? 3 Woche April ?<br/>
 
+
 === Beides Zusammenführen ===
 Bis Anfangs Mai?
+
 
 === Testen/Bugfixen/Codereview ===
 Bis Ende Mai?
 
+
 === Dokumentation, Programmhandbuch, Doxygen, Präsentation ===
 Danach
-
+<br/>
 
 
 == Wichtig ==
