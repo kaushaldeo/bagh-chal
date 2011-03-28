@@ -51,6 +51,6 @@ Wenn wir diese immer schön nachführen, reicht nämlich am Ende nur noch ein "d
 
 Jeder Commit mit einem englischem Kommentar versehen.
 
----- 
+----
 
 Viel Spass beim Coden!
