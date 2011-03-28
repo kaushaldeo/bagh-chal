@@ -16,7 +16,11 @@ if (true)
 }}}
 
 
-  * Einrücken immer 4 Leerzeichen/keine Tabs, ggf. Editor anpassen
+  * Einrücken immer *4 Leerzeichen, keine Tabs verwenden,* ggf. Editor anpassen
+  * Alle Variablen in englisch, CamelCase:
+{{{
+int thisIsMyVariable = 1;
+}}}
 
 
 == Doxygen Formatierung ==
@@ -27,7 +31,7 @@ http://www.stack.nl/~dimitri/doxygen/docblocks.html#specialblock
 
 Für jede Klasse/Methode die einigermassen steht, bitte gleich Doxygen Infos hinzufügen.
 
-Ich bin hier für den *JavaDoc-Style* mit @.
+Ich bin hier für den *JavaDocStyle* mit @.
 
 {{{
 /**
@@ -41,7 +45,7 @@ Ich bin hier für den *JavaDoc-Style* mit @.
 
 Wir können aber auch den C-style nehmen mit !.
 
-Wenn wir diese immer schön nachführen, reicht am Ende ein doxygen <config-file> für das API-Referenz.
+Wenn wir diese immer schön nachführen, reicht nämlich am Ende nur noch ein doxygen `<config-file>` für das API-Referenz.
 
 
 Viel Spass beim Coden!
