@@ -2,18 +2,18 @@
 
 = Arbeitsaufteilung =
 
-Ich bin für folgende Aufteilung, wenn jemand bessere Vorschläge oder Wünsche hat melden.
+Ich bin für folgende Aufteilung, wenn jemand bessere Vorschläge oder Wünsche hat mitteilen.
 
 
 == Implementierung Spiellogik ==
 
-*Wer:* Julian & Steffen
-*Was:* Das Spiel läuft komplett ohne GUI durch. Mit "Schnittstelle" für die GUI. Vorerst Bedienung per Konsole?
-t x x x t
-x x x x x
-g x g x x
-x x x g g
-t x x x t
+*Wer:* Julian & Steffen<br/>
+*Was:* Das Spiel läuft komplett ohne GUI durch. Mit "Schnittstelle" für die GUI. Vorerst Bedienung per Konsole?<br/>
+t x x x t<br/>
+x x x x x<br/>
+g x g x x<br/>
+x x x g g<br/>
+t x x x t<br/>
 Vielleicht so - macht das überhaupt Sinn?
 Einbau Statusmeldung "wer ist ez am Zug" mit konsolenausgabe
 Spiel speichern/Laden
