@@ -26,7 +26,6 @@ int thisIsMyVariable = 1;
 == Doxygen Formatierung ==
 
 siehe: 
-[http://www.stack.nl/~dimitri/doxygen/docblocks.html#specialblock]
 http://www.stack.nl/~dimitri/doxygen/docblocks.html#specialblock
 
 Für jede Klasse/Methode die einigermassen steht, bitte gleich Doxygen Infos hinzufügen.
