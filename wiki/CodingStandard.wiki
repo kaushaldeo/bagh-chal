@@ -1,13 +1,42 @@
-#summary One-sentence summary of this page.
+#summary Coding Standards und Doxygen Formatierung
 
-= Introduction =
+= Einleitung =
 
-Add your content here.
+Andere Vorschläge sind willkommen. Ich bin für folgende:
+
+== Coding Standard ==
+
+* Kommentare in englisch
+* Nach Schleifen, Abfragen, Methodendefinition Klammer auf nächste Zeile, bsp:
+`if (true)
+ {
+     return;
+ }
+`
+* Einrücken immer 4 Leerzeichen/keine Tabs, ggf. Editor anpassen
 
 
-= Details =
+== Doxygen Formatierung ==
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+siehe: 
+[http://www.stack.nl/~dimitri/doxygen/docblocks.html#specialblock label]
+http://www.stack.nl/~dimitri/doxygen/docblocks.html#specialblock
+
+Für jede Klasse/Methode die einigermassen steht, bitte gleich Doxygen Infos hinzufügen.
+
+Ich bin hier für den *JavaDoc-Style* mit @.
+`      /**
+       * A pure virtual member.
+       * @see testMe()
+       * @param c1 the first argument.
+       * @param c2 the second argument.
+       */
+       virtual void testMeToo(char c1,char c2) = 0;
+`
+
+Wir können aber auch den C-style nehmen mit !.
+
+Wenn wir diese immer schön nachführen, reicht am Ende ein doxygen <config-file> für das API-Referenz.
+
+
+Viel Spass beim Coden!
