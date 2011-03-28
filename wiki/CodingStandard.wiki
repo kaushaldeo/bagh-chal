@@ -1,6 +1,6 @@
 #summary Coding Standards und Doxygen Formatierung
 
-= Einleitung =
+= Coding Standards und Doxygen Formatierung =
 
 Andere Vorschläge sind willkommen. Ich bin für folgende:
 
@@ -45,7 +45,7 @@ Ich bin hier für den *JavaDocStyle* mit @.
 
 Wir können aber auch den C-style nehmen mit !.
 
-Wenn wir diese immer schön nachführen, reicht nämlich am Ende nur noch ein doxygen `<config-file>` für das API-Referenz.
+Wenn wir diese immer schön nachführen, reicht nämlich am Ende nur noch ein "doxygen `<config-file>`" für das API-Referenz.
 
 
 Viel Spass beim Coden!
