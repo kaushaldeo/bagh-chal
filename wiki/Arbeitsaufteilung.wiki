@@ -1,0 +1,44 @@
+#summary Wer macht was bis wann und sonstige Infos.
+
+= Arbeitsaufteilung =
+
+Ich bin für folgende Aufteilung, wenn jemand bessere Vorschläge oder Wünsche hat melden.
+
+
+== Implementierung Spiellogik ==
+
+*Wer:* Julian & Steffen
+*Was:* Das Spiel läuft komplett ohne GUI durch. Mit "Schnittstelle" für die GUI. Vorerst Bedienung per Konsole?
+t x x x t
+x x x x x
+g x g x x
+x x x g g
+t x x x t
+Vielleicht so - macht das überhaupt Sinn?
+Einbau Statusmeldung "wer ist ez am Zug" mit konsolenausgabe
+Spiel speichern/Laden
+*Bis wann:* ? 3 Woche April ?
+
+
+== Implementierung GUI ==
+
+*Wer:* Simon & Mirko
+*Was:* GUI funktioniert. Saubere Lösung von DragnDrop, Darstellung, Menuelemente funktionieren (Neues Spiel, speicher, laden, beenden, Anleitungspopup), Statusanzeige, Gewonnenmeldung
+- Schnittstelle zu Spiellogik.
+*Bis wann:* ? 3 Woche April ?
+
+== Beides Zusammenführen ==
+Bis Anfangs Mai?
+
+== Testen/Bugfixen/Codereview ==
+Bis Ende Mai?
+
+== Dokumentation, Programmhandbuch, Doxygen, Präsentation ==
+Danach
+
+
+
+== Wichtig ==
+Die Implementierung sollte sich wenn möglich immer an das Klassendiagramm halten, die QPushButtons fallen ja schon mal weg.
+
+http://spieldose.ch/media/klassendiagramm.png
