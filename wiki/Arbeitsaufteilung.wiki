@@ -42,6 +42,6 @@ Danach
 
 
 == Wichtig ==
-Die Implementierung sollte sich wenn möglich immer an das Klassendiagramm halten, die QPushButtons fallen ja schon mal weg.
+Die Implementierung/Benamselung der Klassen sollte sich wenn möglich immer an das Klassendiagramm halten, die QPushButtons fallen ja schon mal weg.
 
 [http://spieldose.ch/media/klassendiagramm.png Klassendiagramm]
