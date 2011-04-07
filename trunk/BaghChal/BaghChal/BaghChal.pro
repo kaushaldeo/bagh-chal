@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2011-04-07T11:14:15
+# Project created by QtCreator 2011-04-07T18:45:28
 #
 #-------------------------------------------------
 
@@ -11,8 +11,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        MainWindow.cpp
+        BaghChal.cpp
 
-HEADERS  += MainWindow.h
+HEADERS  += BaghChal.h
 
-FORMS    += MainWindow.ui
+FORMS    += BaghChal.ui
+
+RESOURCES += \
+    FileContainer.qrc
