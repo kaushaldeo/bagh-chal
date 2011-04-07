@@ -1,10 +1,10 @@
 #include <QtGui/QApplication>
-#include "MainWindow.h"
+#include "BaghChal.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+    BaghChal w;
     w.show();
 
     return a.exec();
