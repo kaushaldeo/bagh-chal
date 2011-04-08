@@ -11,10 +11,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        BaghChal.cpp
+        BaghChal.cpp \
+    avatarWidget.cpp
 
-HEADERS  += BaghChal.h \
-    avatarwidget.h
+HEADERS  += BaghChal.h
 
 FORMS    += BaghChal.ui
 
