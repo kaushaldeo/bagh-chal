@@ -14,7 +14,8 @@ SOURCES += main.cpp\
         BaghChal.cpp \
     avatarWidget.cpp
 
-HEADERS  += BaghChal.h
+HEADERS  += BaghChal.h \
+    avatarWidget.h
 
 FORMS    += BaghChal.ui
 
