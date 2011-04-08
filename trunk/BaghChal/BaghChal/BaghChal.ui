@@ -806,7 +806,7 @@
 	background-image: url(:/new/Files/Spielfeld_klein.png);
 }</string>
     </property>
-    <widget class="QWidget" name="box_00" native="true">
+    <widget class="BoxWidget" name="box_00" native="true">
      <property name="geometry">
       <rect>
        <x>17</x>
@@ -842,7 +842,7 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="box_01" native="true">
+    <widget class="BoxWidget" name="box_01" native="true">
      <property name="geometry">
       <rect>
        <x>105</x>
@@ -852,7 +852,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_02" native="true">
+    <widget class="BoxWidget" name="box_02" native="true">
      <property name="geometry">
       <rect>
        <x>195</x>
@@ -862,7 +862,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_03" native="true">
+    <widget class="BoxWidget" name="box_03" native="true">
      <property name="geometry">
       <rect>
        <x>284</x>
@@ -872,7 +872,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_04" native="true">
+    <widget class="BoxWidget" name="box_04" native="true">
      <property name="geometry">
       <rect>
        <x>372</x>
@@ -908,7 +908,7 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="box_10" native="true">
+    <widget class="BoxWidget" name="box_10" native="true">
      <property name="geometry">
       <rect>
        <x>17</x>
@@ -918,7 +918,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_11" native="true">
+    <widget class="BoxWidget" name="box_11" native="true">
      <property name="geometry">
       <rect>
        <x>105</x>
@@ -928,7 +928,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_12" native="true">
+    <widget class="BoxWidget" name="box_12" native="true">
      <property name="geometry">
       <rect>
        <x>195</x>
@@ -938,7 +938,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_13" native="true">
+    <widget class="BoxWidget" name="box_13" native="true">
      <property name="geometry">
       <rect>
        <x>284</x>
@@ -948,7 +948,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_14" native="true">
+    <widget class="BoxWidget" name="box_14" native="true">
      <property name="geometry">
       <rect>
        <x>372</x>
@@ -958,7 +958,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_20" native="true">
+    <widget class="BoxWidget" name="box_20" native="true">
      <property name="geometry">
       <rect>
        <x>17</x>
@@ -968,7 +968,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_21" native="true">
+    <widget class="BoxWidget" name="box_21" native="true">
      <property name="geometry">
       <rect>
        <x>105</x>
@@ -978,7 +978,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_22" native="true">
+    <widget class="BoxWidget" name="box_22" native="true">
      <property name="geometry">
       <rect>
        <x>195</x>
@@ -988,7 +988,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_23" native="true">
+    <widget class="BoxWidget" name="box_23" native="true">
      <property name="geometry">
       <rect>
        <x>284</x>
@@ -998,7 +998,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_24" native="true">
+    <widget class="BoxWidget" name="box_24" native="true">
      <property name="geometry">
       <rect>
        <x>372</x>
@@ -1008,7 +1008,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_31" native="true">
+    <widget class="BoxWidget" name="box_30" native="true">
      <property name="geometry">
       <rect>
        <x>17</x>
@@ -1018,7 +1018,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_35" native="true">
+    <widget class="BoxWidget" name="box_31" native="true">
      <property name="geometry">
       <rect>
        <x>105</x>
@@ -1028,7 +1028,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_32" native="true">
+    <widget class="BoxWidget" name="box_32" native="true">
      <property name="geometry">
       <rect>
        <x>195</x>
@@ -1038,7 +1038,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_33" native="true">
+    <widget class="BoxWidget" name="box_33" native="true">
      <property name="geometry">
       <rect>
        <x>284</x>
@@ -1048,7 +1048,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_34" native="true">
+    <widget class="BoxWidget" name="box_34" native="true">
      <property name="geometry">
       <rect>
        <x>372</x>
@@ -1058,7 +1058,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_40" native="true">
+    <widget class="BoxWidget" name="box_40" native="true">
      <property name="geometry">
       <rect>
        <x>17</x>
@@ -1094,7 +1094,7 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="box_41" native="true">
+    <widget class="BoxWidget" name="box_41" native="true">
      <property name="geometry">
       <rect>
        <x>105</x>
@@ -1104,7 +1104,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_42" native="true">
+    <widget class="BoxWidget" name="box_42" native="true">
      <property name="geometry">
       <rect>
        <x>195</x>
@@ -1114,7 +1114,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_43" native="true">
+    <widget class="BoxWidget" name="box_43" native="true">
      <property name="geometry">
       <rect>
        <x>284</x>
@@ -1124,7 +1124,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="box_44" native="true">
+    <widget class="BoxWidget" name="box_44" native="true">
      <property name="geometry">
       <rect>
        <x>372</x>
@@ -1342,6 +1342,12 @@
    <class>AvatarWidget</class>
    <extends>QWidget</extends>
    <header location="global">avatarWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>BoxWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">boxWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
