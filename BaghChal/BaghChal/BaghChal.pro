@@ -13,7 +13,8 @@ TEMPLATE = app
 SOURCES += main.cpp\
         BaghChal.cpp
 
-HEADERS  += BaghChal.h
+HEADERS  += BaghChal.h \
+    avatarwidget.h
 
 FORMS    += BaghChal.ui
 
