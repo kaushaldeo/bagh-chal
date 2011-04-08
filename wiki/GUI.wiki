@@ -7,25 +7,25 @@ Gui Spielfeld
 
 Gui Spielfeld
 Aufteilung
-BaghChal QMainWindow
- 	centralWidget QWidget			
-		livingGoatsField  QWidget
-			title  QLabel  “Ziegen”
-			20x livingGoat_xx  QWidgets
-				20x goat_xx  AvatarWidget abgeleitet von QWidget
-					goatImage  QLabel 
-                            	playingField  QWidget
-			box_00  BoxWidget abgeleitet von QWidget
-			 	tiger_00  AvatarWidget abgeleitet von QWidget
-box_01  BoxWidget abgeleitet von QWidget
-box_02  BoxWidget abgeleitet von QWidget
-box_03  BoxWidget abgeleitet von QWidget
-box_04  BoxWidget abgeleitet von QWidget
-			 	tiger_01  AvatarWidget abgeleitet von QWidget
- box_10  BoxWidget abgeleitet von QWidget
-…
-		rippedGoatsField  QWidget
-			title QLabel  “Gefressene Ziegen”
+BaghChal:QMainWindow
+  centralWidget:QWidget			
+    unusedGoatsField:QWidget
+      title_00:QLabel (“Ziegen”)
+      unusedGoat_xx:QWidgets (20x)
+        goat_xx:AvatarWidget (20x)(abgeleitet von QWidget)
+          goatImage:QLabel 
+    playingField:QWidget
+      box_00:BoxWidget (abgeleitet von QWidget)
+        tiger_00:AvatarWidget (abgeleitet von QWidget)
+      box_01:BoxWidget abgeleitet von QWidget
+      box_02:BoxWidget abgeleitet von QWidget
+      box_03:BoxWidget abgeleitet von QWidget
+      box_04:BoxWidget abgeleitet von QWidget
+        tiger_01:AvatarWidget abgeleitet von QWidget
+      box_10:BoxWidget abgeleitet von QWidget
+      …
+    rippedGoatsField:QWidget
+      title_01 QLabel  “Gefressene Ziegen”
 			5x rippedGoat_xx QWidget
 menuBar  QMenuBar
  	menuGame  QMenu
