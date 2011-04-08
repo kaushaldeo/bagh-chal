@@ -1,4 +1,0 @@
-#ifndef AVATARWIDGET_H
-#define AVATARWIDGET_H
-
-#endif // AVATARWIDGET_H

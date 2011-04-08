@@ -36,6 +36,11 @@
    </size>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">#centralWidget{
+	background-color: rgb(85, 85, 255);
+}</string>
+   </property>
    <widget class="QWidget" name="unusedGoatsField" native="true">
     <property name="geometry">
      <rect>
@@ -1192,6 +1197,11 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">.QWidget{	
+	background-color: rgb(170, 170, 255);
+}</string>
+     </property>
     </widget>
     <widget class="QWidget" name="rippedGoat_01" native="true">
      <property name="geometry">
@@ -1201,6 +1211,11 @@
        <width>41</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">.QWidget{	
+	background-color: rgb(170, 170, 255);
+}</string>
      </property>
     </widget>
     <widget class="QWidget" name="rippedGoat_02" native="true">
@@ -1212,6 +1227,11 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">.QWidget{	
+	background-color: rgb(170, 170, 255);
+}</string>
+     </property>
     </widget>
     <widget class="QWidget" name="rippedGoat_03" native="true">
      <property name="geometry">
@@ -1222,6 +1242,11 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">.QWidget{	
+	background-color: rgb(170, 170, 255);
+}</string>
+     </property>
     </widget>
     <widget class="QWidget" name="rippedGoat_04" native="true">
      <property name="geometry">
@@ -1231,6 +1256,11 @@
        <width>41</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">.QWidget {
+	background-color: rgb(170, 170, 255);
+}</string>
      </property>
     </widget>
    </widget>
@@ -1311,7 +1341,7 @@
   <customwidget>
    <class>AvatarWidget</class>
    <extends>QWidget</extends>
-   <header location="global">avatarwidget.h</header>
+   <header location="global">avatarWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
