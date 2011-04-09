@@ -68,6 +68,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
       <widget class="QLabel" name="goatImage_00">
        <property name="geometry">
         <rect>
@@ -103,6 +106,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
       </property>
       <widget class="QLabel" name="goatImage_01">
        <property name="geometry">
@@ -140,6 +146,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
       <widget class="QLabel" name="goatImage_20">
        <property name="geometry">
         <rect>
@@ -175,6 +184,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
       </property>
       <widget class="QLabel" name="goatImage_02">
        <property name="geometry">
@@ -212,6 +224,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
       <widget class="QLabel" name="goatImage_03">
        <property name="geometry">
         <rect>
@@ -247,6 +262,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
       </property>
       <widget class="QLabel" name="goatImage_19">
        <property name="geometry">
@@ -284,6 +302,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
       <widget class="QLabel" name="goatImage_04">
        <property name="geometry">
         <rect>
@@ -319,6 +340,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
       </property>
       <widget class="QLabel" name="goatImage_05">
        <property name="geometry">
@@ -356,6 +380,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
       <widget class="QLabel" name="goatImage_18">
        <property name="geometry">
         <rect>
@@ -391,6 +418,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
       </property>
       <widget class="QLabel" name="goatImage_06">
        <property name="geometry">
@@ -428,6 +458,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
       <widget class="QLabel" name="goatImage_07">
        <property name="geometry">
         <rect>
@@ -463,6 +496,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
       </property>
       <widget class="QLabel" name="goatImage_17">
        <property name="geometry">
@@ -500,6 +536,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
       <widget class="QLabel" name="goatImage_08">
        <property name="geometry">
         <rect>
@@ -535,6 +574,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
       </property>
       <widget class="QLabel" name="goatImage_09">
        <property name="geometry">
@@ -572,6 +614,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
       <widget class="QLabel" name="goatImage_16">
        <property name="geometry">
         <rect>
@@ -607,6 +652,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
       </property>
       <widget class="QLabel" name="goatImage_10">
        <property name="geometry">
@@ -644,6 +692,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
       <widget class="QLabel" name="goatImage_11">
        <property name="geometry">
         <rect>
@@ -679,6 +730,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
       </property>
       <widget class="QLabel" name="goatImage_14">
        <property name="geometry">
@@ -716,6 +770,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
       <widget class="QLabel" name="goatImage_12">
        <property name="geometry">
         <rect>
@@ -751,6 +808,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
       </property>
       <widget class="QLabel" name="goatImage_13">
        <property name="geometry">
@@ -824,6 +884,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="goat" stdset="0">
+       <bool>false</bool>
+      </property>
       <widget class="QLabel" name="tigerImage_00">
        <property name="geometry">
         <rect>
@@ -832,6 +895,9 @@
          <width>41</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="acceptDrops">
+        <bool>false</bool>
        </property>
        <property name="text">
         <string/>
@@ -851,6 +917,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="BoxWidget" name="box_02" native="true">
      <property name="geometry">
@@ -861,6 +930,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="BoxWidget" name="box_03" native="true">
      <property name="geometry">
@@ -870,6 +942,9 @@
        <width>41</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="BoxWidget" name="box_04" native="true">
@@ -889,6 +964,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>false</bool>
       </property>
       <widget class="QLabel" name="tigerImage_01">
        <property name="geometry">
@@ -917,6 +995,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="BoxWidget" name="box_11" native="true">
      <property name="geometry">
@@ -926,6 +1007,9 @@
        <width>41</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="BoxWidget" name="box_12" native="true">
@@ -937,6 +1021,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="BoxWidget" name="box_13" native="true">
      <property name="geometry">
@@ -946,6 +1033,9 @@
        <width>41</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="BoxWidget" name="box_14" native="true">
@@ -957,6 +1047,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="BoxWidget" name="box_20" native="true">
      <property name="geometry">
@@ -966,6 +1059,9 @@
        <width>41</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="BoxWidget" name="box_21" native="true">
@@ -977,6 +1073,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="BoxWidget" name="box_22" native="true">
      <property name="geometry">
@@ -986,6 +1085,9 @@
        <width>41</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="BoxWidget" name="box_23" native="true">
@@ -997,6 +1099,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="BoxWidget" name="box_24" native="true">
      <property name="geometry">
@@ -1006,6 +1111,9 @@
        <width>41</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="BoxWidget" name="box_30" native="true">
@@ -1017,6 +1125,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="BoxWidget" name="box_31" native="true">
      <property name="geometry">
@@ -1026,6 +1137,9 @@
        <width>41</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="BoxWidget" name="box_32" native="true">
@@ -1037,6 +1151,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="BoxWidget" name="box_33" native="true">
      <property name="geometry">
@@ -1047,6 +1164,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="BoxWidget" name="box_34" native="true">
      <property name="geometry">
@@ -1056,6 +1176,9 @@
        <width>41</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="BoxWidget" name="box_40" native="true">
@@ -1075,6 +1198,9 @@
         <width>41</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>false</bool>
       </property>
       <widget class="QLabel" name="tigerImage_02">
        <property name="geometry">
@@ -1103,6 +1229,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="BoxWidget" name="box_42" native="true">
      <property name="geometry">
@@ -1113,6 +1242,9 @@
        <height>41</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="BoxWidget" name="box_43" native="true">
      <property name="geometry">
@@ -1122,6 +1254,9 @@
        <width>41</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="BoxWidget" name="box_44" native="true">
@@ -1142,6 +1277,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="goat" stdset="0">
+       <bool>false</bool>
+      </property>
       <widget class="QLabel" name="tigerImage_03">
        <property name="geometry">
         <rect>
@@ -1160,22 +1298,47 @@
       </widget>
      </widget>
     </widget>
+    <zorder>box_00</zorder>
+    <zorder>box_02</zorder>
+    <zorder>box_03</zorder>
+    <zorder>box_04</zorder>
+    <zorder>box_10</zorder>
+    <zorder>box_11</zorder>
+    <zorder>box_12</zorder>
+    <zorder>box_13</zorder>
+    <zorder>box_14</zorder>
+    <zorder>box_20</zorder>
+    <zorder>box_21</zorder>
+    <zorder>box_22</zorder>
+    <zorder>box_23</zorder>
+    <zorder>box_24</zorder>
+    <zorder>box_30</zorder>
+    <zorder>box_31</zorder>
+    <zorder>box_32</zorder>
+    <zorder>box_33</zorder>
+    <zorder>box_34</zorder>
+    <zorder>box_40</zorder>
+    <zorder>box_41</zorder>
+    <zorder>box_42</zorder>
+    <zorder>box_43</zorder>
+    <zorder>box_44</zorder>
+    <zorder>box_01</zorder>
    </widget>
    <widget class="QWidget" name="rippedGoatsField" native="true">
     <property name="geometry">
      <rect>
-      <x>650</x>
+      <x>640</x>
       <y>15</y>
-      <width>141</width>
+      <width>161</width>
       <height>351</height>
      </rect>
     </property>
     <widget class="QLabel" name="title_01">
      <property name="geometry">
       <rect>
-       <x>4</x>
+       <x>-1</x>
        <y>0</y>
-       <width>136</width>
+       <width>161</width>
        <height>23</height>
       </rect>
      </property>
@@ -1185,13 +1348,13 @@
       </font>
      </property>
      <property name="text">
-      <string>gefresse Ziegen</string>
+      <string>gefressene Ziegen</string>
      </property>
     </widget>
     <widget class="QWidget" name="rippedGoat_00" native="true">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>60</x>
        <y>60</y>
        <width>41</width>
        <height>41</height>
@@ -1206,7 +1369,7 @@
     <widget class="QWidget" name="rippedGoat_01" native="true">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>60</x>
        <y>120</y>
        <width>41</width>
        <height>41</height>
@@ -1221,7 +1384,7 @@
     <widget class="QWidget" name="rippedGoat_02" native="true">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>60</x>
        <y>180</y>
        <width>41</width>
        <height>41</height>
@@ -1236,7 +1399,7 @@
     <widget class="QWidget" name="rippedGoat_03" native="true">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>60</x>
        <y>240</y>
        <width>41</width>
        <height>41</height>
@@ -1251,7 +1414,7 @@
     <widget class="QWidget" name="rippedGoat_04" native="true">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>60</x>
        <y>300</y>
        <width>41</width>
        <height>41</height>
@@ -1271,7 +1434,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuGame">
