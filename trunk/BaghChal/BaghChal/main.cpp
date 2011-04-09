@@ -1,5 +1,5 @@
 #include <QtGui/QApplication>
-#include "BaghChal.h"
+#include "src/gui/BaghChal.h"
 
 int main(int argc, char *argv[])
 {

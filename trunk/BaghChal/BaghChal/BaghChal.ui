@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="FileContainer.qrc">
-    <normaloff>:/new/Files/icon.ico</normaloff>:/new/Files/icon.ico</iconset>
+    <normaloff>:/new/Files/icons/icon.ico</normaloff>:/new/Files/icons/icon.ico</iconset>
   </property>
   <property name="iconSize">
    <size>
@@ -81,7 +81,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -117,7 +117,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -153,7 +153,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -189,7 +189,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -225,7 +225,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -261,7 +261,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -297,7 +297,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -333,7 +333,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -369,7 +369,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -405,7 +405,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -441,7 +441,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -477,7 +477,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -513,7 +513,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -549,7 +549,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -585,7 +585,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -621,7 +621,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -657,7 +657,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -693,7 +693,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -729,7 +729,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -765,7 +765,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_ziege.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -803,7 +803,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">#playingField {
-	background-image: url(:/new/Files/Spielfeld_klein.png);
+	background-image: url(:/new/Files/icons/Spielfeld_klein.png);
 }</string>
     </property>
     <widget class="BoxWidget" name="box_00" native="true">
@@ -837,7 +837,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_tiger.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_tiger.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -903,7 +903,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_tiger.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_tiger.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -1089,7 +1089,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_tiger.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_tiger.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -1155,7 +1155,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="FileContainer.qrc">:/new/Files/spielfigur_tiger.png</pixmap>
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_tiger.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -1341,13 +1341,13 @@
   <customwidget>
    <class>AvatarWidget</class>
    <extends>QWidget</extends>
-   <header location="global">avatarWidget.h</header>
+   <header location="global">src/gui/avatarWidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>BoxWidget</class>
    <extends>QWidget</extends>
-   <header location="global">boxWidget.h</header>
+   <header location="global">src/gui/boxWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
