@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/new/Files">
-        <file>icon.ico</file>
-        <file>Spielfeld_klein.png</file>
-        <file>spielfigur_tiger.png</file>
-        <file>spielfigur_ziege.png</file>
+        <file>icons/icon.ico</file>
+        <file>icons/Spielfeld_klein.png</file>
+        <file>icons/spielfigur_tiger.png</file>
+        <file>icons/spielfigur_ziege.png</file>
     </qresource>
 </RCC>

@@ -1,5 +1,5 @@
 #include "BaghChal.h"
-#include "ui_BaghChal.h"
+#include "../../ui_BaghChal.h"
 
 BaghChal::BaghChal(QWidget *parent) :
     QMainWindow(parent),
