@@ -1434,7 +1434,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuGame">
@@ -1469,31 +1469,55 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNewGame">
+   <property name="icon">
+    <iconset resource="FileContainer.qrc">
+     <normaloff>:/new/Files/icons/Positive-icon.png</normaloff>:/new/Files/icons/Positive-icon.png</iconset>
+   </property>
    <property name="text">
     <string>Neues Spiel</string>
    </property>
   </action>
   <action name="actionLoadGame">
+   <property name="icon">
+    <iconset resource="FileContainer.qrc">
+     <normaloff>:/new/Files/icons/Open-icon.png</normaloff>:/new/Files/icons/Open-icon.png</iconset>
+   </property>
    <property name="text">
     <string>Spiel laden</string>
    </property>
   </action>
   <action name="actionSaveGame">
+   <property name="icon">
+    <iconset resource="FileContainer.qrc">
+     <normaloff>:/new/Files/icons/Save-icon.png</normaloff>:/new/Files/icons/Save-icon.png</iconset>
+   </property>
    <property name="text">
     <string>Spiel speichern</string>
    </property>
   </action>
   <action name="actionQuitGame">
+   <property name="icon">
+    <iconset resource="FileContainer.qrc">
+     <normaloff>:/new/Files/icons/Sign-Shutdown-icon.png</normaloff>:/new/Files/icons/Sign-Shutdown-icon.png</iconset>
+   </property>
    <property name="text">
     <string>Spiel beenden</string>
    </property>
   </action>
   <action name="actionHelp">
+   <property name="icon">
+    <iconset resource="FileContainer.qrc">
+     <normaloff>:/new/Files/icons/Help-icon.png</normaloff>:/new/Files/icons/Help-icon.png</iconset>
+   </property>
    <property name="text">
     <string>Hilfe</string>
    </property>
   </action>
   <action name="actionInfo">
+   <property name="icon">
+    <iconset resource="FileContainer.qrc">
+     <normaloff>:/new/Files/icons/Information-icon.png</normaloff>:/new/Files/icons/Information-icon.png</iconset>
+   </property>
    <property name="text">
     <string>Info</string>
    </property>
