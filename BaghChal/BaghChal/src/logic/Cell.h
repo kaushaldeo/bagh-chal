@@ -21,18 +21,19 @@ class Cell
   public:
     Cell (int x, int y, Grid* gridPtr) : status (0), positionX(x), positionY(y), grid(gridPtr) {};
     ~Cell ();
-    int getStatus ();
+    unsigned int getStatus ();
     std::pair<int, int> getPosition();
     Cell* getNeighbor (int);
+    void setStatus(int);
    
   private:
     Cell ();        // This is private because a default constructor is not necessary and in fact would make no sense at all
-    int status;     /**< This represents the status of the field. It can be neutral (0), Tiger (1) or goat (2) */
-    int positionX;  /**< This is the X coordinate of the cell */
-    int positionY;  /**< This is the Y coordinate of the cell */
-    Grid* grid      /**< This is a pointer to the grid */
+    unsigned int status;    /**< This represents the status of the field. It can be neutral (0), Tiger (1) or goat (2) */
+    int positionX;          /**< This is the X coordinate of the cell */
+    int positionY;          /**< This is the Y coordinate of the cell */
+    Grid* grid              /**< This is a pointer to the grid */
     bool canMoveDiagonally ();
     
 };
 
-#endif
+#endif/
