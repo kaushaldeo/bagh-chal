@@ -18,4 +18,19 @@ class CanNotMoveException : public Exception
     return "This move is invalid";
   }
 };
+
+/**
+ * @class InvalidStateException
+ * @brief Is thrown on trying to assign an invalid state to a cell
+ * 
+ * State cannot be negative or greater than 2!
+ */
+
+class InvalidStateException : public Exception
+{
+  virtual const char* what() const throw()
+  {
+    return "This is not a valid state";
+  }
+}
 #endif

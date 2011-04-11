@@ -7,6 +7,7 @@
 */
 
 #include "Cell.h"
+#include "Exceptions.h"
 
 using namespace std;
 
@@ -30,7 +31,7 @@ unsigned int Cell::getStatus ()
 void Cell::setStatus (unsigned int newState)
 {
   if (newState > 2)
-    return;             //We should probably throw some kind of an exeption here
+    throw new InvalidStateException()
   status = newState;
 }
 
@@ -54,6 +55,7 @@ pair <int, int> Cell::getPosition ()
 * @fn getNeighbor()
 * @brief get neighboring cell on grid as indicated by direction
 * @param direction - integer value indicating direction
+* @exception CanNotMoveException
 * 
 * The function checks wether there is a neighbor as indicated by the number.
 * If there is none, the function returns a nullpointer.
@@ -64,50 +66,42 @@ Cell* Cell::getNeighbor (int direction)
   {
     case 0: //Right
       if (positionX == 4)
-        return 0;
+        throw moveEx;
       return grid->getCell(positionX+1, positionY);
     
     case 1: //Down
       if (positionY == 4)
-        return 0;
+        throw moveEx;
       return grid->getCell(positionX, positionY+1);
       
     case 2: //Left
       if (positionX == 0)
-        return 0;
+        throw moveEx;
       return grid->getCell(positionX-1, positionY);
       
     case 3: //Up
       if (positionY == 0)
-        return 0;
+        throw moveEx;
       return grid->getCell(positionX, positionY-1);
         
     case 4: //Right+Up
-      if (positionX == 4  || positionY == 0)
-        return 0;
-      if (!canMoveDiagonally())
-        return 0;
+      if (positionX == 4  || positionY == 0 || !canMoveDiagonally())
+        throw moveEx;
       return grid->getCell(positionX+1,positionY-1);
       
     case 5: //Right+Down
-      if (positionX == 4  || positionY == 4)
-        return 0;
-      if (!canMoveDiagonally())
-        return 0;
+      if (positionX == 4  || positionY == 4 || !canMoveDiagonally())
+        throw moveEx;
       return grid->getCell(positionX+1,positionY+1);      
       
     case 6: //Left+Down
-      if (positionX == 0  || positionY == 4)
-        return 0;
-      if (!canMoveDiagonally())
-        return 0;
+      if (positionX == 0  || positionY == 4 || !canMoveDiagonally())
+        throw moveEx;
       return grid->getCell(positionX-1,positionY+1);
       
     case 7: //Left+Up
-      if (positionX == 0  || positionY == 0)
-        return 0;
-      if (!canMoveDiagonally())
-        return 0;
+      if (positionX == 0  || positionY == 0 || !canMoveDiagonally())
+        throw moveEx;
       return grid->getCell(positionX-1,positionY+1);
   }
 }
