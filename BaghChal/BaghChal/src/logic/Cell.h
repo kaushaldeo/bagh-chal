@@ -33,6 +33,7 @@ class Cell
     int positionY;          /**< This is the Y coordinate of the cell */
     Grid* grid              /**< This is a pointer to the grid */
     bool canMoveDiagonally ();
+    CanNotMoveException moveEx; /**< CanNotMoveException */
     
 };
 
