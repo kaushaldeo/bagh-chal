@@ -22,11 +22,10 @@ class Grid
   public:
     Grid ();
     ~Grid ();
-//     Cell*** getCells ();
     Cell* getCell (int, int);
    
   private:
-    Cell*** cells;    /**< Pointer to a 5x5-array of Cell-Objects, represents the 25 fields on the grid */
+    Cell*** cells;    /**< Pointer to a 5x5-array of Cell-Object-Pointers, represents the 25 fields on the grid */
     
 };
 
