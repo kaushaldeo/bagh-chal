@@ -45,7 +45,7 @@ public:
 	 *  \exception CanNotMoveException Wird geworfen, wenn der Zug ungültig ist.
 	 *  \return 1, wenn eine Ziege gefressen wurde, 0 sonst.
 	 */
-	int move(Cell *src, Cell *dst);
+	Cell* move(Cell *src, Cell *dst);
 
 private:
 	//! Array, das Zeiger auf die 4 Tiger enthält.

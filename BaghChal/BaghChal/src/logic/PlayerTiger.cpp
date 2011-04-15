@@ -41,7 +41,7 @@ bool PlayerTiger::canMove()
     return false;
 }
 
-int PlayerTiger::move(Cell *src, Cell *dst)
+Cell* PlayerTiger::move(Cell *src, Cell *dst)
 {
     int i = 0;
     while(src != tigers[i]->getCell())
@@ -53,7 +53,7 @@ int PlayerTiger::move(Cell *src, Cell *dst)
         i++;
     }
 
-    tigers[i]->move(dst);
+    return tigers[i]->move(dst);
 }
 
     
