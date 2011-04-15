@@ -26,6 +26,12 @@ public:
 	 */
 	void setCell(Cell *cell);
 
+    /*! \brief Gibt aktuelle Zelle zurück
+     *
+     * blablabla englisch bla
+     */
+    Cell* getCell();
+
 	/*! \brief Bewegt Ziege auf übergebene Zelle.
 	 *
 	 *  Überprüft, ob Zug möglich ist und bewegt gegebenenfalls die Ziege.
