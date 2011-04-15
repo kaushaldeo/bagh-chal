@@ -32,5 +32,19 @@ class InvalidStateException : public Exception
   {
     return "This is not a valid state";
   }
-}
+};
+
+/**
+ * @brief Is thrown when it's the tiger's turn but a goat is moved or vice versa.
+ *
+ * The object trying to be moved must be pointet to in the current players Goat or Tiger array.
+ */
+class InvalidSourceException : public Exception
+{
+    virtual const char* what() const throw()
+    {
+        return "This is not a valid source";
+    }
+};
+
 #endif

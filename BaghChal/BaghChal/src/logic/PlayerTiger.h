@@ -49,7 +49,7 @@ public:
 
 private:
 	//! Array, das Zeiger auf die 4 Tiger enthält.
-	Tiger *tigers[4];
+	Tiger **tigers;
 
 	//! Anzahl der gefressenen Ziegen.
 	int score;

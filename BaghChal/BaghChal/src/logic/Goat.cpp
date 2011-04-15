@@ -22,6 +22,11 @@ void Goat::setCell(Cell *cell)
 	cellPtr = cell;
 }
 
+Cell* Goat::getCell();
+{
+    return cellPtr;
+}
+
 void Goat::move(Cell *cell)
 {
 
