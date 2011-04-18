@@ -159,7 +159,6 @@ void BoxWidget::placeGoatInRippedField()
         default:
             break;
         }
-        cout << eatenGoats;
         
         QWidget *boxParent = this->parentWidget()->parentWidget();
         QWidget *rippedField = boxParent->findChild<QWidget*>(rippedId);
