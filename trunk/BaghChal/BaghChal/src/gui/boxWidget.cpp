@@ -4,6 +4,8 @@
 #include "boxWidget.h"
 #include "avatarWidget.h"
 
+using namespace std;
+
 
 BoxWidget::BoxWidget(QWidget *parent) :
     QWidget(parent)
@@ -24,6 +26,10 @@ void BoxWidget::dragEnterEvent(QDragEnterEvent *event)
         else
         {
             event->acceptProposedAction();
+            this->setAutoFillBackground( true );
+            QPalette p(this->palette());
+            p.setColor(QPalette::Background, QColor(147,152,170,255));
+            this->setPalette(p);
         }
     }
     else
@@ -35,7 +41,7 @@ void BoxWidget::dragEnterEvent(QDragEnterEvent *event)
 void BoxWidget::dragMoveEvent(QDragMoveEvent *event)
 {
     setCursor(Qt::OpenHandCursor);
-    
+
     if (event->mimeData()->hasFormat("application/x-dnditemdata"))
     {
         if (event->source() == this)
@@ -54,29 +60,45 @@ void BoxWidget::dragMoveEvent(QDragMoveEvent *event)
     }
 }
 
+void BoxWidget::dragLeaveEvent(QDragLeaveEvent *event)
+{
+    event->accept();
+    this->setAutoFillBackground( false);
+}
+
 void BoxWidget::dropEvent(QDropEvent *event)
 {
 
     if (event->mimeData()->hasFormat("application/x-dnditemdata"))
     {
+        //delete hover effect
+        this->setAutoFillBackground( false);
+
         AvatarWidget* avatar = qobject_cast<AvatarWidget*>(event->source());
         if ( avatar )
         {
+            //actualize matrix
+            //check matrix
+            
+            //this is a prototype
+            placeGoatInRippedField();
+            
             this->setAcceptDrops(0);
             avatar->parentWidget()->setAcceptDrops(1);
          
             AvatarWidget *newAvatar = new AvatarWidget(this);
-            //newAvatar->setObjectName(QString::fromUtf8("newAvatar"));
+            newAvatar->setObjectName(event->source()->objectName());
             newAvatar->setGeometry(QRect(0, 0, 51, 51));
             if ( avatar->property("goat").toBool() )
             {
                 newAvatar->setProperty("goat",1);
+                //newAvatar->setAttribute(Qt::WA_DeleteOnClose);
                 //this is a little finetuning, could be solved via qt-designer
                 newAvatar->move(QPoint(-3,2));
             }
             else
             {
-                newAvatar->move(QPoint(0,0));
+                newAvatar->move(QPoint(-1,-1));
             }
             newAvatar->show();
             
@@ -100,11 +122,56 @@ void BoxWidget::dropEvent(QDropEvent *event)
         }
         else
         {
-            event->acceptProposedAction();event->source()->close();
+            event->acceptProposedAction();
+            event->source()->close();
         }
     }
     else
     {
         event->ignore();
+    }
+}
+
+void BoxWidget::placeGoatInRippedField()
+{
+    //TODO: replace eatenGoats
+    static int eatenGoats = 0;
+    
+    if ( eatenGoats >= 0 && eatenGoats < 5 )
+    {
+        QString rippedId = "";
+        switch (eatenGoats)
+        {
+        case 0:
+            rippedId = "rippedGoat_00";
+            break;
+        case 1:
+            rippedId = "rippedGoat_01";
+            break;
+        case 2:
+            rippedId = "rippedGoat_02";
+            break;
+        case 3:
+            rippedId = "rippedGoat_03";
+            break;
+        case 4:
+            rippedId = "rippedGoat_04";
+        default:
+            break;
+        }
+        cout << eatenGoats;
+        
+        QWidget *boxParent = this->parentWidget()->parentWidget();
+        QWidget *rippedField = boxParent->findChild<QWidget*>(rippedId);
+        if ( rippedField )
+        {
+            //TODO: replace eatenGoats
+            eatenGoats++;
+            
+            QLabel *newIcong = new QLabel( rippedField );
+            newIcong->setGeometry(QRect(-3, 1, 41, 41));
+            newIcong->setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/spielfigur_ziege.png")));
+            newIcong->show();
+        }
     }
 }
