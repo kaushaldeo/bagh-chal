@@ -869,10 +869,10 @@
     <widget class="BoxWidget" name="box_00" native="true">
      <property name="geometry">
       <rect>
-       <x>17</x>
-       <y>17</y>
-       <width>41</width>
-       <height>41</height>
+       <x>18</x>
+       <y>18</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <widget class="AvatarWidget" name="tiger_00" native="true">
@@ -890,8 +890,8 @@
       <widget class="QLabel" name="tigerImage_00">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>0</y>
+         <x>-1</x>
+         <y>-1</y>
          <width>41</width>
          <height>41</height>
         </rect>
@@ -911,10 +911,10 @@
     <widget class="BoxWidget" name="box_01" native="true">
      <property name="geometry">
       <rect>
-       <x>105</x>
-       <y>17</y>
-       <width>41</width>
-       <height>41</height>
+       <x>107</x>
+       <y>18</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -924,10 +924,10 @@
     <widget class="BoxWidget" name="box_02" native="true">
      <property name="geometry">
       <rect>
-       <x>195</x>
-       <y>17</y>
-       <width>41</width>
-       <height>41</height>
+       <x>196</x>
+       <y>18</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -937,10 +937,10 @@
     <widget class="BoxWidget" name="box_03" native="true">
      <property name="geometry">
       <rect>
-       <x>284</x>
-       <y>17</y>
-       <width>41</width>
-       <height>41</height>
+       <x>285</x>
+       <y>18</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -950,10 +950,10 @@
     <widget class="BoxWidget" name="box_04" native="true">
      <property name="geometry">
       <rect>
-       <x>372</x>
-       <y>17</y>
-       <width>41</width>
-       <height>41</height>
+       <x>374</x>
+       <y>18</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <widget class="AvatarWidget" name="tiger_01" native="true">
@@ -971,8 +971,8 @@
       <widget class="QLabel" name="tigerImage_01">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>0</y>
+         <x>-1</x>
+         <y>-1</y>
          <width>41</width>
          <height>41</height>
         </rect>
@@ -989,10 +989,10 @@
     <widget class="BoxWidget" name="box_10" native="true">
      <property name="geometry">
       <rect>
-       <x>17</x>
-       <y>105</y>
-       <width>41</width>
-       <height>41</height>
+       <x>18</x>
+       <y>107</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1002,10 +1002,10 @@
     <widget class="BoxWidget" name="box_11" native="true">
      <property name="geometry">
       <rect>
-       <x>105</x>
-       <y>105</y>
-       <width>41</width>
-       <height>41</height>
+       <x>107</x>
+       <y>107</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1015,10 +1015,10 @@
     <widget class="BoxWidget" name="box_12" native="true">
      <property name="geometry">
       <rect>
-       <x>195</x>
-       <y>105</y>
-       <width>41</width>
-       <height>41</height>
+       <x>196</x>
+       <y>107</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1028,10 +1028,10 @@
     <widget class="BoxWidget" name="box_13" native="true">
      <property name="geometry">
       <rect>
-       <x>284</x>
-       <y>105</y>
-       <width>41</width>
-       <height>41</height>
+       <x>285</x>
+       <y>107</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1041,10 +1041,10 @@
     <widget class="BoxWidget" name="box_14" native="true">
      <property name="geometry">
       <rect>
-       <x>372</x>
-       <y>105</y>
-       <width>41</width>
-       <height>41</height>
+       <x>374</x>
+       <y>107</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1054,10 +1054,10 @@
     <widget class="BoxWidget" name="box_20" native="true">
      <property name="geometry">
       <rect>
-       <x>17</x>
-       <y>195</y>
-       <width>41</width>
-       <height>41</height>
+       <x>18</x>
+       <y>196</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1067,10 +1067,10 @@
     <widget class="BoxWidget" name="box_21" native="true">
      <property name="geometry">
       <rect>
-       <x>105</x>
-       <y>195</y>
-       <width>41</width>
-       <height>41</height>
+       <x>107</x>
+       <y>196</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1080,10 +1080,10 @@
     <widget class="BoxWidget" name="box_22" native="true">
      <property name="geometry">
       <rect>
-       <x>195</x>
-       <y>195</y>
-       <width>41</width>
-       <height>41</height>
+       <x>196</x>
+       <y>196</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1093,10 +1093,10 @@
     <widget class="BoxWidget" name="box_23" native="true">
      <property name="geometry">
       <rect>
-       <x>284</x>
-       <y>195</y>
-       <width>41</width>
-       <height>41</height>
+       <x>285</x>
+       <y>196</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1106,10 +1106,10 @@
     <widget class="BoxWidget" name="box_24" native="true">
      <property name="geometry">
       <rect>
-       <x>372</x>
-       <y>195</y>
-       <width>41</width>
-       <height>41</height>
+       <x>374</x>
+       <y>196</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1119,10 +1119,10 @@
     <widget class="BoxWidget" name="box_30" native="true">
      <property name="geometry">
       <rect>
-       <x>17</x>
-       <y>284</y>
-       <width>41</width>
-       <height>41</height>
+       <x>18</x>
+       <y>285</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1132,10 +1132,10 @@
     <widget class="BoxWidget" name="box_31" native="true">
      <property name="geometry">
       <rect>
-       <x>105</x>
-       <y>284</y>
-       <width>41</width>
-       <height>41</height>
+       <x>107</x>
+       <y>285</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1145,10 +1145,10 @@
     <widget class="BoxWidget" name="box_32" native="true">
      <property name="geometry">
       <rect>
-       <x>195</x>
-       <y>284</y>
-       <width>41</width>
-       <height>41</height>
+       <x>196</x>
+       <y>285</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1158,10 +1158,10 @@
     <widget class="BoxWidget" name="box_33" native="true">
      <property name="geometry">
       <rect>
-       <x>284</x>
-       <y>284</y>
-       <width>41</width>
-       <height>41</height>
+       <x>285</x>
+       <y>285</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1171,10 +1171,10 @@
     <widget class="BoxWidget" name="box_34" native="true">
      <property name="geometry">
       <rect>
-       <x>372</x>
-       <y>284</y>
-       <width>41</width>
-       <height>41</height>
+       <x>374</x>
+       <y>285</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1184,17 +1184,17 @@
     <widget class="BoxWidget" name="box_40" native="true">
      <property name="geometry">
       <rect>
-       <x>17</x>
-       <y>372</y>
-       <width>41</width>
-       <height>41</height>
+       <x>18</x>
+       <y>374</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <widget class="AvatarWidget" name="tiger_02" native="true">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
+        <x>-1</x>
+        <y>-1</y>
         <width>41</width>
         <height>41</height>
        </rect>
@@ -1223,10 +1223,10 @@
     <widget class="BoxWidget" name="box_41" native="true">
      <property name="geometry">
       <rect>
-       <x>105</x>
-       <y>372</y>
-       <width>41</width>
-       <height>41</height>
+       <x>107</x>
+       <y>374</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1236,10 +1236,10 @@
     <widget class="BoxWidget" name="box_42" native="true">
      <property name="geometry">
       <rect>
-       <x>195</x>
-       <y>372</y>
-       <width>41</width>
-       <height>41</height>
+       <x>196</x>
+       <y>374</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1249,10 +1249,10 @@
     <widget class="BoxWidget" name="box_43" native="true">
      <property name="geometry">
       <rect>
-       <x>284</x>
-       <y>372</y>
-       <width>41</width>
-       <height>41</height>
+       <x>285</x>
+       <y>374</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="acceptDrops">
@@ -1262,17 +1262,17 @@
     <widget class="BoxWidget" name="box_44" native="true">
      <property name="geometry">
       <rect>
-       <x>372</x>
-       <y>372</y>
-       <width>41</width>
-       <height>41</height>
+       <x>373</x>
+       <y>374</y>
+       <width>39</width>
+       <height>39</height>
       </rect>
      </property>
      <widget class="AvatarWidget" name="tiger_03" native="true">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
+        <x>-1</x>
+        <y>-1</y>
         <width>41</width>
         <height>41</height>
        </rect>
@@ -1434,7 +1434,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuGame">
