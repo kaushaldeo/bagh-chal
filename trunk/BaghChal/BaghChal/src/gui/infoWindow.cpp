@@ -1,10 +1,10 @@
-#include "helpWindow.h"
+#include "infoWindow.h"
 
-HelpWindow::HelpWindow(QWidget *parent) :
+InfoWindow::InfoWindow(QWidget *parent) :
     QWidget(parent)
 {
     setupUi(this);
     connect(closeWindow, SIGNAL(clicked()), this, SLOT(close()));
 }
 
-HelpWindow::~HelpWindow(){}
+InfoWindow::~InfoWindow(){}
