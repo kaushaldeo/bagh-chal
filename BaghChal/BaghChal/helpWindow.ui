@@ -13,11 +13,29 @@
     <height>419</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>538</width>
+    <height>419</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>538</width>
+    <height>419</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Hilfe</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="FileContainer.qrc">
+   <iconset>
     <normaloff>:/new/Files/icons/Help-icon.png</normaloff>:/new/Files/icons/Help-icon.png</iconset>
   </property>
   <widget class="QTabWidget" name="helpTabs">
@@ -30,7 +48,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="handlingTab">
     <attribute name="title">
@@ -115,8 +133,6 @@ p, li { white-space: pre-wrap; }
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="FileContainer.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

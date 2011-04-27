@@ -9,12 +9,15 @@ INCLUDEPATH += . src/gui
 
 # Input
 HEADERS += src/gui/avatarWidget.h src/gui/BaghChal.h src/gui/boxWidget.h \
-    src/gui/helpWindow.h
+    src/gui/helpWindow.h \
+    src/gui/infoWindow.h
 FORMS += BaghChal.ui \
-    helpWindow.ui
+    helpWindow.ui \
+    infoWindow.ui
 SOURCES += main.cpp \
            src/gui/avatarWidget.cpp \
            src/gui/BaghChal.cpp \
            src/gui/boxWidget.cpp \
-    src/gui/helpWindow.cpp
+    src/gui/helpWindow.cpp \
+    src/gui/infoWindow.cpp
 RESOURCES += FileContainer.qrc

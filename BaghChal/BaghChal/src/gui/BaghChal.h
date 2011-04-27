@@ -20,6 +20,7 @@ private:
 
 private slots:
     void openHelpWindow();
+    void openInfoWindow();
 };
 
 #endif // BAGHCHAL_H
