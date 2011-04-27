@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::BaghChal *ui;
+
+private slots:
+    void openHelpWindow();
 };
 
 #endif // BAGHCHAL_H

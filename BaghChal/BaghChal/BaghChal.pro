@@ -8,10 +8,13 @@ DEPENDPATH += . src/gui
 INCLUDEPATH += . src/gui
 
 # Input
-HEADERS += src/gui/avatarWidget.h src/gui/BaghChal.h src/gui/boxWidget.h
-FORMS += BaghChal.ui
+HEADERS += src/gui/avatarWidget.h src/gui/BaghChal.h src/gui/boxWidget.h \
+    src/gui/helpWindow.h
+FORMS += BaghChal.ui \
+    helpWindow.ui
 SOURCES += main.cpp \
            src/gui/avatarWidget.cpp \
            src/gui/BaghChal.cpp \
-           src/gui/boxWidget.cpp
+           src/gui/boxWidget.cpp \
+    src/gui/helpWindow.cpp
 RESOURCES += FileContainer.qrc
