@@ -2,6 +2,8 @@
 #define BAGHCHAL_H
 
 #include <QMainWindow>
+#include "helpWindow.h"
+#include "infoWindow.h"
 
 namespace Ui {
     class BaghChal;
@@ -17,6 +19,9 @@ public:
 
 private:
     Ui::BaghChal *ui;
+    HelpWindow hw;
+    InfoWindow iw;
+
 
 private slots:
     void openHelpWindow();

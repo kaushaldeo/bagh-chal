@@ -1,6 +1,4 @@
 #include "BaghChal.h"
-#include "helpWindow.h"
-#include "infoWindow.h"
 #include "../../ui_BaghChal.h"
 #include "QEventLoop"
 
@@ -24,8 +22,8 @@ BaghChal::~BaghChal()
 
 void BaghChal::openHelpWindow()
 {
-    HelpWindow w;
-    w.show();
+    hw.show();
+    hw.raise();
 
     QEventLoop loop;
     loop.exec();
@@ -33,8 +31,8 @@ void BaghChal::openHelpWindow()
 
 void BaghChal::openInfoWindow()
 {
-    InfoWindow w;
-    w.show();
+    iw.show();
+    iw.raise();
 
     QEventLoop loop;
     loop.exec();
