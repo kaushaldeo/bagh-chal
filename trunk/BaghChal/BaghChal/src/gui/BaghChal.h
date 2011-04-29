@@ -2,6 +2,7 @@
 #define BAGHCHAL_H
 
 #include <QMainWindow>
+#include "QCloseEvent"
 #include "helpWindow.h"
 #include "infoWindow.h"
 
@@ -22,10 +23,12 @@ private:
     HelpWindow hw;
     InfoWindow iw;
 
+    bool askSaveDialog();
+    void closeEvent(QCloseEvent *event);
 
 private slots:
     void openLoadGame();
-    void openSaveGame();
+    bool openSaveGame();
     void openQuitGame();
     void openHelpWindow();
     void openInfoWindow();
