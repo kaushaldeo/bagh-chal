@@ -32,14 +32,14 @@ BaghChal::~BaghChal()
 
 void BaghChal::closeEvent(QCloseEvent *event)
 {
-    if (changed && !askSaveDialog())
-    {
-        event->ignore();
-    }
-    else
-    {
-        event->accept();
-    }
+        if (changed && !askSaveDialog())
+        {
+            event->ignore();
+        }
+        else
+        {
+            qApp->quit();
+        }
 }
 
 bool BaghChal::askSaveDialog()
