@@ -25,6 +25,8 @@ private:
 
 private slots:
     void openLoadGame();
+    void openSaveGame();
+    void openQuitGame();
     void openHelpWindow();
     void openInfoWindow();
 };
