@@ -3,6 +3,7 @@
 #include "QEventLoop"
 #include "QFileDialog"
 #include "QMessageBox"
+#include "QTextStream"
 #include <iostream>
 
 BaghChal::BaghChal(QWidget *parent) :
@@ -12,7 +13,8 @@ BaghChal::BaghChal(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->actionLoadGame, SIGNAL(triggered()), this, SLOT(openLoadGame()));
-    connect(ui->actionQuitGame, SIGNAL(triggered()), qApp, SLOT(quit()));
+    connect(ui->actionSaveGame, SIGNAL(triggered()), this, SLOT(openSaveGame()));
+    connect(ui->actionQuitGame, SIGNAL(triggered()), this, SLOT(openQuitGame()));
 
     connect(ui->actionHelp, SIGNAL(triggered()), this, SLOT(openHelpWindow()));
     connect(ui->actionInfo, SIGNAL(triggered()), this, SLOT(openInfoWindow()));
@@ -36,14 +38,37 @@ void BaghChal::openLoadGame()
         {
             return;
         }
-        QString contents = file.readAll();
+        QString text = file.readAll();
 
         //----- Test String Ausgabe
-        QMessageBox::information(this, tr("Info"), contents);
+        QMessageBox::information(this, tr("Info"), text);
         //----- ENDE
 
         file.close();
     }
+}
+
+void BaghChal::openSaveGame()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Spiel Speichern"), "",
+        tr("Text Files (*.txt)"));
+
+    if (fileName != "")
+    {
+        QFile file(fileName);
+        if (!file.open(QIODevice::WriteOnly)| QIODevice::Text)
+          return;
+
+        QTextStream stream(&file);
+        stream << "hallo" << "\n" << "Simon";
+        file.close();
+
+    }
+}
+
+void BaghChal::openQuitGame()
+{
+    qApp->quit();
 }
 
 void BaghChal::openHelpWindow()
