@@ -6,6 +6,10 @@
 #include "QTextStream"
 #include <iostream>
 
+//----- temp Variable, ob seit dem letzten Speichern gezogen wurde oder nicht
+bool changed = true;
+//-------Ende
+
 BaghChal::BaghChal(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::BaghChal)
@@ -26,6 +30,57 @@ BaghChal::~BaghChal()
     delete ui;
 }
 
+void BaghChal::closeEvent(QCloseEvent *event)
+{
+    if (changed && !askSaveDialog())
+    {
+        event->ignore();
+    }
+    else
+    {
+        event->accept();
+    }
+}
+
+bool BaghChal::askSaveDialog()
+{
+    QMessageBox askSave;
+    QIcon icon;
+    icon.addFile(QString::fromUtf8(":/new/Files/icons/Help-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+    askSave.setWindowIcon(icon);
+
+    QLabel qMarkLabel(&askSave);
+    qMarkLabel.setObjectName(QString::fromUtf8("qMarkLabel"));
+    qMarkLabel.setGeometry(QRect(5, 18, 30, 30));
+    qMarkLabel.setFrameShape(QFrame::NoFrame);
+    qMarkLabel.setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/Help-icon.png")));
+
+    askSave.setText("\n  Möchten Sie den Spielstand zuvor speichern ?\n");
+    QPushButton *saveButton = askSave.addButton(tr("Speichern"),QMessageBox::AcceptRole);
+    QPushButton *discardButton = askSave.addButton(tr("Verwerfen"),QMessageBox::DestructiveRole);
+    QPushButton *cancelButton = askSave.addButton(tr("Abbrechen"), QMessageBox::RejectRole);
+    askSave.setDefaultButton(saveButton);
+
+    askSave.exec();
+
+    if (askSave.clickedButton() == saveButton)
+    {
+        return openSaveGame();
+    }
+    else if (askSave.clickedButton() == discardButton)
+    {
+        return true;
+    }
+    else if (askSave.clickedButton() == cancelButton)
+    {
+        return false;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 void BaghChal::openLoadGame()
 {
     QString filePath = QFileDialog::getOpenFileName(this, tr("Spiel laden"), "",
@@ -40,15 +95,15 @@ void BaghChal::openLoadGame()
         }
         QString text = file.readAll();
 
-        //----- Test String Ausgabe
-        QMessageBox::information(this, tr("Info"), text);
-        //----- ENDE
+         //----- Test String Ausgabe
+         QMessageBox::information(this, tr("Info"), text);
+         //----- ENDE
 
         file.close();
     }
 }
 
-void BaghChal::openSaveGame()
+bool BaghChal::openSaveGame()
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Spiel Speichern"), "",
         tr("Text Files (*.txt)"));
@@ -56,18 +111,28 @@ void BaghChal::openSaveGame()
     if (fileName != "")
     {
         QFile file(fileName);
-        if (!file.open(QIODevice::WriteOnly)| QIODevice::Text)
-          return;
+        if (!file.open(QIODevice::WriteOnly))
+          return false;
 
         QTextStream stream(&file);
-        stream << "hallo" << "\n" << "Simon";
-        file.close();
+         //------------ Test String Ausgabe
+         stream << "hallo" << "\n" << "Simon, hallo Steffen";
+         //------------ ENDE
 
+        file.close();
+        return true;
+
+    }
+    else
+    {
+        return false;
     }
 }
 
 void BaghChal::openQuitGame()
 {
+    if(changed && !askSaveDialog())
+        return;
     qApp->quit();
 }
 
