@@ -2,10 +2,10 @@
 #define BAGHCHAL_H
 
 #include <QMainWindow>
-#include "QWidget"
 #include "QCloseEvent"
 #include "helpWindow.h"
 #include "infoWindow.h"
+#include "QTimer"
 
 namespace Ui {
     class BaghChal;
@@ -19,29 +19,28 @@ public:
     explicit BaghChal(QWidget *parent = 0);
     ~BaghChal();
 
+    void setTurnNotification(int turn);
+    void setStatusMsg(QString msg);
+    void clearStatusMsg();
+
 private:
     Ui::BaghChal *ui;
     HelpWindow hw;
     InfoWindow iw;
-
     QLabel statusMsg;
-    QLabel *turnMsg;
-    QWidget *turnNotification;
+    QTimer *timer;
 
     bool askSaveDialog();
     void closeEvent(QCloseEvent *event);
 
-    void setStatusMsg(QString msg);
-    void clearStatusMsg();
-    void setupTurnNotification();
-    void setTurnNotification(int turn);
-
 private slots:
+    void openNewGame();
     void openLoadGame();
     bool openSaveGame();
     void openQuitGame();
     void openHelpWindow();
     void openInfoWindow();
+    void hideTurnNotification();
 };
 
 #endif // BAGHCHAL_H
