@@ -16,9 +16,13 @@ BaghChal::BaghChal(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    this->setupTurnNotification();
-    this->statusBar()->addPermanentWidget(&statusMsg, 1);
+    ui->turnNotification->setVisible(false);
+    ui->statusBar->addPermanentWidget(&statusMsg, 1);
 
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(hideTurnNotification()));
+
+    connect(ui->actionNewGame, SIGNAL(triggered()), this, SLOT(openNewGame()));
     connect(ui->actionLoadGame, SIGNAL(triggered()), this, SLOT(openLoadGame()));
     connect(ui->actionSaveGame, SIGNAL(triggered()), this, SLOT(openSaveGame()));
     connect(ui->actionQuitGame, SIGNAL(triggered()), this, SLOT(openQuitGame()));
@@ -76,6 +80,11 @@ bool BaghChal::askSaveDialog()
     {
         return false;
     }
+}
+
+void BaghChal::openNewGame()
+{
+    this->setTurnNotification(0);
 }
 
 void BaghChal::openLoadGame()
@@ -164,43 +173,35 @@ void BaghChal::clearStatusMsg()
     this->statusMsg.clear();
 }
 
-void BaghChal::setupTurnNotification()
-{
-    turnNotification = new QWidget(ui->centralWidget);
-    turnNotification->setObjectName(QString::fromUtf8("turnNotification"));
-    turnNotification->setGeometry(0, 150, 800, 300);
-    turnNotification->setStyleSheet(QString::fromUtf8("#turnNotification{\n"
-    "	background-color: rgb(105, 105, 105);\n"
-    "}"));
-    turnMsg = new QLabel(turnNotification);
-    turnMsg->setObjectName(QString::fromUtf8("turnMsg"));
-    turnMsg->setGeometry(QRect(200, 120, 100, 100));
-    QFont *font;
-    font->setPointSize(25);
-    turnMsg->setFont(*font);
-}
-
 void BaghChal::setTurnNotification(int turn)
 {
     switch(turn)
     {
     case 0:
-        turnMsg->setText("<font color='White'>Spiel beginnt</font>");
+        ui->turnMsg->setText("<font color='White'>Spiel beginnt</font>");
         break;
     case 1:
-        turnMsg->setText("<font color='White'>Spieler 1 ist an der Reihe</font>");
+        ui->turnMsg->setText("<font color='White'>Spieler 1 ist an der Reihe</font>");
         break;
     case 2:
-        turnMsg->setText("<font color='White'>Spieler 2 ist an der Reihe</font>");
+        ui->turnMsg->setText("<font color='White'>Spieler 2 ist an der Reihe</font>");
         break;
     case 3:
-        turnMsg->setText("<font color='White'>Spieler 1 gewinnt</font>");
+        ui->turnMsg->setText("<font color='White'>Spieler 1 gewinnt</font>");
         break;
     case 4:
-        turnMsg->setText("<font color='White'>Spieler 2 gewinnt</font>");
+        ui->turnMsg->setText("<font color='White'>Spieler 2 gewinnt</font>");
         break;
     default:
-        break;
+        return;
     }
 
+    ui->turnNotification->setVisible(true);
+    timer->start(2000);
+}
+
+void BaghChal::hideTurnNotification()
+{
+    timer->stop();
+    ui->turnNotification->setVisible(false);
 }

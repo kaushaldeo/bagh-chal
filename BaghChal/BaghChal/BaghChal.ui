@@ -2,9 +2,6 @@
 <ui version="4.0">
  <class>BaghChal</class>
  <widget class="QMainWindow" name="BaghChal">
-  <property name="enabled">
-   <bool>true</bool>
-  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -859,9 +856,6 @@
     </widget>
    </widget>
    <widget class="QWidget" name="playingField" native="true">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -1436,6 +1430,54 @@
       <string notr="true">.QWidget {
 	background-color: rgb(170, 170, 255);
 }</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="turnNotification" native="true">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>130</y>
+      <width>800</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#turnNotification {
+	background-color: rgb(105, 105, 105, 220);
+}</string>
+    </property>
+    <widget class="QLabel" name="turnMsg">
+     <property name="geometry">
+      <rect>
+       <x>1</x>
+       <y>100</y>
+       <width>799</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>28</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(105, 105, 105);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
      </property>
     </widget>
    </widget>
