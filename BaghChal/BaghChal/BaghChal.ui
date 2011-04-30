@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>BaghChal</class>
  <widget class="QMainWindow" name="BaghChal">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -856,6 +859,9 @@
     </widget>
    </widget>
    <widget class="QWidget" name="playingField" native="true">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>200</x>
