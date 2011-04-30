@@ -16,6 +16,8 @@ BaghChal::BaghChal(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    this->statusBar()->addPermanentWidget(&statusMsg, 1);
+
     connect(ui->actionLoadGame, SIGNAL(triggered()), this, SLOT(openLoadGame()));
     connect(ui->actionSaveGame, SIGNAL(triggered()), this, SLOT(openSaveGame()));
     connect(ui->actionQuitGame, SIGNAL(triggered()), this, SLOT(openQuitGame()));
@@ -32,14 +34,8 @@ BaghChal::~BaghChal()
 
 void BaghChal::closeEvent(QCloseEvent *event)
 {
-        if (changed && !askSaveDialog())
-        {
-            event->ignore();
-        }
-        else
-        {
-            qApp->quit();
-        }
+    event->ignore();
+    this->openQuitGame();
 }
 
 bool BaghChal::askSaveDialog()
@@ -121,7 +117,6 @@ bool BaghChal::openSaveGame()
 
         file.close();
         return true;
-
     }
     else
     {
@@ -131,8 +126,12 @@ bool BaghChal::openSaveGame()
 
 void BaghChal::openQuitGame()
 {
+    this->setStatusMsg(tr("Spiel beenden"));
     if(changed && !askSaveDialog())
+    {
+        this->clearStatusMsg();
         return;
+    }
     qApp->quit();
 }
 
@@ -152,4 +151,14 @@ void BaghChal::openInfoWindow()
 
     QEventLoop loop;
     loop.exec();
+}
+
+void BaghChal::setStatusMsg(QString msg)
+{
+    this->statusMsg.setText(msg);
+}
+
+void BaghChal::clearStatusMsg()
+{
+    this->statusMsg.clear();
 }
