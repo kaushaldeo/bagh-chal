@@ -23,8 +23,13 @@ private:
     HelpWindow hw;
     InfoWindow iw;
 
+    QLabel statusMsg;
+
     bool askSaveDialog();
     void closeEvent(QCloseEvent *event);
+
+    void setStatusMsg(QString msg);
+    void clearStatusMsg();
 
 private slots:
     void openLoadGame();
