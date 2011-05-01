@@ -21,6 +21,7 @@ BaghChal::BaghChal(QWidget *parent) :
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(hideTurnNotification()));
+    connect(ui->turnMsgBox, SIGNAL(clicked()), this, SLOT(hideTurnNotification()));
 
     connect(ui->actionNewGame, SIGNAL(triggered()), this, SLOT(openNewGame()));
     connect(ui->actionLoadGame, SIGNAL(triggered()), this, SLOT(openLoadGame()));
@@ -34,6 +35,7 @@ BaghChal::BaghChal(QWidget *parent) :
 
 BaghChal::~BaghChal()
 {
+    delete timer;
     delete ui;
 }
 
