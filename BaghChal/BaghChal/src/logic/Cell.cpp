@@ -118,3 +118,113 @@ bool Cell::canMoveDiagonally()
 {
   return positionX % 2 == positionY % 2;
 }
+
+/**
+ * @fn getTiger()
+ * @brief getsTiger
+ * @returns Tiger*
+ * @exception UnoccupiedCellException
+ * @exception InvalidOccupantException
+ */
+Tiger* Cell::getTiger()
+{
+  if (status == 0)
+    throw uOcEx;
+  else if (status == 2)
+    throw iOcEx;
+  
+  return tiger;
+}
+
+/**
+ * @fn getGoat()
+ * @brief gets the occupying goat
+ * @returns Goat*
+ * @exception UnoccupiedCellException
+ * @exception InvalidOccupantException
+ */
+Tiger* Cell::getGoat()
+{
+  if (status == 0)
+    throw uOcEx;
+  else if (status == 1)
+    throw iOcEx;
+  
+  return goat;
+}
+
+/**
+ * @fn setTiger()
+ * @brief setsTiger
+ * @exception OccupiedCellException
+ */
+void Cell::setTiger(Tiger* tiger)
+{
+  if (status != 0)
+    throw ocEx;
+  
+  this->tiger = tiger;
+}
+
+/**
+ * @fn setGoat()
+ * @brief sets new goat
+ * @exception OccupiedCellException
+ */
+void Cell::setGoat(Goat* goat)
+{
+  if (status != 0)
+    throw ocEx;
+  
+  this->goat = goat;
+}
+
+
+
+/**
+ * @fn removeGoat()
+ * @brief removes goat from cell
+ * @exception UnoccupiedCellException
+ * @exception InvalidOccupantException
+ */
+void Cell::removeGoat()
+{
+  if (status == 0)
+    throw uOcEx;
+  if (status == 1)
+    throw iOcEx;
+  
+  goat->setCell(0);
+  goat = 0;
+  status = 0;
+}
+  
+/**
+ * @fn isNeighbor()
+ * @brief tests, if a cell is neighbor to this cell
+ * @returns bool
+ * @param cell - The cell to be tested
+ * @see getNeighbor()
+ * 
+ * The function uses getNeighbor
+ */
+bool Cell::isNeighbor(Cell* cell)
+{
+  for (int i=0; i < 8; i++)
+  {
+    try
+    {
+      Cell* test = getNeighbor(i);
+      if (test == cell)
+        return true;
+      continue;
+    }
+    catch (CanNotMoveException e)
+    {
+      continue;
+    }
+  }
+  return false;
+}
+  
+  
