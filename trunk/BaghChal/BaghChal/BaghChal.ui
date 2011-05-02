@@ -1450,30 +1450,89 @@
       <rect>
        <x>0</x>
        <y>140</y>
-       <width>800</width>
+       <width>801</width>
        <height>271</height>
       </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="215">
+           <red>80</red>
+           <green>80</green>
+           <blue>80</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="215">
+           <red>80</red>
+           <green>80</green>
+           <blue>80</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="215">
+           <red>80</red>
+           <green>80</green>
+           <blue>80</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="215">
+           <red>80</red>
+           <green>80</green>
+           <blue>80</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
      </property>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="autoFillBackground">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">#turnMsgBox {
-	
-	color: rgba(80, 80, 80, 220);
-	background-color: rgb(80, 80, 80, 220);
-}
-</string>
+      <string notr="true"/>
      </property>
      <widget class="QLabel" name="turnMsg">
       <property name="geometry">
        <rect>
         <x>1</x>
         <y>100</y>
-        <width>799</width>
+        <width>801</width>
         <height>71</height>
        </rect>
       </property>

@@ -199,7 +199,7 @@ void BaghChal::setTurnNotification(int turn)
     }
 
     ui->turnNotification->setVisible(true);
-    timer->start(2000);
+    timer->start(3000);
 }
 
 void BaghChal::hideTurnNotification()
