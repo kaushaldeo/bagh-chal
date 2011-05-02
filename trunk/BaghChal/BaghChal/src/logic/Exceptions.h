@@ -6,12 +6,16 @@
 
 #ifndef EXCEPTIONS_H
 #define EXCEPTIONS_H
+#include <exception>
+
+using namespace std;
+
 /**
  * @class CanNotMoveException
  * @brief Is thrown on an invalid move
  */
 
-class CanNotMoveException : public Exception
+class CanNotMoveException : public exception
 {
   virtual const char* what() const throw()
   {
@@ -26,7 +30,7 @@ class CanNotMoveException : public Exception
  * State cannot be negative or greater than 2!
  */
 
-class InvalidStateException : public Exception
+class InvalidStateException : public exception
 {
   virtual const char* what() const throw()
   {
@@ -48,3 +52,4 @@ class InvalidSourceException : public Exception
 };
 
 #endif
+>>>>>>> .r57

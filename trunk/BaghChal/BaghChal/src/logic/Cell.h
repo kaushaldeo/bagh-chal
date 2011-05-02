@@ -7,8 +7,12 @@
 */
 #ifndef CELL_H
 #define CELL_H
-//#include "Test.h" //This is for Test purposes only and must be removed when compiling the whole Game!
 #include "Grid.h"
+#include <utility>
+#include "Exceptions.h"
+
+class Tiger;
+class Goat;
 
 /**
 * @class Cell
@@ -19,22 +23,33 @@
 class Cell
 {
   public:
-    Cell (int x, int y, Grid* gridPtr) : status (0), positionX(x), positionY(y), grid(gridPtr) {};
+    Cell (int x, int y, Grid* gridPtr) : status (0), positionX(x), positionY(y), grid(gridPtr), tiger(0), goat (0) {};
     ~Cell ();
     unsigned int getStatus ();
     std::pair<int, int> getPosition();
     Cell* getNeighbor (int);
     void setStatus(int);
+    Tiger* getTiger();
+    Goat* getGoat();
+    void setTiger(Tiger*);
+    void setGoat(Goat*);
+    void removeGoat ();
+    bool isNeighbor(Cell*);
    
   private:
     Cell ();        // This is private because a default constructor is not necessary and in fact would make no sense at all
     unsigned int status;    /**< This represents the status of the field. It can be neutral (0), Tiger (1) or goat (2) */
     int positionX;          /**< This is the X coordinate of the cell */
     int positionY;          /**< This is the Y coordinate of the cell */
-    Grid* grid              /**< This is a pointer to the grid */
+    Grid* grid;              /**< This is a pointer to the grid */
     bool canMoveDiagonally ();
     CanNotMoveException moveEx; /**< CanNotMoveException */
+    UnoccupiedCellException uOcEx;
+    InvalidOccupantException iOcEx;
+    OccupiedCellException ocEx;
+    Tiger* tiger;           /**< Tiger occupying the cell */
+    Goat* goat;             /**< Goat occupying the cell */
     
 };
 
-#endif/
+#endif

@@ -7,7 +7,9 @@
 */
 #ifndef GAME_H
 #define GAME_H
-#include "Test.h" //This is for Test purposes only and must be removed when compiling the whole Game!
+#include "Grid.h"
+#include "PlayerTiger.h"
+#include "PlayerGoat.h"
 
 /**
 * @class Game
@@ -18,7 +20,7 @@
 class Game
 {
   public:
-    Game() : grid(), tiger(), goat() {};
+    Game();
     ~Game () {};
     Grid& getGrid();
     PlayerTiger& getTiger();
