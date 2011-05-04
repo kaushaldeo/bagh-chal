@@ -55,5 +55,28 @@ bool Tiger::canMove()
 
 Cell* move(Cell *cell)
 {
+	if(cell->getStatus == tiger)
+	{
+		throw new CanNotMoveException;
+	}
+
+	Direction dir = cellPtr->isNeighbour;
+
+	if(cell->getStatus == empty)
+	{
+		cellPtr->removeTiger();
+		cellPtr = cell;
+		cellPtr->setTiger(this);
+		return ;
+	}
+	else if(cell->getStatus == goat)
+	{
+		cell = cell->getNeighbour(dir);
+
+		if(cell == NULL)
+		{
+			throw new CanNotMoveException e;
+		}
+
 
 }
