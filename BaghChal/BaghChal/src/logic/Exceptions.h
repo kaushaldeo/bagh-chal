@@ -51,5 +51,12 @@ class InvalidSourceException : public Exception
     }
 };
 
+class InvalidDirectionException : public Exception
+{
+  virtual const char* what() const throw()
+  {
+    return "This is not a valid direction";
+  }
+};
+
 #endif
->>>>>>> .r57

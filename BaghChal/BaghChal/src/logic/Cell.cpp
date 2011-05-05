@@ -202,13 +202,14 @@ void Cell::removeGoat()
 /**
  * @fn isNeighbor()
  * @brief tests, if a cell is neighbor to this cell
- * @returns bool
+ * @returns int - direction of the cell
  * @param cell - The cell to be tested
  * @see getNeighbor()
+ * @throws InvalidDirectionException
  * 
  * The function uses getNeighbor
  */
-bool Cell::isNeighbor(Cell* cell)
+int Cell::isNeighbor(Cell* cell)
 {
   for (int i=0; i < 8; i++)
   {
@@ -216,7 +217,7 @@ bool Cell::isNeighbor(Cell* cell)
     {
       Cell* test = getNeighbor(i);
       if (test == cell)
-        return true;
+        return i;
       continue;
     }
     catch (CanNotMoveException e)
@@ -224,7 +225,7 @@ bool Cell::isNeighbor(Cell* cell)
       continue;
     }
   }
-  return false;
+  throw InvalidDirectionException();
 }
   
   
