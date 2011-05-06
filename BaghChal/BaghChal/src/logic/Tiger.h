@@ -37,7 +37,7 @@ public:
 
 private:
 	//!Zeiger auf die aktuelle Zelle.
-	Cell *cellPtr;
+	Cell *cellPtr; //Hallo Steffen, bitte noch getter/setter einfügen, wegen Laden/Speichern, merci! Gruß, Julian
 };
 
 
