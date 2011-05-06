@@ -49,10 +49,10 @@ public:
 
 private:
 	//! Array, das Zeiger auf die 4 Tiger enthält.
-	Tiger **tigers;
+	Tiger **tigers; //Hallo Steffen, bitte noch getter/setter einfügen, wegen Laden/Speichern, merci! Gruß, Julian
 
 	//! Anzahl der gefressenen Ziegen.
-	int score;
+	int score;  //Hallo Steffen, bitte noch getter/setter einfügen, wegen Laden/Speichern, merci! Gruß, Julian
 
 };
 

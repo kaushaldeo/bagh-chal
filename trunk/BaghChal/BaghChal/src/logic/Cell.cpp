@@ -205,7 +205,7 @@ void Cell::removeGoat()
  * @returns int - direction of the cell
  * @param cell - The cell to be tested
  * @see getNeighbor()
- * @throws InvalidDirectionException
+ * @exception InvalidDirectionException
  * 
  * The function uses getNeighbor
  */

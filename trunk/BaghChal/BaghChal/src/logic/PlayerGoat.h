@@ -47,10 +47,10 @@ public:
 
 private:
     //! Array, das Zeiger auf die 20 Ziegen enthält.
-    Goat **goats;
+    Goat **goats; //Hallo Steffen, bitte noch getter/setter einfügen, wegen Laden/Speichern, merci! Gruß, Julian
 
     //! Nächste zu platzierende Ziege im Array
-    int nextGoat;
+    int nextGoat; //Hallo Steffen, bitte noch getter/setter einfügen, wegen Laden/Speichern, merci! Gruß, Julian
 };
 
 #endif
