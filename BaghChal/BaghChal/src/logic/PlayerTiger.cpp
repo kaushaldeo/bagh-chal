@@ -41,19 +41,29 @@ bool PlayerTiger::canMove()
     return false;
 }
 
-Cell* PlayerTiger::move(Cell *src, Cell *dst)
+void PlayerTiger::move(Cell *src, Cell *dst)
 {
-    int i = 0;
-    while(src != tigers[i]->getCell())
-    {
-        if(i >= 3)
-            //no tiger resides on src
-            throw InvalidSourceException;
+   	try
+   	{
+	   Tiger *thisTiger = src->getTiger();
+	}
+	catch(Exception e)
+	{
+		throw new CanNotMoveException();
+	}
 
-        i++;
-    }
+    int didScore = thisTiger->move(dst);
 
-    return tigers[i]->move(dst);
+	if(didScore)
+	{
+		score++;
+	}
+
+}
+
+int PlayerTiger::getScore()
+{
+	return score;
 }
 
     

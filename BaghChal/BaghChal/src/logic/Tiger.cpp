@@ -53,30 +53,42 @@ bool Tiger::canMove()
 
 }
 
-Cell* move(Cell *cell)
+int move(Cell *cell)
 {
 	if(cell->getStatus == tiger)
 	{
 		throw new CanNotMoveException;
 	}
 
-	Direction dir = cellPtr->isNeighbour;
+	try
+	{
+		Direction dir = cellPtr->isNeighbour(cell);
+	}
+	catch(InvalidDirectionException e)
+	{
+		throw new CanNotMoveException;
+	}
 
 	if(cell->getStatus == empty)
 	{
 		cellPtr->removeTiger();
 		cellPtr = cell;
 		cellPtr->setTiger(this);
-		return ;
+		return 0;
 	}
 	else if(cell->getStatus == goat)
 	{
+		Cell *jumpOverCell = cell;
 		cell = cell->getNeighbour(dir);
+		
+		cellPtr->removeTiger();
+		jumpOverCell->removeGoat();
+		cellPtr = cell;
+		cellPtr->setTiger(this);
+		return 1;
+	}
 
-		if(cell == NULL)
-		{
-			throw new CanNotMoveException e;
-		}
+	throw new CanNotMoveException();
 
 
 }

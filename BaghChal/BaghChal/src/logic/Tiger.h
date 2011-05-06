@@ -33,7 +33,7 @@ public:
 	 *  \exception CanNotMoveException wird geworfen, wenn der Zug ungültig ist.
 	 *  \return 1, wenn Ziege gefressen wurde, 0 sonst.
 	 */
-	Cell* move(Cell *cell);
+	int move(Cell *cell);
 
 private:
 	//!Zeiger auf die aktuelle Zelle.

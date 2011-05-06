@@ -29,6 +29,26 @@ Cell* Goat::getCell();
 
 void Goat::move(Cell *cell)
 {
+	if(cell->getStatus != empty)
+	{
+		throw new CanNotMoveException();
+	}
+
+	try
+	{
+		cellPtr->isNeighbor(cell);
+	}
+	catch(InvalidDirectionException e)
+	{
+		throw new CanNotMoveException();
+	}
+
+	cellPtr->removeGoat();
+	cellPtr = cell;
+	cellPtr->setGoat(this);
+
+}
+
 
 }
 
