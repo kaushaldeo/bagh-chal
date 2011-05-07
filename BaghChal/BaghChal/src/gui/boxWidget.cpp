@@ -13,9 +13,7 @@ BoxWidget::BoxWidget(QWidget *parent) :
 }
 
 void BoxWidget::dragEnterEvent(QDragEnterEvent *event)
-{
-    setCursor(Qt::OpenHandCursor);
-    
+{    
     if (event->mimeData()->hasFormat("application/x-dnditemdata"))
     {
         if (event->source() == this)
@@ -40,8 +38,6 @@ void BoxWidget::dragEnterEvent(QDragEnterEvent *event)
 
 void BoxWidget::dragMoveEvent(QDragMoveEvent *event)
 {
-    setCursor(Qt::OpenHandCursor);
-
     if (event->mimeData()->hasFormat("application/x-dnditemdata"))
     {
         if (event->source() == this)
