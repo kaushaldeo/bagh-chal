@@ -2,6 +2,7 @@
 #define GOAT_H
 
 #include "Cell.h"
+#include "Exceptions.h"
 
 /*! \file Goat.h
  *  \brief Enthält Klasse, die die Ziegen repräsentiert.

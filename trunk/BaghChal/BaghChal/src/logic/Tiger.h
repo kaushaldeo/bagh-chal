@@ -2,6 +2,7 @@
 #define TIGER_H
 
 #include "Cell.h"
+#include "Exceptions.h"
 
 /*! \file Tiger.h
  *  \brief Enthält Klasse, die die Tiger repräsentiert.
@@ -34,6 +35,8 @@ public:
 	 *  \return 1, wenn Ziege gefressen wurde, 0 sonst.
 	 */
 	int move(Cell *cell);
+
+	Cell * getCell();
 
 private:
 	//!Zeiger auf die aktuelle Zelle.

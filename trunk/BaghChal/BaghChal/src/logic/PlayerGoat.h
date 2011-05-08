@@ -3,6 +3,7 @@
 
 #include "Goat.h"
 #include "Cell.h"
+#include "Exceptions.h"
 
 /*! \file PlayerGoat.h
  *  \brief Enthält Klasse die den Spieler repräsentiert, der die Ziegen steuert.
@@ -44,6 +45,13 @@ public:
      */
     void move(Cell*src, Cell *dst);
 
+	void setGoats(int placeholder);
+
+	void getGoats();
+
+	void setNextGoat(int placeholder);
+
+	void getNextGoat();
 
 private:
     //! Array, das Zeiger auf die 20 Ziegen enthält.

@@ -35,21 +35,38 @@ void PlayerGoat::setCell(Cell *cell)
     nextGoat++;
 }
 
-void move(Cell *src, Cell *dst)
+void PlayerGoat::move(Cell *src, Cell *dst)
 {
     int i = 0;
-    while(src != goats[i]->getCell())
-    {
-        if(i >= 19)
-            //no goat resides on src
-            throw InvalidSourceException;
-    
-        i++;
-    }
 
-    goats[i]->move(dst);
+	try
+	{
+		Goat *thisGoat = src->getGoat();
+	}
+	catch(Exception e)
+	{
+		throw new CanNotMoveException();
+	}
+
+    thisGoat->move(dst);
 }
 
+void PlayerGoat::setGoats(int placeholder)
+{
+
+}
+
+void PlayerGoat::getGoats()
+{
+
+}
+
+void PlayerGoat::setNextGoat(int placeholder)
+{
+
+}
+
+void PlayerGoat::getNextGoat();
 
 
         
