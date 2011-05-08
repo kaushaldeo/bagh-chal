@@ -8,7 +8,7 @@
 
 PlayerGoat::PlayerGoat()
 {
-    goats = new Goat *goats[20];
+    goats = new Goat* [20];
 
     for(int i = 0; i < 20; i++)
     {
@@ -39,11 +39,12 @@ void PlayerGoat::move(Cell *src, Cell *dst)
 {
     int i = 0;
 
+	Goat * thisGoat;
 	try
 	{
-		Goat *thisGoat = src->getGoat();
+		thisGoat = src->getGoat();
 	}
-	catch(Exception e)
+	catch(exception e)
 	{
 		throw new CanNotMoveException();
 	}
@@ -61,12 +62,15 @@ void PlayerGoat::getGoats()
 
 }
 
-void PlayerGoat::setNextGoat(int placeholder)
+void PlayerGoat::setNextGoat(int number)
 {
-
+	nextGoat = number;
 }
 
-void PlayerGoat::getNextGoat();
+int PlayerGoat::getNextGoat()
+{
+	return nextGoat;
+}
 
 
         

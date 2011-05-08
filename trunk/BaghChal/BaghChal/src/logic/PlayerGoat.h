@@ -51,7 +51,7 @@ public:
 
 	void setNextGoat(int placeholder);
 
-	void getNextGoat();
+	int getNextGoat();
 
 private:
     //! Array, das Zeiger auf die 20 Ziegen enthält.

@@ -3,6 +3,7 @@
 
 #include "Cell.h"
 #include "Exceptions.h"
+#include "Enums.h"
 
 /*! \file Tiger.h
  *  \brief Enthält Klasse, die die Tiger repräsentiert.
@@ -37,6 +38,8 @@ public:
 	int move(Cell *cell);
 
 	Cell * getCell();
+
+	void setCell(Cell *cell);
 
 private:
 	//!Zeiger auf die aktuelle Zelle.
