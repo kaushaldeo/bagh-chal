@@ -15,7 +15,7 @@ using namespace std;
  * @brief Is thrown on an invalid move
  */
 
-class CanNotMoveException : public Exception
+class CanNotMoveException : public exception
 {
   virtual const char* what() const throw()
   {
@@ -30,7 +30,7 @@ class CanNotMoveException : public Exception
  * State cannot be negative or greater than 2!
  */
 
-class InvalidStateException : public Exception
+class InvalidStateException : public exception
 {
   virtual const char* what() const throw()
   {
@@ -43,7 +43,7 @@ class InvalidStateException : public Exception
  *
  * The object trying to be moved must be pointet to in the current players Goat or Tiger array.
  */
-class InvalidSourceException : public Exception
+class InvalidSourceException : public exception
 {
     virtual const char* what() const throw()
     {
@@ -51,7 +51,7 @@ class InvalidSourceException : public Exception
     }
 };
 
-class InvalidDirectionException : public Exception
+class InvalidDirectionException : public exception
 {
   virtual const char* what() const throw()
   {

@@ -15,9 +15,10 @@ bool Tiger::canMove()
 {
     for(int i = 0; i < 8; i++)
     {
+		Cell *temp; 
         try
         {
-            Cell *temp = cellPtr->getNeighbour(i);
+            temp = cellPtr->getNeighbor(i);
         }
         catch(CanNotMoveException e)
         {
@@ -30,9 +31,10 @@ bool Tiger::canMove()
         }
         else if(temp->getStatus == goat)
         {
+			Cell *nextTemp;
             try
             {
-                Cell *nextTemp = temp->getNeighbour(i);
+                nextTemp = temp->getNeighbor(i);
             }
             catch(CanNotMoveException e)
             {
@@ -50,7 +52,7 @@ bool Tiger::canMove()
 }
 
 
-}
+
 
 int Tiger::move(Cell *cell)
 {
@@ -59,9 +61,11 @@ int Tiger::move(Cell *cell)
 		throw new CanNotMoveException;
 	}
 
+	Direction dir;
+
 	try
 	{
-		Direction dir = cellPtr->isNeighbour(cell);
+		dir = cellPtr->isNeighbor(cell);
 	}
 	catch(InvalidDirectionException e)
 	{
@@ -78,7 +82,7 @@ int Tiger::move(Cell *cell)
 	else if(cell->getStatus == goat)
 	{
 		Cell *jumpOverCell = cell;
-		cell = cell->getNeighbour(dir);
+		cell = cell->getNeighbor(dir);
 		
 		cellPtr->removeTiger();
 		jumpOverCell->removeGoat();

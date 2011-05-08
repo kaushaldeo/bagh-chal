@@ -12,7 +12,7 @@ void Goat::setCell(Cell *cell)
 
 	try
 	{
-		cell.setStatus(0);
+		cell->setStatus(0);
 	}
 	catch(InvalidStateException e)
 	{
@@ -22,7 +22,7 @@ void Goat::setCell(Cell *cell)
 	cellPtr = cell;
 }
 
-Cell* Goat::getCell();
+Cell* Goat::getCell()
 {
     return cellPtr;
 }

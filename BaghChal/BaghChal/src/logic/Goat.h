@@ -3,6 +3,7 @@
 
 #include "Cell.h"
 #include "Exceptions.h"
+#include "Enums.h"
 
 /*! \file Goat.h
  *  \brief Enthält Klasse, die die Ziegen repräsentiert.

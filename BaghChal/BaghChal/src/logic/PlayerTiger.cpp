@@ -8,7 +8,7 @@
 
 PlayerTiger::PlayerTiger(Cell *tigerCells[])
 {
-    tigers = new *Tiger[4];
+    tigers = new Tiger* [4];
 
     for(int i = 0; i < 4; i++)
     {
@@ -43,11 +43,12 @@ bool PlayerTiger::canMove()
 
 void PlayerTiger::move(Cell *src, Cell *dst)
 {
+	Tiger *thisTiger;
    	try
    	{
-	   Tiger *thisTiger = src->getTiger();
+	   thisTiger = src->getTiger();
 	}
-	catch(Exception e)
+	catch(exception e)
 	{
 		throw new CanNotMoveException();
 	}
@@ -68,7 +69,7 @@ int PlayerTiger::getScore()
 
 void PlayerTiger::setScore(int score)
 {
-	this.score = score;
+	this->score = score;
 }
 
 void PlayerTiger::setTiger(int placeholder)
