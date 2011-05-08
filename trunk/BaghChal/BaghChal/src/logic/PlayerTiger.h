@@ -52,9 +52,9 @@ public:
 
 	int getScore();
 
-	void setTiger(int placeholder);
+	void setTigers(Tiger **tigers);
 
-	void getTiger();
+	Tiger** getTigers();
 
 private:
 
