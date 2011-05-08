@@ -47,9 +47,18 @@ public:
 	 */
 	void move(Cell *src, Cell *dst);
 
+	void setScore(int score);
+
 	int getScore();
 
+	void setTiger(Tiger *tiger);
+
+	Tiger *
+
 private:
+
+	PlayerTiger() {}
+
 	//! Array, das Zeiger auf die 4 Tiger enthält.
 	Tiger **tigers; //Hallo Steffen, bitte noch getter/setter einfügen, wegen Laden/Speichern, merci! Gruß, Julian
 

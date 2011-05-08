@@ -12,7 +12,7 @@ PlayerTiger::PlayerTiger(Cell *tigerCells[])
 
     for(int i = 0; i < 4; i++)
     {
-        tigers[i] = new Tiger[tigerCells[i]];
+        tigers[i] = new Tiger(tigerCells[i]);
     }
 
     score = 0;
@@ -66,4 +66,8 @@ int PlayerTiger::getScore()
 	return score;
 }
 
+void PlayerTiger::setScore(int score)
+{
+	this.score = score;
+}
     
