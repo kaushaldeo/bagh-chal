@@ -45,11 +45,11 @@ public:
      */
     void move(Cell*src, Cell *dst);
 
-	void setGoats(int placeholder);
+	void setGoats(Goat** goats);
 
-	void getGoats();
+	Goat** getGoats();
 
-	void setNextGoat(int placeholder);
+	void setNextGoat(int number);
 
 	int getNextGoat();
 

@@ -72,13 +72,13 @@ void PlayerTiger::setScore(int score)
 	this->score = score;
 }
 
-void PlayerTiger::setTiger(int placeholder)
+void PlayerTiger::setTigers(Tiger **tigers)
 {
-
+	this->tigers = tigers;
 }
 
-void PlayerTiger::getTiger()
+Tiger** PlayerTiger::getTigers()
 {
-
+	return tigers;
 }
     

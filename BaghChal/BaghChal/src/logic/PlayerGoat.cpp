@@ -52,14 +52,14 @@ void PlayerGoat::move(Cell *src, Cell *dst)
     thisGoat->move(dst);
 }
 
-void PlayerGoat::setGoats(int placeholder)
+void PlayerGoat::setGoats(Goat** goats)
 {
-
+	this->goats = goats;
 }
 
-void PlayerGoat::getGoats()
+Goat** PlayerGoat::getGoats()
 {
-
+	return goats;
 }
 
 void PlayerGoat::setNextGoat(int number)
