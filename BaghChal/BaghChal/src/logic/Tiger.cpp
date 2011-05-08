@@ -5,7 +5,6 @@
  */
 
 #include "Tiger.h"
-#include "Exceptions.h"
 
 Tiger::Tiger(Cell *cell)
 {
@@ -53,7 +52,7 @@ bool Tiger::canMove()
 
 }
 
-int move(Cell *cell)
+int Tiger::move(Cell *cell)
 {
 	if(cell->getStatus == tiger)
 	{
@@ -91,4 +90,14 @@ int move(Cell *cell)
 	throw new CanNotMoveException();
 
 
+}
+
+void Tiger::setCell(Cell *cell)
+{
+	cellPtr = cell;
+}
+
+Cell* Tiger::getCell()
+{
+	return cellPtr;
 }

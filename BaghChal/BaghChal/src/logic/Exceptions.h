@@ -15,7 +15,7 @@ using namespace std;
  * @brief Is thrown on an invalid move
  */
 
-class CanNotMoveException : public exception
+class CanNotMoveException : public Exception
 {
   virtual const char* what() const throw()
   {
@@ -30,7 +30,7 @@ class CanNotMoveException : public exception
  * State cannot be negative or greater than 2!
  */
 
-class InvalidStateException : public exception
+class InvalidStateException : public Exception
 {
   virtual const char* what() const throw()
   {

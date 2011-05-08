@@ -3,6 +3,7 @@
 
 #include "Tiger.h"
 #include "Cell.h"
+#include "Exceptions.h"
 
 /*! \file PlayerTiger.h
  *  \brief Enthält Klasse die den Spieler repräsentiert, der die Tiger steuert.
@@ -51,9 +52,9 @@ public:
 
 	int getScore();
 
-	void setTiger(Tiger *tiger);
+	void setTiger(int placeholder);
 
-	Tiger *
+	void getTiger();
 
 private:
 

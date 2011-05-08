@@ -50,5 +50,5 @@ void Goat::move(Cell *cell)
 }
 
 
-}
+
 
