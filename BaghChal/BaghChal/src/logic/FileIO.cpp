@@ -17,10 +17,10 @@ using namespace std;
  */
 void FileIO::saveGame (Game& game)
 {
-  if (!game.getChanged || game.getTurn == 0) //If the game has just been saved/loaded or has already ended there's really no point saving it.
+  if (!game.getChanged() || game.getTurn() == 0) //If the game has just been saved/loaded or has already ended there's really no point saving it.
     return;
   
-  fileStream << game.turn << " ";
+  fileStream << game.turn() << " ";
   for (int i=0; i < 5; i++)
     for (int j=0; j < 5; j++)
     {
