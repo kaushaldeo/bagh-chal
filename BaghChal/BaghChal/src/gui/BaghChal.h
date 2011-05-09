@@ -6,6 +6,7 @@
 #include "helpWindow.h"
 #include "infoWindow.h"
 #include "QTimer"
+#include "../logic/Game.h"
 
 namespace Ui {
     class BaghChal;
@@ -29,6 +30,8 @@ private:
     InfoWindow iw;
     QLabel statusMsg;
     QTimer *timer;
+
+    Game game;
 
     bool askSaveDialog();
     void closeEvent(QCloseEvent *event);

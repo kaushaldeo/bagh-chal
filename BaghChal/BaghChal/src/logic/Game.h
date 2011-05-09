@@ -33,7 +33,7 @@ class Game
     PlayerTiger tiger;		/**< Player, who controls the tigers */
     PlayerGoat goat;		/**< Player, who controls the goats */
     bool changed;           /**< Has the game changed since the last save/load */
-    int turn;               /**< Whos turn is it? 0 - no one, 1 tiger, 2 goat
+    int turn;               /**< Whos turn is it? 0 - no one, 1 tiger, 2 goat */
 };
 
 #endif
