@@ -5,6 +5,7 @@
 #include "QMessageBox"
 #include "QTextStream"
 #include <iostream>
+#include "../logic/FileIO.h"
 
 //----- temp Variable, ob seit dem letzten Speichern gezogen wurde oder nicht
 bool changed = true;
@@ -30,6 +31,8 @@ BaghChal::BaghChal(QWidget *parent) :
 
     connect(ui->actionHelp, SIGNAL(triggered()), this, SLOT(openHelpWindow()));
     connect(ui->actionInfo, SIGNAL(triggered()), this, SLOT(openInfoWindow()));
+
+    game = new Game;
 
 }
 
@@ -86,7 +89,9 @@ bool BaghChal::askSaveDialog()
 
 void BaghChal::openNewGame()
 {
+    game = Game();
     this->setTurnNotification(0);
+
 }
 
 void BaghChal::openLoadGame()
@@ -96,18 +101,8 @@ void BaghChal::openLoadGame()
 
     if (filePath != "")
     {
-        QFile file(filePath);
-        if (!file.open(QIODevice::ReadOnly))
-        {
-            return;
-        }
-        QString text = file.readAll();
-
-         //----- Test String Ausgabe
-         QMessageBox::information(this, tr("Info"), text);
-         //----- ENDE
-
-        file.close();
+        FileIO file(filePath);
+        file.loadGame(game);
     }
 }
 
@@ -118,17 +113,8 @@ bool BaghChal::openSaveGame()
 
     if (fileName != "")
     {
-        QFile file(fileName);
-        if (!file.open(QIODevice::WriteOnly))
-          return false;
-
-        QTextStream stream(&file);
-         //------------ Test String Ausgabe
-         stream << "hallo" << "\n" << "Simon, hallo Steffen";
-         //------------ ENDE
-
-        file.close();
-        return true;
+        FileIO file(fileName);
+        file.saveGame(game);
     }
     else
     {
