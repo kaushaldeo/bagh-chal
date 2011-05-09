@@ -1,13 +1,21 @@
 ToDo Liste Logik
 
+
+* KOMPILIERBAR MACHEN!!!
 * Funktion, die nur prüft, ob der Tiger/die Ziege auf eine Zelle ziehen kann, OHNE sie zu platzieren.
 * Überarbeiten Grid/Cell/Game auf Enumerations
-* Save/Load Auf Konsistenz prüfen
-* Doku Englisch
-* Unentschieden, falls die Ziege am Zug ist und nicht ziehen kann
-* doku fertig schreiben
+                                                          * Save/Load Auf Konsistenz prüfen
+                                                          * Doku Englisch
+* Unentschieden, falls die Ziege am Zug ist (Am Ende des Tiegerzugs) und nicht ziehen kann
+                                                          * doku fertig schreiben
 * Testprogramm
+* Am Ende des Zugs überprüfen, ob ein Spieler gewonnen hat und dann GoatWonException oder TigerWonException werfen.
+* Exceptions für Tiger gewinnt, Ziege gewinnt und unentschieden (s.o.) implementieren
+* changed bei Spielende auf false
+* PlayerTiger und PlayerGoat müssen sich kennen.
+* PlayerGoat::move () - wenn die Quelle ein Nullpointer ist => Setzen, Wenn es ein gültiger Pointer ist => Ziehen.
 
 
 ToDo Liste GUI
 * Pfeil/Dreick
+* Statusleiste aktualisieren
