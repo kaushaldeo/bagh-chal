@@ -61,10 +61,11 @@ private:
 	PlayerTiger() {}
 
 	//! Array, das Zeiger auf die 4 Tiger enthält.
-	Tiger **tigers; //Hallo Steffen, bitte noch getter/setter einfügen, wegen Laden/Speichern, merci! Gruß, Julian
+	Tiger **tigers;
 
 	//! Anzahl der gefressenen Ziegen.
-	int score;  //Hallo Steffen, bitte noch getter/setter einfügen, wegen Laden/Speichern, merci! Gruß, Julian
+	int score;  
+    
 
 };
 
