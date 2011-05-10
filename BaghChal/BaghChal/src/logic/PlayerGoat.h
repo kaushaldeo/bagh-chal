@@ -3,11 +3,14 @@
 
 #include "Goat.h"
 #include "Cell.h"
+#include "PlayerTiger.h"
 #include "Exceptions.h"
 
 /*! \file PlayerGoat.h
  *  \brief Enthält Klasse die den Spieler repräsentiert, der die Ziegen steuert.
  */
+
+class PlayerTiger;
 
 //! Klasse die den Spieler repräsentiert, der die Ziegen steuert.
 class PlayerGoat
@@ -18,6 +21,8 @@ public:
      *  Erzeugt 20 Ziegen, ohne diese auf dem Feld zu setzen und initialisiert nextGoat auf 0.
      */
     PlayerGoat();
+
+	PlayerGoat(PlayerTiger *playerTiger);
 
     /*! \brief Destruktor.
      *
@@ -34,10 +39,14 @@ public:
      */
     void setCell(Cell *cell);
 
+	bool canMove();
+
+	bool canMoveThere(Cell *src, Cell *dst);
+
     /*! \brief Ruft Goat::move() auf.
      *
-     *  Ermittelt betreffende Ziege durch Vergleich des übergebenen Cellpointer
-     *  mit den 20 Ziegen und ruft die Goat::move()-Funktion auf.
+	 *  Warning, move doesn't do any reliable exception handling anymore,
+	 *  never call without calling canMoveThere first.
      *
      *  \param src Die Zelle, auf der die Ziege sich befindet.
      *  \param dst Die Zielzelle.
@@ -53,12 +62,19 @@ public:
 
 	int getNextGoat();
 
+	void setPlayerTiger(PlayerTiger *playerTiger);
+
+	PlayerTiger* getPlayerTiger();
+
 private:
     //! Array, das Zeiger auf die 20 Ziegen enthält.
     Goat **goats; //Hallo Steffen, bitte noch getter/setter einfügen, wegen Laden/Speichern, merci! Gruß, Julian
 
     //! Nächste zu platzierende Ziege im Array
     int nextGoat; //Hallo Steffen, bitte noch getter/setter einfügen, wegen Laden/Speichern, merci! Gruß, Julian
+
+	//! Pointer to the opponent player.
+	PlayerTiger *opponent;
 };
 
 #endif

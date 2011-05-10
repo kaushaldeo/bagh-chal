@@ -12,7 +12,7 @@ void Goat::setCell(Cell *cell)
 
 	try
 	{
-		cell->setStatus(0);
+		cell->setStatus((CellStatus) 0);
 	}
 	catch(InvalidStateException e)
 	{
@@ -27,26 +27,66 @@ Cell* Goat::getCell()
     return cellPtr;
 }
 
-void Goat::move(Cell *cell)
+bool Goat::canMove()
 {
-	if(cell->getStatus != empty)
+	if(cellPtr == NULL)
 	{
-		throw new CanNotMoveException();
+		return false;
 	}
 
+	for(int i = 0; i < 8; i++)
+	{
+		Cell *temp;
+
+		try
+		{
+			temp = cellPtr->getNeighbor((Direction) i);
+		}
+		catch(CanNotMoveException e)
+		{
+			continue;
+		}
+
+		if(temp->getStatus() == empty)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+
+bool Goat::canMoveThere(Cell *cell)
+{
 	try
 	{
 		cellPtr->isNeighbor(cell);
 	}
 	catch(InvalidDirectionException e)
 	{
-		throw new CanNotMoveException();
+		return false;
 	}
+
+	if(cell->getStatus() != empty)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+
+void Goat::move(Cell *cell)
+{
+	/*
+	 * Warning, move doesn't do any reliable exception handling anymore,
+	 * never call without calling canMoveThere first.
+	 */
 
 	cellPtr->removeGoat();
 	cellPtr = cell;
 	cellPtr->setGoat(this);
-
 }
 
 

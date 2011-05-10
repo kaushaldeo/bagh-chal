@@ -32,11 +32,17 @@ public:
      *
      * blablabla englisch bla
      */
+
+	bool canMove();
+
     Cell* getCell();
+
+	bool canMoveThere(Cell *cell);
 
 	/*! \brief Bewegt Ziege auf übergebene Zelle.
 	 *
-	 *  Überprüft, ob Zug möglich ist und bewegt gegebenenfalls die Ziege.
+	 *  Warning, move doesn't do any reliable exception handling anymore,
+	 *  never call without calling canMoveThere first.
 	 *
 	 *  \param cell Zelle, auf die die Ziege bewegt werden soll.
 	 *  \exception CanNotMoveException wird geworfen, wenn der Zug ungültig ist.
