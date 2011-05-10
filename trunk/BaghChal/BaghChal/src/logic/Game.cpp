@@ -12,18 +12,18 @@
  * 
  * Constructs a PlayerTiger, PlayerGoat, as well as the grid
  */
-Game::Game () : grid(), goat(), turn(2), changed(true)
+Game::Game () : grid(), goatP(), changed(true), turn(goat)
 {
   Cell* tigerCells[4] = {grid.getCell(0,0), grid.getCell(0,4), grid.getCell(4,4), grid.getCell(4,0)};
-  tiger (tigerCells);
+  tigerP (tigerCells);
 }
 
-void setChanged (bool newChanged)
+void Game::setChanged (bool newChanged)
 {
   changed = newChanged;
 }
 
-bool getChanged ()
+bool Game::getChanged ()
 {
   return changed;
 }

@@ -14,11 +14,11 @@ using namespace std;
 /**
 * @fn getStatus()
 * @brief Get Status of Cell
-* @returns int Status: 0 = neutral, 1 = tiger, 2 = goat
+* @returns int Status: 0 = empty, 1 = tiger, 2 = goat
 * 
 * Get Status of Cell
 */
-unsigned int Cell::getStatus ()
+CellStatus Cell::getStatus ()
 {
   return status;
 }
@@ -28,10 +28,8 @@ unsigned int Cell::getStatus ()
  * @brief Sets the status of the cell
  * @param newState - unsigned integer value indicating the new status
  */
-void Cell::setStatus (unsigned int newState)
+void Cell::setStatus (CellStatus newState)
 {
-  if (newState > 2)
-    throw new InvalidStateException()
   status = newState;
 }
 
@@ -60,46 +58,46 @@ pair <int, int> Cell::getPosition ()
 * The function checks wether there is a neighbor as indicated by the number.
 * If there is none, the function returns a nullpointer.
 */
-Cell* Cell::getNeighbor (int direction)
+Cell* Cell::getNeighbor (Direction direction)
 {
   switch (direction)
   {
-    case 0: //Right
+    case right: //Right
       if (positionX == 4)
         throw moveEx;
       return grid->getCell(positionX+1, positionY);
     
-    case 1: //Down
+    case below: //Down
       if (positionY == 4)
         throw moveEx;
       return grid->getCell(positionX, positionY+1);
       
-    case 2: //Left
+    case left: //Left
       if (positionX == 0)
         throw moveEx;
       return grid->getCell(positionX-1, positionY);
       
-    case 3: //Up
+    case above: //Up
       if (positionY == 0)
         throw moveEx;
       return grid->getCell(positionX, positionY-1);
         
-    case 4: //Right+Up
+    case rightAbove: //Right+Up
       if (positionX == 4  || positionY == 0 || !canMoveDiagonally())
         throw moveEx;
       return grid->getCell(positionX+1,positionY-1);
       
-    case 5: //Right+Down
+    case leftAbove: //Right+Down
       if (positionX == 4  || positionY == 4 || !canMoveDiagonally())
         throw moveEx;
       return grid->getCell(positionX+1,positionY+1);      
       
-    case 6: //Left+Down
+    case leftBelow: //Left+Down
       if (positionX == 0  || positionY == 4 || !canMoveDiagonally())
         throw moveEx;
       return grid->getCell(positionX-1,positionY+1);
       
-    case 7: //Left+Up
+    case leftAbove: //Left+Up
       if (positionX == 0  || positionY == 0 || !canMoveDiagonally())
         throw moveEx;
       return grid->getCell(positionX-1,positionY+1);
@@ -128,12 +126,12 @@ bool Cell::canMoveDiagonally()
  */
 Tiger* Cell::getTiger()
 {
-  if (status == 0)
+  if (status == empty)
     throw uOcEx;
-  else if (status == 2)
+  else if (status == goat)
     throw iOcEx;
   
-  return tiger;
+  return tigerPtr;
 }
 
 /**
@@ -145,12 +143,12 @@ Tiger* Cell::getTiger()
  */
 Tiger* Cell::getGoat()
 {
-  if (status == 0)
+  if (status == empty)
     throw uOcEx;
-  else if (status == 1)
+  else if (status == tiger)
     throw iOcEx;
   
-  return goat;
+  return goatPtr;
 }
 
 /**
@@ -160,7 +158,7 @@ Tiger* Cell::getGoat()
  */
 void Cell::setTiger(Tiger* tiger)
 {
-  if (status != 0)
+  if (status != empty)
     throw ocEx;
   
   this->tiger = tiger;
@@ -173,7 +171,7 @@ void Cell::setTiger(Tiger* tiger)
  */
 void Cell::setGoat(Goat* goat)
 {
-  if (status != 0)
+  if (status != empty)
     throw ocEx;
   
   this->goat = goat;
@@ -189,9 +187,9 @@ void Cell::setGoat(Goat* goat)
  */
 void Cell::removeGoat()
 {
-  if (status == 0)
+  if (status == empty)
     throw uOcEx;
-  if (status == 1)
+  if (status == tiger)
     throw iOcEx;
   
   goat->setCell(0);
@@ -209,15 +207,16 @@ void Cell::removeGoat()
  * 
  * The function uses getNeighbor
  */
-int Cell::isNeighbor(Cell* cell)
+Direction Cell::isNeighbor(Cell* cell)
 {
+  Direction allDirections[8] = {left, right, below, above, rightAbove, leftAbove, rightBelow, leftBelow};
   for (int i=0; i < 8; i++)
   {
     try
     {
-      Cell* test = getNeighbor(i);
+      Cell* test = getNeighbor(allDirections[i]);
       if (test == cell)
-        return i;
+        return allDirections[i];
       continue;
     }
     catch (CanNotMoveException e)
