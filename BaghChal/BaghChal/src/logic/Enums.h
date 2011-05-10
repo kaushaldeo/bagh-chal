@@ -24,11 +24,11 @@ enum Direction
 /**
 * @brief Enumeration for status of a cell
 */
-enum cellStatus
+enum CellStatus
 {
 	empty = 0,		/**< empty */
 	tiger = 1,		/**< tiger */
-	goat = 2,		/**< goat */
+	goat = 2		/**< goat */
 };
 
 

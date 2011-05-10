@@ -59,4 +59,28 @@ class InvalidDirectionException : public exception
   }
 };
 
+class UnoccupiedCellException : public exception
+{
+  virtual const char* what() const throw()
+  {
+    return "This cell is not occupied";
+  }
+};
+
+class InvalidOccupantException : public exception
+{
+  virtual const char* what() const throw()
+  {
+    return "This operation is not allowed on this occupant";
+  }
+};
+
+class OccupiedCellException : public exception
+{
+  virtual const char* what() const throw()
+  {
+    return "This cell is occupied.";
+  }
+};
+
 #endif

@@ -10,12 +10,13 @@
 #define FILEIO_H
 
 #include<fstream>
+#include<string>
 
 class FileIO
 {
   public:
-    FileIO () : fstream("~/bagh-chal-save");
-    FileIO (string filename) : fstream(filename);
+    FileIO () : fileStream("~/bagh-chal-save") {};
+    FileIO (std::string filename) : fileStream(filename.c_str()) {};
     ~FileIO ();
     void saveGame(Game&);
     void loadGame(Game&);
