@@ -13,6 +13,9 @@
 class PlayerTiger
 {
 public:
+
+	PlayerTiger() {}
+
 	/*! \brief Konstruktor.
 	 *
 	 *  Erzeugt 4 neue Tiger und setzt sie auf die übergebenen Eckfelder.
@@ -58,7 +61,6 @@ public:
 
 private:
 
-	PlayerTiger() {}
 
 	//! Array, das Zeiger auf die 4 Tiger enthält.
 	Tiger **tigers;
