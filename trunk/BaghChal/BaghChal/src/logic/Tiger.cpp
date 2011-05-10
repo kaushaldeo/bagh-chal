@@ -18,30 +18,30 @@ bool Tiger::canMove()
 		Cell *temp; 
         try
         {
-            temp = cellPtr->getNeighbor(i);
+            temp = cellPtr->getNeighbor((Direction) i);
         }
         catch(CanNotMoveException e)
         {
             continue;
         }
 
-        if(temp->getStatus == empty)
+        if(temp->getStatus() == empty)
         {
             return true;
         }
-        else if(temp->getStatus == goat)
+        else if(temp->getStatus() == goat)
         {
 			Cell *nextTemp;
             try
             {
-                nextTemp = temp->getNeighbor(i);
+                nextTemp = temp->getNeighbor((Direction) i);
             }
             catch(CanNotMoveException e)
             {
                 continue;
             }
 
-            if(nextTemp->getStatus == empty)
+            if(nextTemp->getStatus() == empty)
             {
                 return true;
             }
@@ -51,14 +51,11 @@ bool Tiger::canMove()
     return false;
 }
 
-
-
-
-int Tiger::move(Cell *cell)
+bool Tiger::canMoveThere(Cell *cell)
 {
-	if(cell->getStatus == tiger)
+	if(cell->getStatus() == tiger)
 	{
-		throw new CanNotMoveException;
+		return false;
 	}
 
 	Direction dir;
@@ -69,22 +66,70 @@ int Tiger::move(Cell *cell)
 	}
 	catch(InvalidDirectionException e)
 	{
-		throw new CanNotMoveException;
+		return false;
 	}
 
-	if(cell->getStatus == empty)
+	if(cell->getStatus() == empty)
+	{
+		return true;
+	}
+	else if(cell->getStatus() == goat)
+	{
+		Cell *targetCell;
+
+		try
+		{
+			targetCell = cell->getNeighbor(dir);
+		}
+		catch(CanNotMoveException e)
+		{
+			return false;
+		}
+
+		if(targetCell->getStatus() == empty)
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	return false;
+}
+
+
+int Tiger::move(Cell *cell)
+{
+	/*
+	 * Warning, move doesn't do any reliable exception handling anymore,
+	 * never call without calling canMoveThere first.
+	 */
+
+	if(cell->getStatus() == empty)
 	{
 		cellPtr->removeTiger();
 		cellPtr = cell;
 		cellPtr->setTiger(this);
 		return 0;
 	}
-	else if(cell->getStatus == goat)
+	else if(cell->getStatus() == goat)
 	{
+		Direction dir;
+
+		try
+		{
+			dir = cellPtr->isNeighbor(cell);
+		}
+		catch(InvalidDirectionException e)
+		{
+			throw new CanNotMoveException;
+		}
+
 		Cell *jumpOverCell = cell;
 		cell = cell->getNeighbor(dir);
 		
 		cellPtr->removeTiger();
+		jumpOverCell->getGoat()->setCell(NULL);
 		jumpOverCell->removeGoat();
 		cellPtr = cell;
 		cellPtr->setTiger(this);

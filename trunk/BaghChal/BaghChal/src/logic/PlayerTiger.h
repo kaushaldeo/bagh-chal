@@ -3,11 +3,14 @@
 
 #include "Tiger.h"
 #include "Cell.h"
+#include "PlayerGoat.h"
 #include "Exceptions.h"
 
 /*! \file PlayerTiger.h
  *  \brief Enthält Klasse die den Spieler repräsentiert, der die Tiger steuert.
  */
+
+class PlayerGoat;
 
 //! Klasse die den Spieler repräsentiert, der die Tiger steuert.
 class PlayerTiger
@@ -25,6 +28,8 @@ public:
 	 */
 	PlayerTiger(Cell *tigerCells[]);
 
+	PlayerTiger(Cell *tigerCells[], PlayerGoat *playerGoat);
+
 	/*! \brief Destruktor.
 	 *
 	 *  Löscht Tiger.
@@ -39,10 +44,12 @@ public:
 	 */
 	bool canMove();
 
+	bool canMoveThere(Cell *src, Cell *dst);
+
 	/*! \brief Ruft Tiger::move() auf.
 	 *
-	 *  Ermittelt betreffenden Tiger durch Vergleich des übergebenen Cellpointer
-	 *  mit den 4 Tigern und ruft die Tiger::move()-Funktion auf.
+	 *  !!Warning, move doesn't do any reliable exception handling anymore,!!
+	 *  !!never call without calling canMoveThere first.                   !!
 	 *
 	 *  \param src Die Zelle, auf der der Tiger sich befindet.
 	 *  \param dst Die Zielzelle.
@@ -59,6 +66,10 @@ public:
 
 	Tiger** getTigers();
 
+	void setPlayerGoat(PlayerGoat *playerGoat);
+
+	PlayerGoat* getPlayerGoat();
+
 private:
 
 
@@ -67,6 +78,9 @@ private:
 
 	//! Anzahl der gefressenen Ziegen.
 	int score;  
+
+	//! Pointer to the opponent player.
+	PlayerGoat *opponent;
     
 
 };

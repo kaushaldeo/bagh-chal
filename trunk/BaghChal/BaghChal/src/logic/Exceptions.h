@@ -83,4 +83,43 @@ class OccupiedCellException : public exception
   }
 };
 
+/**
+ * @brief Is thrown when PlayerGoat has won.
+ *
+ * The goats turn is finished and no Tiger is able to perform any valid moves.
+ */
+class GoatWonException : public exception
+{
+    virtual const char* what() const throw()
+    {
+        return "The Goat has won.";
+    }
+};
+
+/**
+ * @brief Is thrown when PlayerTiger has won.
+ *
+ * The tigers turn is finished and he has eaten 5 goats.
+ */
+class TigerWonException : public exception
+{
+    virtual const char* what() const throw()
+    {
+        return "The Tiger has won.";
+    }
+};
+
+/**
+ * @brief Is thrown when the GoatPlayer has no more valid moves.
+ *
+ * The tigers turn is finished and no Goat is able to perform any valid moves.
+ */
+class GameEvenException : public exception
+{
+    virtual const char* what() const throw()
+    {
+        return "The Game is even.";
+    }
+};
+
 #endif

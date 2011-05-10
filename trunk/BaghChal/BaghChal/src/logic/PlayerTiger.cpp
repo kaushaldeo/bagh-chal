@@ -18,6 +18,20 @@ PlayerTiger::PlayerTiger(Cell *tigerCells[])
     score = 0;
 }
 
+PlayerTiger::PlayerTiger(Cell *tigerCells[], PlayerGoat *playerGoat)
+{
+	opponent = playerGoat;
+
+    tigers = new Tiger* [4];
+
+    for(int i = 0; i < 4; i++)
+    {
+        tigers[i] = new Tiger(tigerCells[i]);
+    }
+
+    score = 0;
+}
+
 PlayerTiger::~PlayerTiger()
 {
     for(int i = 0; i < 4; i++)
@@ -41,6 +55,27 @@ bool PlayerTiger::canMove()
     return false;
 }
 
+bool PlayerTiger::canMoveThere(Cell *src, Cell *dst)
+{
+	/*
+	 * Warning, move doesn't do any reliable exception handling anymore,
+	 * never call without calling canMoveThere first.
+	 */
+
+	Tiger *thisTiger;
+
+	try
+	{
+		thisTiger = src->getTiger();
+	}
+	catch(exception e)
+	{
+		return false;
+	}
+
+	return thisTiger->canMoveThere(dst);
+}
+
 void PlayerTiger::move(Cell *src, Cell *dst)
 {
 	Tiger *thisTiger;
@@ -58,6 +93,16 @@ void PlayerTiger::move(Cell *src, Cell *dst)
 	if(didScore)
 	{
 		score++;
+	}
+
+	if(score == 5)
+	{
+		throw new TigerWonException();
+	}
+
+	if(!opponent->canMove())
+	{
+		throw new GameEvenException();
 	}
 
 }
@@ -82,3 +127,12 @@ Tiger** PlayerTiger::getTigers()
 	return tigers;
 }
     
+void PlayerTiger::setPlayerGoat(PlayerGoat *playerGoat)
+{
+	opponent = playerGoat;
+}
+
+PlayerGoat* PlayerTiger::getPlayerGoat()
+{
+	return opponent;
+}
