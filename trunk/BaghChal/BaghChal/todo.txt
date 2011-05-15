@@ -18,6 +18,7 @@ x/* PlayerTiger und PlayerGoat müssen sich kennen. ->überladene Konstruktoren 
 x PlayerGoat::move () - wenn die Quelle ein Nullpointer ist => Setzen, Wenn es ein gültiger Pointer ist => Ziehen. - implementiert
 
 *Cell::removeTiger() implementieren
+*Goat darf nur reguläre Züge machen, wenn alle Ziegen gesetzt sind
 
 
 ToDo Liste GUI

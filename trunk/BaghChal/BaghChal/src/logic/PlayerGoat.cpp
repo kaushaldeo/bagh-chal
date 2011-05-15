@@ -142,6 +142,16 @@ int PlayerGoat::getNextGoat()
 	return nextGoat;
 }
 
+void PlayerGoat::setPlayerTiger(PlayerTiger *playerTiger)
+{
+	opponent = playerTiger;
+}
+
+PlayerTiger* PlayerGoat::getPlayerTiger()
+{
+	return opponent;
+}
+
 
         
 
