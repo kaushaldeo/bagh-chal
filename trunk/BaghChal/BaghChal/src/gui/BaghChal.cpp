@@ -32,7 +32,7 @@ BaghChal::BaghChal(QWidget *parent) :
     connect(ui->actionHelp, SIGNAL(triggered()), this, SLOT(openHelpWindow()));
     connect(ui->actionInfo, SIGNAL(triggered()), this, SLOT(openInfoWindow()));
 
-    game = new Game;
+    game = Game();
 
 }
 
@@ -101,7 +101,7 @@ void BaghChal::openLoadGame()
 
     if (filePath != "")
     {
-        FileIO file(filePath);
+        FileIO file(filePath.toStdString());
         file.loadGame(game);
     }
 }
@@ -113,7 +113,7 @@ bool BaghChal::openSaveGame()
 
     if (fileName != "")
     {
-        FileIO file(fileName);
+        FileIO file(fileName.toStdString());
         file.saveGame(game);
     }
     else
