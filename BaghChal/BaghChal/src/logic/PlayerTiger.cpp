@@ -18,7 +18,7 @@ PlayerTiger::PlayerTiger(Cell *tigerCells[])
     score = 0;
 }
 
-PlayerTiger::PlayerTiger(Cell *tigerCells[], PlayerGoat *playerGoat)
+PlayerTiger::PlayerTiger(Cell **tigerCells, PlayerGoat *playerGoat)
 {
 	opponent = playerGoat;
 

@@ -28,7 +28,7 @@ public:
 	 */
 	PlayerTiger(Cell *tigerCells[]);
 
-	PlayerTiger(Cell *tigerCells[], PlayerGoat *playerGoat);
+	PlayerTiger(Cell **tigerCells, PlayerGoat *playerGoat);
 
 	/*! \brief Destruktor.
 	 *
