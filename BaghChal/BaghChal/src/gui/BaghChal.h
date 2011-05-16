@@ -23,6 +23,7 @@ public:
     void setTurnNotification(int turn);
     void setStatusMsg(QString msg);
     void clearStatusMsg();
+    void showTurnArrow(int turn);
 
 private:
     Ui::BaghChal *ui;
@@ -31,7 +32,7 @@ private:
     QLabel statusMsg;
     QTimer *timer;
 
-    Game game;
+    Game* game;
 
     bool askSaveDialog();
     void closeEvent(QCloseEvent *event);
