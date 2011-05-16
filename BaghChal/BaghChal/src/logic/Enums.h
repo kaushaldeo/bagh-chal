@@ -9,16 +9,18 @@
 /**
 * @brief Enumeration for Directions
 */
+
+//rightr, leftl needs to be discussed tomorrow
 enum Direction
 { 
-	right = 0,		/**< right */
-	below = 1,		/**< below */
-	left = 2,		/**< left */
-	above = 3,		/**< above */
-	rightAbove = 4,		/**< rightAbove */
-	rightBelow = 5,		/**< rightBelow */
-	leftBelow = 6,		/**< leftBelow */
-	leftAbove = 7		/**< leftAbove */
+	rightr,		/**< right */
+	below,		/**< below */
+	leftl,		/**< left */
+	above,		/**< above */
+	rightAbove,		/**< rightAbove */
+	rightBelow,		/**< rightBelow */
+	leftBelow,		/**< leftBelow */
+	leftAbove		/**< leftAbove */
 };
 
 /**
@@ -26,9 +28,9 @@ enum Direction
 */
 enum CellStatus
 {
-	empty = 0,		/**< empty */
-	tiger = 1,		/**< tiger */
-	goat = 2		/**< goat */
+	empty,		/**< empty */
+	tiger,		/**< tiger */
+	goat		/**< goat */
 };
 
 

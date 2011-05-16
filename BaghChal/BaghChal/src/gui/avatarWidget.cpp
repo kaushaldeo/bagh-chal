@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "avatarWidget.h"
+#include "BaghChal.h"
 
 using namespace std;
 
@@ -19,6 +20,26 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
     {
         return;
     }
+    
+    //Game* game = BaghChal::getInstance()->getGame();
+    
+    //avatar can't move now
+    /*if ( this->property("goat").toBool() )
+    {
+        if ( !game->getGoat().canMove() )
+        {
+            return;
+        }
+    }
+    
+    if ( this->property("tiger").toBool() )
+    {
+        if ( !game->getTiger().canMove() )
+        {
+            return;
+        }
+    }*/
+   
       
     QPoint *p = new QPoint(0, 2);
     
