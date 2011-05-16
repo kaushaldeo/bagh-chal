@@ -5,6 +5,7 @@
  */
 
 #include "PlayerGoat.h"
+#include "Game.h"
 
 PlayerGoat::PlayerGoat()
 {
@@ -50,7 +51,12 @@ void PlayerGoat::setCell(Cell *cell)
 }
 
 bool PlayerGoat::canMove()
-{
+{    
+    if(Game::getInstance()->getTurn() != goat)
+    {
+        return false;
+    }
+    
 	if(nextGoat < 20)
 	{
 		return true;

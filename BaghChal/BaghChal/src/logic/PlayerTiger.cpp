@@ -5,6 +5,7 @@
  */
 
 #include "PlayerTiger.h"
+#include "Game.h"
 
 PlayerTiger::PlayerTiger()
 {
@@ -81,6 +82,11 @@ PlayerTiger& PlayerTiger::operator=(const PlayerTiger& src)
 
 bool PlayerTiger::canMove()
 {
+    if(Game::getInstance()->getTurn() != tiger)
+    {
+        return false;
+    }
+    
     for(int i = 0; i < 4; i++)
     {
         if(tigers[i]->canMove())

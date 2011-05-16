@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "avatarWidget.h"
+#include "BaghChal.h"
 #include "../logic/Game.h"
 
 using namespace std;
@@ -10,7 +11,6 @@ using namespace std;
 AvatarWidget::AvatarWidget(QWidget *parent) :
     QWidget(parent)
 {
-    setCursor(Qt::OpenHandCursor);
 }
 
 void AvatarWidget::mousePressEvent(QMouseEvent *event)
@@ -21,25 +21,26 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
         return;
     }
     
-    //Game* game = Game::getInstance();
+    Game* game = Game::getInstance();
+    BaghChal* baghchal = BaghChal::getInstance();
     
     //avatar can't move now
-    /*if ( this->property("goat").toBool() )
+    if ( this->property("goat").toBool() )
     {
         if ( !game->getGoat().canMove() )
         {
+            baghchal->setTurnNotification(2);
             return;
         }
     }
-    
-    if ( this->property("tiger").toBool() )
+    else
     {
         if ( !game->getTiger().canMove() )
         {
+            baghchal->setTurnNotification(1);
             return;
         }
-    }*/
-   
+    }
       
     QPoint *p = new QPoint(0, 2);
     
@@ -56,6 +57,7 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
     drag->setPixmap(pixmap);
     drag->setHotSpot(event->pos() - *p);
     child->hide();
+
     
     if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction)
     {
