@@ -32,7 +32,7 @@ BaghChal::BaghChal(QWidget *parent) :
     connect(ui->actionHelp, SIGNAL(triggered()), this, SLOT(openHelpWindow()));
     connect(ui->actionInfo, SIGNAL(triggered()), this, SLOT(openInfoWindow()));
 
-    game = Game();
+    this->game = new Game;
 
 }
 
@@ -89,7 +89,8 @@ bool BaghChal::askSaveDialog()
 
 void BaghChal::openNewGame()
 {
-    game = Game();
+    delete game;
+    game = new Game;
     this->setTurnNotification(0);
 
 }
@@ -102,7 +103,7 @@ void BaghChal::openLoadGame()
     if (filePath != "")
     {
         FileIO file(filePath.toStdString());
-        file.loadGame(game);
+        file.loadGame(*game);
     }
 }
 
@@ -114,7 +115,7 @@ bool BaghChal::openSaveGame()
     if (fileName != "")
     {
         FileIO file(fileName.toStdString());
-        file.saveGame(game);
+        file.saveGame(*game);
         return true;
     }
     else
@@ -193,4 +194,25 @@ void BaghChal::hideTurnNotification()
 {
     timer->stop();
     ui->turnNotification->setVisible(false);
+}
+
+void BaghChal::showTurnArrow(int turn)
+{
+    switch(turn)
+    {
+    case 0:
+        ui->arrowGoat->hide();
+        ui->arrowTiger->hide();
+        break;
+    case 1:
+        ui->arrowGoat->show();
+        ui->arrowTiger->hide();
+        break;
+    case 2:
+        ui->arrowGoat->hide();
+        ui->arrowTiger->show();
+        break;
+    default:
+        break;
+    }
 }

@@ -107,7 +107,7 @@ int Tiger::move(Cell *cell)
 
 	if(cell->getStatus() == empty)
 	{
-		cellPtr->removeTiger();
+                cellPtr->removeTiger();
 		cellPtr = cell;
 		cellPtr->setTiger(this);
 		return 0;
@@ -128,7 +128,7 @@ int Tiger::move(Cell *cell)
 		Cell *jumpOverCell = cell;
 		cell = cell->getNeighbor(dir);
 		
-		cellPtr->removeTiger();
+                cellPtr->removeTiger();
 		jumpOverCell->getGoat()->setCell(NULL);
 		jumpOverCell->removeGoat();
 		cellPtr = cell;

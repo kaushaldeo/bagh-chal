@@ -11,7 +11,18 @@ INCLUDEPATH += . src/gui
 HEADERS += src/gui/avatarWidget.h src/gui/BaghChal.h src/gui/boxWidget.h \
     src/gui/helpWindow.h \
     src/gui/infoWindow.h \
-    src/gui/turnMsgBox.h
+    src/gui/turnMsgBox.h \
+    src/logic/Tiger.h \
+    src/logic/PlayerTiger.h \
+    src/logic/PlayerGoat.h \
+    src/logic/Player.h \
+    src/logic/Grid.h \
+    src/logic/Goat.h \
+    src/logic/Game.h \
+    src/logic/FileIO.h \
+    src/logic/Exceptions.h \
+    src/logic/Enums.h \
+    src/logic/Cell.h
 FORMS += BaghChal.ui \
     helpWindow.ui \
     infoWindow.ui
@@ -21,5 +32,13 @@ SOURCES += main.cpp \
            src/gui/boxWidget.cpp \
     src/gui/helpWindow.cpp \
     src/gui/infoWindow.cpp \
-    src/gui/turnMsgBox.cpp
+    src/gui/turnMsgBox.cpp \
+    src/logic/Tiger.cpp \
+    src/logic/PlayerTiger.cpp \
+    src/logic/PlayerGoat.cpp \
+    src/logic/Grid.cpp \
+    src/logic/Goat.cpp \
+    src/logic/Game.cpp \
+    src/logic/FileIO.cpp \
+    src/logic/Cell.cpp
 RESOURCES += FileContainer.qrc
