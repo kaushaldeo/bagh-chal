@@ -8,8 +8,17 @@
 
 #include "Cell.h"
 #include "Exceptions.h"
+#include "Goat.h"
+#include "Tiger.h"
 
 using namespace std;
+
+Cell::~Cell()
+{
+  delete grid; 
+  delete tigerPtr; 
+  delete goatPtr;
+}
 
 /**
 * @fn getStatus()
@@ -87,7 +96,7 @@ Cell* Cell::getNeighbor (Direction direction)
         throw moveEx;
       return grid->getCell(positionX+1,positionY-1);
       
-    case leftAbove: //Right+Down
+    case rightBelow: //Right+Down
       if (positionX == 4  || positionY == 4 || !canMoveDiagonally())
         throw moveEx;
       return grid->getCell(positionX+1,positionY+1);      
@@ -141,7 +150,7 @@ Tiger* Cell::getTiger()
  * @exception UnoccupiedCellException
  * @exception InvalidOccupantException
  */
-Tiger* Cell::getGoat()
+Goat* Cell::getGoat()
 {
   if (status == empty)
     throw uOcEx;
@@ -161,7 +170,7 @@ void Cell::setTiger(Tiger* tiger)
   if (status != empty)
     throw ocEx;
   
-  this->tiger = tiger;
+  this->tigerPtr = tiger;
 }
 
 /**
@@ -174,7 +183,7 @@ void Cell::setGoat(Goat* goat)
   if (status != empty)
     throw ocEx;
   
-  this->goat = goat;
+  this->goatPtr = goat;
 }
 
 
@@ -192,9 +201,21 @@ void Cell::removeGoat()
   if (status == tiger)
     throw iOcEx;
   
-  goat->setCell(0);
-  goat = 0;
-  status = 0;
+  goatPtr->setCell(0);
+  goatPtr = 0;
+  status = empty;
+}
+
+void Cell::removeTiger()
+{
+  if (status == empty)
+    throw uOcEx;
+  if (status == goat)
+    throw iOcEx;
+  
+  tigerPtr->setCell(0);
+  tigerPtr = 0;
+  status = empty;
 }
   
 /**

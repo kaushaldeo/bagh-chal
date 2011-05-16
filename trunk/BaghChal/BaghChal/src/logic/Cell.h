@@ -35,6 +35,7 @@ class Cell
     void setTiger(Tiger*);
     void setGoat(Goat*);
     void removeGoat ();
+    void removeTiger ();
     Direction isNeighbor(Cell*);
    
   private:
