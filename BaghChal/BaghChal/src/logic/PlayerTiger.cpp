@@ -8,12 +8,12 @@
 
 PlayerTiger::PlayerTiger()
 {
-	tigers = new Tiger* [4];
+	//tigers = new Tiger* [4];
 
-    for(int i = 0; i < 4; i++)
-    {
-        tigers[i] = new Tiger(NULL);
-    }
+    //for(int i = 0; i < 4; i++)
+    //{
+    //    tigers[i] = new Tiger(NULL);
+    //}
 }
 
 PlayerTiger::PlayerTiger(Cell *tigerCells[])
@@ -52,24 +52,31 @@ PlayerTiger::~PlayerTiger()
     delete[] tigers;
 }
 
-PlayerTiger::PlayerTiger(const PlayerTiger& p)
-{
-	this->tigers = new Tiger* [4];
-
-	for(int i = 0; i < 4; ++i)
-	{
-		tigers[i] = new Tiger(NULL);
-	}
-}
+//PlayerTiger::PlayerTiger(const PlayerTiger& p)
+//{
+//	this->tigers = new Tiger* [4];
+//
+//	for(int i = 0; i < 4; ++i)
+//	{
+//		tigers[i] = new Tiger(NULL);
+//	}
+//}
 
 PlayerTiger& PlayerTiger::operator=(const PlayerTiger& src)
 {
 	this->tigers = new Tiger* [4];
 
+	Tiger **srcTigers = src.tigers;
+
 	for(int i = 0; i < 4; ++i)
 	{
-		tigers[i] = new Tiger(NULL);
+
+		tigers[i] = new Tiger(srcTigers[i]->getCell());
 	}
+
+	opponent = src.opponent;
+
+	return *this;
 }
 
 bool PlayerTiger::canMove()
