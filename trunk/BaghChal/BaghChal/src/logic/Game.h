@@ -21,7 +21,6 @@
 class Game
 {
   public:
-    Game();
     ~Game () {};
     Grid& getGrid();
     PlayerTiger& getTiger();
@@ -30,8 +29,10 @@ class Game
     bool getChanged();
     CellStatus getTurn ();
     void setTurn (CellStatus);
-   
+    static Game* getInstance();
   private:
+    Game();
+    static Game* game;
     Grid grid;		    	/**< Playing field */
     PlayerTiger tigerP;		/**< Player, who controls the tigers */
     PlayerGoat goatP;		/**< Player, who controls the goats */

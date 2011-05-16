@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "avatarWidget.h"
-#include "BaghChal.h"
+#include "../logic/Game.h"
 
 using namespace std;
 
@@ -21,7 +21,7 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
         return;
     }
     
-    //Game* game = BaghChal::getInstance()->getGame();
+    //Game* game = Game::getInstance();
     
     //avatar can't move now
     /*if ( this->property("goat").toBool() )

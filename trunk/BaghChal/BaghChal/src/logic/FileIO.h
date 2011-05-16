@@ -19,8 +19,8 @@ class FileIO
     FileIO () : fileStream("~/bagh-chal-save") {};
     FileIO (std::string filename) : fileStream(filename.c_str()) {};
     ~FileIO () {};
-    void saveGame(Game&);
-    void loadGame(Game&);
+    void saveGame();
+    void loadGame();
     int convertToInt (CellStatus);
     CellStatus convertFromInt (int);
   

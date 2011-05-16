@@ -19,6 +19,18 @@ Game::Game () : grid(), goatP(), changed(true), turn(goat)
   goatP.setPlayerTiger (&tigerP);
 }
 
+
+Game* Game::game = 0;
+
+Game* Game::getInstance()
+{
+    if( !game )
+    {
+        game = new Game();
+    }
+    return game;
+}
+
 void Game::setChanged (bool newChanged)
 {
   changed = newChanged;
