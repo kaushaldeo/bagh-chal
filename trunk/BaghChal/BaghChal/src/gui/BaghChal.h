@@ -17,23 +17,23 @@ class BaghChal : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit BaghChal(QWidget *parent = 0);
-    ~BaghChal();
-
     void setTurnNotification(int turn);
     void setStatusMsg(QString msg);
     void clearStatusMsg();
     void showTurnArrow(int turn);
+    Game* getGame();
+    static BaghChal* getInstance();
+    ~BaghChal();
 
 private:
+    static BaghChal* baghchal;
+    explicit BaghChal(QWidget *parent = 0);
     Ui::BaghChal *ui;
     HelpWindow hw;
     InfoWindow iw;
     QLabel statusMsg;
     QTimer *timer;
-
     Game* game;
-
     bool askSaveDialog();
     void closeEvent(QCloseEvent *event);
 

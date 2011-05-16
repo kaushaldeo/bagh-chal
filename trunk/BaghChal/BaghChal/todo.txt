@@ -25,3 +25,14 @@ xCell::removeTiger() implementieren
 ToDo Liste GUI
 * Pfeil/Dreick
 * Statusleiste aktualisieren
+
+
+
+
+
+16.05 simon:
+
+- game überall zugreifbar, statt global -> baghchal als singleton
+- canmove sollte alles abdecken auch die turns, bzw wer jetzt dran ist, das ist nicht aufgabe gui
+
+

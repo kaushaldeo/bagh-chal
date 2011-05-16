@@ -32,14 +32,33 @@ BaghChal::BaghChal(QWidget *parent) :
     connect(ui->actionHelp, SIGNAL(triggered()), this, SLOT(openHelpWindow()));
     connect(ui->actionInfo, SIGNAL(triggered()), this, SLOT(openInfoWindow()));
 
-    this->game = new Game;
+    this->game = new Game();
+    this->game->setTurn(goat);
 
 }
 
+BaghChal* BaghChal::baghchal = 0;
+ 
 BaghChal::~BaghChal()
 {
+    delete baghchal;
+    baghchal = 0;
     delete timer;
     delete ui;
+}
+
+BaghChal* BaghChal::getInstance()
+{
+    if( !baghchal )
+    {
+        baghchal = new BaghChal(0);
+    }
+    return baghchal;
+}
+
+Game* BaghChal::getGame()
+{
+    return this->game;
 }
 
 void BaghChal::closeEvent(QCloseEvent *event)
@@ -61,7 +80,7 @@ bool BaghChal::askSaveDialog()
     qMarkLabel.setFrameShape(QFrame::NoFrame);
     qMarkLabel.setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/Help-icon.png")));
 
-    askSave.setText("\n  Möchten Sie den Spielstand zuvor speichern ?\n");
+    askSave.setText("\n  Mï¿½chten Sie den Spielstand zuvor speichern ?\n");
     QPushButton *saveButton = askSave.addButton(tr("Speichern"),QMessageBox::AcceptRole);
     QPushButton *discardButton = askSave.addButton(tr("Verwerfen"),QMessageBox::DestructiveRole);
     QPushButton *cancelButton = askSave.addButton(tr("Abbrechen"), QMessageBox::RejectRole);
