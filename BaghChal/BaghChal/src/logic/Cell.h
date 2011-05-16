@@ -25,7 +25,7 @@ class Cell
 {
   public:
     Cell (int x, int y, Grid* gridPtr) : status (empty), positionX(x), positionY(y), grid(gridPtr), tigerPtr(0), goatPtr (0) {};
-    ~Cell ();
+    ~Cell () {};
     CellStatus getStatus ();
     std::pair<int, int> getPosition();
     Cell* getNeighbor (Direction);
