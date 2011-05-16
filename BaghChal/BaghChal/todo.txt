@@ -19,6 +19,7 @@ x PlayerGoat::move () - wenn die Quelle ein Nullpointer ist => Setzen, Wenn es e
 
 xCell::removeTiger() implementieren
 *Goat darf nur reguläre Züge machen, wenn alle Ziegen gesetzt sind
+*Status der Startzellen des Tigers auf tiger setzen
 
 
 ToDo Liste GUI

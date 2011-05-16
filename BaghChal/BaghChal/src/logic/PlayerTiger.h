@@ -17,7 +17,7 @@ class PlayerTiger
 {
 public:
 
-	PlayerTiger() {}
+	PlayerTiger();
 
 	/*! \brief Konstruktor.
 	 *
@@ -35,6 +35,10 @@ public:
 	 *  Löscht Tiger.
 	 */
 	~PlayerTiger();
+
+	PlayerTiger(const PlayerTiger& p);
+
+	PlayerTiger& operator= (const PlayerTiger& src);
 
 	/*! \brief Überprüft, ob noch Züge möglich sind.
 	 * 
