@@ -28,6 +28,8 @@ class Game
     PlayerGoat& getGoat();
     void setChanged(bool);
     bool getChanged();
+    CellStatus getTurn ();
+    void setTurn (CellStatus);
    
   private:
     Grid grid;		    	/**< Playing field */

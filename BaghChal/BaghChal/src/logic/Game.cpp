@@ -14,8 +14,9 @@
  */
 Game::Game () : grid(), goatP(), changed(true), turn(goat)
 {
-  Cell* tigerCells[4] = {grid.getCell(0,0), grid.getCell(0,4), grid.getCell(4,4), grid.getCell(4,0)};
-  tigerP (tigerCells);
+  Cell* tigerCells[] = {grid.getCell(0,0), grid.getCell(0,4), grid.getCell(4,4), grid.getCell(4,0)};
+  tigerP = PlayerTiger (tigerCells, &goatP);
+  goatP.setPlayerTiger (&tigerP);
 }
 
 void Game::setChanged (bool newChanged)
@@ -26,4 +27,29 @@ void Game::setChanged (bool newChanged)
 bool Game::getChanged ()
 {
   return changed;
+}
+
+CellStatus Game::getTurn()
+{
+  return turn;
+}
+
+void Game::setTurn(CellStatus newturn)
+{
+  turn = newturn;
+}
+
+Grid& Game::getGrid()
+{
+  return grid;
+}
+
+PlayerTiger& Game::getTiger()
+{
+  return tigerP;
+}
+
+PlayerGoat& Game::getGoat()
+{
+  return goatP;
 }

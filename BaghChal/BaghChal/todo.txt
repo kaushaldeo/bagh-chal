@@ -1,11 +1,11 @@
 ToDo Liste Logik
 
 
-* KOMPILIERBAR MACHEN!!!
+X KOMPILIERBAR MACHEN!!!
 x Funktion, die nur prüft, ob der Tiger/die Ziege auf eine Zelle ziehen kann, OHNE sie zu platzieren. - implementiert, move überprüft nichtmehr ob ein Zug möglich ist,
 																										also bitte niemals move aufrufen ohne vorher auf canMoveThere()
 																										zu prüfen.
-* Überarbeiten Grid/Cell/Game auf Enumerations
+x Überarbeiten Grid/Cell/Game auf Enumerations
                                                           * Save/Load Auf Konsistenz prüfen
                                                           * Doku Englisch
 X Unentschieden, falls die Ziege am Zug ist (Am Ende des Tiegerzugs) und nicht ziehen kann - implementiert
@@ -14,10 +14,10 @@ X Unentschieden, falls die Ziege am Zug ist (Am Ende des Tiegerzugs) und nicht z
 x Am Ende des Zugs überprüfen, ob ein Spieler gewonnen hat und dann GoatWonException oder TigerWonException werfen. - implementiert
 x Exceptions für Tiger gewinnt, Ziege gewinnt und unentschieden (s.o.) implementieren - implementiert
 * changed bei Spielende auf false
-x/* PlayerTiger und PlayerGoat müssen sich kennen. ->überladene Konstruktoren und getter/setter implementiert
+x PlayerTiger und PlayerGoat müssen sich kennen. ->überladene Konstruktoren und getter/setter implementiert
 x PlayerGoat::move () - wenn die Quelle ein Nullpointer ist => Setzen, Wenn es ein gültiger Pointer ist => Ziehen. - implementiert
 
-*Cell::removeTiger() implementieren
+xCell::removeTiger() implementieren
 *Goat darf nur reguläre Züge machen, wenn alle Ziegen gesetzt sind
 
 

@@ -7,6 +7,7 @@
 */
 
 #include "Grid.h"
+#include "Cell.h"
 
 /**
  * @fn Grid()
@@ -24,6 +25,17 @@ Grid::Grid () : cells (new Cell**[5])
       cells[i][j] = new Cell (i,j, this);
     }
   }
+}
+
+Grid::~Grid ()
+{
+  for (int i=0; i<5; i++)
+  {
+    for (int j=0; j<5; j++)
+      delete cells[i][j];
+    delete cells[i];
+  }
+  delete cells;
 }
 
 /**
