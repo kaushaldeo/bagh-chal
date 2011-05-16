@@ -3,9 +3,9 @@
 #include "QEventLoop"
 #include "QFileDialog"
 #include "QMessageBox"
-#include "QTextStream"
 #include <iostream>
 #include "../logic/FileIO.h"
+#include "../logic/Game.h"
 
 //----- temp Variable, ob seit dem letzten Speichern gezogen wurde oder nicht
 bool changed = true;
@@ -115,6 +115,7 @@ bool BaghChal::openSaveGame()
     {
         FileIO file(fileName.toStdString());
         file.saveGame(game);
+        return true;
     }
     else
     {
