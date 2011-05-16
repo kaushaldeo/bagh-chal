@@ -32,34 +32,28 @@ BaghChal::BaghChal(QWidget *parent) :
     connect(ui->actionHelp, SIGNAL(triggered()), this, SLOT(openHelpWindow()));
     connect(ui->actionInfo, SIGNAL(triggered()), this, SLOT(openInfoWindow()));
 
-    this->game = new Game();
-    this->game->setTurn(goat);
-
+    Game *game = Game::getInstance();
+    this->game = game;
 }
 
-BaghChal* BaghChal::baghchal = 0;
+//BaghChal* BaghChal::baghchal = 0;
  
 BaghChal::~BaghChal()
 {
-    delete baghchal;
-    baghchal = 0;
+    //delete baghchal;
+    //baghchal = 0;
     delete timer;
     delete ui;
 }
 
-BaghChal* BaghChal::getInstance()
+/*BaghChal* BaghChal::getInstance()
 {
     if( !baghchal )
     {
         baghchal = new BaghChal(0);
     }
     return baghchal;
-}
-
-Game* BaghChal::getGame()
-{
-    return this->game;
-}
+}*/
 
 void BaghChal::closeEvent(QCloseEvent *event)
 {
@@ -109,7 +103,7 @@ bool BaghChal::askSaveDialog()
 void BaghChal::openNewGame()
 {
     delete game;
-    game = new Game;
+    Game *game = Game::getInstance();
     this->setTurnNotification(0);
 
 }
@@ -122,7 +116,8 @@ void BaghChal::openLoadGame()
     if (filePath != "")
     {
         FileIO file(filePath.toStdString());
-        file.loadGame(*game);
+        //file.loadGame(*game);
+        file.loadGame();
     }
 }
 
@@ -134,7 +129,8 @@ bool BaghChal::openSaveGame()
     if (fileName != "")
     {
         FileIO file(fileName.toStdString());
-        file.saveGame(*game);
+        //file.saveGame(*game);
+        file.saveGame();
         return true;
     }
     else

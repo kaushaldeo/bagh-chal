@@ -22,12 +22,13 @@ public:
     void clearStatusMsg();
     void showTurnArrow(int turn);
     Game* getGame();
-    static BaghChal* getInstance();
+    //static BaghChal* getInstance();
+        explicit BaghChal(QWidget *parent = 0);
+
     ~BaghChal();
 
 private:
-    static BaghChal* baghchal;
-    explicit BaghChal(QWidget *parent = 0);
+    //static BaghChal* baghchal;
     Ui::BaghChal *ui;
     HelpWindow hw;
     InfoWindow iw;

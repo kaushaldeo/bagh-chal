@@ -16,29 +16,30 @@ using namespace std;
  * 
  * Saves the Data from game into a textfile.
  */
-void FileIO::saveGame (Game& game)
+void FileIO::saveGame ()
 {
-  if (!game.getChanged() || game.getTurn() == empty) //If the game has just been saved/loaded or has already ended there's really no point saving it.
+    Game* game = Game::getInstance();
+  if (!game->getChanged() || game->getTurn() == empty) //If the game has just been saved/loaded or has already ended there's really no point saving it.
     return;
   
-  fileStream << convertToInt(game.getTurn()) << " ";
+  fileStream << convertToInt(game->getTurn()) << " ";
   for (int i=0; i < 5; i++)
     for (int j=0; j < 5; j++)
     {
-      Cell* cell = game.getGrid().getCell(i,j);
+      Cell* cell = game->getGrid().getCell(i,j);
       fileStream << convertToInt(cell->getStatus()) << " ";
     }
   
-  fileStream << game.getTiger().getScore();
-  Tiger** tigers = game.getTiger().getTigers();
+  fileStream << game->getTiger().getScore();
+  Tiger** tigers = game->getTiger().getTigers();
   for (int i=0;i<4;i++)
   {
     pair<int,int> pos = tigers[i]->getCell()->getPosition();
     fileStream << pos.first << " ";
     fileStream << pos.second << " ";
   }
-  fileStream << game.getGoat().getNextGoat();
-  Goat** goats = game.getGoat().getGoats();
+  fileStream << game->getGoat().getNextGoat();
+  Goat** goats = game->getGoat().getGoats();
   for (int i=0;i<20;i++)
   {
     pair<int,int> pos = goats[i]->getCell()->getPosition();
@@ -47,7 +48,7 @@ void FileIO::saveGame (Game& game)
   }
   
   
-  game.setChanged(false);
+  game->setChanged(false);
 }
 
 
@@ -58,43 +59,43 @@ void FileIO::saveGame (Game& game)
  * 
  * Loads data from a textfile and loads it into a game class.
  */
-void FileIO::loadGame (Game& game)
+void FileIO::loadGame ()
 {
   
   int tmp;
-  game = Game();
+    Game* game = Game::getInstance();
   
   fileStream >> tmp;
-  game.setTurn(convertFromInt(tmp));
+  game->setTurn(convertFromInt(tmp));
   for (int i=0; i < 5; i++)
     for (int j=0; j < 5; j++)
     {
       fileStream >> tmp;
-      game.getGrid().getCell(i,j)->setStatus(convertFromInt(tmp));
+      game->getGrid().getCell(i,j)->setStatus(convertFromInt(tmp));
     }
   
   fileStream >> tmp;
-  game.getTiger().setScore(tmp);
-  Tiger** tigers = game.getTiger().getTigers();
+  game->getTiger().setScore(tmp);
+  Tiger** tigers = game->getTiger().getTigers();
   for (int i=0;i<4;i++)
   {
     int x, y;
     fileStream >> x;
     fileStream >> y;
-    tigers[i]->setCell(game.getGrid().getCell(x,y));
+    tigers[i]->setCell(game->getGrid().getCell(x,y));
   }
   fileStream >> tmp;
-  game.getGoat().setNextGoat(tmp);
-  Goat** goats = game.getGoat().getGoats();
+  game->getGoat().setNextGoat(tmp);
+  Goat** goats = game->getGoat().getGoats();
   for (int i=0;i<20;i++)
   {
     int x, y;
     fileStream >> x;
     fileStream >> y;
-    goats[i]->setCell(game.getGrid().getCell(x,y));
+    goats[i]->setCell(game->getGrid().getCell(x,y));
   }
   
-    game.setChanged(false);
+    game->setChanged(false);
   }
   
   CellStatus FileIO::convertFromInt (int state)
