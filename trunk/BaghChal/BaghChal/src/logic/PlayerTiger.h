@@ -36,7 +36,7 @@ public:
 	 */
 	~PlayerTiger();
 
-	PlayerTiger(const PlayerTiger& p);
+	//PlayerTiger(const PlayerTiger& p);
 
 	PlayerTiger& operator= (const PlayerTiger& src);
 
