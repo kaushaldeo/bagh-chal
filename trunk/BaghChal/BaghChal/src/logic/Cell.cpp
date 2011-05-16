@@ -15,9 +15,9 @@ using namespace std;
 
 Cell::~Cell()
 {
-  delete grid; 
-  delete tigerPtr; 
-  delete goatPtr;
+  //delete grid; 
+  //delete tigerPtr; 
+  //delete goatPtr;
 }
 
 /**

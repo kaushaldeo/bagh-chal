@@ -6,6 +6,16 @@
 
 #include "PlayerTiger.h"
 
+PlayerTiger::PlayerTiger()
+{
+	tigers = new Tiger* [4];
+
+    for(int i = 0; i < 4; i++)
+    {
+        tigers[i] = new Tiger(NULL);
+    }
+}
+
 PlayerTiger::PlayerTiger(Cell *tigerCells[])
 {
     tigers = new Tiger* [4];
@@ -40,6 +50,26 @@ PlayerTiger::~PlayerTiger()
     }
 
     delete[] tigers;
+}
+
+PlayerTiger::PlayerTiger(const PlayerTiger& p)
+{
+	this->tigers = new Tiger* [4];
+
+	for(int i = 0; i < 4; ++i)
+	{
+		tigers[i] = new Tiger(NULL);
+	}
+}
+
+PlayerTiger& PlayerTiger::operator=(const PlayerTiger& src)
+{
+	this->tigers = new Tiger* [4];
+
+	for(int i = 0; i < 4; ++i)
+	{
+		tigers[i] = new Tiger(NULL);
+	}
 }
 
 bool PlayerTiger::canMove()
