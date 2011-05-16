@@ -21,14 +21,12 @@ public:
     void setStatusMsg(QString msg);
     void clearStatusMsg();
     void showTurnArrow(int turn);
-    Game* getGame();
-    //static BaghChal* getInstance();
-        explicit BaghChal(QWidget *parent = 0);
-
+    static BaghChal* getInstance();
     ~BaghChal();
 
 private:
-    //static BaghChal* baghchal;
+    static BaghChal* baghchal;
+    explicit BaghChal(QWidget *parent = 0);
     Ui::BaghChal *ui;
     HelpWindow hw;
     InfoWindow iw;

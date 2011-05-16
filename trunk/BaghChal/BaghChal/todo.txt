@@ -32,7 +32,14 @@ ToDo Liste GUI
 
 16.05 simon:
 
-- game überall zugreifbar, statt global -> baghchal als singleton
-- canmove sollte alles abdecken auch die turns, bzw wer jetzt dran ist, das ist nicht aufgabe gui
+- cursor raus
+- game überall zugreifbar, statt global -> game als singleton
+- canmove für ziege falls noch nicht gezogen
 
+- Methodennamen getTiger() etwas verwirrend -> getPlayerTiger()
 
+- TODO: dynamische eigenschaften für Zellen, Konstruktor für Zelle direkt status mitübergeben? warum gridpointer übergeben
+
+-canmovethere direkt in move??
+
+_ utf-8 in alert

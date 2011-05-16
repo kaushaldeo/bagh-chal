@@ -6,9 +6,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    //BaghChal *baghchal = BaghChal::getInstance();
-    BaghChal baghchal;
-    baghchal.show();
+    BaghChal *baghchal = BaghChal::getInstance();
+    //BaghChal baghchal;
+    baghchal->show();
 
     return a.exec();
 }

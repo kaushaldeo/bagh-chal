@@ -34,26 +34,28 @@ BaghChal::BaghChal(QWidget *parent) :
 
     Game *game = Game::getInstance();
     this->game = game;
+    setStatusMsg(QString::fromUtf8("Neues Spiel beginnt."));
+
 }
 
-//BaghChal* BaghChal::baghchal = 0;
+BaghChal* BaghChal::baghchal = 0;
  
 BaghChal::~BaghChal()
 {
-    //delete baghchal;
-    //baghchal = 0;
+    delete baghchal;
+    baghchal = 0;
     delete timer;
     delete ui;
 }
 
-/*BaghChal* BaghChal::getInstance()
+BaghChal* BaghChal::getInstance()
 {
     if( !baghchal )
     {
         baghchal = new BaghChal(0);
     }
     return baghchal;
-}*/
+}
 
 void BaghChal::closeEvent(QCloseEvent *event)
 {
@@ -74,7 +76,7 @@ bool BaghChal::askSaveDialog()
     qMarkLabel.setFrameShape(QFrame::NoFrame);
     qMarkLabel.setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/Help-icon.png")));
 
-    askSave.setText("\n  M�chten Sie den Spielstand zuvor speichern ?\n");
+    askSave.setText(QString::fromUtf8("\n  Möchten Sie den Spielstand zuvor speichern?\n"));
     QPushButton *saveButton = askSave.addButton(tr("Speichern"),QMessageBox::AcceptRole);
     QPushButton *discardButton = askSave.addButton(tr("Verwerfen"),QMessageBox::DestructiveRole);
     QPushButton *cancelButton = askSave.addButton(tr("Abbrechen"), QMessageBox::RejectRole);
@@ -103,7 +105,7 @@ bool BaghChal::askSaveDialog()
 void BaghChal::openNewGame()
 {
     delete game;
-    Game *game = Game::getInstance();
+    Game::getInstance();
     this->setTurnNotification(0);
 
 }
@@ -116,7 +118,6 @@ void BaghChal::openLoadGame()
     if (filePath != "")
     {
         FileIO file(filePath.toStdString());
-        //file.loadGame(*game);
         file.loadGame();
     }
 }
@@ -129,7 +130,6 @@ bool BaghChal::openSaveGame()
     if (fileName != "")
     {
         FileIO file(fileName.toStdString());
-        //file.saveGame(*game);
         file.saveGame();
         return true;
     }
@@ -141,7 +141,7 @@ bool BaghChal::openSaveGame()
 
 void BaghChal::openQuitGame()
 {
-    this->setStatusMsg(tr("Spiel beenden"));
+    this->setStatusMsg(tr("Spiel beenden."));
     if(changed && !askSaveDialog())
     {
         this->clearStatusMsg();
@@ -183,19 +183,24 @@ void BaghChal::setTurnNotification(int turn)
     switch(turn)
     {
     case 0:
-        ui->turnMsg->setText("<font color='White'>Spiel beginnt</font>");
+        ui->turnMsg->setText("<font color='White'>Spiel beginnt.</font>");
+        setStatusMsg(QString::fromUtf8("Neues Spiel beginnt."));
         break;
     case 1:
-        ui->turnMsg->setText("<font color='White'>Spieler 1 ist an der Reihe</font>");
+        ui->turnMsg->setText("<font color='White'>Ziege ist an der Reihe.</font>");
+        setStatusMsg(QString::fromUtf8("Ziege ist an der Reihe."));
         break;
     case 2:
-        ui->turnMsg->setText("<font color='White'>Spieler 2 ist an der Reihe</font>");
+        ui->turnMsg->setText("<font color='White'>Tiger ist an der Reihe.</font>");
+        setStatusMsg(QString::fromUtf8("Tiger ist an der Reihe."));
         break;
     case 3:
-        ui->turnMsg->setText("<font color='White'>Spieler 1 gewinnt</font>");
+        ui->turnMsg->setText("<font color='White'>Ziege gewinnt.</font>");
+        setStatusMsg(QString::fromUtf8("Ziege gewinnt."));
         break;
     case 4:
-        ui->turnMsg->setText("<font color='White'>Spieler 2 gewinnt</font>");
+        ui->turnMsg->setText("<font color='White'>Tiger gewinnt.</font>");
+        setStatusMsg(QString::fromUtf8("Tiger gewinnt."));
         break;
     default:
         return;

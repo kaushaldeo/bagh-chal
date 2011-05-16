@@ -22,6 +22,7 @@ protected:
     
 private:
     void placeGoatInRippedField();
+    //Cell* cell;
     
 signals:
 

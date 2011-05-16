@@ -3,6 +3,9 @@
 
 #include "boxWidget.h"
 #include "avatarWidget.h"
+#include "BaghChal.h"
+#include "../logic/Game.h"
+#include "../logic/Cell.h"
 
 using namespace std;
 
@@ -10,6 +13,9 @@ using namespace std;
 BoxWidget::BoxWidget(QWidget *parent) :
     QWidget(parent)
 {
+    /*Cell* cell = new Cell();
+    Cell (int x, int y, Grid* gridPtr) : status (empty), positionX(x), positionY(y), grid(gridPtr), tigerPtr(0), goatPtr (0) {};
+*/
 }
 
 void BoxWidget::dragEnterEvent(QDragEnterEvent *event)
@@ -73,8 +79,18 @@ void BoxWidget::dropEvent(QDropEvent *event)
         AvatarWidget* avatar = qobject_cast<AvatarWidget*>(event->source());
         if ( avatar )
         {
-            //actualize matrix
-            //check matrix
+
+            if ( avatar->property("goat").toBool() )
+            {
+                BaghChal::getInstance()->setStatusMsg(QString::fromUtf8("Tiger ist an der Reihe."));
+            }
+            else
+            {
+                BaghChal::getInstance()->setStatusMsg(QString::fromUtf8("Ziege ist an der Reihe."));
+            }
+            
+            
+            
             
             //this is a prototype
             placeGoatInRippedField();
@@ -91,10 +107,12 @@ void BoxWidget::dropEvent(QDropEvent *event)
                 //newAvatar->setAttribute(Qt::WA_DeleteOnClose);
                 //this is a little finetuning, could be solved via qt-designer
                 newAvatar->move(QPoint(-3,2));
+                Game::getInstance()->setTurn(tiger);
             }
             else
             {
                 newAvatar->move(QPoint(-1,-1));
+                Game::getInstance()->setTurn(goat);
             }
             newAvatar->show();
             
