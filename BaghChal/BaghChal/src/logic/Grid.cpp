@@ -33,9 +33,9 @@ Grid::~Grid ()
   {
     for (int j=0; j<5; j++)
       delete cells[i][j];
-    delete cells[i];
+    delete [] cells[i];
   }
-  delete cells;
+  delete [] cells;
 }
 
 /**
