@@ -13,13 +13,6 @@
 
 using namespace std;
 
-Cell::~Cell()
-{
-  //delete grid; 
-  //delete tigerPtr; 
-  //delete goatPtr;
-}
-
 /**
 * @fn getStatus()
 * @brief Get Status of Cell
