@@ -85,8 +85,10 @@ void Goat::move(Cell *cell)
 	 */
 
 	cellPtr->removeGoat();
+	cellPtr->setStatus(empty);
 	cellPtr = cell;
 	cellPtr->setGoat(this);
+	cellPtr->setStatus(goat);
 }
 
 

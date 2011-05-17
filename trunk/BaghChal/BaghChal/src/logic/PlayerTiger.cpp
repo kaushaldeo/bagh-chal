@@ -72,6 +72,7 @@ PlayerTiger& PlayerTiger::operator=(const PlayerTiger& src)
 	for(int i = 0; i < 4; ++i)
 	{
 
+		srcTigers[i]->getCell()->setStatus(empty);
 		tigers[i] = new Tiger(srcTigers[i]->getCell());
 	}
 

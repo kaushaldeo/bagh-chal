@@ -64,7 +64,7 @@ Cell* Cell::getNeighbor (Direction direction)
 {
   switch (direction)
   {
-    case rightr: //Right
+    case right: //Right
       if (positionX == 4)
         throw moveEx;
       return grid->getCell(positionX+1, positionY);
@@ -74,7 +74,7 @@ Cell* Cell::getNeighbor (Direction direction)
         throw moveEx;
       return grid->getCell(positionX, positionY+1);
       
-    case leftl: //Left
+    case left: //Left
       if (positionX == 0)
         throw moveEx;
       return grid->getCell(positionX-1, positionY);
@@ -194,7 +194,7 @@ void Cell::removeGoat()
   if (status == tiger)
     throw iOcEx;
   
-  goatPtr->setCell(0);
+  //goatPtr->setCell(0);
   goatPtr = 0;
   status = empty;
 }
@@ -206,7 +206,7 @@ void Cell::removeTiger()
   if (status == goat)
     throw iOcEx;
   
-  tigerPtr->setCell(0);
+  //tigerPtr->setCell(0);
   tigerPtr = 0;
   status = empty;
 }
@@ -223,7 +223,7 @@ void Cell::removeTiger()
  */
 Direction Cell::isNeighbor(Cell* cell)
 {
-  Direction allDirections[8] = {leftl, rightr, below, above, rightAbove, leftAbove, rightBelow, leftBelow};
+  Direction allDirections[8] = {left, right, below, above, rightAbove, leftAbove, rightBelow, leftBelow};
   for (int i=0; i < 8; i++)
   {
     try

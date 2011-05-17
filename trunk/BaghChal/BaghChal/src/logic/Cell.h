@@ -15,6 +15,8 @@
 class Tiger;
 class Goat;
 
+using namespace baghchal;
+
 /**
 * @class Cell
 * @brief Class of the single cell on the playing field
