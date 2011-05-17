@@ -6,9 +6,13 @@
 
 #include "Tiger.h"
 
+using namespace baghchal;
+
 Tiger::Tiger(Cell *cell)
 {
     cellPtr = cell;
+	cell->setTiger(this);
+	cell->setStatus(tiger);
 }
 
 bool Tiger::canMove()
@@ -53,7 +57,7 @@ bool Tiger::canMove()
 
 bool Tiger::canMoveThere(Cell *cell)
 {
-	if(cell->getStatus() == tiger)
+	if(cell->getStatus() != tiger)
 	{
 		return false;
 	}
@@ -107,9 +111,11 @@ int Tiger::move(Cell *cell)
 
 	if(cell->getStatus() == empty)
 	{
-                cellPtr->removeTiger();
+		cellPtr->removeTiger();
+		cellPtr->setStatus(empty);
 		cellPtr = cell;
 		cellPtr->setTiger(this);
+		cellPtr->setStatus(tiger);
 		return 0;
 	}
 	else if(cell->getStatus() == goat)
@@ -128,11 +134,13 @@ int Tiger::move(Cell *cell)
 		Cell *jumpOverCell = cell;
 		cell = cell->getNeighbor(dir);
 		
-                cellPtr->removeTiger();
+		cellPtr->removeTiger();
 		jumpOverCell->getGoat()->setCell(NULL);
 		jumpOverCell->removeGoat();
+		jumpOverCell->setStatus(empty);
 		cellPtr = cell;
 		cellPtr->setTiger(this);
+		cellPtr->setStatus(tiger);
 		return 1;
 	}
 

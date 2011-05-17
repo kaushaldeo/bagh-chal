@@ -46,17 +46,14 @@ PlayerGoat::~PlayerGoat()
 void PlayerGoat::setCell(Cell *cell)
 {
     goats[nextGoat]->setCell(cell);
+	cell->setGoat(goats[nextGoat]);
+	cell->setStatus(goat);
 
     nextGoat++;
 }
 
 bool PlayerGoat::canMove()
 {    
-    if(Game::getInstance()->getTurn() != goat)
-    {
-        return false;
-    }
-    
 	if(nextGoat < 20)
 	{
 		return true;
@@ -84,6 +81,11 @@ bool PlayerGoat::canMoveThere(Cell *src, Cell *dst)
 
 		return true;
 	}
+	else
+	{
+		if(nextGoat < 20)
+			return false;
+	}
 
 	try
 	{
@@ -107,6 +109,7 @@ void PlayerGoat::move(Cell *src, Cell *dst)
 	if(src == NULL)
 	{
 		setCell(dst);
+		return;
 	}
 
 	Goat * thisGoat;
