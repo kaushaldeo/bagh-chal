@@ -23,7 +23,7 @@ void printGrid(Game *game)
 
 int main()
 {
-	Game *myGame = new Game();
+	Game *myGame = Game::getInstance();
 
 	cout << "TESTCASE 1: beginning conditions\n\n";
 
