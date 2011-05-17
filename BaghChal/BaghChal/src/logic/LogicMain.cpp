@@ -1,5 +1,5 @@
 #include "PlayerTiger.h"
-#include "GameTest.h"
+#include "Game.h"
 #include "Grid.h"
 #include "Cell.h"
 #include <iostream>
