@@ -19,6 +19,7 @@ BaghChal::BaghChal(QWidget *parent) :
 
     ui->turnNotification->setVisible(false);
     ui->statusBar->addPermanentWidget(&statusMsg, 1);
+    this->showTurnArrow(1);
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(hideTurnNotification()));
