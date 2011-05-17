@@ -14,6 +14,6 @@ all: $(TARGET)
 $(TARGET): $(OBJECTS)
 	$(GXX) $(FLAGS) $(OBJECTS) -o $(TARGET)
 
-clean:
-	rm $(TARGET) $(OBJECTS)
+#clean:
+#	rm $(TARGET)
 
