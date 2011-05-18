@@ -223,7 +223,7 @@ void Cell::removeTiger()
  */
 Direction Cell::isNeighbor(Cell* cell)
 {
-  Direction allDirections[8] = {left, right, below, above, rightAbove, leftAbove, rightBelow, leftBelow};
+  Direction allDirections[8] = {right, below, left, above, rightAbove, rightBelow, leftBelow, leftAbove};
   for (int i=0; i < 8; i++)
   {
     try
@@ -240,5 +240,37 @@ Direction Cell::isNeighbor(Cell* cell)
   }
   throw InvalidDirectionException();
 }
+  
+/**
+ * @fn isJumpOverNeighbor()
+ * @brief tests, if a cell is a neighboring cell of a cell containing a goat and neighboring this
+ *  cell in the same direction
+ * @returns int - direction of the cell
+ * @param cell - The cell to be tested
+ * @see getNeighbor()
+ * @exception InvalidDirectionException
+ * 
+ * The function uses getNeighbor
+ */
+Direction Cell::isJumpOverNeighbor(Cell* cell)
+{
+  Direction allDirections[8] = {right, below, left, above, rightAbove, rightBelow, leftBelow, leftAbove};
+  for (int i=0; i < 8; i++)
+  {
+    try
+    {
+      Cell* test = getNeighbor(allDirections[i]);
+      if (test->getStatus() == goat && test->getNeighbor(allDirections[i]) == cell)
+		  return allDirections[i];
+      continue;
+    }
+    catch (CanNotMoveException e)
+    {
+      continue;
+    }
+  }
+  throw InvalidDirectionException();
+}
+  
   
   

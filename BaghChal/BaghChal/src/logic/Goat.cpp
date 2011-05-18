@@ -8,7 +8,7 @@ Goat::Goat()
 void Goat::setCell(Cell *cell)
 {
 	if(cell == NULL || cell->getStatus() != 0)
-		throw new CanNotMoveException();
+		throw CanNotMoveException();
 
 	try
 	{

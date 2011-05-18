@@ -57,46 +57,37 @@ bool Tiger::canMove()
 
 bool Tiger::canMoveThere(Cell *cell)
 {
-	if(cell->getStatus() != tiger)
-	{
-		return false;
-	}
-
 	Direction dir;
 
 	try
 	{
 		dir = cellPtr->isNeighbor(cell);
-	}
-	catch(InvalidDirectionException e)
-	{
-		return false;
-	}
 
-	if(cell->getStatus() == empty)
-	{
-		return true;
-	}
-	else if(cell->getStatus() == goat)
-	{
-		Cell *targetCell;
-
-		try
-		{
-			targetCell = cell->getNeighbor(dir);
-		}
-		catch(CanNotMoveException e)
-		{
-			return false;
-		}
-
-		if(targetCell->getStatus() == empty)
+		if(cell->getStatus() == empty)
 		{
 			return true;
 		}
 
 		return false;
 	}
+	catch(InvalidDirectionException e)
+	{
+		try
+		{
+			dir = cellPtr->isJumpOverNeighbor(cell);
+			if(cell->getStatus() == empty)
+			{
+				return true;
+			}
+
+			return false;
+		}
+		catch(InvalidDirectionException e)
+		{
+			return false;
+		}
+	}
+
 
 	return false;
 }
@@ -109,44 +100,48 @@ int Tiger::move(Cell *cell)
 	 * never call without calling canMoveThere first.
 	 */
 
-	if(cell->getStatus() == empty)
-	{
-		cellPtr->removeTiger();
-		cellPtr->setStatus(empty);
-		cellPtr = cell;
-		cellPtr->setTiger(this);
-		cellPtr->setStatus(tiger);
-		return 0;
-	}
-	else if(cell->getStatus() == goat)
-	{
-		Direction dir;
+	Direction dir;
 
+	try
+	{
+		dir = cellPtr->isNeighbor(cell);
+
+		if(cell->getStatus() == empty)
+		{
+			cellPtr->removeTiger();
+			cellPtr->setStatus(empty);
+			cellPtr = cell;
+			cellPtr->setTiger(this);
+			cellPtr->setStatus(tiger);
+			return 0;
+		}
+	}
+	catch(InvalidDirectionException e)
+	{
 		try
 		{
-			dir = cellPtr->isNeighbor(cell);
+			dir = cellPtr->isJumpOverNeighbor(cell);
+
+			Cell *jumpOverCell = cell->getNeighbor(dir);
+			
+			cellPtr->removeTiger();
+			jumpOverCell->getGoat()->setCell(NULL);
+			jumpOverCell->removeGoat();
+			cellPtr = cell;
+			cellPtr->setTiger(this);
+			cellPtr->setStatus(tiger);
+			return 1;
+
 		}
 		catch(InvalidDirectionException e)
 		{
-			throw new CanNotMoveException;
+			throw new CanNotMoveException();
 		}
 
-		Cell *jumpOverCell = cell;
-		cell = cell->getNeighbor(dir);
-		
-		cellPtr->removeTiger();
-		jumpOverCell->getGoat()->setCell(NULL);
-		jumpOverCell->removeGoat();
-		jumpOverCell->setStatus(empty);
-		cellPtr = cell;
-		cellPtr->setTiger(this);
-		cellPtr->setStatus(tiger);
-		return 1;
+
 	}
 
 	throw new CanNotMoveException();
-
-
 }
 
 void Tiger::setCell(Cell *cell)

@@ -39,6 +39,7 @@ class Cell
     void removeGoat ();
     void removeTiger ();
     Direction isNeighbor(Cell*);
+    Direction isJumpOverNeighbor(Cell*);
    
   private:
     Cell ();        // This is private because a default constructor is not necessary and in fact would make no sense at all

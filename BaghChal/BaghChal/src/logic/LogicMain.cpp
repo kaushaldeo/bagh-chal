@@ -75,7 +75,7 @@ int main()
 
 		cout << "Trying to move Tiger from 0, 0 to 2, 2 with Status " << case3GoatGetsEatenNeighborOf_0_0->getStatus() << " (should be 0)\n";
 		cout << "Returned " << myGame->getTiger().canMoveThere(case3_0_0, case3GoatGetsEatenNeighborOf_0_0) << " (should be 1)\n";
-		myGame->getTiger().move(case3_4_0, case3GoatGetsEatenNeighborOf_0_0);
+		myGame->getTiger().move(case3_0_0, case3GoatGetsEatenNeighborOf_0_0);
 
 		printGrid(myGame);
 }
