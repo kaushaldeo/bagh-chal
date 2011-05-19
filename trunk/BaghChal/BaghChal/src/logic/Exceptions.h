@@ -101,11 +101,24 @@ class GoatWonException : public exception
  *
  * The tigers turn is finished and he has eaten 5 goats.
  */
-class TigerWonException : public exception
+/*class TigerWonException : public exception
 {
     virtual const char* what() const throw()
     {
         return "The Tiger has won.";
+    }
+};*/
+
+/**
+ * @brief Is thrown when PlayerTiger eats a Goat.
+ *
+ * The tigers turn eats a goat.
+ */
+class TigerEatGoatException : public exception
+{
+    virtual const char* what() const throw()
+    {
+        return "The Tiger eat a Goat.";
     }
 };
 

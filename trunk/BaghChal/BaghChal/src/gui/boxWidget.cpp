@@ -2,20 +2,26 @@
 #include <iostream>
 
 #include "boxWidget.h"
-#include "avatarWidget.h"
 #include "BaghChal.h"
 #include "../logic/Game.h"
-#include "../logic/Cell.h"
 
 using namespace std;
+using namespace baghchal;
 
 
 BoxWidget::BoxWidget(QWidget *parent) :
     QWidget(parent)
 {
-    /*Cell* cell = new Cell();
-    Cell (int x, int y, Grid* gridPtr) : status (empty), positionX(x), positionY(y), grid(gridPtr), tigerPtr(0), goatPtr (0) {};
-*/
+    this->cell = NULL;
+}
+
+Cell* BoxWidget::getCell()
+{
+    if ( this->cell == NULL )
+    {
+       this->cell = Game::getInstance()->getGrid().getCell( this->property("positionX").toInt(), this->property("positionY").toInt() );
+    }
+    return this->cell;
 }
 
 void BoxWidget::dragEnterEvent(QDragEnterEvent *event)
@@ -70,31 +76,20 @@ void BoxWidget::dragLeaveEvent(QDragLeaveEvent *event)
 
 void BoxWidget::dropEvent(QDropEvent *event)
 {
-
     if (event->mimeData()->hasFormat("application/x-dnditemdata"))
     {
         //delete hover effect
         this->setAutoFillBackground( false);
-
+        
         AvatarWidget* avatar = qobject_cast<AvatarWidget*>(event->source());
         if ( avatar )
-        {
-
-            if ( avatar->property("goat").toBool() )
+        {    
+            if ( !this->handleGameAction( avatar ) )
             {
-                BaghChal::getInstance()->setStatusMsg(QString::fromUtf8("Tiger ist an der Reihe."));
+                event->ignore();
+                return;
             }
-            else
-            {
-                BaghChal::getInstance()->setStatusMsg(QString::fromUtf8("Ziege ist an der Reihe."));
-            }
-            
-            
-            
-            
-            //this is a prototype
-            placeGoatInRippedField();
-            
+                 
             this->setAcceptDrops(0);
             avatar->parentWidget()->setAcceptDrops(1);
          
@@ -104,15 +99,17 @@ void BoxWidget::dropEvent(QDropEvent *event)
             if ( avatar->property("goat").toBool() )
             {
                 newAvatar->setProperty("goat",1);
-                //newAvatar->setAttribute(Qt::WA_DeleteOnClose);
                 //this is a little finetuning, could be solved via qt-designer
                 newAvatar->move(QPoint(-3,2));
-                Game::getInstance()->setTurn(tiger);
+                
+                BaghChal::getInstance()->showTurnArrowAndMessage(tiger);
             }
             else
             {
+                //this is a little finetuning, could be solved via qt-designer
                 newAvatar->move(QPoint(-1,-1));
-                Game::getInstance()->setTurn(goat);
+                
+                BaghChal::getInstance()->showTurnArrowAndMessage(goat);
             }
             newAvatar->show();
             
@@ -126,7 +123,7 @@ void BoxWidget::dropEvent(QDropEvent *event)
             QLabel *newIcon = new QLabel(newAvatar);
             newIcon->setPixmap(pixmap);
             newIcon->move(QPoint(0,0));
-            newIcon->show();     
+            newIcon->show();            
         }
            
         if (event->source() == this)
@@ -146,29 +143,92 @@ void BoxWidget::dropEvent(QDropEvent *event)
     }
 }
 
-void BoxWidget::placeGoatInRippedField()
+bool BoxWidget::handleGameAction( AvatarWidget* avatar )
 {
-    //TODO: replace eatenGoats
-    static int eatenGoats = 0;
+    Cell* dst = this->getCell();
+    Cell* src;
     
-    if ( eatenGoats >= 0 && eatenGoats < 5 )
+    //check if box is in grid
+    QWidget* srcWidget = avatar->parentWidget();
+    if ( srcWidget->property("positionX").isValid() && srcWidget->property("positionY").isValid() )
+    { 
+        BoxWidget* srcBoxWidget = qobject_cast<BoxWidget*>(srcWidget);
+        src = srcBoxWidget->getCell();
+    }
+    else
+    {
+        src = NULL;
+    }
+    
+    if ( avatar->property("goat").toBool() )
+    {
+        if ( !Game::getInstance()->getGoat().canMoveThere(src, dst) )
+        {
+            return false;
+        }
+        
+        try
+        {
+            Game::getInstance()->getGoat().move(src, dst);
+        }
+        catch( CanNotMoveException e )
+        {
+            return false;
+        }
+        catch( GoatWonException e )
+        {
+            BaghChal::getInstance()->setTurnNotification(3);
+        }
+    }
+    else
+    {
+        if ( !Game::getInstance()->getTiger().canMoveThere(src, dst) )
+        {
+            return false;
+        }
+        
+        try
+        {
+            Game::getInstance()->getTiger().move(src, dst);
+        }
+        catch( CanNotMoveException e)
+        {
+            return false;
+        }
+        catch( TigerEatGoatException e)
+        {
+            placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
+        }
+        catch( GameEvenException e)
+        {
+            //Parity!
+            BaghChal::getInstance()->setTurnNotification(5);
+        }
+    }
+    return true;
+}
+
+
+void BoxWidget::placeGoatInRippedField( int eatenGoats )
+{  
+    if ( eatenGoats >= 1 && eatenGoats <= 5 )
     {
         QString rippedId = "";
         switch (eatenGoats)
         {
-        case 0:
+        case 1:
             rippedId = "rippedGoat_00";
             break;
-        case 1:
+        case 2:
             rippedId = "rippedGoat_01";
             break;
-        case 2:
+        case 3:
             rippedId = "rippedGoat_02";
             break;
-        case 3:
+        case 4:
             rippedId = "rippedGoat_03";
             break;
-        case 4:
+        case 5:
             rippedId = "rippedGoat_04";
         default:
             break;
@@ -177,14 +237,15 @@ void BoxWidget::placeGoatInRippedField()
         QWidget *boxParent = this->parentWidget()->parentWidget();
         QWidget *rippedField = boxParent->findChild<QWidget*>(rippedId);
         if ( rippedField )
-        {
-            //TODO: replace eatenGoats
-            eatenGoats++;
-            
+        {            
             QLabel *newIcong = new QLabel( rippedField );
             newIcong->setGeometry(QRect(-3, 1, 41, 41));
             newIcong->setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/spielfigur_ziege.png")));
             newIcong->show();
+        }
+        if ( eatenGoats == 5 )
+        {
+            BaghChal::getInstance()->setTurnNotification(4);
         }
     }
 }
