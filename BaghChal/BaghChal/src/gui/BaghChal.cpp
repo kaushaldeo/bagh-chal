@@ -6,6 +6,10 @@
 #include <iostream>
 #include "../logic/FileIO.h"
 #include "../logic/Game.h"
+#include "../logic/Cell.h"
+
+using namespace baghchal;
+
 
 //----- temp Variable, ob seit dem letzten Speichern gezogen wurde oder nicht
 bool changed = true;
@@ -19,7 +23,8 @@ BaghChal::BaghChal(QWidget *parent) :
 
     ui->turnNotification->setVisible(false);
     ui->statusBar->addPermanentWidget(&statusMsg, 1);
-    this->showTurnArrow(1);
+    this->showTurnArrowAndMessage(goat);
+    setStatusMsg(QString::fromUtf8("Neues Spiel beginnt."));
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(hideTurnNotification()));
@@ -35,7 +40,15 @@ BaghChal::BaghChal(QWidget *parent) :
 
     Game *game = Game::getInstance();
     this->game = game;
-    setStatusMsg(QString::fromUtf8("Neues Spiel beginnt."));
+    
+    //set cells in box
+    /*QList<QWidget *> allBoxWidgets = this->findChildren<BoxWidget *>();
+    QList<QWidget>::iterator box; 
+    for( box=allBoxWidgets.begin(); box!=allBoxWidgets.end(); ++box )
+    {*/
+        /*Cell* cell = Game::getInstance()->getGrid().getCell( box->property("positionX").toInt(), box->property("positionY").toInt() );
+        box->setCell(cell);*/
+    //}
 
 }
 
@@ -188,12 +201,12 @@ void BaghChal::setTurnNotification(int turn)
         setStatusMsg(QString::fromUtf8("Neues Spiel beginnt."));
         break;
     case 1:
-        ui->turnMsg->setText("<font color='White'>Ziege ist an der Reihe.</font>");
-        setStatusMsg(QString::fromUtf8("Ziege ist an der Reihe."));
-        break;
-    case 2:
         ui->turnMsg->setText("<font color='White'>Tiger ist an der Reihe.</font>");
         setStatusMsg(QString::fromUtf8("Tiger ist an der Reihe."));
+        break;
+    case 2:
+        ui->turnMsg->setText("<font color='White'>Ziege ist an der Reihe.</font>");
+        setStatusMsg(QString::fromUtf8("Ziege ist an der Reihe."));
         break;
     case 3:
         ui->turnMsg->setText("<font color='White'>Ziege gewinnt.</font>");
@@ -202,6 +215,10 @@ void BaghChal::setTurnNotification(int turn)
     case 4:
         ui->turnMsg->setText("<font color='White'>Tiger gewinnt.</font>");
         setStatusMsg(QString::fromUtf8("Tiger gewinnt."));
+        break;
+    case 5:
+        ui->turnMsg->setText("<font color='White'>Unentschieden. Keine weitere Züge möglich.</font>");
+        setStatusMsg(QString::fromUtf8("Unentschieden. Keine weitere Züge möglich."));
         break;
     default:
         return;
@@ -217,21 +234,25 @@ void BaghChal::hideTurnNotification()
     ui->turnNotification->setVisible(false);
 }
 
-void BaghChal::showTurnArrow(int turn)
+void BaghChal::showTurnArrowAndMessage(int turn)
 {
     switch(turn)
     {
-    case 0:
+    case empty:
         ui->arrowGoat->hide();
         ui->arrowTiger->hide();
         break;
-    case 1:
-        ui->arrowGoat->show();
-        ui->arrowTiger->hide();
-        break;
-    case 2:
+    case tiger:
         ui->arrowGoat->hide();
         ui->arrowTiger->show();
+        setStatusMsg(QString::fromUtf8("Tiger ist an der Reihe."));
+        Game::getInstance()->setTurn(tiger);
+        break;
+    case goat:
+        ui->arrowGoat->show();
+        ui->arrowTiger->hide();
+        setStatusMsg(QString::fromUtf8("Ziege ist an der Reihe."));
+        Game::getInstance()->setTurn(goat);
         break;
     default:
         break;

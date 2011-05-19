@@ -137,11 +137,7 @@ void PlayerTiger::move(Cell *src, Cell *dst)
 	if(didScore)
 	{
 		score++;
-	}
-
-	if(score == 5)
-	{
-		throw new TigerWonException();
+	    throw new TigerEatGoatException();
 	}
 
 	if(!opponent->canMove())

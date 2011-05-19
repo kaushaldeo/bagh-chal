@@ -18,9 +18,8 @@ class BaghChal : public QMainWindow
 
 public:
     void setTurnNotification(int turn);
-    void setStatusMsg(QString msg);
     void clearStatusMsg();
-    void showTurnArrow(int turn);
+    void showTurnArrowAndMessage(int turn);
     static BaghChal* getInstance();
     ~BaghChal();
 
@@ -35,7 +34,8 @@ private:
     Game* game;
     bool askSaveDialog();
     void closeEvent(QCloseEvent *event);
-
+    void setStatusMsg(QString msg);
+    
 private slots:
     void openNewGame();
     void openLoadGame();

@@ -6,6 +6,7 @@
 #include "../logic/Game.h"
 
 using namespace std;
+using namespace baghchal;
 
 
 AvatarWidget::AvatarWidget(QWidget *parent) :
@@ -21,23 +22,20 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
         return;
     }
     
-    Game* game = Game::getInstance();
-    BaghChal* baghchal = BaghChal::getInstance();
-    
     //avatar can't move now
     if ( this->property("goat").toBool() )
     {
-        if ( !game->getGoat().canMove() )
+        if ( !Game::getInstance()->getGoat().canMove() )
         {
-            baghchal->setTurnNotification(2);
+            BaghChal::getInstance()->setTurnNotification(tiger);
             return;
         }
     }
     else
     {
-        if ( !game->getTiger().canMove() )
+        if ( !Game::getInstance()->getTiger().canMove() )
         {
-            baghchal->setTurnNotification(1);
+            BaghChal::getInstance()->setTurnNotification(goat);
             return;
         }
     }
@@ -57,7 +55,6 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
     drag->setPixmap(pixmap);
     drag->setHotSpot(event->pos() - *p);
     child->hide();
-
     
     if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction)
     {
