@@ -7,6 +7,8 @@
 #include "infoWindow.h"
 #include "QTimer"
 #include "../logic/Game.h"
+#include <set>
+#include "boxWidget.h"
 
 namespace Ui {
     class BaghChal;
@@ -32,9 +34,11 @@ private:
     QLabel statusMsg;
     QTimer *timer;
     Game* game;
+    set<BoxWidget*> boxes;
     bool askSaveDialog();
     void closeEvent(QCloseEvent *event);
     void setStatusMsg(QString msg);
+    bool renderGame();
     
 private slots:
     void openNewGame();

@@ -17,6 +17,8 @@ class BoxWidget : public QWidget
 public:
     explicit BoxWidget(QWidget *parent = 0);
     Cell* getCell();
+    void placeAvatar();
+    void placeGoatInRippedField(int eatenGoats);
     
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
@@ -25,7 +27,6 @@ protected:
     void dragLeaveEvent(QDragLeaveEvent *event);
 
 private:
-    void placeGoatInRippedField(int eatenGoats);
     bool handleGameAction(AvatarWidget* avatar);
     Cell* cell;
 signals:
