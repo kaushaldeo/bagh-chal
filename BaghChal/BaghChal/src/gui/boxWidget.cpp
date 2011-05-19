@@ -249,3 +249,29 @@ void BoxWidget::placeGoatInRippedField( int eatenGoats )
         }
     }
 }
+
+void BoxWidget::placeAvatar()
+{
+    QString name;
+    QPixmap pixmap;
+
+    if ( getCell()->getStatus() == goat )
+    {
+        name = QString::fromUtf8("goat");
+        pixmap = QPixmap(QString::fromUtf8(":/new/Files/icons/spielfigur_ziege.png"));
+    }
+    else if ( getCell()->getStatus() == tiger )
+    {
+        name = QString::fromUtf8("tiger");
+        pixmap = QPixmap(QString::fromUtf8(":/new/Files/icons/spielfigur_tiger.png"));
+    }
+    else
+    {
+        return;
+    }
+
+    QLabel* avatar = new QLabel(this);
+    avatar->setObjectName(name);
+    avatar->setGeometry(QRect(0, 0, 41, 41));
+    avatar->setPixmap(pixmap);
+}

@@ -7,6 +7,7 @@
 #include "../logic/FileIO.h"
 #include "../logic/Game.h"
 #include "../logic/Cell.h"
+#include <iterator>
 
 using namespace baghchal;
 
@@ -40,15 +41,33 @@ BaghChal::BaghChal(QWidget *parent) :
 
     Game *game = Game::getInstance();
     this->game = game;
-    
-    //set cells in box
-    /*QList<QWidget *> allBoxWidgets = this->findChildren<BoxWidget *>();
-    QList<QWidget>::iterator box; 
-    for( box=allBoxWidgets.begin(); box!=allBoxWidgets.end(); ++box )
-    {*/
-        /*Cell* cell = Game::getInstance()->getGrid().getCell( box->property("positionX").toInt(), box->property("positionY").toInt() );
-        box->setCell(cell);*/
-    //}
+
+
+    boxes.insert(ui->box_00);
+    boxes.insert(ui->box_01);
+    boxes.insert(ui->box_02);
+    boxes.insert(ui->box_03);
+    boxes.insert(ui->box_04);
+    boxes.insert(ui->box_10);
+    boxes.insert(ui->box_11);
+    boxes.insert(ui->box_12);
+    boxes.insert(ui->box_13);
+    boxes.insert(ui->box_14);
+    boxes.insert(ui->box_20);
+    boxes.insert(ui->box_21);
+    boxes.insert(ui->box_22);
+    boxes.insert(ui->box_23);
+    boxes.insert(ui->box_24);
+    boxes.insert(ui->box_30);
+    boxes.insert(ui->box_31);
+    boxes.insert(ui->box_32);
+    boxes.insert(ui->box_33);
+    boxes.insert(ui->box_34);
+    boxes.insert(ui->box_40);
+    boxes.insert(ui->box_41);
+    boxes.insert(ui->box_42);
+    boxes.insert(ui->box_43);
+    boxes.insert(ui->box_44);
 
 }
 
@@ -257,4 +276,14 @@ void BaghChal::showTurnArrowAndMessage(int turn)
     default:
         break;
     }
+}
+
+bool BaghChal::renderGame()
+{
+    set<BoxWidget*>::iterator it;
+    for(it=boxes.begin(); it != boxes.end(); ++it)
+    {
+        (*it)->placeAvatar();
+    }
+    (*boxes.begin())->placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
 }

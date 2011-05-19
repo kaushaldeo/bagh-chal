@@ -21,7 +21,7 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
     {
         return;
     }
-    
+
     //avatar can't move now
     if ( this->property("goat").toBool() )
     {
