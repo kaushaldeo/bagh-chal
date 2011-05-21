@@ -22,6 +22,9 @@ BaghChal::BaghChal(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    Game *game = Game::getInstance();
+    this->game = game;
+
     ui->turnNotification->setVisible(false);
     ui->statusBar->addPermanentWidget(&statusMsg, 1);
     this->showTurnArrowAndMessage(goat);
@@ -38,9 +41,6 @@ BaghChal::BaghChal(QWidget *parent) :
 
     connect(ui->actionHelp, SIGNAL(triggered()), this, SLOT(openHelpWindow()));
     connect(ui->actionInfo, SIGNAL(triggered()), this, SLOT(openInfoWindow()));
-
-    Game *game = Game::getInstance();
-    this->game = game;
 
 
     boxes.insert(ui->box_00);

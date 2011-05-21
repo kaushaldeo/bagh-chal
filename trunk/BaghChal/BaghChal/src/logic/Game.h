@@ -23,7 +23,7 @@
 class Game
 {
   public:
-      ~Game () {game = 0;};
+    ~Game () {game = 0;};
     Grid& getGrid();
     PlayerTiger& getTiger();
     PlayerGoat& getGoat();
