@@ -11,6 +11,8 @@
 #include "PlayerTiger.h"
 #include "PlayerGoat.h"
 #include "Enums.h"
+#include <iostream>
+
 
 /**
 * @class Game
@@ -21,7 +23,7 @@
 class Game
 {
   public:
-    ~Game () {};
+      ~Game () {game = 0;};
     Grid& getGrid();
     PlayerTiger& getTiger();
     PlayerGoat& getGoat();

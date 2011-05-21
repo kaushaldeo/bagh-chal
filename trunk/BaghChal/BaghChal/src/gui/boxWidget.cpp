@@ -81,22 +81,21 @@ void BoxWidget::dropEvent(QDropEvent *event)
         //delete hover effect
         this->setAutoFillBackground( false);
         
-        AvatarWidget* avatar = qobject_cast<AvatarWidget*>(event->source());
-        if ( avatar )
+        AvatarWidget* srcAvatar = qobject_cast<AvatarWidget*>(event->source());
+        if ( srcAvatar )
         {    
-            if ( !this->handleGameAction( avatar ) )
+            if ( !this->handleGameAction( srcAvatar ) )
             {
                 event->ignore();
                 return;
             }
                  
-            this->setAcceptDrops(0);
-            avatar->parentWidget()->setAcceptDrops(1);
+            srcAvatar->parentWidget()->setAcceptDrops(1);
          
             AvatarWidget *newAvatar = new AvatarWidget(this);
             newAvatar->setObjectName(event->source()->objectName());
             newAvatar->setGeometry(QRect(0, 0, 51, 51));
-            if ( avatar->property("goat").toBool() )
+            if ( srcAvatar->property("goat").toBool() )
             {
                 newAvatar->setProperty("goat",1);
                 //this is a little finetuning, could be solved via qt-designer
@@ -106,6 +105,7 @@ void BoxWidget::dropEvent(QDropEvent *event)
             }
             else
             {
+                newAvatar->setProperty("goat",0);
                 //this is a little finetuning, could be solved via qt-designer
                 newAvatar->move(QPoint(-1,-1));
                 
@@ -123,7 +123,8 @@ void BoxWidget::dropEvent(QDropEvent *event)
             QLabel *newIcon = new QLabel(newAvatar);
             newIcon->setPixmap(pixmap);
             newIcon->move(QPoint(0,0));
-            newIcon->show();            
+            newIcon->show();
+            this->setAcceptDrops(0);
         }
            
         if (event->source() == this)
@@ -150,13 +151,15 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
     
     //check if box is in grid
     QWidget* srcWidget = avatar->parentWidget();
+    BoxWidget* srcBoxWidget;
     if ( srcWidget->property("positionX").isValid() && srcWidget->property("positionY").isValid() )
     { 
-        BoxWidget* srcBoxWidget = qobject_cast<BoxWidget*>(srcWidget);
+        srcBoxWidget = qobject_cast<BoxWidget*>(srcWidget);
         src = srcBoxWidget->getCell();
     }
     else
     {
+        srcBoxWidget = NULL;
         src = NULL;
     }
     
@@ -179,6 +182,14 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         {
             BaghChal::getInstance()->setTurnNotification(3);
         }
+        catch( UnoccupiedCellException e )
+        {
+            return false;
+        }
+        catch( InvalidOccupantException e )
+        {
+            return false;
+        }
     }
     else
     {
@@ -189,6 +200,8 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         
         try
         {
+            //cout << src->getPosition().first << src->getPosition().second << "\n";
+            //cout << dst->getPosition().first << dst->getPosition().second << "\n";
             Game::getInstance()->getTiger().move(src, dst);
         }
         catch( CanNotMoveException e)
@@ -204,6 +217,18 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
             //Parity!
             BaghChal::getInstance()->setTurnNotification(5);
         }
+        catch( UnoccupiedCellException e )
+        {
+            return false;
+        }
+        catch( InvalidOccupantException e )
+        {
+            return false;
+        }
+    }
+    if ( srcBoxWidget )
+    {
+        srcBoxWidget->setAcceptDrops(1);
     }
     return true;
 }
@@ -253,25 +278,41 @@ void BoxWidget::placeGoatInRippedField( int eatenGoats )
 void BoxWidget::placeAvatar()
 {
     QString name;
+    QString imageName;
     QPixmap pixmap;
 
     if ( getCell()->getStatus() == goat )
     {
         name = QString::fromUtf8("goat");
+        imageName = QString::fromUtf8("goatImage");
         pixmap = QPixmap(QString::fromUtf8(":/new/Files/icons/spielfigur_ziege.png"));
     }
     else if ( getCell()->getStatus() == tiger )
     {
         name = QString::fromUtf8("tiger");
+        imageName = QString::fromUtf8("tigerImage");
         pixmap = QPixmap(QString::fromUtf8(":/new/Files/icons/spielfigur_tiger.png"));
     }
     else
     {
         return;
     }
-
-    QLabel* avatar = new QLabel(this);
+    AvatarWidget* avatar = new AvatarWidget(this);
     avatar->setObjectName(name);
     avatar->setGeometry(QRect(0, 0, 41, 41));
-    avatar->setPixmap(pixmap);
+    if ( getCell()->getStatus() == goat )
+    {
+        avatar->setProperty("goat", QVariant(true));
+    }
+    else
+    {
+        avatar->setProperty("goat", QVariant(false));
+    }
+    avatar->show();
+    QLabel* avatarImage = new QLabel(avatar);
+    avatarImage->setObjectName(name);
+    avatarImage->setGeometry(QRect(0, 0, 41, 41));
+    avatarImage->setPixmap(pixmap);
+    avatarImage->show();
+    this->setAcceptDrops(0);
 }

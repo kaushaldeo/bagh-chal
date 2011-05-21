@@ -9,6 +9,9 @@
 #include "../logic/Game.h"
 #include <set>
 #include "boxWidget.h"
+#include <QDebug> 
+
+
 
 namespace Ui {
     class BaghChal;
@@ -38,7 +41,7 @@ private:
     bool askSaveDialog();
     void closeEvent(QCloseEvent *event);
     void setStatusMsg(QString msg);
-    bool renderGame();
+    void renderGame();
     
 private slots:
     void openNewGame();

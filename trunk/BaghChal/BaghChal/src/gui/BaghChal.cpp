@@ -138,9 +138,10 @@ bool BaghChal::askSaveDialog()
 void BaghChal::openNewGame()
 {
     delete game;
-    Game::getInstance();
+    Game *game = Game::getInstance();
+    this->game = game;
+    this->renderGame();
     this->setTurnNotification(0);
-
 }
 
 void BaghChal::openLoadGame()
@@ -152,6 +153,7 @@ void BaghChal::openLoadGame()
     {
         FileIO file(filePath.toStdString());
         file.loadGame();
+        this->renderGame();
     }
 }
 
@@ -271,19 +273,81 @@ void BaghChal::showTurnArrowAndMessage(int turn)
         ui->arrowGoat->show();
         ui->arrowTiger->hide();
         setStatusMsg(QString::fromUtf8("Ziege ist an der Reihe."));
-        Game::getInstance()->setTurn(goat);
+        game->setTurn(goat);
         break;
     default:
         break;
     }
 }
 
-bool BaghChal::renderGame()
+void BaghChal::renderGame()
 {
+    //reset outer avatars
+    for (int i = 0; i < 20; i++)
+    {
+        QString preString = "";
+        if ( i < 10 )
+        {
+            preString = "0";
+        }
+        QWidget *outerBox = qFindChild<QWidget*>(this, "unusedGoat_" + preString + QString::number(i));
+        if (outerBox)
+        {
+            AvatarWidget *oldAvatar = outerBox->findChild<AvatarWidget*>();
+            if( oldAvatar )
+            {
+                delete oldAvatar;
+            }
+        }
+    }
+    
+    //set avatars outer grid
+    int nextGoats = game->getGoat().getNextGoat();
+    nextGoats = 20 - nextGoats;
+    for (int i = 0; i < nextGoats; i++)
+    {
+        QString preString = "";
+        if ( i < 10 )
+        {
+            preString = "0";
+        }
+        QWidget *outerBox = qFindChild<QWidget*>(this, "unusedGoat_" + preString + QString::number(i));
+        if (outerBox)
+        {
+            AvatarWidget* goat = new AvatarWidget( outerBox );
+            goat->setObjectName(QString::fromUtf8("goat"));
+            goat->setGeometry(QRect(0, 0, 41, 41));
+            goat->setCursor(QCursor(Qt::ArrowCursor));
+            goat->setProperty("goat", QVariant(true));
+            goat->show();
+            QLabel* goatImage = new QLabel(goat);
+            goatImage->setObjectName(QString::fromUtf8("goatImage"));
+            goatImage->setGeometry(QRect(0, 0, 41, 41));
+            goatImage->setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/spielfigur_ziege.png")));
+            goatImage->show();
+        }
+    }
+    
     set<BoxWidget*>::iterator it;
-    for(it=boxes.begin(); it != boxes.end(); ++it)
+    //reset avatars in grid
+    for( it = boxes.begin(); it != boxes.end(); ++it )
+    {
+        foreach(QWidget *widget, (*it)->findChildren<QWidget*>())
+        {
+            widget->close();
+        }
+        (*it)->setAcceptDrops(1);
+    }
+    
+    //set avatars in grid
+    for( it = boxes.begin(); it != boxes.end(); ++it )
     {
         (*it)->placeAvatar();
     }
-    (*boxes.begin())->placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
+    
+    //call a method to place eaten goats
+    (*boxes.begin())->placeGoatInRippedField( game->getTiger().getScore() );
+    
+    //show message
+    this->showTurnArrowAndMessage( game->getTurn() );
 }

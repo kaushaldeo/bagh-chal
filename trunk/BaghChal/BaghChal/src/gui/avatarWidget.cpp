@@ -12,6 +12,7 @@ using namespace baghchal;
 AvatarWidget::AvatarWidget(QWidget *parent) :
     QWidget(parent)
 {
+    //setAttribute(Qt::WA_DeleteOnClose);
 }
 
 void AvatarWidget::mousePressEvent(QMouseEvent *event)
