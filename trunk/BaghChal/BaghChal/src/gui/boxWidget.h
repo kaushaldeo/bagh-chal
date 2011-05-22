@@ -19,7 +19,7 @@ public:
     Cell* getCell();
     void placeAvatar();
     void placeGoatInRippedField(int eatenGoats);
-    
+        Cell* cell;
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent *event);
@@ -28,7 +28,7 @@ protected:
 
 private:
     bool handleGameAction(AvatarWidget* avatar);
-    Cell* cell;
+
 signals:
 
 public slots:

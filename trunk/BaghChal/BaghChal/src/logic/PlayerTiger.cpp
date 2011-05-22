@@ -7,6 +7,8 @@
 #include "PlayerTiger.h"
 #include "Game.h"
 
+#include <iostream>
+
 PlayerTiger::PlayerTiger()
 {
 	//tigers = new Tiger* [4];
@@ -116,7 +118,6 @@ bool PlayerTiger::canMoveThere(Cell *src, Cell *dst)
 	{
 		return false;
 	}
-
 	return thisTiger->canMoveThere(dst);
 }
 
@@ -137,6 +138,7 @@ void PlayerTiger::move(Cell *src, Cell *dst)
 	if(didScore)
 	{
 		score++;
+		std::cout << "score: " << score << '\n';
 	    throw new TigerEatGoatException();
 	}
 

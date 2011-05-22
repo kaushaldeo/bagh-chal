@@ -11,8 +11,6 @@
 #include "Goat.h"
 #include "Tiger.h"
 
-using namespace std;
-
 /**
 * @fn getStatus()
 * @brief Get Status of Cell
@@ -102,7 +100,7 @@ Cell* Cell::getNeighbor (Direction direction)
     case leftAbove: //Left+Up
       if (positionX == 0  || positionY == 0 || !canMoveDiagonally())
         throw moveEx;
-      return grid->getCell(positionX-1,positionY+1);
+      return grid->getCell(positionX-1,positionY-1);
   }
 }
 
@@ -260,8 +258,13 @@ Direction Cell::isJumpOverNeighbor(Cell* cell)
     try
     {
       Cell* test = getNeighbor(allDirections[i]);
-      if (test->getStatus() == goat && test->getNeighbor(allDirections[i]) == cell)
+      if (test)
+      {
+        if (test->getStatus() == goat && test->getNeighbor(allDirections[i]) == cell)
+        {
 		  return allDirections[i];
+		}
+	  }
       continue;
     }
     catch (CanNotMoveException e)

@@ -7,7 +7,7 @@
 #include "infoWindow.h"
 #include "QTimer"
 #include "../logic/Game.h"
-#include <set>
+#include <list>
 #include "boxWidget.h"
 #include <QDebug> 
 
@@ -37,7 +37,7 @@ private:
     QLabel statusMsg;
     QTimer *timer;
     Game* game;
-    set<BoxWidget*> boxes;
+    list<BoxWidget*> boxes;
     bool askSaveDialog();
     void closeEvent(QCloseEvent *event);
     void setStatusMsg(QString msg);
