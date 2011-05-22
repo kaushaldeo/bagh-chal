@@ -162,6 +162,11 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         srcBoxWidget = NULL;
         src = NULL;
     }
+    //if ( src )
+       // cout << src->getPosition().first << src->getPosition().second << "\n";
+    
+       // cout << dst->getPosition().first << dst->getPosition().second << "\n";
+
     
     if ( avatar->property("goat").toBool() )
     {
@@ -174,19 +179,19 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         {
             Game::getInstance()->getGoat().move(src, dst);
         }
-        catch( CanNotMoveException e )
+        catch( CanNotMoveException  )
         {
             return false;
         }
-        catch( GoatWonException e )
+        catch( GoatWonException )
         {
             BaghChal::getInstance()->setTurnNotification(3);
         }
-        catch( UnoccupiedCellException e )
+        catch( UnoccupiedCellException )
         {
             return false;
         }
-        catch( InvalidOccupantException e )
+        catch( InvalidOccupantException )
         {
             return false;
         }
@@ -200,28 +205,27 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         
         try
         {
-            //cout << src->getPosition().first << src->getPosition().second << "\n";
-            //cout << dst->getPosition().first << dst->getPosition().second << "\n";
             Game::getInstance()->getTiger().move(src, dst);
         }
-        catch( CanNotMoveException e)
+        catch( CanNotMoveException)
         {
             return false;
         }
-        catch( TigerEatGoatException e)
+        catch( TigerEatGoatException*)
         {
+            cout << "score: " << Game::getInstance()->getTiger().getScore() << '\n';
             placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
         }
-        catch( GameEvenException e)
+        catch( GameEvenException )
         {
             //Parity!
             BaghChal::getInstance()->setTurnNotification(5);
         }
-        catch( UnoccupiedCellException e )
+        catch( UnoccupiedCellException  )
         {
             return false;
         }
-        catch( InvalidOccupantException e )
+        catch( InvalidOccupantException  )
         {
             return false;
         }

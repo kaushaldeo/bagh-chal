@@ -62,7 +62,6 @@ bool Tiger::canMoveThere(Cell *cell)
 	try
 	{
 		dir = cellPtr->isNeighbor(cell);
-
 		if(cell->getStatus() == empty)
 		{
 			return true;
@@ -101,7 +100,6 @@ int Tiger::move(Cell *cell)
 	 */
 
 	Direction dir;
-
 	try
 	{
 		dir = cellPtr->isNeighbor(cell);
@@ -121,11 +119,9 @@ int Tiger::move(Cell *cell)
 		try
 		{
 			dir = cellPtr->isJumpOverNeighbor(cell);
-
-			Cell *jumpOverCell = cell->getNeighbor(dir);
-			
+			Cell *jumpOverCell = cellPtr->getNeighbor(dir);
 			cellPtr->removeTiger();
-			jumpOverCell->getGoat()->setCell(NULL);
+			jumpOverCell->getGoat()->removeCell();
 			jumpOverCell->removeGoat();
 			cellPtr = cell;
 			cellPtr->setTiger(this);

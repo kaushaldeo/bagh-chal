@@ -28,6 +28,8 @@ public:
 	 */
 	void setCell(Cell *cell);
 
+	void removeCell();
+	
     /*! \brief Gibt aktuelle Zelle zurück
      *
      * blablabla englisch bla

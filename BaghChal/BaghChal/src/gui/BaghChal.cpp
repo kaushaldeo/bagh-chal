@@ -8,6 +8,7 @@
 #include "../logic/Game.h"
 #include "../logic/Cell.h"
 #include <iterator>
+#include <iostream>
 
 using namespace baghchal;
 
@@ -43,31 +44,31 @@ BaghChal::BaghChal(QWidget *parent) :
     connect(ui->actionInfo, SIGNAL(triggered()), this, SLOT(openInfoWindow()));
 
 
-    boxes.insert(ui->box_00);
-    boxes.insert(ui->box_01);
-    boxes.insert(ui->box_02);
-    boxes.insert(ui->box_03);
-    boxes.insert(ui->box_04);
-    boxes.insert(ui->box_10);
-    boxes.insert(ui->box_11);
-    boxes.insert(ui->box_12);
-    boxes.insert(ui->box_13);
-    boxes.insert(ui->box_14);
-    boxes.insert(ui->box_20);
-    boxes.insert(ui->box_21);
-    boxes.insert(ui->box_22);
-    boxes.insert(ui->box_23);
-    boxes.insert(ui->box_24);
-    boxes.insert(ui->box_30);
-    boxes.insert(ui->box_31);
-    boxes.insert(ui->box_32);
-    boxes.insert(ui->box_33);
-    boxes.insert(ui->box_34);
-    boxes.insert(ui->box_40);
-    boxes.insert(ui->box_41);
-    boxes.insert(ui->box_42);
-    boxes.insert(ui->box_43);
-    boxes.insert(ui->box_44);
+    boxes.push_back(ui->box_00);
+    boxes.push_back(ui->box_01);
+    boxes.push_back(ui->box_02);
+    boxes.push_back(ui->box_03);
+    boxes.push_back(ui->box_04);
+    boxes.push_back(ui->box_10);
+    boxes.push_back(ui->box_11);
+    boxes.push_back(ui->box_12);
+    boxes.push_back(ui->box_13);
+    boxes.push_back(ui->box_14);
+    boxes.push_back(ui->box_20);
+    boxes.push_back(ui->box_21);
+    boxes.push_back(ui->box_22);
+    boxes.push_back(ui->box_23);
+    boxes.push_back(ui->box_24);
+    boxes.push_back(ui->box_30);
+    boxes.push_back(ui->box_31);
+    boxes.push_back(ui->box_32);
+    boxes.push_back(ui->box_33);
+    boxes.push_back(ui->box_34);
+    boxes.push_back(ui->box_40);
+    boxes.push_back(ui->box_41);
+    boxes.push_back(ui->box_42);
+    boxes.push_back(ui->box_43);
+    boxes.push_back(ui->box_44);
 
 }
 
@@ -328,7 +329,7 @@ void BaghChal::renderGame()
         }
     }
     
-    set<BoxWidget*>::iterator it;
+    list<BoxWidget*>::iterator it;
     //reset avatars in grid
     for( it = boxes.begin(); it != boxes.end(); ++it )
     {
@@ -342,6 +343,8 @@ void BaghChal::renderGame()
     //set avatars in grid
     for( it = boxes.begin(); it != boxes.end(); ++it )
     {
+        //reset mapping cell to grid
+        (*it)->cell = NULL;
         (*it)->placeAvatar();
     }
     
