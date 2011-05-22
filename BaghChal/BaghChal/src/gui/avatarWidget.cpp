@@ -1,3 +1,10 @@
+/**
+* AvatarWidget class
+* @file AvatarWidget.cpp
+* @brief Implementation for AvatarWidget Class
+* @see AvatarWidget
+* @author Simon Schneeberger
+*/
 #include <QtGui>
 #include <iostream>
 
@@ -8,13 +15,26 @@
 using namespace std;
 using namespace baghchal;
 
-
+/**
+ * @fn AvatarWidget()
+ * @brief Constructor
+ * @param parent - The parent QWidget element
+ * 
+ * Standard Constructor of AvatarWidget.
+ */
 AvatarWidget::AvatarWidget(QWidget *parent) :
     QWidget(parent)
 {
-    //setAttribute(Qt::WA_DeleteOnClose);
 }
 
+/**
+ * @fn mousePressEvent()
+ * @brief The mouse press event from Qt
+ * @param event - QMouseEvent value
+ * 
+ * If a mouse is pressed on an avatar check wether the avatar is moveable or not via the logic layer.
+ * If it is moveable, create a drag object.
+ */
 void AvatarWidget::mousePressEvent(QMouseEvent *event)
 {
     QLabel *child = this->findChild<QLabel *>();
@@ -23,11 +43,12 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
         return;
     }
 
-    //avatar can't move now
+    //check if avatar can move
     if ( this->property("goat").toBool() )
     {
         if ( !Game::getInstance()->getGoat().canMove() )
         {
+            //notify player that he can't move now
             BaghChal::getInstance()->setTurnNotification(tiger);
             return;
         }
@@ -36,11 +57,13 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
     {
         if ( !Game::getInstance()->getTiger().canMove() )
         {
+            //notify player that he can't move now
             BaghChal::getInstance()->setTurnNotification(goat);
             return;
         }
     }
-      
+    
+    //create a new drag object
     QPoint *p = new QPoint(0, 2);
     
     QPixmap pixmap = *child->pixmap();
@@ -59,6 +82,7 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
     
     if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction)
     {
+        event->ignore();
     }
     else
     {  
