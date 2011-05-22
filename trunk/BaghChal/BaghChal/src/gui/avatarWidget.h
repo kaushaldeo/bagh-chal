@@ -1,3 +1,11 @@
+/**
+* AvatarWidget Class
+* @file AvatarWidget.h
+* @brief Headerfile for AvatarWidget Class
+* @see AvatarWidget
+* @author Simon Schneeberger
+*/
+
 #ifndef AVATARWIDGET_H
 #define AVATARWIDGET_H
 
@@ -5,7 +13,12 @@
 
 class QMouseEvent;
 
-
+/**
+* @class AvatarWidget
+* @brief Derived Class from QWidget of an avatar in the game
+* 
+* The AvatarWidget class represents a player avatar goat or tiger
+*/
 class AvatarWidget : public QWidget
 {
     Q_OBJECT

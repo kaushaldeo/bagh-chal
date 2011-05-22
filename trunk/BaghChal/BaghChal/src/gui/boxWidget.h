@@ -1,3 +1,10 @@
+/**
+* BoxWidget Class
+* @file BoxWidget.h
+* @brief Headerfile for BoxWidget Class
+* @see BoxWidget
+* @author Simon Schneeberger
+*/
 #ifndef BOXWIDGET_H
 #define BOXWIDGET_H
 
@@ -10,6 +17,12 @@ class QDropEvent;
 class QDragMoveEvent;
 class QDragLeaveEvent;
 
+/**
+* @class BoxWidget
+* @brief Derived Class from QWidget of a Cell in the playing field
+* 
+* The BoxWidget class represents a single field on the playing field as a derived class from QWidget. The class places an avatar and communicates with the underlying logic layer.
+*/
 class BoxWidget : public QWidget
 {    
     Q_OBJECT
@@ -19,7 +32,7 @@ public:
     Cell* getCell();
     void setCell(Cell *cell);
     void placeAvatar();
-    void placeGoatInRippedField(int eatenGoats);
+    void placeGoatInRippedField(int eatenGoats);  /**< Places an eaten goat in the ripped field */
     
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
@@ -28,7 +41,7 @@ protected:
     void dragLeaveEvent(QDragLeaveEvent *event);
 
 private:
-    bool handleGameAction(AvatarWidget* avatar);
+    bool handleGameAction(AvatarWidget* avatar);   /**< Communicates with the logic layer */
     Cell* cell;
 signals:
 
