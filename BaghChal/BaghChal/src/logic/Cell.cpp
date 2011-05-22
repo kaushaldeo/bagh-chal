@@ -262,9 +262,9 @@ Direction Cell::isJumpOverNeighbor(Cell* cell)
       {
         if (test->getStatus() == goat && test->getNeighbor(allDirections[i]) == cell)
         {
-		  return allDirections[i];
-		}
-	  }
+          return allDirections[i];
+        }
+      }
       continue;
     }
     catch (CanNotMoveException e)

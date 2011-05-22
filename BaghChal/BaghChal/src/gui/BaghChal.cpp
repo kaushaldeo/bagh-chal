@@ -8,7 +8,6 @@
 #include "../logic/Game.h"
 #include "../logic/Cell.h"
 #include <iterator>
-#include <iostream>
 
 using namespace baghchal;
 
