@@ -24,6 +24,11 @@ Cell* BoxWidget::getCell()
     return this->cell;
 }
 
+void BoxWidget::setCell(Cell* cell)
+{
+    this->cell = cell;
+}
+
 void BoxWidget::dragEnterEvent(QDragEnterEvent *event)
 {    
     if (event->mimeData()->hasFormat("application/x-dnditemdata"))
@@ -207,25 +212,26 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         {
             Game::getInstance()->getTiger().move(src, dst);
         }
-        catch( CanNotMoveException)
+        catch( CanNotMoveException* e )
         {
             return false;
         }
-        catch( TigerEatGoatException*)
+        catch( TigerEatGoatException* e )
         {
             cout << "score: " << Game::getInstance()->getTiger().getScore() << '\n';
+            removeGoat(avatar)
             placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
         }
-        catch( GameEvenException )
+        catch( GameEvenException* e )
         {
             //Parity!
             BaghChal::getInstance()->setTurnNotification(5);
         }
-        catch( UnoccupiedCellException  )
+        catch( UnoccupiedCellException* e )
         {
             return false;
         }
-        catch( InvalidOccupantException  )
+        catch( InvalidOccupantException* e )
         {
             return false;
         }

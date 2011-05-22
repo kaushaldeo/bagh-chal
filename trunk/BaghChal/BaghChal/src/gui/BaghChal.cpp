@@ -343,7 +343,7 @@ void BaghChal::renderGame()
     for( it = boxes.begin(); it != boxes.end(); ++it )
     {
         //reset mapping cell to grid
-        (*it)->cell = NULL;
+        (*it)->setCell(NULL);
         (*it)->placeAvatar();
     }
     

@@ -17,6 +17,7 @@ class BoxWidget : public QWidget
 public:
     explicit BoxWidget(QWidget *parent = 0);
     Cell* getCell();
+    void setCell(Cell *cell);
     void placeAvatar();
     void placeGoatInRippedField(int eatenGoats);
     
