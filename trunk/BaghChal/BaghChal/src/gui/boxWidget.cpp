@@ -184,19 +184,19 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         {
             Game::getInstance()->getGoat().move(src, dst);
         }
-        catch( CanNotMoveException  )
+        catch( CanNotMoveException* e )
         {
             return false;
         }
-        catch( GoatWonException )
+        catch( GoatWonException* e )
         {
             BaghChal::getInstance()->setTurnNotification(3);
         }
-        catch( UnoccupiedCellException )
+        catch( UnoccupiedCellException* e )
         {
             return false;
         }
-        catch( InvalidOccupantException )
+        catch( InvalidOccupantException* e )
         {
             return false;
         }
