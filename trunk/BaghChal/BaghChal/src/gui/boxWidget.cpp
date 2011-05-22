@@ -219,7 +219,7 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         catch( TigerEatGoatException* e )
         {
             cout << "score: " << Game::getInstance()->getTiger().getScore() << '\n';
-            removeGoat(avatar)
+            //removeGoat(avatar);
             placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
         }
         catch( GameEvenException* e )
