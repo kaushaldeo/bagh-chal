@@ -133,6 +133,11 @@ bool BaghChal::askSaveDialog()
     {
         return false;
     }
+
+
+
+
+
 }
 
 void BaghChal::openNewGame()
@@ -220,14 +225,17 @@ void BaghChal::setTurnNotification(int turn)
     case 0:
         ui->turnMsg->setText("<font color='White'>Spiel beginnt.</font>");
         setStatusMsg(QString::fromUtf8("Neues Spiel beginnt."));
+        timer->start(3000);
         break;
     case 1:
         ui->turnMsg->setText("<font color='White'>Tiger ist an der Reihe.</font>");
         setStatusMsg(QString::fromUtf8("Tiger ist an der Reihe."));
+        timer->start(3000);
         break;
     case 2:
         ui->turnMsg->setText("<font color='White'>Ziege ist an der Reihe.</font>");
         setStatusMsg(QString::fromUtf8("Ziege ist an der Reihe."));
+        timer->start(3000);
         break;
     case 3:
         ui->turnMsg->setText("<font color='White'>Ziege gewinnt.</font>");
@@ -246,7 +254,7 @@ void BaghChal::setTurnNotification(int turn)
     }
 
     ui->turnNotification->setVisible(true);
-    timer->start(3000);
+
 }
 
 void BaghChal::hideTurnNotification()
