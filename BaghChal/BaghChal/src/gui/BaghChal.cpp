@@ -254,7 +254,6 @@ void BaghChal::setTurnNotification(int turn)
     }
 
     ui->turnNotification->setVisible(true);
-
 }
 
 void BaghChal::hideTurnNotification()
@@ -304,7 +303,7 @@ void BaghChal::renderGame()
             AvatarWidget *oldAvatar = outerBox->findChild<AvatarWidget*>();
             if( oldAvatar )
             {
-                delete oldAvatar;
+                oldAvatar->close();
             }
         }
     }
@@ -322,16 +321,21 @@ void BaghChal::renderGame()
         QWidget *outerBox = qFindChild<QWidget*>(this, "unusedGoat_" + preString + QString::number(i));
         if (outerBox)
         {
+            //create new goat widget as AvatarWidget
             AvatarWidget* goat = new AvatarWidget( outerBox );
             goat->setObjectName(QString::fromUtf8("goat"));
-            goat->setGeometry(QRect(0, 0, 41, 41));
+            goat->setGeometry(QRect(0, 0, 51, 51));
             goat->setCursor(QCursor(Qt::ArrowCursor));
             goat->setProperty("goat", QVariant(true));
-            goat->show();
+            
+            //create goat image as QLabel
             QLabel* goatImage = new QLabel(goat);
             goatImage->setObjectName(QString::fromUtf8("goatImage"));
             goatImage->setGeometry(QRect(0, 0, 41, 41));
             goatImage->setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/spielfigur_ziege.png")));
+            
+            //show goat
+            goat->show();
             goatImage->show();
         }
     }
@@ -355,7 +359,7 @@ void BaghChal::renderGame()
         (*it)->placeAvatar();
     }
     
-    //call a method to place eaten goats
+    //call a method to place or reset eaten goats
     (*boxes.begin())->placeGoatInRippedField( game->getTiger().getScore() );
     
     //show message
