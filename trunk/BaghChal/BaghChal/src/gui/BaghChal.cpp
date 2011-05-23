@@ -258,8 +258,11 @@ void BaghChal::setTurnNotification(int turn)
 
 void BaghChal::hideTurnNotification()
 {
-    timer->stop();
-    ui->turnNotification->setVisible(false);
+    if(this->game->getTurn()!= 0)
+    {
+        timer->stop();
+        ui->turnNotification->setVisible(false);
+    }
 }
 
 void BaghChal::showTurnArrowAndMessage(int turn)
