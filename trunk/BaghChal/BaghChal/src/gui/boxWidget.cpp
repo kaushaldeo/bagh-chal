@@ -278,11 +278,16 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         }
         catch( TigerEatGoatException* e )
         {
-            cout << "score: " << Game::getInstance()->getTiger().getScore() << '\n';
-            //removeGoat(avatar);
-            
+            //removeGoatFromBox(e.positionX, e.positionY);           
             //tiger has eaten a goat, place them in the rippedfield
             placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
+        }
+        catch( TigerWonException* e)
+        {
+            //removeGoatFromBox(e.positionX, e.positionY);      
+            placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
+            //notify tiger player if he has won
+            BaghChal::getInstance()->setTurnNotification(4);
         }
         catch( GameEvenException* e )
         {
@@ -303,6 +308,30 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
 }
 
 /**
+ * @fn removeGoatFromBox()
+ * @brief Removes an avatar from a box
+ * @param x - int value as x coordinate
+ * @param y - int value as y coordinate
+ * @see handleGameAction()
+ * 
+ * Removes a goat from a box. This is called if a goat is eaten by a tiger.
+ */
+/*void BoxWidget::removeGoatFromBox(int x, int y)
+{
+    QWidget *boxParent = this->parentWidget();
+    QWidget *widget = qFindChild<QWidget*>(boxParent, "boxWidget_"+QString::number(y)+QString::number(x));
+    if ( widget )
+    {
+        //delete AvatarWidget and QLabel which is derived from QWidget
+        foreach(QWidget *child, widget->findChildren<QWidget*>())
+        {
+            child->close();
+        }
+        widget->setAcceptDrops(1);
+    }
+}*/
+
+/**
  * @fn placeGoatInRippedField()
  * @brief Places an eaten goat in the ripped field
  * @param eatenGoats - int value
@@ -310,36 +339,16 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
  * @see renderGame()
  * 
  * Places an eaten goat in one of the ripped field out of the grid. Notify the tiger player if he has eaten 5 goats.
+ * If score is 0 the method deletes all goat images, this is especially used for loading a new game.
  */
-void BoxWidget::placeGoatInRippedField( int eatenGoats )
+void BoxWidget::placeGoatInRippedField( int score )
 {  
-    if ( eatenGoats >= 1 && eatenGoats <= 5 )
+    QWidget *boxParent = this->parentWidget()->parentWidget();
+    if ( score >= 1 && score <= 5 )
     {
-        //retrieve the correct box
-        QString rippedId = "";
-        switch (eatenGoats)
-        {
-        case 1:
-            rippedId = "rippedGoat_00";
-            break;
-        case 2:
-            rippedId = "rippedGoat_01";
-            break;
-        case 3:
-            rippedId = "rippedGoat_02";
-            break;
-        case 4:
-            rippedId = "rippedGoat_03";
-            break;
-        case 5:
-            rippedId = "rippedGoat_04";
-        default:
-            break;
-        }
-        
         //find the box element
-        QWidget *boxParent = this->parentWidget()->parentWidget();
-        QWidget *rippedField = boxParent->findChild<QWidget*>(rippedId);
+        score--;
+        QWidget *rippedField = qFindChild<QWidget*>(boxParent, "rippedGoat_0"+QString::number(score));
         if ( rippedField )
         {   
             //place a goat image in this box
@@ -348,11 +357,18 @@ void BoxWidget::placeGoatInRippedField( int eatenGoats )
             newIcong->setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/spielfigur_ziege.png")));
             newIcong->show();
         }
-        
-        //notify tiger player if he has won
-        if ( eatenGoats == 5 )
+    }
+    //delete content of all ripped boxes
+    else if ( score == 0 )
+    {
+        for ( int i = 0; i < 5; ++i )
         {
-            BaghChal::getInstance()->setTurnNotification(4);
+            QWidget *rippedField = qFindChild<QWidget*>(boxParent, "rippedGoat_0"+QString::number(i));
+            QLabel *label = rippedField->findChild<QLabel*>();
+            if( label )
+            {
+                delete label;
+            }
         }
     }
 }

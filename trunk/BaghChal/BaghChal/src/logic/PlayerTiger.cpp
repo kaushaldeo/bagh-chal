@@ -133,13 +133,18 @@ void PlayerTiger::move(Cell *src, Cell *dst)
 		throw new CanNotMoveException();
 	}
 
-    int didScore = thisTiger->move(dst);
-
-	if(didScore)
+	if( thisTiger->move(dst) )
 	{
 		score++;
-		std::cout << "score: " << score << '\n';
-	    throw new TigerEatGoatException();
+		cout << " score: " << score << '\n';
+	    if( score > 0 && score < 5 )
+	    {
+	        throw new TigerEatGoatException();
+	    }
+	    else if( score == 5 )
+	    {
+	        throw new TigerWonException();
+	    }
 	}
 
 	if(!opponent->canMove())

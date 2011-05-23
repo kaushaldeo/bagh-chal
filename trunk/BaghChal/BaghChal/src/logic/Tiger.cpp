@@ -127,7 +127,6 @@ int Tiger::move(Cell *cell)
 			cellPtr->setTiger(this);
 			cellPtr->setStatus(tiger);
 			return 1;
-
 		}
 		catch(InvalidDirectionException e)
 		{
