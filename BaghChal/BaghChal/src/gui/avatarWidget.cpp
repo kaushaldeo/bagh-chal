@@ -46,7 +46,7 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
     //check if avatar can move
     if ( this->property("goat").toBool() )
     {
-        if ( !Game::getInstance()->getGoat().canMove() )
+        if ( Game::getInstance()->getTurn() == tiger )
         {
             //notify player that he can't move now
             BaghChal::getInstance()->setTurnNotification(tiger);
@@ -55,7 +55,7 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
     }
     else
     {
-        if ( !Game::getInstance()->getTiger().canMove() )
+        if ( Game::getInstance()->getTurn() == goat )
         {
             //notify player that he can't move now
             BaghChal::getInstance()->setTurnNotification(goat);
