@@ -62,42 +62,42 @@ Cell* Cell::getNeighbor (Direction direction)
 {
   switch (direction)
   {
-    case right: //Right
+    case baghchal::right: //Right
       if (positionX == 4)
         throw moveEx;
       return grid->getCell(positionX+1, positionY);
     
-    case below: //Down
+    case baghchal::below: //Down
       if (positionY == 4)
         throw moveEx;
       return grid->getCell(positionX, positionY+1);
       
-    case left: //Left
+    case baghchal::left: //Left
       if (positionX == 0)
         throw moveEx;
       return grid->getCell(positionX-1, positionY);
       
-    case above: //Up
+    case baghchal::above: //Up
       if (positionY == 0)
         throw moveEx;
       return grid->getCell(positionX, positionY-1);
         
-    case rightAbove: //Right+Up
+    case baghchal::rightAbove: //Right+Up
       if (positionX == 4  || positionY == 0 || !canMoveDiagonally())
         throw moveEx;
       return grid->getCell(positionX+1,positionY-1);
       
-    case rightBelow: //Right+Down
+    case baghchal::rightBelow: //Right+Down
       if (positionX == 4  || positionY == 4 || !canMoveDiagonally())
         throw moveEx;
       return grid->getCell(positionX+1,positionY+1);      
       
-    case leftBelow: //Left+Down
+    case baghchal::leftBelow: //Left+Down
       if (positionX == 0  || positionY == 4 || !canMoveDiagonally())
         throw moveEx;
       return grid->getCell(positionX-1,positionY+1);
       
-    case leftAbove: //Left+Up
+    case baghchal::leftAbove: //Left+Up
       if (positionX == 0  || positionY == 0 || !canMoveDiagonally())
         throw moveEx;
       return grid->getCell(positionX-1,positionY-1);
@@ -221,7 +221,7 @@ void Cell::removeTiger()
  */
 Direction Cell::isNeighbor(Cell* cell)
 {
-  Direction allDirections[8] = {right, below, left, above, rightAbove, rightBelow, leftBelow, leftAbove};
+  Direction allDirections[8] = {baghchal::right, baghchal::below, baghchal::left, baghchal::above, baghchal::rightAbove, baghchal::rightBelow, baghchal::leftBelow, baghchal::leftAbove};
   for (int i=0; i < 8; i++)
   {
     try
@@ -252,7 +252,7 @@ Direction Cell::isNeighbor(Cell* cell)
  */
 Direction Cell::isJumpOverNeighbor(Cell* cell)
 {
-  Direction allDirections[8] = {right, below, left, above, rightAbove, rightBelow, leftBelow, leftAbove};
+  Direction allDirections[8] = {baghchal::right, baghchal::below, baghchal::left, baghchal::above, baghchal::rightAbove, baghchal::rightBelow, baghchal::leftBelow, baghchal::leftAbove};
   for (int i=0; i < 8; i++)
   {
     try

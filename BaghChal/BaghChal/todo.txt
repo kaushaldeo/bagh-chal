@@ -22,6 +22,21 @@ xGoat darf nur reguläre Züge machen, wenn alle Ziegen gesetzt sind
 xStatus der Startzellen des Tigers auf tiger setzen
 
 
+24.05. Besprechung:
+
+*Steffen: LastEatenGoat in Game implementieren und int Tiger::move aktualisieren
+*Steffen: Bug: Score = 50
+*Julian: Score zurücksetzen bei neuem spiel
+xSteffen: Turn variable nach move Setzen
+*Julian: speichern überarbeiten, siehe mail
+
+nice to have:
+
+*exceptions meldungen auf deutsch
+*Gegenseitige Abhängigkeit von Tiger/Goat und Cell auflösen
+
+
+
 ToDo Liste GUI
 * Pfeil/Dreick
 * Statusleiste aktualisieren
