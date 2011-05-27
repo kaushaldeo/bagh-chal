@@ -7,18 +7,6 @@ Goat::Goat()
 
 void Goat::setCell(Cell *cell)
 {
-	if(cell == NULL || cell->getStatus() != 0)
-		throw CanNotMoveException();
-
-	try
-	{
-		cell->setStatus((CellStatus) 0);
-	}
-	catch(InvalidStateException e)
-	{
-		throw e;
-	}
-
 	cellPtr = cell;
 }
 

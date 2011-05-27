@@ -1,10 +1,13 @@
 #ifndef TIGER_H
 #define TIGER_H
 
+//#include "Game.h"
 #include "Cell.h"
 #include "Goat.h"
 #include "Exceptions.h"
 #include "Enums.h"
+
+class Game;
 
 /*! \file Tiger.h
  *  \brief Enthält Klasse, die die Tiger repräsentiert.

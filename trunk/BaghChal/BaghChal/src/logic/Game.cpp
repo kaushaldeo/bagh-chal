@@ -65,3 +65,25 @@ PlayerGoat& Game::getGoat()
 {
   return goatP;
 }
+/**
+ * @fn Game()
+ * @brief Default-constructor for class Game
+ * 
+ * Constructs a PlayerTiger, PlayerGoat, as well as the grid
+ */
+std::pair<int, int> Game::getLastEatenGoatCell()
+{
+	return lastEatenGoat;
+}
+
+
+/**
+ * @fn Game()
+ * @brief Default-constructor for class Game
+ * 
+ * Constructs a PlayerTiger, PlayerGoat, as well as the grid
+ */
+void Game::setLastEatenGoatCell(std::pair<int, int> coordinates)
+{
+	lastEatenGoat = coordinates;
+}

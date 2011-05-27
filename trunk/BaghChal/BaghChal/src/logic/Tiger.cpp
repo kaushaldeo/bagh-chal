@@ -123,6 +123,7 @@ int Tiger::move(Cell *cell)
 			cellPtr->removeTiger();
 			jumpOverCell->getGoat()->removeCell();
 			jumpOverCell->removeGoat();
+			//Game::getInstance()->setLastEatenGoatCell(jumpOverCell->getPosition());
 			cellPtr = cell;
 			cellPtr->setTiger(this);
 			cellPtr->setStatus(tiger);
