@@ -10,14 +10,13 @@
 #define FILEIO_H
 #include "Game.h"
 #include "Enums.h"
-#include<fstream>
 #include<string>
 
 class FileIO
 {
   public:
-    FileIO () : fileStream("~/bagh-chal-save") {};
-    FileIO (std::string filename) : fileStream(filename.c_str()) {};
+    FileIO () : path("bagh-chal-save.txt") {};
+    FileIO (std::string filename) : path(filename) {};
     ~FileIO () {};
     void saveGame();
     void loadGame();
@@ -25,6 +24,7 @@ class FileIO
     CellStatus convertFromInt (int);
   
   private:
-    std::fstream fileStream; /**< File Stream for I/O */
+    std::string path;
+
 };
 #endif

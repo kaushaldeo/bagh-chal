@@ -135,4 +135,12 @@ class GameEvenException : public exception
     }
 };
 
+class InvalidInputFileException : public exception
+{
+  virtual const char* what() const throw()
+  {
+    return "Ungültiges Savegame";
+  }
+};
+
 #endif

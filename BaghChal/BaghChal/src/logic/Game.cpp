@@ -65,6 +65,19 @@ PlayerGoat& Game::getGoat()
 {
   return goatP;
 }
+
+
+void Game::startNewGame()
+{
+  grid = Grid();
+  Cell* tigerCells[] = {grid.getCell(0,0), grid.getCell(0,4), grid.getCell(4,4), grid.getCell(4,0)};
+  goatP = PlayerGoat();
+  tigerP = PlayerTiger(tigerCells, &goatP);
+  goatP.setPlayerTiger (&tigerP);
+  changed = true;
+}
+  
+
 /**
  * @fn Game()
  * @brief Default-constructor for class Game
@@ -87,3 +100,4 @@ void Game::setLastEatenGoatCell(std::pair<int, int> coordinates)
 {
 	lastEatenGoat = coordinates;
 }
+
