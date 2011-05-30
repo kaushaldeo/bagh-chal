@@ -2,6 +2,8 @@
 #include "Game.h"
 #include "Grid.h"
 #include "Cell.h"
+#include "FileIO.h"
+// #include "Exception.h"
 #include <iostream>
 
 using namespace std;
@@ -38,7 +40,11 @@ int main()
 
 		printGrid(myGame);
 
-
+    cout << "File I/O Test: Saving game:" << endl;
+         FileIO io ("/home/htwg/Dokumente/test.txt");
+         io.saveGame();
+         cout << "Game saved." << endl;
+        
 	cout << "\nTESTCASE 2: setting goats\n\n";
 
 		Cell *case2EmptyCell = myGame->getGrid().getCell(1, 1);
@@ -73,10 +79,24 @@ int main()
 		cout << "Trying to move Tiger from 0, 0 to 1, 1 with Status " << case3GoatNeighborOf_0_0->getStatus() << " (should be 2)\n";
 		cout << "Returned " << myGame->getTiger().canMoveThere(case3_0_0, case3GoatNeighborOf_0_0) << " (should be 0)\n";
 
-		cout << "Trying to move Tiger from 0, 0 to 2, 2 with Status " << case3GoatGetsEatenNeighborOf_0_0->getStatus() << " (should be 0)\n";
-		cout << "Returned " << myGame->getTiger().canMoveThere(case3_0_0, case3GoatGetsEatenNeighborOf_0_0) << " (should be 1)\n";
-		myGame->getTiger().move(case3_0_0, case3GoatGetsEatenNeighborOf_0_0);
+        try
+        {
+          cout << "Trying to move Tiger from 0, 0 to 2, 2 with Status " << case3GoatGetsEatenNeighborOf_0_0->getStatus() << " (should be 0)\n";
+          cout << "Returned " << myGame->getTiger().canMoveThere(case3_0_0, case3GoatGetsEatenNeighborOf_0_0) << " (should be 1)\n";
+          myGame->getTiger().move(case3_0_0, case3GoatGetsEatenNeighborOf_0_0);
+        }
+        catch (TigerEatGoatException* e)
+        {
+          cout << "Ziege gefressen" << endl;
+        }
 
 		printGrid(myGame);
+    
+    cout << "File I/O Test: Loading game" << endl;
+        io.loadGame();
+        cout << "Game loaded.";
+        printGrid(myGame);
+        
+        
 }
 
