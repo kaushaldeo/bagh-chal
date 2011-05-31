@@ -12,7 +12,7 @@
  * 
  * Constructs a PlayerTiger, PlayerGoat, as well as the grid
  */
-Game::Game () : grid(), goatP(), changed(true), turn(goat), lastEatenGoat(-1,-1)
+Game::Game () : grid(), goatP(), changed(true), turn(goat), lastEatenGoatCell(NULL)
 {
   Cell* tigerCells[] = {grid.getCell(0,0), grid.getCell(0,4), grid.getCell(4,4), grid.getCell(4,0)};
   tigerP = PlayerTiger (tigerCells, &goatP);
@@ -80,9 +80,9 @@ void Game::startNewGame()
  * 
  * Constructs a PlayerTiger, PlayerGoat, as well as the grid
  */
-std::pair<int, int> Game::getLastEatenGoatCell()
+Cell* Game::getLastEatenGoatCell()
 {
-	return lastEatenGoat;
+	return lastEatenGoatCell;
 }
 
 
@@ -92,8 +92,8 @@ std::pair<int, int> Game::getLastEatenGoatCell()
  * 
  * Constructs a PlayerTiger, PlayerGoat, as well as the grid
  */
-void Game::setLastEatenGoatCell(std::pair<int, int> coordinates)
+void Game::setLastEatenGoatCell(Cell* cell)
 {
-	lastEatenGoat = coordinates;
+	this->lastEatenGoatCell = cell;
 }
 

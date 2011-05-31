@@ -5,6 +5,7 @@
  */
 
 #include "Tiger.h"
+#include "Game.h"
 
 using namespace baghchal;
 
@@ -123,7 +124,7 @@ int Tiger::move(Cell *cell)
 			cellPtr->removeTiger();
 			jumpOverCell->getGoat()->removeCell();
 			jumpOverCell->removeGoat();
-			//Game::getInstance()->setLastEatenGoatCell(jumpOverCell->getPosition());
+			Game::getInstance()->setLastEatenGoatCell(jumpOverCell);
 			cellPtr = cell;
 			cellPtr->setTiger(this);
 			cellPtr->setStatus(tiger);
