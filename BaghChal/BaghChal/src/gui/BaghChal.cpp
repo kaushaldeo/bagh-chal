@@ -282,7 +282,7 @@ void BaghChal::showTurnArrowAndMessage(int turn)
         ui->arrowGoat->show();
         ui->arrowTiger->hide();
         this->showMessage(OnlyStatusBar,QString::fromUtf8("Ziege ist an der Reihe."));
-        game->setTurn(goat);
+     //   game->setTurn(goat);
         break;
     default:
         break;
