@@ -283,15 +283,18 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         catch( TigerEatGoatException* e )
         {
             //remove goat from the box
-            removeGoatFromBox( Game::getInstance()->getLastEatenGoatCell().first, Game::getInstance()->getLastEatenGoatCell().second );           
+            removeGoatFromBox( Game::getInstance()->getLastEatenGoatCell()->getPosition().first, Game::getInstance()->getLastEatenGoatCell()->getPosition().second );           
+            
             //tiger has eaten a goat, place them in the rippedfield
             placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
+            
             BaghChal::getInstance()->showMessage(OnlyStatusBar, QString::fromUtf8(e->what()) );
         }
         catch( TigerWonException* e)
         {
             //removeGoatFromBox(e.positionX, e.positionY);      
             placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
+            
             //notify tiger player if he has won
             BaghChal::getInstance()->showMessage(NotificationWithoutTimer, QString::fromUtf8(e->what()) );
         }
@@ -327,7 +330,7 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
 void BoxWidget::removeGoatFromBox(int x, int y)
 {
     QWidget *boxParent = this->parentWidget();
-    QWidget *widget = qFindChild<QWidget*>(boxParent, "boxWidget_"+QString::number(y)+QString::number(x));
+    QWidget *widget = qFindChild<QWidget*>(boxParent, "box_"+QString::number(y)+QString::number(x));
     if ( widget )
     {
         //delete AvatarWidget and QLabel which is derived from QWidget

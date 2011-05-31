@@ -34,8 +34,8 @@ class Game
     static Game* getInstance();
     static void startNewGame();
     
-	std::pair<int, int> getLastEatenGoatCell();
-	void setLastEatenGoatCell(std::pair<int, int>);
+	Cell* getLastEatenGoatCell();
+	void setLastEatenGoatCell(Cell* cell);
 
   private:
     Game();
@@ -45,7 +45,7 @@ class Game
     PlayerGoat goatP;		/**< Player, who controls the goats */
     bool changed;           /**< Has the game changed since the last save/load */
     CellStatus turn;        /**< Whos turn is it? 0 - no one, 1 tiger, 2 goat */
-	std::pair<int, int> lastEatenGoat; /**< Coordinats of the cell containing the goat that was recently eaten */
+	Cell* lastEatenGoatCell; /**< The cell containing the goat that was recently eaten */
 };
 
 #endif
