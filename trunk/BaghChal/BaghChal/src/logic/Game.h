@@ -32,7 +32,7 @@ class Game
     CellStatus getTurn ();
     void setTurn (CellStatus);
     static Game* getInstance();
-    void startNewGame();
+    static void startNewGame();
     
 	std::pair<int, int> getLastEatenGoatCell();
 	void setLastEatenGoatCell(std::pair<int, int>);
