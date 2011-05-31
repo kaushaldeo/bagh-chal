@@ -80,6 +80,8 @@ PlayerTiger& PlayerTiger::operator=(const PlayerTiger& src)
 
 	opponent = src.opponent;
 
+        score = src.score;
+
 	return *this;
 }
 
@@ -139,13 +141,14 @@ void PlayerTiger::move(Cell *src, Cell *dst)
 		cout << " score: " << score << '\n';
 	    if( score > 0 && score < 5 )
 	    {
-			Game::getInstance()->setTurn(goat);
+                Game::getInstance()->setTurn(goat);
 	        throw new TigerEatGoatException();
 	    }
 	    else if( score == 5 )
 	    {
-			Game::getInstance()->setTurn(empty);
+                Game::getInstance()->setTurn(empty);
 	        throw new TigerWonException();
+                return;
 	    }
 	}
 
@@ -153,6 +156,7 @@ void PlayerTiger::move(Cell *src, Cell *dst)
 	{
 		Game::getInstance()->setTurn(empty);
 		throw new GameEvenException();
+                return;
 	}
 
 	Game::getInstance()->setTurn(goat);

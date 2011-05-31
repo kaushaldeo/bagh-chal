@@ -129,6 +129,7 @@ void PlayerGoat::move(Cell *src, Cell *dst)
 	{
 		Game::getInstance()->setTurn(empty);
 		throw new GoatWonException();
+                return;
 	}
 
 	Game::getInstance()->setTurn(tiger);

@@ -256,6 +256,7 @@ void BaghChal::showMessage(int caseNumber, QString msg)
 
 void BaghChal::hideTurnNotification()
 {
+    std::cout << "Turn: " << this->game->getTurn();
     if(this->game->getTurn()!= 0)
     {
         timer->stop();
