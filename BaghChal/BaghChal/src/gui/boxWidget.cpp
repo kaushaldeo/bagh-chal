@@ -242,19 +242,22 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         }
         catch( CanNotMoveException* e )
         {
+            BaghChal::getInstance()->showMessage(OnlyStatusBar, QString::fromUtf8(e->what()) );
             return false;
         }
         catch( GoatWonException* e )
         {
             //goat has won, notify the goat player
-            BaghChal::getInstance()->setTurnNotification(3);
+            BaghChal::getInstance()->showMessage(NotificationWithoutTimer, QString::fromUtf8(e->what()) );
         }
         catch( UnoccupiedCellException* e )
         {
+            BaghChal::getInstance()->showMessage(OnlyStatusBar, QString::fromUtf8(e->what()) );
             return false;
         }
         catch( InvalidOccupantException* e )
         {
+            BaghChal::getInstance()->showMessage(OnlyStatusBar, QString::fromUtf8(e->what()) );
             return false;
         }
     }
@@ -274,32 +277,37 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         }
         catch( CanNotMoveException* e )
         {
+            BaghChal::getInstance()->showMessage(OnlyStatusBar, QString::fromUtf8(e->what()) );
             return false;
         }
         catch( TigerEatGoatException* e )
         {
-            //removeGoatFromBox(e.positionX, e.positionY);           
+            //remove goat from the box
+            removeGoatFromBox( Game::getInstance()->getLastEatenGoatCell().first, Game::getInstance()->getLastEatenGoatCell().second );           
             //tiger has eaten a goat, place them in the rippedfield
             placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
+            BaghChal::getInstance()->showMessage(OnlyStatusBar, QString::fromUtf8(e->what()) );
         }
         catch( TigerWonException* e)
         {
             //removeGoatFromBox(e.positionX, e.positionY);      
             placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
             //notify tiger player if he has won
-            BaghChal::getInstance()->setTurnNotification(4);
+            BaghChal::getInstance()->showMessage(NotificationWithoutTimer, QString::fromUtf8(e->what()) );
         }
         catch( GameEvenException* e )
         {
             //parity! this is a rare game event, but have to be notified
-            BaghChal::getInstance()->setTurnNotification(5);
+            BaghChal::getInstance()->showMessage(NotificationWithoutTimer, QString::fromUtf8(e->what()) );
         }
         catch( UnoccupiedCellException* e )
         {
+            BaghChal::getInstance()->showMessage(OnlyStatusBar, QString::fromUtf8(e->what()) );
             return false;
         }
         catch( InvalidOccupantException* e )
         {
+            BaghChal::getInstance()->showMessage(OnlyStatusBar, QString::fromUtf8(e->what()) );
             return false;
         }
     }
@@ -316,7 +324,7 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
  * 
  * Removes a goat from a box. This is called if a goat is eaten by a tiger.
  */
-/*void BoxWidget::removeGoatFromBox(int x, int y)
+void BoxWidget::removeGoatFromBox(int x, int y)
 {
     QWidget *boxParent = this->parentWidget();
     QWidget *widget = qFindChild<QWidget*>(boxParent, "boxWidget_"+QString::number(y)+QString::number(x));
@@ -329,7 +337,7 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         }
         widget->setAcceptDrops(1);
     }
-}*/
+}
 
 /**
  * @fn placeGoatInRippedField()

@@ -69,9 +69,9 @@ PlayerGoat& Game::getGoat()
 
 void Game::startNewGame()
 {
-  grid = Grid();
+  Grid grid;
   Cell* tigerCells[] = {grid.getCell(0,0), grid.getCell(0,4), grid.getCell(4,4), grid.getCell(4,0)};
-  goatP = PlayerGoat();
+  PlayerGoat goatP;
   tigerP = PlayerTiger(tigerCells, &goatP);
   goatP.setPlayerTiger (&tigerP);
   changed = true;

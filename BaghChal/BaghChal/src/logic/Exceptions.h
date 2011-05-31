@@ -17,10 +17,8 @@ using namespace std;
 
 class CanNotMoveException : public exception
 {
-  virtual const char* what() const throw()
-  {
-    return "This move is invalid";
-  }
+public: 
+  const char* what() const throw(){ return "Ungültiger Spielzug."; }
 };
 
 /**
@@ -32,10 +30,8 @@ class CanNotMoveException : public exception
 
 class InvalidStateException : public exception
 {
-  virtual const char* what() const throw()
-  {
-    return "This is not a valid state";
-  }
+public: 
+  const char* what() const throw(){ return "Ungültiger Spielstatus."; }
 };
 
 /**
@@ -45,42 +41,32 @@ class InvalidStateException : public exception
  */
 class InvalidSourceException : public exception
 {
-    virtual const char* what() const throw()
-    {
-        return "This is not a valid source";
-    }
+public: 
+  const char* what() const throw(){ return "Ungültige Spielfigur."; }
 };
 
 class InvalidDirectionException : public exception
 {
-  virtual const char* what() const throw()
-  {
-    return "This is not a valid direction";
-  }
+public: 
+  const char* what() const throw(){ return "Ungültige Richtung."; }
 };
 
 class UnoccupiedCellException : public exception
 {
-  virtual const char* what() const throw()
-  {
-    return "This cell is not occupied";
-  }
+public: 
+  const char* what() const throw(){ return "Das Feld ist nicht besetzt."; }
 };
 
 class InvalidOccupantException : public exception
 {
-  virtual const char* what() const throw()
-  {
-    return "This operation is not allowed on this occupant";
-  }
+public: 
+  const char* what() const throw(){ return "Spielzug ist nicht erlaubt."; }
 };
 
 class OccupiedCellException : public exception
 {
-  virtual const char* what() const throw()
-  {
-    return "This cell is occupied.";
-  }
+public: 
+  const char* what() const throw(){ return "Feld ist besetzt."; }
 };
 
 /**
@@ -90,10 +76,8 @@ class OccupiedCellException : public exception
  */
 class GoatWonException : public exception
 {
-    virtual const char* what() const throw()
-    {
-        return "The Goat has won.";
-    }
+public: 
+  const char* what() const throw(){ return "Ziege gewinnt."; }
 };
 
 /**
@@ -103,10 +87,8 @@ class GoatWonException : public exception
  */
 class TigerWonException : public exception
 {
-    virtual const char* what() const throw()
-    {
-        return "The Tiger has won.";
-    }
+public: 
+  const char* what() const throw(){ return "Tiger gewinnt."; }
 };
 
 /**
@@ -116,10 +98,8 @@ class TigerWonException : public exception
  */
 class TigerEatGoatException : public exception
 {
-    virtual const char* what() const throw()
-    {
-        return "The Tiger eat a Goat.";
-    }
+public: 
+  const char* what() const throw(){ return "Tiger hat eine Ziege gefressen."; }
 };
 
 /**
@@ -129,18 +109,14 @@ class TigerEatGoatException : public exception
  */
 class GameEvenException : public exception
 {
-    virtual const char* what() const throw()
-    {
-        return "The Game is even.";
-    }
+public: 
+  const char* what() const throw(){ return "Unentschieden. Keine weitere Züge möglich."; }
 };
 
 class InvalidInputFileException : public exception
 {
-  virtual const char* what() const throw()
-  {
-    return "Ungültiges Savegame";
-  }
+public: 
+  const char* what() const throw(){ return "Ungültige Datei."; }
 };
 
 #endif
