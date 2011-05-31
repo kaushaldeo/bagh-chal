@@ -71,7 +71,7 @@ void FileIO::loadGame ()
   while(true)
   {
     if (fileStream.eof())
-      throw InvalidInputFileException ();
+      throw new InvalidInputFileException();
     int x;
     int y;
     int istatus;
@@ -79,17 +79,17 @@ void FileIO::loadGame ()
     if (x == 1024)
       break;
     if (fileStream.eof() || tigerCounter >= 4 || (game->getGoat().getNextGoat() != 0 && goatCounter >= game->getGoat().getNextGoat()))
-      throw InvalidInputFileException ();
+      throw new InvalidInputFileException();
     fileStream >> y;
     if (fileStream.eof())
-      throw InvalidInputFileException ();
+      throw new InvalidInputFileException();
     fileStream >> istatus;
     if (fileStream.eof())
-      throw InvalidInputFileException ();
+      throw new InvalidInputFileException();
     baghchal::CellStatus status = convertFromInt(istatus);
 
     if (x >= 5 || y >= 5 || status == baghchal::empty)
-      throw InvalidInputFileException ();
+      throw new InvalidInputFileException();
     Cell* cell = game->getGrid().getCell(x,y);
     cell->setStatus(convertFromInt(istatus));
     if (status==baghchal::tiger)

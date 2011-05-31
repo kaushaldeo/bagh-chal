@@ -17,12 +17,20 @@ namespace Ui {
     class BaghChal;
 }
 
+enum MessageState
+{ 
+    OnlyStatusBar,
+    OnlyNotification,
+    NotificationWithTimer,
+    NotificationWithoutTimer
+};
+
 class BaghChal : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    void setTurnNotification(int turn);
+    void showMessage(int caseNumber, QString msg);
     void clearStatusMsg();
     void showTurnArrowAndMessage(int turn);
     static BaghChal* getInstance();

@@ -28,7 +28,6 @@ BaghChal::BaghChal(QWidget *parent) :
     ui->turnNotification->setVisible(false);
     ui->statusBar->addPermanentWidget(&statusMsg, 1);
     this->showTurnArrowAndMessage(goat);
-    setStatusMsg(QString::fromUtf8("Neues Spiel beginnt."));
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(hideTurnNotification()));
@@ -133,11 +132,6 @@ bool BaghChal::askSaveDialog()
     {
         return false;
     }
-
-
-
-
-
 }
 
 void BaghChal::openNewGame()
@@ -146,7 +140,7 @@ void BaghChal::openNewGame()
     Game *game = Game::getInstance();
     this->game = game;
     this->renderGame();
-    this->setTurnNotification(0);
+    this->showMessage(NotificationWithTimer, QString::fromUtf8("Spiel beginnt."));
 }
 
 void BaghChal::openLoadGame()
@@ -157,8 +151,19 @@ void BaghChal::openLoadGame()
     if (filePath != "")
     {
         FileIO file(filePath.toStdString());
-        file.loadGame();
-        this->renderGame();
+        try
+        {
+            file.loadGame();
+            this->renderGame();
+        }
+        catch( OccupiedCellException *e )
+        {
+            showMessage(NotificationWithoutTimer, QString::fromUtf8( e->what() ));
+        }
+        catch( InvalidInputFileException *e )
+        {
+            showMessage(NotificationWithoutTimer, QString::fromUtf8( e->what() ));
+        }
     }
 }
 
@@ -218,36 +223,29 @@ void BaghChal::clearStatusMsg()
     this->statusMsg.clear();
 }
 
-void BaghChal::setTurnNotification(int turn)
+void BaghChal::showMessage(int caseNumber, QString msg)
 {
-    switch(turn)
+    switch(caseNumber)
     {
-    case 0:
-        ui->turnMsg->setText("<font color='White'>Spiel beginnt.</font>");
-        setStatusMsg(QString::fromUtf8("Neues Spiel beginnt."));
+    //case 0: only statusbar
+    case OnlyStatusBar:
+        this->setStatusMsg(msg);
+        return;
+    //case 1: only notification with timer
+    case OnlyNotification:
+        ui->turnMsg->setText("<font color='White'>" + msg + "</font>");
         timer->start(3000);
         break;
-    case 1:
-        ui->turnMsg->setText("<font color='White'>Tiger ist an der Reihe.</font>");
-        setStatusMsg(QString::fromUtf8("Tiger ist an der Reihe."));
+    //case 2: notification and statusbar with timer
+    case NotificationWithTimer:
+        ui->turnMsg->setText("<font color='White'>" + msg + "</font>");
+        this->setStatusMsg(msg);
         timer->start(3000);
         break;
-    case 2:
-        ui->turnMsg->setText("<font color='White'>Ziege ist an der Reihe.</font>");
-        setStatusMsg(QString::fromUtf8("Ziege ist an der Reihe."));
-        timer->start(3000);
-        break;
-    case 3:
-        ui->turnMsg->setText("<font color='White'>Ziege gewinnt.</font>");
-        setStatusMsg(QString::fromUtf8("Ziege gewinnt."));
-        break;
-    case 4:
-        ui->turnMsg->setText("<font color='White'>Tiger gewinnt.</font>");
-        setStatusMsg(QString::fromUtf8("Tiger gewinnt."));
-        break;
-    case 5:
-        ui->turnMsg->setText("<font color='White'>Unentschieden. Keine weitere Züge möglich.</font>");
-        setStatusMsg(QString::fromUtf8("Unentschieden. Keine weitere Züge möglich."));
+    //case 3: notification and statusbar without timer -> game has ended.
+    case NotificationWithoutTimer:
+        ui->turnMsg->setText("<font color='White'>" + msg + "</font>");
+        setStatusMsg(msg);
         break;
     default:
         return;
@@ -276,13 +274,13 @@ void BaghChal::showTurnArrowAndMessage(int turn)
     case tiger:
         ui->arrowGoat->hide();
         ui->arrowTiger->show();
-        setStatusMsg(QString::fromUtf8("Tiger ist an der Reihe."));
+        this->showMessage(OnlyStatusBar,QString::fromUtf8("Tiger ist an der Reihe."));
         Game::getInstance()->setTurn(tiger);
         break;
     case goat:
         ui->arrowGoat->show();
         ui->arrowTiger->hide();
-        setStatusMsg(QString::fromUtf8("Ziege ist an der Reihe."));
+        this->showMessage(OnlyStatusBar,QString::fromUtf8("Ziege ist an der Reihe."));
         game->setTurn(goat);
         break;
     default:

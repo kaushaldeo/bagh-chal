@@ -49,7 +49,7 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
         if ( Game::getInstance()->getTurn() == tiger )
         {
             //notify player that he can't move now
-            BaghChal::getInstance()->setTurnNotification(tiger);
+            BaghChal::getInstance()->showMessage(NotificationWithTimer, QString::fromUtf8("Tiger ist an der Reihe."));
             return;
         }
     }
@@ -58,7 +58,7 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
         if ( Game::getInstance()->getTurn() == goat )
         {
             //notify player that he can't move now
-            BaghChal::getInstance()->setTurnNotification(goat);
+            BaghChal::getInstance()->showMessage(NotificationWithTimer, QString::fromUtf8("Ziege ist an der Reihe."));
             return;
         }
     }
