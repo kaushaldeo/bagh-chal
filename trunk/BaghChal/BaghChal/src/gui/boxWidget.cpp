@@ -159,7 +159,7 @@ void BoxWidget::dropEvent(QDropEvent *event)
             //drop the avatar
             placeAvatar();
 
-            //notify players where is next
+            //notify players who is next
             if ( srcAvatar->property("goat").toBool() )
             {                
                 BaghChal::getInstance()->showTurnArrowAndMessage(tiger);
