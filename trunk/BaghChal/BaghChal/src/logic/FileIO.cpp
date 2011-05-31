@@ -78,7 +78,7 @@ void FileIO::loadGame ()
     fileStream >> x;
     if (x == 1024)
       break;
-    if (fileStream.eof() || tigerCounter >= 4 || (game->getGoat().getNextGoat() != 0 && goatCounter >= game->getGoat().getNextGoat()))
+    if (fileStream.eof() || tigerCounter >= 4 || (game->getGoat().getNextGoat() != 0 && goatCounter > game->getGoat().getNextGoat()))
       throw new InvalidInputFileException();
     fileStream >> y;
     if (fileStream.eof())

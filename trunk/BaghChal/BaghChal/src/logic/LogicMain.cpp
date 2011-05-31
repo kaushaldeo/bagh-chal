@@ -39,11 +39,6 @@ int main()
 		}
 
 		printGrid(myGame);
-
-    cout << "File I/O Test: Saving game:" << endl;
-         FileIO io ("/home/htwg/Dokumente/test.txt");
-         io.saveGame();
-         cout << "Game saved." << endl;
         
 	cout << "\nTESTCASE 2: setting goats\n\n";
 
@@ -59,7 +54,12 @@ int main()
 		cout << "Returned " << myGame->getGoat().canMoveThere(NULL, case2TigerCell) << "(should be 0)\n";
 
 		printGrid(myGame);
-
+    
+    cout << "File I/O Test: Saving game:" << endl;
+         FileIO io ("/home/htwg/Dokumente/test.txt");
+         io.saveGame();
+         cout << "Game saved." << endl;
+         
 	cout << "\nTESTCASE 3: moving tigers\n\n";		
 
 		Cell *case3_4_0 = myGame->getGrid().getCell(4, 0);
