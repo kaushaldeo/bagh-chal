@@ -12,7 +12,7 @@
  * 
  * Constructs a PlayerTiger, PlayerGoat, as well as the grid
  */
-Game::Game () : grid(), goatP(), changed(true), turn(goat)
+Game::Game () : grid(), goatP(), changed(true), turn(goat), lastEatenGoat(-1,-1)
 {
   Cell* tigerCells[] = {grid.getCell(0,0), grid.getCell(0,4), grid.getCell(4,4), grid.getCell(4,0)};
   tigerP = PlayerTiger (tigerCells, &goatP);
@@ -69,12 +69,8 @@ PlayerGoat& Game::getGoat()
 
 void Game::startNewGame()
 {
-  Grid grid;
-  Cell* tigerCells[] = {grid.getCell(0,0), grid.getCell(0,4), grid.getCell(4,4), grid.getCell(4,0)};
-  PlayerGoat goatP;
-  tigerP = PlayerTiger(tigerCells, &goatP);
-  goatP.setPlayerTiger (&tigerP);
-  changed = true;
+  delete game;
+  game = new Game();
 }
   
 
