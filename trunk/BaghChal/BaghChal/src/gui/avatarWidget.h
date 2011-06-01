@@ -28,6 +28,9 @@ public:
 protected:
     void mousePressEvent(QMouseEvent *event);
     
+private:
+    void cleanAvatars();
+   
 signals:
 
 public slots:

@@ -89,6 +89,11 @@ BaghChal* BaghChal::getInstance()
     return baghchal;
 }
 
+list<BoxWidget*> BaghChal::getBoxes()
+{
+    return boxes;
+}
+
 void BaghChal::closeEvent(QCloseEvent *event)
 {
     event->ignore();
@@ -256,7 +261,6 @@ void BaghChal::showMessage(int caseNumber, QString msg)
 
 void BaghChal::hideTurnNotification()
 {
-    std::cout << "Turn: " << this->game->getTurn();
     if(this->game->getTurn()!= 0)
     {
         timer->stop();
@@ -359,7 +363,7 @@ void BaghChal::renderGame()
         (*it)->setCell(NULL);
         (*it)->placeAvatar();
     }
-    
+        
     //call a method to place or reset eaten goats
     (*boxes.begin())->placeGoatInRippedField( game->getTiger().getScore() );
     

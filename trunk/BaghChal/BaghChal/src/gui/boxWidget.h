@@ -42,7 +42,7 @@ protected:
 
 private:
     bool handleGameAction(AvatarWidget* avatar);   /**< Communicates with the logic layer */
-    void removeGoatFromBox(int x, int y);  /**< Removes a goat from a single field in the grid, needed for eating a goat */
+    void removeGoatFromBox(Cell *cell);  /**< Removes a goat from a single field in the grid, needed for eating a goat */
     Cell* cell;
 signals:
 

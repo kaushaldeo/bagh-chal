@@ -35,6 +35,7 @@ public:
     void showTurnArrowAndMessage(int turn);
     static BaghChal* getInstance();
     ~BaghChal();
+    list<BoxWidget*> getBoxes();
 
 private:
     static BaghChal* baghchal;
