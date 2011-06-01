@@ -164,6 +164,11 @@ void Cell::setTiger(Tiger* tiger)
   this->tigerPtr = tiger;
 }
 
+void Cell::overrideTiger(Tiger* tiger)
+{
+  this->tigerPtr = tiger;
+}
+
 /**
  * @fn setGoat()
  * @brief sets new goat
@@ -177,7 +182,10 @@ void Cell::setGoat(Goat* goat)
   this->goatPtr = goat;
 }
 
-
+void Cell::overrideGoat(Goat* goat)
+{
+  this->goatPtr = goat;
+}
 
 /**
  * @fn removeGoat()
