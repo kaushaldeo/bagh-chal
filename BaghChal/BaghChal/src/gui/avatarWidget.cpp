@@ -25,6 +25,7 @@ using namespace baghchal;
 AvatarWidget::AvatarWidget(QWidget *parent) :
     QWidget(parent)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 /**
@@ -37,6 +38,10 @@ AvatarWidget::AvatarWidget(QWidget *parent) :
  */
 void AvatarWidget::mousePressEvent(QMouseEvent *event)
 {
+    
+    //clean old avatars
+    cleanAvatars();
+    
     QLabel *child = this->findChild<QLabel *>();
     if (!child)
     {
@@ -50,6 +55,7 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
         {
             //notify player that he can't move now
             BaghChal::getInstance()->showMessage(NotificationWithTimer, QString::fromUtf8("Tiger ist an der Reihe."));
+            event->setAccepted("false");
             return;
         }
     }
@@ -59,6 +65,7 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
         {
             //notify player that he can't move now
             BaghChal::getInstance()->showMessage(NotificationWithTimer, QString::fromUtf8("Ziege ist an der Reihe."));
+            event->setAccepted("false");
             return;
         }
     }
@@ -80,13 +87,38 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
     drag->setHotSpot(event->pos() - *p);
     child->hide();
     
-    if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction)
+    if (drag->exec(Qt::MoveAction) == Qt::MoveAction)
     {
-        event->ignore();
+        //do nothing yet, could be used for special actions if dropping is successful
     }
     else
     {  
         child->show();
-        child->setPixmap(pixmap);
+    }
+}
+
+/**
+ * @fn cleanAvatars()
+ * @brief Clean Widgets in boxes
+ * @see mousePressEvent
+ * 
+ * Source Avatars and Images needs to be closed when dropping to a new box.
+ * This couldn't be done in the dropEvent cause of segmentation fault in Qt event functions.
+ */
+void AvatarWidget::cleanAvatars()
+{
+    list<BoxWidget*> boxes = BaghChal::getInstance()->getBoxes();
+    list<BoxWidget*>::iterator it;
+
+    for( it = boxes.begin(); it != boxes.end(); ++it )
+    {
+        Cell *cell = (*it)->getCell();
+        if ( cell->getStatus() == empty  )
+        {
+            foreach(QWidget *widget, (*it)->findChildren<QWidget*>())
+            {
+                widget->close();
+            }
+        }
     }
 }

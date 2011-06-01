@@ -69,23 +69,15 @@ void BoxWidget::dragEnterEvent(QDragEnterEvent *event)
 {    
     if (event->mimeData()->hasFormat("application/x-dnditemdata"))
     {
-        if (event->source() == this)
-        {
-            event->setDropAction(Qt::MoveAction);
-            event->accept();
-        }
-        else
-        {
-            event->acceptProposedAction();
-            this->setAutoFillBackground( true );
-            QPalette p(this->palette());
-            p.setColor(QPalette::Background, QColor(147,152,170,255));
-            this->setPalette(p);
-        }
+        event->setAccepted(true);
+        this->setAutoFillBackground( true );
+        QPalette p(this->palette());
+        p.setColor(QPalette::Background, QColor(147,152,170,255));
+        this->setPalette(p);
     }
     else
     {
-        event->ignore();
+        event->setAccepted(false);
     }
 }
 
@@ -100,19 +92,11 @@ void BoxWidget::dragMoveEvent(QDragMoveEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata"))
     {
-        if (event->source() == this)
-        {
-            event->setDropAction(Qt::MoveAction);
-            event->accept();
-        }
-        else
-        {
-            event->acceptProposedAction();
-        }
+        event->setAccepted(true);
     }
     else
     {
-        event->ignore();
+        event->setAccepted(false);
     }
 }
 
@@ -125,8 +109,8 @@ void BoxWidget::dragMoveEvent(QDragMoveEvent *event)
  */
 void BoxWidget::dragLeaveEvent(QDragLeaveEvent *event)
 {
-    event->accept();
-    this->setAutoFillBackground( false);
+     Q_UNUSED(event);
+     this->setAutoFillBackground(false);
 }
 
 /**
@@ -139,52 +123,51 @@ void BoxWidget::dragLeaveEvent(QDragLeaveEvent *event)
 void BoxWidget::dropEvent(QDropEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata"))
-    {
+    {        
         //delete hover effect
-        this->setAutoFillBackground( false);
-        
+        this->setAutoFillBackground(false);
+                   
         AvatarWidget* srcAvatar = qobject_cast<AvatarWidget*>(event->source());
         if ( srcAvatar )
         {    
             //call the action handler
-            if ( !this->handleGameAction( srcAvatar ) )
+            if ( this->handleGameAction( srcAvatar ) )
             {
-                event->ignore();
-                return;
-            }
-            
-            //set the source-box droppable again
-            srcAvatar->parentWidget()->setAcceptDrops(1);
-         
-            //drop the avatar
-            placeAvatar();
+                //set the source-box droppable again
+                srcAvatar->parentWidget()->setAcceptDrops(1);
+             
+                //drop the avatar
+                placeAvatar();
+    
+                //notify players who is next
+                if ( Game::getInstance()->getTurn() != empty )
+                {
+                    if ( srcAvatar->property("goat").toBool() )
+                    {                
+                        BaghChal::getInstance()->showTurnArrowAndMessage(tiger);
+                    }
+                    else
+                    {
+                        BaghChal::getInstance()->showTurnArrowAndMessage(goat);
+                    }
+                }
 
-            //notify players who is next
-            if ( srcAvatar->property("goat").toBool() )
-            {                
-                BaghChal::getInstance()->showTurnArrowAndMessage(tiger);
+                event->setDropAction(Qt::MoveAction);
+                event->setAccepted(true);
             }
             else
             {
-                BaghChal::getInstance()->showTurnArrowAndMessage(goat);
+                event->setAccepted(false);
             }
-        }
-           
-        if (event->source() == this)
-        {
-            event->setDropAction(Qt::MoveAction);
-            event->accept();
         }
         else
         {
-            //close the dropobject
-            event->acceptProposedAction();
-            event->source()->close();
+            event->setAccepted(false);
         }
     }
     else
     {
-        event->ignore();
+        event->setAccepted(false);
     }
 }
 
@@ -199,13 +182,12 @@ void BoxWidget::dropEvent(QDropEvent *event)
  * Catch exceptions thrown by the logic layer (e.g. the goat has won).
  */
 bool BoxWidget::handleGameAction( AvatarWidget* avatar )
-{
+{   
     //desination cell is the droppable box
     Cell* dst = this->getCell();
     
-    //source cell has to be found out, the source cell could be out of the grid
+    //source cell has to be found out now, the source cell could be out of the grid
     Cell* src;
-    
     //check if the source cell is in grid via the position properties. Outer boxes haven't position properties.
     QWidget* srcWidget = avatar->parentWidget();
     BoxWidget* srcBoxWidget;
@@ -220,12 +202,6 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         src = NULL;
     }
     
-    //this is for debugging
-    //if ( src )
-       // cout << src->getPosition().first << src->getPosition().second << "\n";
-       // cout << dst->getPosition().first << dst->getPosition().second << "\n";
-
-
     //handle actions for the goat
     if ( avatar->property("goat").toBool() )
     {
@@ -269,7 +245,7 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         {
             return false;
         }
-        
+
         try
         {
             //move tiger from source to destination
@@ -283,7 +259,7 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
         catch( TigerEatGoatException* e )
         {
             //remove goat from the box
-            removeGoatFromBox( Game::getInstance()->getLastEatenGoatCell()->getPosition().first, Game::getInstance()->getLastEatenGoatCell()->getPosition().second );           
+            removeGoatFromBox( Game::getInstance()->getLastEatenGoatCell() );           
             
             //tiger has eaten a goat, place them in the rippedfield
             placeGoatInRippedField( Game::getInstance()->getTiger().getScore() );
@@ -327,8 +303,11 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
  * 
  * Removes a goat from a box. This is called if a goat is eaten by a tiger.
  */
-void BoxWidget::removeGoatFromBox(int x, int y)
+void BoxWidget::removeGoatFromBox(Cell* cell)
 {
+    int x = cell->getPosition().first;
+    int y = cell->getPosition().second;
+
     QWidget *boxParent = this->parentWidget();
     QWidget *widget = qFindChild<QWidget*>(boxParent, "box_"+QString::number(y)+QString::number(x));
     if ( widget )
@@ -357,16 +336,21 @@ void BoxWidget::placeGoatInRippedField( int score )
     QWidget *boxParent = this->parentWidget()->parentWidget();
     if ( score >= 1 && score <= 5 )
     {
-        //find the box element
-        score--;
-        QWidget *rippedField = qFindChild<QWidget*>(boxParent, "rippedGoat_0"+QString::number(score));
-        if ( rippedField )
-        {   
-            //place a goat image in this box
-            QLabel *newIcong = new QLabel( rippedField );
-            newIcong->setGeometry(QRect(-3, 1, 41, 41));
-            newIcong->setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/spielfigur_ziege.png")));
-            newIcong->show();
+        for ( int i = 0; i < score; ++i )
+        {
+            //find the box element
+            QWidget *rippedField = qFindChild<QWidget*>(boxParent, "rippedGoat_0"+QString::number(i));
+            if ( rippedField )
+            {   
+                if ( !rippedField->findChild<QLabel*>() )
+                {
+                    //place a goat image in this box
+                    QLabel *newIcong = new QLabel( rippedField );
+                    newIcong->setGeometry(QRect(-3, 1, 41, 41));
+                    newIcong->setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/spielfigur_ziege.png")));
+                    newIcong->show();
+                }
+            }
         }
     }
     //delete content of all ripped boxes
