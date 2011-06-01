@@ -11,11 +11,6 @@
 
 using namespace baghchal;
 
-
-//----- temp Variable, ob seit dem letzten Speichern gezogen wurde oder nicht
-bool changed = true;
-//-------Ende
-
 BaghChal::BaghChal(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::BaghChal)
@@ -141,6 +136,13 @@ bool BaghChal::askSaveDialog()
 
 void BaghChal::openNewGame()
 {
+    this->setStatusMsg(tr("Neues Spiel starten."));
+    if(this->game->getChanged() && !askSaveDialog())
+    {
+        this->clearStatusMsg();
+        return;
+    }
+
     delete game;
     Game *game = Game::getInstance();
     this->game = game;
@@ -192,7 +194,7 @@ bool BaghChal::openSaveGame()
 void BaghChal::openQuitGame()
 {
     this->setStatusMsg(tr("Spiel beenden."));
-    if(changed && !askSaveDialog())
+    if(this->game->getChanged() && !askSaveDialog())
     {
         this->clearStatusMsg();
         return;

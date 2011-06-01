@@ -128,8 +128,7 @@ void PlayerGoat::move(Cell *src, Cell *dst)
 	if(!opponent->canMove())
 	{
 		Game::getInstance()->setTurn(empty);
-		throw new GoatWonException();
-                return;
+                throw new GoatWonException();
 	}
 
 	Game::getInstance()->setTurn(tiger);
