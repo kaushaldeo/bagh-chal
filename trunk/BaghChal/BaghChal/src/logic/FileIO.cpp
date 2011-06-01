@@ -95,11 +95,13 @@ void FileIO::loadGame ()
     if (status==baghchal::tiger)
     {
       tigers[tigerCounter]->setCell(cell);
+      cell->overrideTiger(tigers[tigerCounter]);
       tigerCounter++;
     }
     else if (status == baghchal::goat)
     {
       goats[goatCounter]->setCell(cell);
+      cell->overrideGoat(goats[goatCounter]);
       goatCounter++;
     }
   }
