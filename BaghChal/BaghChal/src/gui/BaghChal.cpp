@@ -282,7 +282,6 @@ void BaghChal::showTurnArrowAndMessage(int turn)
         ui->arrowGoat->hide();
         ui->arrowTiger->show();
         this->showMessage(OnlyStatusBar,QString::fromUtf8("Tiger ist an der Reihe."));
-        Game::getInstance()->setTurn(tiger);
         break;
     case goat:
         ui->arrowGoat->show();
