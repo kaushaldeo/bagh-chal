@@ -109,6 +109,8 @@ void PlayerGoat::move(Cell *src, Cell *dst)
 	if(src == NULL)
 	{
 		setCell(dst);
+                Game::getInstance()->setTurn(tiger);
+                Game::getInstance()->setChanged(true);
 		return;
 	}
 
@@ -128,10 +130,12 @@ void PlayerGoat::move(Cell *src, Cell *dst)
 	if(!opponent->canMove())
 	{
 		Game::getInstance()->setTurn(empty);
+                Game::getInstance()->setChanged(false);
                 throw new GoatWonException();
 	}
 
 	Game::getInstance()->setTurn(tiger);
+        Game::getInstance()->setChanged(true);
 }
 
 void PlayerGoat::setGoats(Goat** goats)

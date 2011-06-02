@@ -142,11 +142,13 @@ void PlayerTiger::move(Cell *src, Cell *dst)
 	    if( score > 0 && score < 5 )
 	    {
                 Game::getInstance()->setTurn(goat);
+                Game::getInstance()->setChanged(true);
 	        throw new TigerEatGoatException();
 	    }
 	    else if( score == 5 )
 	    {
                 Game::getInstance()->setTurn(empty);
+                Game::getInstance()->setChanged(false);
                 throw new TigerWonException();
 	    }
 	}
@@ -154,12 +156,12 @@ void PlayerTiger::move(Cell *src, Cell *dst)
 	if(!opponent->canMove())
 	{
 		Game::getInstance()->setTurn(empty);
+                Game::getInstance()->setChanged(false);
                 throw new GameEvenException();
 	}
 
 	Game::getInstance()->setTurn(goat);
-
-
+        Game::getInstance()->setChanged(true);
 }
 
 int PlayerTiger::getScore()
