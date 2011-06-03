@@ -151,17 +151,17 @@ void PlayerTiger::move(Cell *src, Cell *dst)
                 Game::getInstance()->setChanged(false);
                 throw new TigerWonException();
 	    }
-	}
+        }
 
-	if(!opponent->canMove())
-	{
-		Game::getInstance()->setTurn(empty);
+        Game::getInstance()->setTurn(goat);
+        Game::getInstance()->setChanged(true);
+
+        if(!opponent->canMove())
+        {
+                Game::getInstance()->setTurn(empty);
                 Game::getInstance()->setChanged(false);
                 throw new GameEvenException();
-	}
-
-	Game::getInstance()->setTurn(goat);
-        Game::getInstance()->setChanged(true);
+        }
 }
 
 int PlayerTiger::getScore()

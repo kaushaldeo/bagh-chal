@@ -109,33 +109,32 @@ void PlayerGoat::move(Cell *src, Cell *dst)
 	if(src == NULL)
 	{
 		setCell(dst);
-                Game::getInstance()->setTurn(tiger);
-                Game::getInstance()->setChanged(true);
-		return;
-	}
+        }
+        else
+        {
+            Goat * thisGoat;
 
-	Goat * thisGoat;
+            try
+            {
+                    thisGoat = src->getGoat();
+            }
+            catch(exception e)
+            {
+                    throw new CanNotMoveException();
+            }
 
-	try
-	{
-		thisGoat = src->getGoat();
-	}
-	catch(exception e)
-	{
-		throw new CanNotMoveException();
-	}
+            thisGoat->move(dst);
+        }
 
-    thisGoat->move(dst);
+        Game::getInstance()->setTurn(tiger);
+        Game::getInstance()->setChanged(true);
 
-	if(!opponent->canMove())
-	{
-		Game::getInstance()->setTurn(empty);
+        if(!opponent->canMove())
+        {
+                Game::getInstance()->setTurn(empty);
                 Game::getInstance()->setChanged(false);
                 throw new GoatWonException();
-	}
-
-	Game::getInstance()->setTurn(tiger);
-        Game::getInstance()->setChanged(true);
+        }
 }
 
 void PlayerGoat::setGoats(Goat** goats)
