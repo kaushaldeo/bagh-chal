@@ -50,10 +50,10 @@ class Cell
     int positionY;          /**< This is the Y coordinate of the cell */
     Grid* grid;              /**< This is a pointer to the grid */
     bool canMoveDiagonally ();
-    CanNotMoveException moveEx; /**< CanNotMoveException */
-    UnoccupiedCellException uOcEx;
-    InvalidOccupantException iOcEx;
-    OccupiedCellException ocEx;
+    CanNotMoveException moveEx;     /**< CanNotMoveException */
+    UnoccupiedCellException uOcEx;  /**< UnoccupiedCellException */
+    InvalidOccupantException iOcEx; /**< InvalidOccupantException */
+    OccupiedCellException ocEx;     /**< OccupiedCellException */
     Tiger* tigerPtr;           /**< Tiger occupying the cell */
     Goat* goatPtr;             /**< Goat occupying the cell */
     

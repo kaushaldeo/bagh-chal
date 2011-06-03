@@ -22,6 +22,13 @@ Game::Game () : grid(), goatP(), changed(false), turn(goat), lastEatenGoatCell(N
 
 Game* Game::game = 0;
 
+/**
+ * @fn getInstance()
+ * @brief static function returning game singleton object
+ * @returns Game*
+ * 
+ * Returns the game singleton object. If there is none, creates it.
+ */
 Game* Game::getInstance()
 {
     if( !game )
@@ -31,11 +38,21 @@ Game* Game::getInstance()
     return game;
 }
 
+/**
+ * @fn setChanged
+ * @brief set changed flag
+ * @param newChanged - bool
+ */
 void Game::setChanged (bool newChanged)
 {
   changed = newChanged;
 }
 
+/**
+ * @fn getChanged
+ * @brief return changed flag
+ * @returns bool
+ */
 bool Game::getChanged ()
 {
   return changed;
