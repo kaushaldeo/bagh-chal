@@ -97,6 +97,28 @@ int main()
         cout << "Game loaded.";
         printGrid(myGame);
         
+    cout << "\nTESTCASE 3: Tiger Jumps over Tiger\n\n";        
+        Game::startNewGame();
+        myGame = Game::getInstance();
+        myGame->getTiger().getTigers()[3]->getCell()->removeTiger();
+        myGame->getTiger().getTigers()[3]->getCell()->setStatus(empty);
+        myGame->getTiger().getTigers()[3]->setCell(myGame->getGrid().getCell(1,1));
+        myGame->getGrid().getCell(1,1)->setTiger(myGame->getTiger().getTigers()[3]);
+        myGame->getGrid().getCell(1,1)->setStatus(tiger);
+        printGrid(myGame);
+        
+        try 
+        {
+          myGame->getTiger().move(myGame->getGrid().getCell(0,0), myGame->getGrid().getCell(2,2));
+          cout << "No exception has occured!\nFAIL!!!";
+          return -1;
+        }
+        catch (CanNotMoveException *e)
+        {
+          cout << "CanNotMoveException gefangen.\n";
+        }
+        printGrid(myGame);
+        
         
 }
 
