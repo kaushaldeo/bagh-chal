@@ -13,6 +13,7 @@ using namespace std;
 /**
  * @class CanNotMoveException
  * @brief Is thrown on an invalid move
+ * @extends std::exception
  */
 
 class CanNotMoveException : public exception
@@ -24,8 +25,7 @@ public:
 /**
  * @class InvalidStateException
  * @brief Is thrown on trying to assign an invalid state to a cell
- * 
- * State cannot be negative or greater than 2!
+ * @extends std::exception
  */
 
 class InvalidStateException : public exception
@@ -35,7 +35,9 @@ public:
 };
 
 /**
+ * @class InvalidSourceException
  * @brief Is thrown when it's the tiger's turn but a goat is moved or vice versa.
+ * @extends std::exception
  *
  * The object trying to be moved must be pointet to in the current players Goat or Tiger array.
  */
@@ -45,24 +47,45 @@ public:
   const char* what() const throw(){ return "Ungültige Spielfigur."; }
 };
 
+/**
+ * @class InvalidDirectionException
+ * @brief Is thrown if an invalid direction is specified, or if an integer not representing a Direction is used
+ * @extends std::exception
+ */
 class InvalidDirectionException : public exception
 {
 public: 
   const char* what() const throw(){ return "Ungültige Richtung."; }
 };
 
+
+/**
+ * @class UnoccupiedCellException
+ * @brief Is thrown on trying to use an operation requiring the cell to be occupied on an unoccupied cell
+ * @extends std::exception
+ */
 class UnoccupiedCellException : public exception
 {
 public: 
   const char* what() const throw(){ return "Das Feld ist nicht besetzt."; }
 };
 
+/**
+ * @class InvalidOccupantException
+ * @brief Is thrown on trying to use a goat-operation on a tiger or vice versa
+ * @extends std::exception
+ */
 class InvalidOccupantException : public exception
 {
 public: 
   const char* what() const throw(){ return "Spielzug ist nicht erlaubt."; }
 };
 
+/**
+ * @class OccupiedCellException
+ * @brief Is thrown on trying to use an operation requiring the cell to be unoccupied on an occupied cell
+ * @extends std::exception
+ */
 class OccupiedCellException : public exception
 {
 public: 
@@ -70,7 +93,9 @@ public:
 };
 
 /**
+ * @class GoatWonException
  * @brief Is thrown when PlayerGoat has won.
+ * @extends std::exception
  *
  * The goats turn is finished and no Tiger is able to perform any valid moves.
  */
@@ -81,7 +106,9 @@ public:
 };
 
 /**
+ * @class TigerWonException
  * @brief Is thrown when PlayerTiger has won.
+ * @extends std::exception
  *
  * The tigers turn is finished and he has eaten 5 goats.
  */
@@ -92,7 +119,9 @@ public:
 };
 
 /**
+ * @class TigerEatGoatException
  * @brief Is thrown when PlayerTiger eats a Goat.
+ * @extends std::exception
  *
  * The tigers turn eats a goat.
  */
@@ -103,7 +132,9 @@ public:
 };
 
 /**
+ * @class GameEvenException
  * @brief Is thrown when the GoatPlayer has no more valid moves.
+ * @extends std::exception
  *
  * The tigers turn is finished and no Goat is able to perform any valid moves.
  */
@@ -113,6 +144,11 @@ public:
   const char* what() const throw(){ return "Unentschieden. Keine weitere Züge möglich."; }
 };
 
+/**
+ * @class InvalidInputFileException
+ * @brief Is thrown while trying to read a savegame that is invalid, e.g. falsified
+ * @extends std::exception
+ */
 class InvalidInputFileException : public exception
 {
 public: 

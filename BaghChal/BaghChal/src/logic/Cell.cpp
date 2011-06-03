@@ -52,11 +52,11 @@ pair <int, int> Cell::getPosition ()
 /**
 * @fn getNeighbor()
 * @brief get neighboring cell on grid as indicated by direction
-* @param direction - integer value indicating direction
+* @param direction - member of baghchal::Direction indicating direction
 * @exception CanNotMoveException
 * 
-* The function checks wether there is a neighbor as indicated by the number.
-* If there is none, the function returns a nullpointer.
+* The function checks wether there is a neighbor as indicated by the direction.
+* If there is none, the function throws a CanNotMoveException
 */
 Cell* Cell::getNeighbor (Direction direction)
 {
@@ -123,6 +123,10 @@ bool Cell::canMoveDiagonally()
  * @returns Tiger*
  * @exception UnoccupiedCellException
  * @exception InvalidOccupantException
+ * 
+ * returns pointer on tiger currently occupying this cell
+ * Throws UnoccupiedCellException if the cell is unoccupied
+ * Throws InvalidOccupantException if the cell is occupied by a goat
  */
 Tiger* Cell::getTiger()
 {
@@ -140,6 +144,10 @@ Tiger* Cell::getTiger()
  * @returns Goat*
  * @exception UnoccupiedCellException
  * @exception InvalidOccupantException
+ *
+ * returns pointer on goat currently occupying this cell
+ * Throws UnoccupiedCellException if the cell is unoccupied
+ * Throws InvalidOccupantException if the cell is occupied by a tiger
  */
 Goat* Cell::getGoat()
 {
@@ -155,6 +163,9 @@ Goat* Cell::getGoat()
  * @fn setTiger()
  * @brief setsTiger
  * @exception OccupiedCellException
+ * 
+ * sets tigerPtr to a pointer on the tiger currently occupying the cell
+ * If the cell is already occupied, throws OccupiedCellException
  */
 void Cell::setTiger(Tiger* tiger)
 {
@@ -164,6 +175,13 @@ void Cell::setTiger(Tiger* tiger)
   this->tigerPtr = tiger;
 }
 
+/**
+ * @fn overrideTiger()
+ * @brief setsTiger
+ * 
+ * sets tigerPtr to a pointer on the tiger currently occupying the cell
+ * Ignores status of Cell!
+ */
 void Cell::overrideTiger(Tiger* tiger)
 {
   this->tigerPtr = tiger;
@@ -173,6 +191,9 @@ void Cell::overrideTiger(Tiger* tiger)
  * @fn setGoat()
  * @brief sets new goat
  * @exception OccupiedCellException
+ * 
+ * sets goatPtr to a pointer on the goat currently occupying the cell
+ * If the cell is already occupied, throws OccupiedCellException
  */
 void Cell::setGoat(Goat* goat)
 {
@@ -182,6 +203,14 @@ void Cell::setGoat(Goat* goat)
   this->goatPtr = goat;
 }
 
+
+/**
+ * @fn overrideTiger()
+ * @brief setsTiger
+ * 
+ * sets goatPtr to a pointer on the goat currently occupying the cell
+ * Ignores status of Cell!
+ */
 void Cell::overrideGoat(Goat* goat)
 {
   this->goatPtr = goat;
@@ -192,6 +221,10 @@ void Cell::overrideGoat(Goat* goat)
  * @brief removes goat from cell
  * @exception UnoccupiedCellException
  * @exception InvalidOccupantException
+ * 
+ * Removes goat from cell.
+ * Throws UnoccupiedCellException if the cell is unoccupied
+ * Throws InvalidOccupantException if the cell is occupied by a tiger
  */
 void Cell::removeGoat()
 {
@@ -200,11 +233,20 @@ void Cell::removeGoat()
   if (status == tiger)
     throw iOcEx;
   
-  //goatPtr->setCell(0);
   goatPtr = 0;
   status = empty;
 }
 
+/**
+ * @fn removeTiger()
+ * @brief removes tiger from cell
+ * @exception UnoccupiedCellException
+ * @exception InvalidOccupantException
+ * 
+ * Removes tiger from cell.
+ * Throws UnoccupiedCellException if the cell is unoccupied
+ * Throws InvalidOccupantException if the cell is occupied by a goat
+ */
 void Cell::removeTiger()
 {
   if (status == empty)
@@ -212,7 +254,6 @@ void Cell::removeTiger()
   if (status == goat)
     throw iOcEx;
   
-  //tigerPtr->setCell(0);
   tigerPtr = 0;
   status = empty;
 }
@@ -220,12 +261,12 @@ void Cell::removeTiger()
 /**
  * @fn isNeighbor()
  * @brief tests, if a cell is neighbor to this cell
- * @returns int - direction of the cell
+ * @returns Direction - direction of the cell
  * @param cell - The cell to be tested
  * @see getNeighbor()
  * @exception InvalidDirectionException
  * 
- * The function uses getNeighbor
+ * Checks whether the cell is neighbour of this cell, using getNeighbor()
  */
 Direction Cell::isNeighbor(Cell* cell)
 {

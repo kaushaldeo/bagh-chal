@@ -12,6 +12,10 @@
 #include "Enums.h"
 #include<string>
 
+/**
+ * @class FileIO
+ * @brief handles File Input and Output for saving and loading games
+ */
 class FileIO
 {
   public:
@@ -24,7 +28,7 @@ class FileIO
     CellStatus convertFromInt (int);
   
   private:
-    std::string path;
+    std::string path; /** < path to savegame */
 
 };
 #endif

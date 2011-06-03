@@ -13,7 +13,6 @@ using namespace std;
 /**
  * @fn saveGame()
  * @brief Saves the game to a textfile.
- * @param game - Reference on a game object
  * 
  * Saves the Data from game into a textfile.
  */
@@ -44,8 +43,7 @@ void FileIO::saveGame ()
 
 /**
  * @fn loadGame()
- * @brief Loads the game to a textfile.
- * @param game - Reference on a game object
+ * @brief Loads the game from a textfile.
  * 
  * Loads data from a textfile and loads it into a game class.
  */
@@ -67,6 +65,9 @@ void FileIO::loadGame ()
   Goat** goats = game->getGoat().getGoats();
   int goatCounter = game->getTiger().getScore();
   int tigerCounter = 0;
+  
+  for (int i=0; i < 4; i++)
+    tigers[i]->getCell()->removeTiger();
   
   while(true)
   {
@@ -109,7 +110,14 @@ void FileIO::loadGame ()
   game->setChanged(false);
   fileStream.close();
 }
-   
+
+/**
+ * @fn convertFromInt
+ * @param state - int to be converted to CellStatus
+ * @see CellStatus
+ * @brief converts an int to a member of baghchal::CellStatus
+ * @exception InvalidStateException
+ */
 CellStatus FileIO::convertFromInt (int state)
 {
   switch (state)
@@ -120,7 +128,14 @@ CellStatus FileIO::convertFromInt (int state)
     default: throw new InvalidStateException();
   }
 }
-  
+
+/**
+ * @fn convertToInt
+ * @param state - CellStatus to be converted to int
+ * @see CellStatus
+ * @brief converts a member of baghchal::CellStatus into an integer
+ * @exception std::exception
+ */
 int FileIO::convertToInt (CellStatus state)
 {
   switch (state)
