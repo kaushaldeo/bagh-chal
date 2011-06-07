@@ -157,16 +157,19 @@ void BoxWidget::dropEvent(QDropEvent *event)
             }
             else
             {
+                event->setDropAction(Qt::IgnoreAction);
                 event->setAccepted(false);
             }
         }
         else
         {
+            event->setDropAction(Qt::IgnoreAction);
             event->setAccepted(false);
         }
     }
     else
     {
+        event->setDropAction(Qt::IgnoreAction);
         event->setAccepted(false);
     }
 }

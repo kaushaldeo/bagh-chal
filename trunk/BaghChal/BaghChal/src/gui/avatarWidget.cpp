@@ -87,13 +87,8 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
     drag->setHotSpot(event->pos() - *p);
     child->hide();
     
-    //if (drag->exec(Qt::MoveAction) == Qt::MoveAction)
-    if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction)
+    if (drag->exec(Qt::MoveAction) == Qt::IgnoreAction)
     {
-        //do nothing yet, could be used for special actions if dropping is successful
-    }
-    else
-    {  
         child->show();
     }
 }
