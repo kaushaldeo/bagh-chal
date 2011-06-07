@@ -148,6 +148,7 @@ void BaghChal::openNewGame()
     this->game = game;
     this->renderGame();
     this->showMessage(NotificationWithTimer, QString::fromUtf8("Spiel beginnt."));
+    QApplication::restoreOverrideCursor();
 }
 
 void BaghChal::openLoadGame()
@@ -253,6 +254,7 @@ void BaghChal::showMessage(int caseNumber, QString msg)
     case NotificationWithoutTimer:
         ui->turnMsg->setText("<font color='White'>" + msg + "</font>");
         setStatusMsg(msg);
+        QApplication::setOverrideCursor(QCursor(Qt::ArrowCursor));
         break;
     default:
         return;

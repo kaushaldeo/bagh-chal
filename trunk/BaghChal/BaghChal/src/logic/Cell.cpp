@@ -101,6 +101,8 @@ Cell* Cell::getNeighbor (Direction direction)
       if (positionX == 0  || positionY == 0 || !canMoveDiagonally())
         throw moveEx;
       return grid->getCell(positionX-1,positionY-1);
+    default:
+      return 0;
   }
 }
 
