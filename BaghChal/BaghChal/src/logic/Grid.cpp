@@ -27,6 +27,10 @@ Grid::Grid () : cells (new Cell**[5])
   }
 }
 
+/**
+ * @fn ~Grid()
+ * @brief Default destructor for Grid
+ */
 Grid::~Grid ()
 {
   for (int i=0; i<5; i++)
