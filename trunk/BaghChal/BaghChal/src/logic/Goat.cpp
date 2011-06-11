@@ -77,6 +77,11 @@ void Goat::move(Cell *cell)
 	 * never call without calling canMoveThere first.
 	 */
 
+	if(!canMoveThere(cell))
+	{
+		throw new CanNotMoveException();
+	}
+
 	cellPtr->removeGoat();
 	cellPtr->setStatus(empty);
 	cellPtr = cell;
