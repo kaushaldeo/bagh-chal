@@ -100,6 +100,11 @@ int Tiger::move(Cell *cell)
 	 * never call without calling canMoveThere first.
 	 */
 
+	if(!canMoveThere(cell))
+	{
+		throw new CanNotMoveException();
+	}
+
 	Direction dir;
 	try
 	{
