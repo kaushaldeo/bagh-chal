@@ -138,7 +138,6 @@ void PlayerTiger::move(Cell *src, Cell *dst)
 	if( thisTiger->move(dst) )
 	{
 		score++;
-		cout << " score: " << score << '\n';
 	    if( score > 0 && score < 5 )
 	    {
                 Game::getInstance()->setTurn(goat);

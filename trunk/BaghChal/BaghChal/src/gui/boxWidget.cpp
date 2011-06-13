@@ -207,13 +207,7 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
     
     //handle actions for the goat
     if ( avatar->property("goat").toBool() )
-    {
-        //return false if move is not possible
-        if ( !Game::getInstance()->getGoat().canMoveThere(src, dst) )
-        {
-            return false;
-        }
-        
+    {        
         try
         {
             //move goat from source to destination
@@ -243,12 +237,6 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
     //handle actions for the tiger
     else        
     {
-        //return false if move is not possible
-        if ( !Game::getInstance()->getTiger().canMoveThere(src, dst) )
-        {
-            return false;
-        }
-
         try
         {
             //move tiger from source to destination
@@ -300,8 +288,7 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
 /**
  * @fn removeGoatFromBox()
  * @brief Removes an avatar from a box
- * @param x - int value as x coordinate
- * @param y - int value as y coordinate
+ * @param Cell - The Cell from which a goat has to be removed
  * @see handleGameAction()
  * 
  * Removes a goat from a box. This is called if a goat is eaten by a tiger.
