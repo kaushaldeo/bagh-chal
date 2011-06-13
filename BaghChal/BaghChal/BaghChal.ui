@@ -855,14 +855,14 @@
      <property name="geometry">
       <rect>
        <x>17</x>
-       <y>-6</y>
+       <y>-3</y>
        <width>71</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>14</pointsize>
+       <pointsize>16</pointsize>
       </font>
      </property>
      <property name="text">
@@ -1507,15 +1507,15 @@
     <widget class="QLabel" name="title_01">
      <property name="geometry">
       <rect>
-       <x>58</x>
-       <y>0</y>
+       <x>56</x>
+       <y>-3</y>
        <width>50</width>
-       <height>23</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>14</pointsize>
+       <pointsize>16</pointsize>
       </font>
      </property>
      <property name="text">
@@ -1602,9 +1602,9 @@
     <property name="geometry">
      <rect>
       <x>166</x>
-      <y>16</y>
-      <width>75</width>
-      <height>50</height>
+      <y>6</y>
+      <width>81</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -1617,8 +1617,8 @@
    <widget class="QLabel" name="arrowTiger">
     <property name="geometry">
      <rect>
-      <x>589</x>
-      <y>16</y>
+      <x>606</x>
+      <y>6</y>
       <width>75</width>
       <height>50</height>
      </rect>
@@ -1763,7 +1763,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuGame">
