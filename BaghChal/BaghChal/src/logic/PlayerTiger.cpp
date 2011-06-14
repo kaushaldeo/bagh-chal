@@ -135,7 +135,9 @@ void PlayerTiger::move(Cell *src, Cell *dst)
 		throw new CanNotMoveException();
 	}
 
-	if( thisTiger->move(dst) )
+	bool mustEat = couldEat();
+
+	if( thisTiger->move(dst, mustEat) )
 	{
 		score++;
 	    if( score > 0 && score < 5 )
@@ -191,4 +193,16 @@ void PlayerTiger::setPlayerGoat(PlayerGoat *playerGoat)
 PlayerGoat* PlayerTiger::getPlayerGoat()
 {
 	return opponent;
+}
+
+bool PlayerTiger::couldEat()
+{
+	for(int i = 0; i < 4; ++i)
+	{
+		if(tigers[i]->couldEat())
+		{
+			return true;
+		}
+	}
+	return false;
 }

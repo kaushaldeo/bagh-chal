@@ -155,4 +155,9 @@ public:
   const char* what() const throw(){ return "Ungültige Datei."; }
 };
 
+class MustEatException : public exception
+{
+public: 
+  const char* what() const throw(){ return "Wenn eine Ziege gefressen werden kann, muss sie gefressen werden"; }
+};
 #endif

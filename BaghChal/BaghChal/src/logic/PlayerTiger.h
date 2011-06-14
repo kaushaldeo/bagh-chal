@@ -74,6 +74,8 @@ public:
 
 	PlayerGoat* getPlayerGoat();
 
+	bool couldEat();
+
 private:
 
 
