@@ -218,6 +218,11 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
             BaghChal::getInstance()->showMessage(OnlyStatusBar, QString::fromUtf8(e->what()) );
             return false;
         }
+        catch( MustEatException* e )
+        {
+            BaghChal::getInstance()->showMessage(OnlyStatusBar, QString::fromUtf8(e->what()) );
+            return false;
+        }
         catch( GoatWonException* e )
         {
             //goat has won, notify the goat player
@@ -243,6 +248,11 @@ bool BoxWidget::handleGameAction( AvatarWidget* avatar )
             Game::getInstance()->getTiger().move(src, dst);
         }
         catch( CanNotMoveException* e )
+        {
+            BaghChal::getInstance()->showMessage(OnlyStatusBar, QString::fromUtf8(e->what()) );
+            return false;
+        }
+        catch( MustEatException* e )
         {
             BaghChal::getInstance()->showMessage(OnlyStatusBar, QString::fromUtf8(e->what()) );
             return false;
