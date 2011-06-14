@@ -81,7 +81,7 @@ int main()
 		}
 		catch(MustEatException* e)
 		{
-			cout << e->what();
+			cout << "MustEatException gefangen.\n";
 		}
 
 		cout << "Trying to move Tiger from 0, 0 to 1, 1 with Status " << case3GoatNeighborOf_0_0->getStatus() << " (should be 2)\n";
