@@ -158,6 +158,6 @@ public:
 class MustEatException : public exception
 {
 public: 
-  const char* what() const throw(){ return "Wenn eine Ziege gefressen werden kann, muss sie gefressen werden"; }
+  const char* what() const throw(){ return "Ziege muss gefressen werden."; }
 };
 #endif
