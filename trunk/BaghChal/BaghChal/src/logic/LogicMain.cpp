@@ -74,7 +74,15 @@ int main()
 
 		cout << "Trying to move Tiger from 4, 0 to 3, 0 with Status " << case3EmptyNeighborOf_4_0->getStatus() << " (should be 0)\n";
 		cout << "Returned " << myGame->getTiger().canMoveThere(case3_4_0, case3EmptyNeighborOf_4_0) << " (should be 1)\n";
-		myGame->getTiger().move(case3_4_0, case3EmptyNeighborOf_4_0);
+		try
+		{
+			myGame->getTiger().move(case3_4_0, case3EmptyNeighborOf_4_0);
+			cout << "Expected MustEatException!\nFAIL!!!";
+		}
+		catch(MustEatException* e)
+		{
+			cout << e->what();
+		}
 
 		cout << "Trying to move Tiger from 0, 0 to 1, 1 with Status " << case3GoatNeighborOf_0_0->getStatus() << " (should be 2)\n";
 		cout << "Returned " << myGame->getTiger().canMoveThere(case3_0_0, case3GoatNeighborOf_0_0) << " (should be 0)\n";

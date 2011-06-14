@@ -93,7 +93,7 @@ bool Tiger::canMoveThere(Cell *cell)
 }
 
 
-int Tiger::move(Cell *cell)
+int Tiger::move(Cell *cell, bool mustEat)
 {
 	/*
 	 * Warning, move doesn't do any reliable exception handling anymore,
@@ -112,6 +112,11 @@ int Tiger::move(Cell *cell)
 
 		if(cell->getStatus() == empty)
 		{
+			if(mustEat)
+			{
+				throw new MustEatException();
+			}
+
 			cellPtr->removeTiger();
 			cellPtr->setStatus(empty);
 			cellPtr = cell;
@@ -154,4 +159,42 @@ void Tiger::setCell(Cell *cell)
 Cell* Tiger::getCell()
 {
 	return cellPtr;
+}
+
+bool Tiger::couldEat()
+{
+	Direction allDirections[8] = {baghchal::right, baghchal::below, baghchal::left, baghchal::above, baghchal::rightAbove, baghchal::rightBelow, baghchal::leftBelow, baghchal::leftAbove};
+
+	for(int i = 0; i < 8; ++i)
+	{
+		Cell *test;
+
+		try
+		{
+			test = cellPtr->getNeighbor(allDirections[i]);
+
+			if(test->getStatus() == baghchal::goat)
+			{
+				try
+				{
+					test = test->getNeighbor(allDirections[i]);
+
+					if(test->getStatus() == baghchal::empty)
+					{
+						return true;
+					}
+				}
+				catch(CanNotMoveException e)
+				{
+					continue;
+				}
+			}
+		}
+		catch(CanNotMoveException e)
+		{
+			continue;
+		}
+	}
+
+	return false;
 }
