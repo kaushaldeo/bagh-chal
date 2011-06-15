@@ -6,75 +6,37 @@
 #include "PlayerTiger.h"
 #include "Exceptions.h"
 
-/*! \file PlayerGoat.h
- *  \brief Enthält Klasse die den Spieler repräsentiert, der die Ziegen steuert.
+/** @file PlayerGoat.h
+ *  @brief Headerfile for PlayerGoat class
+ *  @author Steffen Dittmar	
  */
 
 class PlayerTiger;
 
-//! Klasse die den Spieler repräsentiert, der die Ziegen steuert.
+/**
+ * @brief Class representing Player controlling the Goats
+ */
 class PlayerGoat
 {
 public:
-    /*! \brief Konstruktor.
-     *
-     *  Erzeugt 20 Ziegen, ohne diese auf dem Feld zu setzen und initialisiert nextGoat auf 0.
-     */
     PlayerGoat();
-
 	PlayerGoat(PlayerTiger *playerTiger);
-
-    /*! \brief Destruktor.
-     *
-     *  Löscht Ziegen.
-     */
     ~PlayerGoat();
-
-    /*! \brief Ruft Goat::setCell() auf.
-     *
-     *  Wählt ungesetzte Ziege aus und plaziert sie auf cell.
-     *
-     *  \param cell Zelle, auf die Ziege gesetzt werden soll.
-     *  \exception CanNotMoveException Wird geworfen, wenn Zielzelle belegt ist.
-     */
     void setCell(Cell *cell);
-
 	bool canMove();
-
 	bool canMoveThere(Cell *src, Cell *dst);
-
-    /*! \brief Ruft Goat::move() auf.
-     *
-	 *  Warning, move doesn't do any reliable exception handling anymore,
-	 *  never call without calling canMoveThere first.
-     *
-     *  \param src Die Zelle, auf der die Ziege sich befindet.
-     *  \param dst Die Zielzelle.
-     *  \exception CanNotMoveException Wird geworfen, wenn der Zug ungültig ist.
-     */
     void move(Cell*src, Cell *dst);
-
 	void setGoats(Goat** goats);
-
 	Goat** getGoats();
-
 	void setNextGoat(int number);
-
 	int getNextGoat();
-
 	void setPlayerTiger(PlayerTiger *playerTiger);
-
 	PlayerTiger* getPlayerTiger();
 
 private:
-    //! Array, das Zeiger auf die 20 Ziegen enthält.
-    Goat **goats; //Hallo Steffen, bitte noch getter/setter einfügen, wegen Laden/Speichern, merci! Gruß, Julian
-
-    //! Nächste zu platzierende Ziege im Array
-    int nextGoat; //Hallo Steffen, bitte noch getter/setter einfügen, wegen Laden/Speichern, merci! Gruß, Julian
-
-	//! Pointer to the opponent player.
-	PlayerTiger *opponent;
+    Goat **goats;			/**< Array containing pointers to all instances of Goat */
+    int nextGoat; 			/**< Index of the next, not already placed goat */
+	PlayerTiger *opponent;	/**< Pointer to the opponent */
 };
 
 #endif

@@ -7,11 +7,13 @@
 #define ENUMS_H
 
 /**
-* @brief Enumeration for Directions
-*/
-
+ * @brief Namespace used for enums
+ */
 namespace baghchal
 {
+	/**
+	 * @brief Enumaration for directions
+	 */
 	enum Direction
 	{ 
 		right,		/**< right */
