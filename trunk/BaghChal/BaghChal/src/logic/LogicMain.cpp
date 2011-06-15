@@ -52,6 +52,16 @@ int main()
 
 		cout << "Trying to set Goat on Cell 0, 0 with Status " << case2TigerCell->getStatus() << " (should be 1)\n";
 		cout << "Returned " << myGame->getGoat().canMoveThere(NULL, case2TigerCell) << "(should be 0)\n";
+		try
+		{
+			myGame->getGoat().move(NULL, case2TigerCell);
+			cout << "Placed goat on occupied cell\nFAIL!!!!";
+			return -1;
+		}
+		catch(CanNotMoveException* e)
+		{
+			cout << "Caught CanNotMoveException.\n";
+		}
 
 		printGrid(myGame);
     
