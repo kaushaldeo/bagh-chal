@@ -1,3 +1,11 @@
+/**
+ * BaghChal class
+ * @file BaghChal.cpp
+ * @brief Implementation for BaghChal Class
+ * @see BaghChal
+ * @author Mirko Indlekofer
+ */
+
 #include "BaghChal.h"
 #include "../../ui_BaghChal.h"
 #include "QEventLoop"
@@ -10,6 +18,7 @@
 #include <iterator>
 
 using namespace baghchal;
+
 
 BaghChal::BaghChal(QWidget *parent) :
     QMainWindow(parent),
@@ -231,9 +240,9 @@ void BaghChal::clearStatusMsg()
     this->statusMsg.clear();
 }
 
-void BaghChal::showMessage(int caseNumber, QString msg)
+void BaghChal::showMessage(MessageState messageCase, QString msg)
 {
-    switch(caseNumber)
+    switch(messageCase)
     {
     //case 0: only statusbar
     case OnlyStatusBar:
