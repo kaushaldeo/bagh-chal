@@ -149,6 +149,11 @@ bool PlayerTiger::canMoveThere(Cell *src, Cell *dst)
  */
 void PlayerTiger::move(Cell *src, Cell *dst)
 {
+    if( !canMoveThere(src, dst) )
+    {
+        throw new CanNotMoveException();
+    }
+    
 	Tiger *thisTiger;
    	try
    	{

@@ -142,6 +142,11 @@ bool PlayerGoat::canMoveThere(Cell *src, Cell *dst)
  */
 void PlayerGoat::move(Cell *src, Cell *dst)
 {
+    if( !canMoveThere(src, dst) )
+    {
+        throw new CanNotMoveException();
+    }
+    
 	if(src == NULL)
 	{
 		if(dst->getStatus() != empty)
