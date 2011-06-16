@@ -18,16 +18,16 @@
  */
 class FileIO
 {
-  public:
-    FileIO () : path("bagh-chal-save.txt") {};
-    FileIO (std::string filename) : path(filename) {};
-    ~FileIO () {};
+public:
+    FileIO() : path("bagh-chal-save.txt") {};
+    FileIO(std::string filename) : path(filename) {};
+    ~FileIO() {};
     void saveGame();
     void loadGame();
-    int convertToInt (CellStatus);
-    CellStatus convertFromInt (int);
-  
-  private:
+    int convertToInt(CellStatus);
+    CellStatus convertFromInt(int);
+
+private:
     std::string path; /** < path to savegame */
 
 };

@@ -29,7 +29,7 @@ PlayerTiger::PlayerTiger(Cell *tigerCells[])
 {
     tigers = new Tiger* [4];
 
-    for(int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
     {
         tigers[i] = new Tiger(tigerCells[i]);
     }
@@ -47,11 +47,11 @@ PlayerTiger::PlayerTiger(Cell *tigerCells[])
  */
 PlayerTiger::PlayerTiger(Cell **tigerCells, PlayerGoat *playerGoat)
 {
-	opponent = playerGoat;
+    opponent = playerGoat;
 
     tigers = new Tiger* [4];
 
-    for(int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
     {
         tigers[i] = new Tiger(tigerCells[i]);
     }
@@ -66,7 +66,7 @@ PlayerTiger::PlayerTiger(Cell **tigerCells, PlayerGoat *playerGoat)
  */
 PlayerTiger::~PlayerTiger()
 {
-    for(int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
     {
         delete tigers[i];
     }
@@ -79,24 +79,24 @@ PlayerTiger::~PlayerTiger()
  *
  * Deep copies the array of tigers and copies score and opponent.
  */
-PlayerTiger& PlayerTiger::operator=(const PlayerTiger& src)
+PlayerTiger &PlayerTiger::operator=(const PlayerTiger &src)
 {
-	this->tigers = new Tiger* [4];
+    this->tigers = new Tiger* [4];
 
-	Tiger **srcTigers = src.tigers;
+    Tiger **srcTigers = src.tigers;
 
-	for(int i = 0; i < 4; ++i)
-	{
+    for (int i = 0; i < 4; ++i)
+    {
 
-		srcTigers[i]->getCell()->setStatus(empty);
-		tigers[i] = new Tiger(srcTigers[i]->getCell());
-	}
+        srcTigers[i]->getCell()->setStatus(empty);
+        tigers[i] = new Tiger(srcTigers[i]->getCell());
+    }
 
-	opponent = src.opponent;
+    opponent = src.opponent;
 
-        score = src.score;
+    score = src.score;
 
-	return *this;
+    return *this;
 }
 /**
  * @brief Checks if any Tiger can make any valid moves
@@ -104,16 +104,18 @@ PlayerTiger& PlayerTiger::operator=(const PlayerTiger& src)
  */
 bool PlayerTiger::canMove()
 {
-    if(Game::getInstance()->getTurn() != tiger)
+    if (Game::getInstance()->getTurn() != tiger)
     {
         return false;
     }
-    
-    for(int i = 0; i < 4; i++)
+
+    for (int i = 0; i < 4; i++)
     {
-        if(tigers[i]->canMove())
+        if (tigers[i]->canMove())
             //at least one tiger can move
+        {
             return true;
+        }
     }
 
     //no tiger can move
@@ -128,17 +130,18 @@ bool PlayerTiger::canMove()
  */
 bool PlayerTiger::canMoveThere(Cell *src, Cell *dst)
 {
-	Tiger *thisTiger;
+    Tiger *thisTiger;
 
-	try
-	{
-		thisTiger = src->getTiger();
-	}
-	catch(exception e)
-	{
-		return false;
-	}
-	return thisTiger->canMoveThere(dst);
+    try
+    {
+        thisTiger = src->getTiger();
+    }
+    catch (exception e)
+    {
+        return false;
+    }
+
+    return thisTiger->canMoveThere(dst);
 }
 
 /**
@@ -149,49 +152,51 @@ bool PlayerTiger::canMoveThere(Cell *src, Cell *dst)
  */
 void PlayerTiger::move(Cell *src, Cell *dst)
 {
-    if( !canMoveThere(src, dst) )
+    if (!canMoveThere(src, dst))
     {
         throw new CanNotMoveException();
     }
-    
-	Tiger *thisTiger;
-   	try
-   	{
-	   thisTiger = src->getTiger();
-	}
-	catch(exception e)
-	{
-		throw new CanNotMoveException();
-	}
 
-	bool mustEat = couldEat();
+    Tiger *thisTiger;
 
-	if( thisTiger->move(dst, mustEat) )
-	{
-		score++;
-	    if( score > 0 && score < 5 )
-	    {
-                Game::getInstance()->setTurn(goat);
-                Game::getInstance()->setChanged(true);
-	        throw new TigerEatGoatException();
-	    }
-	    else if( score == 5 )
-	    {
-                Game::getInstance()->setTurn(empty);
-                Game::getInstance()->setChanged(false);
-                throw new TigerWonException();
-	    }
-        }
+    try
+    {
+        thisTiger = src->getTiger();
+    }
+    catch (exception e)
+    {
+        throw new CanNotMoveException();
+    }
 
-        Game::getInstance()->setTurn(goat);
-        Game::getInstance()->setChanged(true);
+    bool mustEat = couldEat();
 
-        if(!opponent->canMove())
+    if (thisTiger->move(dst, mustEat))
+    {
+        score++;
+
+        if (score > 0 && score < 5)
         {
-                Game::getInstance()->setTurn(empty);
-                Game::getInstance()->setChanged(false);
-                throw new GameEvenException();
+            Game::getInstance()->setTurn(goat);
+            Game::getInstance()->setChanged(true);
+            throw new TigerEatGoatException();
         }
+        else if (score == 5)
+        {
+            Game::getInstance()->setTurn(empty);
+            Game::getInstance()->setChanged(false);
+            throw new TigerWonException();
+        }
+    }
+
+    Game::getInstance()->setTurn(goat);
+    Game::getInstance()->setChanged(true);
+
+    if (!opponent->canMove())
+    {
+        Game::getInstance()->setTurn(empty);
+        Game::getInstance()->setChanged(false);
+        throw new GameEvenException();
+    }
 }
 
 /**
@@ -200,7 +205,7 @@ void PlayerTiger::move(Cell *src, Cell *dst)
  */
 int PlayerTiger::getScore()
 {
-	return score;
+    return score;
 }
 
 /**
@@ -209,7 +214,7 @@ int PlayerTiger::getScore()
  */
 void PlayerTiger::setScore(int score)
 {
-	this->score = score;
+    this->score = score;
 }
 
 /**
@@ -218,16 +223,16 @@ void PlayerTiger::setScore(int score)
  */
 void PlayerTiger::setTigers(Tiger **tigers)
 {
-	this->tigers = tigers;
+    this->tigers = tigers;
 }
 
 /**
  * @brief Getter for the array of Tigers controlled by PlayerTiger
  * @return Array of pointers to instances of Tiger
  */
-Tiger** PlayerTiger::getTigers()
+Tiger **PlayerTiger::getTigers()
 {
-	return tigers;
+    return tigers;
 }
 
 /**
@@ -236,15 +241,15 @@ Tiger** PlayerTiger::getTigers()
  */
 void PlayerTiger::setPlayerGoat(PlayerGoat *playerGoat)
 {
-	opponent = playerGoat;
+    opponent = playerGoat;
 }
 /**
  * @brief Getter for the pointer to the opponent player
  * @return Pointer to the opponent player
  */
-PlayerGoat* PlayerTiger::getPlayerGoat()
+PlayerGoat *PlayerTiger::getPlayerGoat()
 {
-	return opponent;
+    return opponent;
 }
 
 /**
@@ -253,12 +258,13 @@ PlayerGoat* PlayerTiger::getPlayerGoat()
  */
 bool PlayerTiger::couldEat()
 {
-	for(int i = 0; i < 4; ++i)
-	{
-		if(tigers[i]->couldEat())
-		{
-			return true;
-		}
-	}
-	return false;
+    for (int i = 0; i < 4; ++i)
+    {
+        if (tigers[i]->couldEat())
+        {
+            return true;
+        }
+    }
+
+    return false;
 }

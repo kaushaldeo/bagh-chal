@@ -7,4 +7,4 @@ HelpWindow::HelpWindow(QWidget *parent) :
     connect(closeWindow, SIGNAL(clicked()), this, SLOT(close()));
 }
 
-HelpWindow::~HelpWindow(){}
+HelpWindow::~HelpWindow() {}

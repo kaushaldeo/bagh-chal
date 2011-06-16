@@ -7,4 +7,4 @@ InfoWindow::InfoWindow(QWidget *parent) :
     connect(closeWindow, SIGNAL(clicked()), this, SLOT(close()));
 }
 
-InfoWindow::~InfoWindow(){}
+InfoWindow::~InfoWindow() {}

@@ -19,7 +19,7 @@ using namespace baghchal;
  * @fn AvatarWidget()
  * @brief Constructor
  * @param parent - The parent QWidget element
- * 
+ *
  * Standard Constructor of AvatarWidget.
  */
 AvatarWidget::AvatarWidget(QWidget *parent) :
@@ -32,26 +32,27 @@ AvatarWidget::AvatarWidget(QWidget *parent) :
  * @fn mousePressEvent()
  * @brief The mouse press event from Qt
  * @param event - QMouseEvent value
- * 
+ *
  * If a mouse is pressed on an avatar check wether the avatar is moveable or not via the logic layer.
  * If it is moveable, create a drag object.
  */
 void AvatarWidget::mousePressEvent(QMouseEvent *event)
 {
-    
+
     //clean old avatars
     cleanAvatars();
-    
+
     QLabel *child = this->findChild<QLabel *>();
+
     if (!child)
     {
         return;
     }
 
     //check if avatar can move
-    if ( this->property("goat").toBool() )
+    if (this->property("goat").toBool())
     {
-        if ( Game::getInstance()->getTurn() == tiger )
+        if (Game::getInstance()->getTurn() == tiger)
         {
             //notify player that he can't move now
             BaghChal::getInstance()->showMessage(NotificationWithTimer, QString::fromUtf8("Tiger ist an der Reihe."));
@@ -61,7 +62,7 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
     }
     else
     {
-        if ( Game::getInstance()->getTurn() == goat )
+        if (Game::getInstance()->getTurn() == goat)
         {
             //notify player that he can't move now
             BaghChal::getInstance()->showMessage(NotificationWithTimer, QString::fromUtf8("Ziege ist an der Reihe."));
@@ -69,24 +70,24 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
             return;
         }
     }
-    
+
     //create a new drag object
     QPoint *p = new QPoint(0, 2);
-    
+
     QPixmap pixmap = *child->pixmap();
     QByteArray itemData;
     QDataStream dataStream(&itemData, QIODevice::WriteOnly);
     dataStream << pixmap << QPoint(event->pos());
-    
+
     QMimeData *mimeData = new QMimeData;
     mimeData->setData("application/x-dnditemdata", itemData);
-    
+
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mimeData);
     drag->setPixmap(pixmap);
     drag->setHotSpot(event->pos() - *p);
     child->hide();
-    
+
     if (drag->exec(Qt::MoveAction) == Qt::IgnoreAction)
     {
         child->show();
@@ -97,21 +98,22 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
  * @fn cleanAvatars()
  * @brief Clean Widgets in boxes
  * @see mousePressEvent
- * 
+ *
  * Source Avatars and Images needs to be closed when dropping to a new box.
  * This couldn't be done in the dropEvent cause of segmentation fault in Qt event functions.
  */
 void AvatarWidget::cleanAvatars()
 {
-    list<BoxWidget*> boxes = BaghChal::getInstance()->getBoxes();
-    list<BoxWidget*>::iterator it;
+    list<BoxWidget *> boxes = BaghChal::getInstance()->getBoxes();
+    list<BoxWidget *>::iterator it;
 
-    for( it = boxes.begin(); it != boxes.end(); ++it )
+    for (it = boxes.begin(); it != boxes.end(); ++it)
     {
         Cell *cell = (*it)->getCell();
-        if ( cell->getStatus() == empty  )
+
+        if (cell->getStatus() == empty)
         {
-            foreach(QWidget *widget, (*it)->findChildren<QWidget*>())
+            foreach(QWidget * widget, (*it)->findChildren<QWidget *>())
             {
                 widget->close();
             }

@@ -16,7 +16,7 @@ PlayerGoat::PlayerGoat()
 {
     goats = new Goat* [20];
 
-    for(int i = 0; i < 20; i++)
+    for (int i = 0; i < 20; i++)
     {
         goats[i] = new Goat();
     }
@@ -33,11 +33,11 @@ PlayerGoat::PlayerGoat()
  */
 PlayerGoat::PlayerGoat(PlayerTiger *playerTiger)
 {
-	opponent = playerTiger;
+    opponent = playerTiger;
 
     goats = new Goat* [20];
 
-    for(int i = 0; i < 20; i++)
+    for (int i = 0; i < 20; i++)
     {
         goats[i] = new Goat();
     }
@@ -52,7 +52,7 @@ PlayerGoat::PlayerGoat(PlayerTiger *playerTiger)
  */
 PlayerGoat::~PlayerGoat()
 {
-    for(int i = 0; i < 20; i++)
+    for (int i = 0; i < 20; i++)
     {
         delete goats[i];
     }
@@ -67,8 +67,8 @@ PlayerGoat::~PlayerGoat()
 void PlayerGoat::setCell(Cell *cell)
 {
     goats[nextGoat]->setCell(cell);
-	cell->setGoat(goats[nextGoat]);
-	cell->setStatus(goat);
+    cell->setGoat(goats[nextGoat]);
+    cell->setStatus(goat);
 
     nextGoat++;
 }
@@ -78,21 +78,21 @@ void PlayerGoat::setCell(Cell *cell)
  * @return True if any Goat can make any valid moves, else false
  */
 bool PlayerGoat::canMove()
-{    
-	if(nextGoat < 20)
-	{
-		return true;
-	}
+{
+    if (nextGoat < 20)
+    {
+        return true;
+    }
 
-	for(int i = 0; i < 20; i++)
-	{
-		if(goats[i]->canMove())
-		{
-			return true;
-		}
-	}
+    for (int i = 0; i < 20; i++)
+    {
+        if (goats[i]->canMove())
+        {
+            return true;
+        }
+    }
 
-	return false;
+    return false;
 }
 
 /**
@@ -105,31 +105,35 @@ bool PlayerGoat::canMove()
  */
 bool PlayerGoat::canMoveThere(Cell *src, Cell *dst)
 {
-	Goat *thisGoat;
-	
-	if(src == NULL)
-	{
-		if(dst->getStatus() != empty || nextGoat >= 20)
-			return false;
+    Goat *thisGoat;
 
-		return true;
-	}
-	else
-	{
-		if(nextGoat < 20)
-			return false;
-	}
+    if (src == NULL)
+    {
+        if (dst->getStatus() != empty || nextGoat >= 20)
+        {
+            return false;
+        }
 
-	try
-	{
-		thisGoat = src->getGoat();
-	}
-	catch(exception e)
-	{
-		return false;
-	}
+        return true;
+    }
+    else
+    {
+        if (nextGoat < 20)
+        {
+            return false;
+        }
+    }
 
-	return  thisGoat->canMoveThere(dst);
+    try
+    {
+        thisGoat = src->getGoat();
+    }
+    catch (exception e)
+    {
+        return false;
+    }
+
+    return  thisGoat->canMoveThere(dst);
 }
 
 /**
@@ -142,63 +146,63 @@ bool PlayerGoat::canMoveThere(Cell *src, Cell *dst)
  */
 void PlayerGoat::move(Cell *src, Cell *dst)
 {
-    if( !canMoveThere(src, dst) )
+    if (!canMoveThere(src, dst))
     {
         throw new CanNotMoveException();
     }
-    
-	if(src == NULL)
-	{
-		if(dst->getStatus() != empty)
-		{
-			throw new CanNotMoveException();
-		}
 
-		setCell(dst);
-	}
-	else
-	{
-		Goat * thisGoat;
+    if (src == NULL)
+    {
+        if (dst->getStatus() != empty)
+        {
+            throw new CanNotMoveException();
+        }
 
-		try
-		{
-				thisGoat = src->getGoat();
-		}
-		catch(exception e)
-		{
-				throw new CanNotMoveException();
-		}
+        setCell(dst);
+    }
+    else
+    {
+        Goat *thisGoat;
 
-		thisGoat->move(dst);
-	}
+        try
+        {
+            thisGoat = src->getGoat();
+        }
+        catch (exception e)
+        {
+            throw new CanNotMoveException();
+        }
 
-	Game::getInstance()->setTurn(tiger);
-	Game::getInstance()->setChanged(true);
+        thisGoat->move(dst);
+    }
 
-	if(!opponent->canMove())
-	{
-			Game::getInstance()->setTurn(empty);
-			Game::getInstance()->setChanged(false);
-			throw new GoatWonException();
-	}
+    Game::getInstance()->setTurn(tiger);
+    Game::getInstance()->setChanged(true);
+
+    if (!opponent->canMove())
+    {
+        Game::getInstance()->setTurn(empty);
+        Game::getInstance()->setChanged(false);
+        throw new GoatWonException();
+    }
 }
 
 /**
  * @brief Setter for the array of Goats controlled by PlayerGoat
  * @param goats Array of pointers to instances of Goat
  */
-void PlayerGoat::setGoats(Goat** goats)
+void PlayerGoat::setGoats(Goat **goats)
 {
-	this->goats = goats;
+    this->goats = goats;
 }
 
 /**
  * @brief Getter for the array of Goats controlled by PlayerGoat
  * @return Array of pointers to instances of Goat
  */
-Goat** PlayerGoat::getGoats()
+Goat **PlayerGoat::getGoats()
 {
-	return goats;
+    return goats;
 }
 
 /**
@@ -207,7 +211,7 @@ Goat** PlayerGoat::getGoats()
  */
 void PlayerGoat::setNextGoat(int number)
 {
-	nextGoat = number;
+    nextGoat = number;
 }
 
 /**
@@ -216,7 +220,7 @@ void PlayerGoat::setNextGoat(int number)
  */
 int PlayerGoat::getNextGoat()
 {
-	return nextGoat;
+    return nextGoat;
 }
 
 /**
@@ -225,19 +229,14 @@ int PlayerGoat::getNextGoat()
  */
 void PlayerGoat::setPlayerTiger(PlayerTiger *playerTiger)
 {
-	opponent = playerTiger;
+    opponent = playerTiger;
 }
 
 /**
  * @brief Getter for the pointer to the opponent player
  * @return playerTiger Pointer to the opponent player
  */
-PlayerTiger* PlayerGoat::getPlayerTiger()
+PlayerTiger *PlayerGoat::getPlayerTiger()
 {
-	return opponent;
+    return opponent;
 }
-
-
-        
-
-

@@ -74,8 +74,8 @@ BaghChal::BaghChal(QWidget *parent) :
 
 }
 
-BaghChal* BaghChal::baghchal = 0;
- 
+BaghChal *BaghChal::baghchal = 0;
+
 BaghChal::~BaghChal()
 {
     delete baghchal;
@@ -84,16 +84,17 @@ BaghChal::~BaghChal()
     delete ui;
 }
 
-BaghChal* BaghChal::getInstance()
+BaghChal *BaghChal::getInstance()
 {
-    if( !baghchal )
+    if (!baghchal)
     {
         baghchal = new BaghChal(0);
     }
+
     return baghchal;
 }
 
-list<BoxWidget*> BaghChal::getBoxes()
+list<BoxWidget *> BaghChal::getBoxes()
 {
     return boxes;
 }
@@ -118,8 +119,8 @@ bool BaghChal::askSaveDialog()
     qMarkLabel.setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/Help-icon.png")));
 
     askSave.setText(QString::fromUtf8("\n  Möchten Sie den Spielstand zuvor speichern?\n"));
-    QPushButton *saveButton = askSave.addButton(tr("Speichern"),QMessageBox::AcceptRole);
-    QPushButton *discardButton = askSave.addButton(tr("Verwerfen"),QMessageBox::DestructiveRole);
+    QPushButton *saveButton = askSave.addButton(tr("Speichern"), QMessageBox::AcceptRole);
+    QPushButton *discardButton = askSave.addButton(tr("Verwerfen"), QMessageBox::DestructiveRole);
     QPushButton *cancelButton = askSave.addButton(tr("Abbrechen"), QMessageBox::RejectRole);
     askSave.setDefaultButton(saveButton);
 
@@ -146,7 +147,8 @@ bool BaghChal::askSaveDialog()
 void BaghChal::openNewGame()
 {
     this->setStatusMsg(tr("Neues Spiel starten."));
-    if(this->game->getChanged() && !askSaveDialog())
+
+    if (this->game->getChanged() && !askSaveDialog())
     {
         this->clearStatusMsg();
         return;
@@ -163,23 +165,24 @@ void BaghChal::openNewGame()
 void BaghChal::openLoadGame()
 {
     QString filePath = QFileDialog::getOpenFileName(this, tr("Spiel laden"), "",
-        tr("Text Files (*.txt)"));
+                       tr("Text Files (*.txt)"));
 
     if (filePath != "")
     {
         FileIO file(filePath.toStdString());
+
         try
         {
             file.loadGame();
             this->renderGame();
         }
-        catch( OccupiedCellException *e )
+        catch (OccupiedCellException *e)
         {
-            showMessage(NotificationWithoutTimer, QString::fromUtf8( e->what() ));
+            showMessage(NotificationWithoutTimer, QString::fromUtf8(e->what()));
         }
-        catch( InvalidInputFileException *e )
+        catch (InvalidInputFileException *e)
         {
-            showMessage(NotificationWithoutTimer, QString::fromUtf8( e->what() ));
+            showMessage(NotificationWithoutTimer, QString::fromUtf8(e->what()));
         }
     }
 }
@@ -187,7 +190,7 @@ void BaghChal::openLoadGame()
 bool BaghChal::openSaveGame()
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Spiel Speichern"), "",
-        tr("Text Files (*.txt)"));
+                       tr("Text Files (*.txt)"));
 
     if (fileName != "")
     {
@@ -204,11 +207,13 @@ bool BaghChal::openSaveGame()
 void BaghChal::openQuitGame()
 {
     this->setStatusMsg(tr("Spiel beenden."));
-    if(this->game->getChanged() && !askSaveDialog())
+
+    if (this->game->getChanged() && !askSaveDialog())
     {
         this->clearStatusMsg();
         return;
     }
+
     qApp->quit();
 }
 
@@ -242,24 +247,24 @@ void BaghChal::clearStatusMsg()
 
 void BaghChal::showMessage(MessageState messageCase, QString msg)
 {
-    switch(messageCase)
+    switch (messageCase)
     {
-    //case 0: only statusbar
+        //case 0: only statusbar
     case OnlyStatusBar:
         this->setStatusMsg(msg);
         return;
-    //case 1: only notification with timer
+        //case 1: only notification with timer
     case OnlyNotification:
         ui->turnMsg->setText("<font color='White'>" + msg + "</font>");
         timer->start(3000);
         break;
-    //case 2: notification and statusbar with timer
+        //case 2: notification and statusbar with timer
     case NotificationWithTimer:
         ui->turnMsg->setText("<font color='White'>" + msg + "</font>");
         this->setStatusMsg(msg);
         timer->start(3000);
         break;
-    //case 3: notification and statusbar without timer -> game has ended.
+        //case 3: notification and statusbar without timer -> game has ended.
     case NotificationWithoutTimer:
         ui->turnMsg->setText("<font color='White'>" + msg + "</font>");
         setStatusMsg(msg);
@@ -274,7 +279,7 @@ void BaghChal::showMessage(MessageState messageCase, QString msg)
 
 void BaghChal::hideTurnNotification()
 {
-    if(this->game->getTurn()!= 0)
+    if (this->game->getTurn() != 0)
     {
         timer->stop();
         ui->turnNotification->setVisible(false);
@@ -283,7 +288,7 @@ void BaghChal::hideTurnNotification()
 
 void BaghChal::showTurnArrowAndMessage(int turn)
 {
-    switch(turn)
+    switch (turn)
     {
     case empty:
         ui->arrowGoat->hide();
@@ -292,12 +297,12 @@ void BaghChal::showTurnArrowAndMessage(int turn)
     case tiger:
         ui->arrowGoat->hide();
         ui->arrowTiger->show();
-        this->showMessage(OnlyStatusBar,QString::fromUtf8("Tiger ist an der Reihe."));
+        this->showMessage(OnlyStatusBar, QString::fromUtf8("Tiger ist an der Reihe."));
         break;
     case goat:
         ui->arrowGoat->show();
         ui->arrowTiger->hide();
-        this->showMessage(OnlyStatusBar,QString::fromUtf8("Ziege ist an der Reihe."));
+        this->showMessage(OnlyStatusBar, QString::fromUtf8("Ziege ist an der Reihe."));
         break;
     default:
         break;
@@ -310,75 +315,84 @@ void BaghChal::renderGame()
     for (int i = 0; i < 20; i++)
     {
         QString preString = "";
-        if ( i < 10 )
+
+        if (i < 10)
         {
             preString = "0";
         }
-        QWidget *outerBox = qFindChild<QWidget*>(this, "unusedGoat_" + preString + QString::number(i));
+
+        QWidget *outerBox = qFindChild<QWidget *>(this, "unusedGoat_" + preString + QString::number(i));
+
         if (outerBox)
         {
-            AvatarWidget *oldAvatar = outerBox->findChild<AvatarWidget*>();
-            if( oldAvatar )
+            AvatarWidget *oldAvatar = outerBox->findChild<AvatarWidget *>();
+
+            if (oldAvatar)
             {
                 oldAvatar->close();
             }
         }
     }
-    
+
     //set avatars outer grid
     int nextGoats = game->getGoat().getNextGoat();
     nextGoats = 20 - nextGoats;
+
     for (int i = 0; i < nextGoats; i++)
     {
         QString preString = "";
-        if ( i < 10 )
+
+        if (i < 10)
         {
             preString = "0";
         }
-        QWidget *outerBox = qFindChild<QWidget*>(this, "unusedGoat_" + preString + QString::number(i));
+
+        QWidget *outerBox = qFindChild<QWidget *>(this, "unusedGoat_" + preString + QString::number(i));
+
         if (outerBox)
         {
             //create new goat widget as AvatarWidget
-            AvatarWidget* goat = new AvatarWidget( outerBox );
+            AvatarWidget *goat = new AvatarWidget(outerBox);
             goat->setObjectName(QString::fromUtf8("goat"));
             goat->setGeometry(QRect(0, 0, 51, 51));
             goat->setCursor(QCursor(Qt::ArrowCursor));
             goat->setProperty("goat", QVariant(true));
-            
+
             //create goat image as QLabel
-            QLabel* goatImage = new QLabel(goat);
+            QLabel *goatImage = new QLabel(goat);
             goatImage->setObjectName(QString::fromUtf8("goatImage"));
             goatImage->setGeometry(QRect(0, 0, 41, 41));
             goatImage->setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/spielfigur_ziege.png")));
-            
+
             //show goat
             goat->show();
             goatImage->show();
         }
     }
-    
-    list<BoxWidget*>::iterator it;
+
+    list<BoxWidget *>::iterator it;
+
     //reset avatars in grid
-    for( it = boxes.begin(); it != boxes.end(); ++it )
+    for (it = boxes.begin(); it != boxes.end(); ++it)
     {
-        foreach(QWidget *widget, (*it)->findChildren<QWidget*>())
+        foreach(QWidget * widget, (*it)->findChildren<QWidget *>())
         {
             widget->close();
         }
         (*it)->setAcceptDrops(1);
     }
-    
+
     //set avatars in grid
-    for( it = boxes.begin(); it != boxes.end(); ++it )
+    for (it = boxes.begin(); it != boxes.end(); ++it)
     {
         //reset mapping cell to grid
         (*it)->setCell(NULL);
         (*it)->placeAvatar();
     }
-        
+
     //call a method to place or reset eaten goats
-    (*boxes.begin())->placeGoatInRippedField( game->getTiger().getScore() );
-    
+    (*boxes.begin())->placeGoatInRippedField(game->getTiger().getScore());
+
     //show message
-    this->showTurnArrowAndMessage( game->getTurn() );
+    this->showTurnArrowAndMessage(game->getTurn());
 }

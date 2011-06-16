@@ -17,16 +17,16 @@
 class Tiger
 {
 public:
-	Tiger(Cell *cell);
-	bool canMove();
-	bool canMoveThere(Cell *cell);
-	int move(Cell *cell, bool mustEat);
-	Cell * getCell();
-	void setCell(Cell *cell);
-	bool couldEat();
+    Tiger(Cell *cell);
+    bool canMove();
+    bool canMoveThere(Cell *cell);
+    int move(Cell *cell, bool mustEat);
+    Cell *getCell();
+    void setCell(Cell *cell);
+    bool couldEat();
 
 private:
-	Cell *cellPtr;			/**< Pointer to the Cell the tiger resides on */ 
+    Cell *cellPtr;			/**< Pointer to the Cell the tiger resides on */
 };
 
 

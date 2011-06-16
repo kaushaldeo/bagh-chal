@@ -11,30 +11,30 @@
  */
 namespace baghchal
 {
-	/**
-	 * @brief Enumaration for directions
-	 */
-	enum Direction
-	{ 
-		right,		/**< right */
-		below,		/**< below */
-		left,		/**< left */
-		above,		/**< above */
-		rightAbove,		/**< rightAbove */
-		rightBelow,		/**< rightBelow */
-		leftBelow,		/**< leftBelow */
-		leftAbove		/**< leftAbove */
-	};
+/**
+ * @brief Enumaration for directions
+ */
+enum Direction
+{
+    right,		/**< right */
+    below,		/**< below */
+    left,		/**< left */
+    above,		/**< above */
+    rightAbove,		/**< rightAbove */
+    rightBelow,		/**< rightBelow */
+    leftBelow,		/**< leftBelow */
+    leftAbove		/**< leftAbove */
+};
 
-	/**
-	* @brief Enumeration for status of a cell
-	*/
-	enum CellStatus
-	{
-		empty,		/**< empty */
-		tiger,		/**< tiger */
-		goat		/**< goat */
-	};
+/**
+* @brief Enumeration for status of a cell
+*/
+enum CellStatus
+{
+    empty,		/**< empty */
+    tiger,		/**< tiger */
+    goat		/**< goat */
+};
 }
 
 #endif

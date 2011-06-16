@@ -18,8 +18,11 @@ using namespace std;
 
 class CanNotMoveException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Ungültiger Spielzug."; }
+public:
+    const char *what() const throw()
+    {
+        return "Ungültiger Spielzug.";
+    }
 };
 
 /**
@@ -30,8 +33,11 @@ public:
 
 class InvalidStateException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Ungültiger Spielstatus."; }
+public:
+    const char *what() const throw()
+    {
+        return "Ungültiger Spielstatus.";
+    }
 };
 
 /**
@@ -43,8 +49,11 @@ public:
  */
 class InvalidSourceException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Ungültige Spielfigur."; }
+public:
+    const char *what() const throw()
+    {
+        return "Ungültige Spielfigur.";
+    }
 };
 
 /**
@@ -54,8 +63,11 @@ public:
  */
 class InvalidDirectionException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Ungültige Richtung."; }
+public:
+    const char *what() const throw()
+    {
+        return "Ungültige Richtung.";
+    }
 };
 
 
@@ -66,8 +78,11 @@ public:
  */
 class UnoccupiedCellException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Das Feld ist nicht besetzt."; }
+public:
+    const char *what() const throw()
+    {
+        return "Das Feld ist nicht besetzt.";
+    }
 };
 
 /**
@@ -77,8 +92,11 @@ public:
  */
 class InvalidOccupantException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Spielzug ist nicht erlaubt."; }
+public:
+    const char *what() const throw()
+    {
+        return "Spielzug ist nicht erlaubt.";
+    }
 };
 
 /**
@@ -88,8 +106,11 @@ public:
  */
 class OccupiedCellException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Feld ist besetzt."; }
+public:
+    const char *what() const throw()
+    {
+        return "Feld ist besetzt.";
+    }
 };
 
 /**
@@ -101,8 +122,11 @@ public:
  */
 class GoatWonException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Ziege gewinnt."; }
+public:
+    const char *what() const throw()
+    {
+        return "Ziege gewinnt.";
+    }
 };
 
 /**
@@ -114,8 +138,11 @@ public:
  */
 class TigerWonException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Tiger gewinnt."; }
+public:
+    const char *what() const throw()
+    {
+        return "Tiger gewinnt.";
+    }
 };
 
 /**
@@ -127,8 +154,11 @@ public:
  */
 class TigerEatGoatException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Tiger hat eine Ziege gefressen."; }
+public:
+    const char *what() const throw()
+    {
+        return "Tiger hat eine Ziege gefressen.";
+    }
 };
 
 /**
@@ -140,8 +170,11 @@ public:
  */
 class GameEvenException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Unentschieden. Keine weitere Züge möglich."; }
+public:
+    const char *what() const throw()
+    {
+        return "Unentschieden. Keine weitere Züge möglich.";
+    }
 };
 
 /**
@@ -151,13 +184,19 @@ public:
  */
 class InvalidInputFileException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Ungültige Datei."; }
+public:
+    const char *what() const throw()
+    {
+        return "Ungültige Datei.";
+    }
 };
 
 class MustEatException : public exception
 {
-public: 
-  const char* what() const throw(){ return "Ziege muss gefressen werden."; }
+public:
+    const char *what() const throw()
+    {
+        return "Ziege muss gefressen werden.";
+    }
 };
 #endif
