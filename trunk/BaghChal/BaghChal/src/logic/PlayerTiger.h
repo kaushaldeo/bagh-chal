@@ -1,5 +1,5 @@
 #ifndef PLAYERTIGER_H
-#define PLAYERTIGER_H 
+#define PLAYERTIGER_H
 
 #include "Tiger.h"
 #include "Cell.h"
@@ -19,26 +19,26 @@ class PlayerGoat;
 class PlayerTiger
 {
 public:
-	PlayerTiger();
-	PlayerTiger(Cell *tigerCells[]);
-	PlayerTiger(Cell **tigerCells, PlayerGoat *playerGoat);
-	~PlayerTiger();
-	PlayerTiger& operator= (const PlayerTiger& src);
-	bool canMove();
-	bool canMoveThere(Cell *src, Cell *dst);
-	void move(Cell *src, Cell *dst);
-	void setScore(int score);
-	int getScore();
-	void setTigers(Tiger **tigers);
-	Tiger** getTigers();
-	void setPlayerGoat(PlayerGoat *playerGoat);
-	PlayerGoat* getPlayerGoat();
-	bool couldEat();
+    PlayerTiger();
+    PlayerTiger(Cell *tigerCells[]);
+    PlayerTiger(Cell **tigerCells, PlayerGoat *playerGoat);
+    ~PlayerTiger();
+    PlayerTiger &operator= (const PlayerTiger &src);
+    bool canMove();
+    bool canMoveThere(Cell *src, Cell *dst);
+    void move(Cell *src, Cell *dst);
+    void setScore(int score);
+    int getScore();
+    void setTigers(Tiger **tigers);
+    Tiger **getTigers();
+    void setPlayerGoat(PlayerGoat *playerGoat);
+    PlayerGoat *getPlayerGoat();
+    bool couldEat();
 
 private:
-	Tiger **tigers;			/**< Array containing pointers to all instances of Tiger */
-	int score;  			/**< Number of goats eaten by all tigers */
-	PlayerGoat *opponent;	/**< Pointer to the opponent */
+    Tiger **tigers;			/**< Array containing pointers to all instances of Tiger */
+    int score;  			/**< Number of goats eaten by all tigers */
+    PlayerGoat *opponent;	/**< Pointer to the opponent */
 };
 
 #endif

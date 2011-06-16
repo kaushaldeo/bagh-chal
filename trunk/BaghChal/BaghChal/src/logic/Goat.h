@@ -16,16 +16,16 @@
 class Goat
 {
 public:
-	Goat();
-	void setCell(Cell *cell);
-	void removeCell();
-	bool canMove();
-    Cell* getCell();
-	bool canMoveThere(Cell *cell);
-	void move(Cell *cell);
+    Goat();
+    void setCell(Cell *cell);
+    void removeCell();
+    bool canMove();
+    Cell *getCell();
+    bool canMoveThere(Cell *cell);
+    void move(Cell *cell);
 
 private:
-	Cell *cellPtr;			/**< Pointer to the Cell the goat resides on */
+    Cell *cellPtr;			/**< Pointer to the Cell the goat resides on */
 };
 
 #endif

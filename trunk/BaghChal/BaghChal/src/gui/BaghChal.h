@@ -17,18 +17,19 @@
 #include "../logic/Game.h"
 #include <list>
 #include "boxWidget.h"
-#include <QDebug> 
+#include <QDebug>
 
 
-namespace Ui {
-    class BaghChal;
+namespace Ui
+{
+class BaghChal;
 }
 
 /**
  * @brief Enumeration for the state of a message
  */
 enum MessageState
-{ 
+{
     OnlyStatusBar,              /**< Only a Statusbar Message */
     OnlyNotification,           /**< Notification with timer */
     NotificationWithTimer,      /**< Notification and Statusbar Message with timer */
@@ -49,25 +50,25 @@ public:
     void showMessage(MessageState messageCase, QString msg);    /**< Shows a Message or a Notification */
     void clearStatusMsg();
     void showTurnArrowAndMessage(int turn);                     /**< Shows the Turn Arrow including a Notification */
-    static BaghChal* getInstance();                             /**< Getting the instance of the singleton class */
+    static BaghChal *getInstance();                             /**< Getting the instance of the singleton class */
     ~BaghChal();
-    list<BoxWidget*> getBoxes();                                /**< Return a List containing all fields of the playing field */
+    list<BoxWidget *> getBoxes();                               /**< Return a List containing all fields of the playing field */
 
 private:
-    static BaghChal* baghchal;                                  /**< Singleton of the BaghChal class */
+    static BaghChal *baghchal;                                  /**< Singleton of the BaghChal class */
     explicit BaghChal(QWidget *parent = 0);                     /**< Constructor */
     Ui::BaghChal *ui;                                           /**< UI instance, which includes all existing UI elements */
-    HelpWindow hw;                                              
+    HelpWindow hw;
     InfoWindow iw;
     QLabel statusMsg;                                           /**< Includes the Message, which is shown in the Statusbar */
     QTimer *timer;
-    Game* game;                                                 /**< Instance of class Game, which is the central class for the game logic */
-    list<BoxWidget*> boxes;                                     /**< Contains all fields of the playing field */
+    Game *game;                                                 /**< Instance of class Game, which is the central class for the game logic */
+    list<BoxWidget *> boxes;                                    /**< Contains all fields of the playing field */
     bool askSaveDialog();
     void closeEvent(QCloseEvent *event);
     void setStatusMsg(QString msg);                             /**< Setting the Message of the statusbar */
     void renderGame();                                          /**< Setting up a saved Game, after loading it into the logical layer */
-    
+
 private slots:
     void openNewGame();
     void openLoadGame();

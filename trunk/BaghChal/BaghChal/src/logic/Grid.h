@@ -14,19 +14,19 @@ class Cell;
 /**
 * @class Grid
 * @brief Class of the playing field
-* 
+*
 * The Grid class controls the 5*5 Playing field
 */
 class Grid
 {
-  public:
-    Grid ();
-    ~Grid ();
-    Cell* getCell (int, int);
-   
-  private:
-    Cell*** cells;    /**< Pointer to a 5x5-array of Cell-Object-Pointers, represents the 25 fields on the grid */
-    
+public:
+    Grid();
+    ~Grid();
+    Cell *getCell(int, int);
+
+private:
+    Cell *** cells;   /**< Pointer to a 5x5-array of Cell-Object-Pointers, represents the 25 fields on the grid */
+
 };
 
 #endif

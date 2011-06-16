@@ -20,20 +20,20 @@ class QDragLeaveEvent;
 /**
 * @class BoxWidget
 * @brief Derived Class from QWidget of a Cell in the playing field
-* 
+*
 * The BoxWidget class represents a single field on the playing field as a derived class from QWidget. The class places an avatar and communicates with the underlying logic layer.
 */
 class BoxWidget : public QWidget
-{    
+{
     Q_OBJECT
 
 public:
     explicit BoxWidget(QWidget *parent = 0);
-    Cell* getCell();
+    Cell *getCell();
     void setCell(Cell *cell);
     void placeAvatar();
     void placeGoatInRippedField(int eatenGoats);  /**< Places an eaten goat in the ripped field */
-    
+
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent *event);
@@ -41,13 +41,13 @@ protected:
     void dragLeaveEvent(QDragLeaveEvent *event);
 
 private:
-    bool handleGameAction(AvatarWidget* avatar);   /**< Communicates with the logic layer */
+    bool handleGameAction(AvatarWidget *avatar);   /**< Communicates with the logic layer */
     void removeGoatFromBox(Cell *cell);  /**< Removes a goat from a single field in the grid, needed for eating a goat */
-    Cell* cell;
+    Cell *cell;
 signals:
 
 public slots:
-	
+
 };
 
 #endif // BOXWIDGET_H

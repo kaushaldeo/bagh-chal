@@ -16,7 +16,7 @@ class QMouseEvent;
 /**
 * @class AvatarWidget
 * @brief Derived Class from QWidget of an avatar in the game
-* 
+*
 * The AvatarWidget class represents a player avatar goat or tiger
 */
 class AvatarWidget : public QWidget
@@ -27,10 +27,10 @@ public:
 
 protected:
     void mousePressEvent(QMouseEvent *event);
-    
+
 private:
     void cleanAvatars();
-   
+
 signals:
 
 public slots:
