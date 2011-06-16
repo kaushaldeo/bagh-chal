@@ -32,6 +32,7 @@ void FileIO::saveGame()
     fileStream << game->getGoat().getNextGoat() << endl;
 
     for (int i = 0; i < 5; i++)
+    {
         for (int j = 0; j < 5; j++)
         {
             Cell *cell = grid.getCell(i, j);
@@ -41,7 +42,7 @@ void FileIO::saveGame()
                 fileStream << i << " " << j << " " << convertToInt(cell->getStatus()) << endl;
             }
         }
-
+    }
 
     fileStream << 1024;
     game->setChanged(false);
