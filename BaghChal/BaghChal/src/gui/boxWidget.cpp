@@ -272,7 +272,10 @@ bool BoxWidget::handleGameAction(AvatarWidget *avatar)
         }
         catch (TigerWonException *e)
         {
-            //removeGoatFromBox(e.positionX, e.positionY);
+            //remove goat from the box
+            removeGoatFromBox(Game::getInstance()->getLastEatenGoatCell());
+
+            //tiger has eaten a goat, place them in the rippedfield
             placeGoatInRippedField(Game::getInstance()->getTiger().getScore());
 
             //notify tiger player if he has won
