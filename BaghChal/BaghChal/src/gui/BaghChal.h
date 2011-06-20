@@ -10,15 +10,15 @@
 #define BAGHCHAL_H
 
 #include <QMainWindow>
-#include "QCloseEvent"
+#include <QCloseEvent>
+#include <QDebug>
+#include <QTimer>
+
+#include "BoxWidget.h"
 #include "HelpWindow.h"
 #include "InfoWindow.h"
-#include "QTimer"
 #include "../logic/Game.h"
 #include <list>
-#include "BoxWidget.h"
-#include <QDebug>
-
 
 namespace Ui
 {
