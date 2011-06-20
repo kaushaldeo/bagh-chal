@@ -8,10 +8,10 @@ DEPENDPATH += . src/gui
 INCLUDEPATH += . src/gui
 
 # Input
-HEADERS += src/gui/avatarWidget.h src/gui/BaghChal.h src/gui/boxWidget.h \
-    src/gui/helpWindow.h \
-    src/gui/infoWindow.h \
-    src/gui/turnMsgBox.h \
+HEADERS += src/gui/AvatarWidget.h src/gui/BaghChal.h src/gui/BoxWidget.h \
+    src/gui/HelpWindow.h \
+    src/gui/InfoWindow.h \
+    src/gui/TurnMsgBox.h \
     src/logic/Tiger.h \
     src/logic/PlayerTiger.h \
     src/logic/PlayerGoat.h \
@@ -24,15 +24,15 @@ HEADERS += src/gui/avatarWidget.h src/gui/BaghChal.h src/gui/boxWidget.h \
     src/logic/Enums.h \
     src/logic/Cell.h
 FORMS += BaghChal.ui \
-    helpWindow.ui \
-    infoWindow.ui
+    HelpWindow.ui \
+    InfoWindow.ui
 SOURCES += main.cpp \
-           src/gui/avatarWidget.cpp \
+           src/gui/AvatarWidget.cpp \
            src/gui/BaghChal.cpp \
-           src/gui/boxWidget.cpp \
-    src/gui/helpWindow.cpp \
-    src/gui/infoWindow.cpp \
-    src/gui/turnMsgBox.cpp \
+           src/gui/BoxWidget.cpp \
+    src/gui/HelpWindow.cpp \
+    src/gui/InfoWindow.cpp \
+    src/gui/TurnMsgBox.cpp \
     src/logic/Tiger.cpp \
     src/logic/PlayerTiger.cpp \
     src/logic/PlayerGoat.cpp \
