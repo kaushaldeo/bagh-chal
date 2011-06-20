@@ -4,10 +4,8 @@
  * @author Steffen Dittmar
  */
 
-#include "PlayerTiger.h"
 #include "Game.h"
-
-#include <iostream>
+#include "PlayerTiger.h"
 
 /**
  * @brief Default constructor for PlayerTiger
@@ -20,10 +18,10 @@ PlayerTiger::PlayerTiger()
 
 /**
  * @brief Overloaded constructor for PlayerTiger
- * @param tigerCells Array of 4 pointers to the cells the tigers should be placed on
+ * @param tigerCells - Array of 4 pointers to the cells the tigers should be placed on
  *
- * Creates 4 new instances of Tiger and places them on the Cells passed as parameter,
- * which should be the cornes of the Grid.
+ * Creates 4 new instances of Tiger and places them on the cells passed as parameter,
+ * which should be the corners of the grid.
  */
 PlayerTiger::PlayerTiger(Cell *tigerCells[])
 {
@@ -39,11 +37,11 @@ PlayerTiger::PlayerTiger(Cell *tigerCells[])
 
 /**
  * @brief Overloaded constructor for PlayerTiger
- * @param tigerCells Array of 4 pointers to the cells the tigers should be placed on
- * @param playerGoat A pointer to the opponent Player
+ * @param tigerCells - Array of 4 pointers to the cells the tigers should be placed on
+ * @param playerGoat - A pointer to the opponent Player
  *
- * Creates 4 new instances of Tiger and places them on the Cells passed as parameter,
- * which should be the cornes of the Grid and registers playerTiger as this PlayerGoats opponent.
+ * Creates 4 new instances of Tiger and places them on the cells passed as parameter,
+ * which should be the corners of the grid and registers playerGoat as the opponent.
  */
 PlayerTiger::PlayerTiger(Cell **tigerCells, PlayerGoat *playerGoat)
 {
@@ -99,8 +97,8 @@ PlayerTiger &PlayerTiger::operator=(const PlayerTiger &src)
     return *this;
 }
 /**
- * @brief Checks if any Tiger can make any valid moves
- * @return True if any Tiger can make any valid moves, else false
+ * @brief Checks if any tiger can make any valid moves
+ * @return True if any tiger can make any valid moves, else false
  */
 bool PlayerTiger::canMove()
 {
@@ -123,10 +121,10 @@ bool PlayerTiger::canMove()
 }
 
 /**
- * @brief Checks if any Tiger can be moved from src to dst
- * @param src The Cell the Tiger should reside on
- * @param dst The Cell to be checked if the Tiger residing on src could be moved to
- * @return True if a valid move is possble, else false
+ * @brief Checks if any tiger can be moved from src to dst
+ * @param src - The Cell which the tiger should reside on
+ * @param dst - The Cell which to be checked if the tiger residing on src could be moved to
+ * @return True if a valid move is possible, else false
  */
 bool PlayerTiger::canMoveThere(Cell *src, Cell *dst)
 {
@@ -145,10 +143,10 @@ bool PlayerTiger::canMoveThere(Cell *src, Cell *dst)
 }
 
 /**
- * @brief Moves Tiger residing on src to dst if possible
- * @param src The Cell the Tiger should reside on
- * @param dst The Cell the Tiger should be moved to
- * @exception CanNotMoveException Is thrown when a move from src to dst is not possible
+ * @brief Moves tiger residing on src to dst if possible
+ * @param src - The Cell the Tiger should reside on
+ * @param dst - The Cell the Tiger should be moved to
+ * @exception CanNotMoveException is thrown when a move from src to dst is not possible
  */
 void PlayerTiger::move(Cell *src, Cell *dst)
 {
@@ -200,8 +198,8 @@ void PlayerTiger::move(Cell *src, Cell *dst)
 }
 
 /**
- * @brief Getter for the number of goats eaten by all Tigers
- * @returns Number of goats eaten by all Tigers
+ * @brief Getter for the number of goats eaten by all tigers
+ * @returns Number of goats eaten by all tigers
  */
 int PlayerTiger::getScore()
 {
@@ -209,8 +207,8 @@ int PlayerTiger::getScore()
 }
 
 /**
- * @brief Setter for the number of goats eaten by all Tigers
- * @param score Number of goats eaten by all Tigers
+ * @brief Setter for the number of goats eaten by all tigers
+ * @param score - Number of goats eaten by all tigers
  */
 void PlayerTiger::setScore(int score)
 {
@@ -218,8 +216,8 @@ void PlayerTiger::setScore(int score)
 }
 
 /**
- * @brief Setter for the array of Tigers controlled by PlayerTiger
- * @param tigers Array of pointers to instances of Tiger
+ * @brief Setter for the array of tigers controlled by PlayerTiger
+ * @param tigers - Array of pointers to instances of Tiger
  */
 void PlayerTiger::setTigers(Tiger **tigers)
 {
@@ -227,7 +225,7 @@ void PlayerTiger::setTigers(Tiger **tigers)
 }
 
 /**
- * @brief Getter for the array of Tigers controlled by PlayerTiger
+ * @brief Getter for the array of tigers controlled by PlayerTiger
  * @return Array of pointers to instances of Tiger
  */
 Tiger **PlayerTiger::getTigers()
@@ -237,7 +235,7 @@ Tiger **PlayerTiger::getTigers()
 
 /**
  * @brief Setter for the pointer to the opponent player
- * @param playerGoat Pointer to the opponent player
+ * @param playerGoat - Pointer to the opponent player
  */
 void PlayerTiger::setPlayerGoat(PlayerGoat *playerGoat)
 {

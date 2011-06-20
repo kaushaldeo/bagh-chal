@@ -6,12 +6,12 @@
 #include "Enums.h"
 
 /** @file Goat.h
- *  @brief Headerfile for Goat class
+ *  @brief Headerfile for goat class
  *  @author Steffen Dittmar
  */
 
 /**
- * @brief Class representing a single Goat in the logic layer
+ * @brief Class representing a single goat in the logic layer
  */
 class Goat
 {
@@ -25,7 +25,7 @@ public:
     void move(Cell *cell);
 
 private:
-    Cell *cellPtr;			/**< Pointer to the Cell the goat resides on */
+    Cell *cellPtr;			/**< Pointer to the cell the goat resides on */
 };
 
 #endif

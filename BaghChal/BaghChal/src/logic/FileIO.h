@@ -14,7 +14,7 @@
 
 /**
  * @class FileIO
- * @brief handles File Input and Output for saving and loading games
+ * @brief handles file input and output for saving and loading games
  */
 class FileIO
 {

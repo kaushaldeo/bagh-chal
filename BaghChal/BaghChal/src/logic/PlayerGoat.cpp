@@ -4,8 +4,8 @@
  * @author Steffen Dittmar
  */
 
-#include "PlayerGoat.h"
 #include "Game.h"
+#include "PlayerGoat.h"
 
 /**
  * @brief Default constructor for PlayerGoat
@@ -26,10 +26,10 @@ PlayerGoat::PlayerGoat()
 
 /**
  * @brief Overloaded constructor for PlayerGoat
- * @param playerTiger A pointer to the opponent Player
+ * @param playerTiger - A pointer to the opponent Player
  *
  * Creates 20 instances of Goat and stores them in an array and
- * registers playerTiger as this PlayerGoats opponent.
+ * registers playerTiger as the opponent.
  */
 PlayerGoat::PlayerGoat(PlayerTiger *playerTiger)
 {
@@ -48,7 +48,7 @@ PlayerGoat::PlayerGoat(PlayerTiger *playerTiger)
 /**
  * @brief Default destructor for PlayerGoat
  *
- * Deletes all instances of Goat and the Array containing them.
+ * Deletes all instances of Goat and the array containing them.
  */
 PlayerGoat::~PlayerGoat()
 {
@@ -61,8 +61,8 @@ PlayerGoat::~PlayerGoat()
 }
 
 /**
- * @brief Set the next Goat that has not been placed yet on cell
- * @param cell Cell to set the Goat to
+ * @brief Set the next goat that has not been placed yet on cell
+ * @param cell - Cell to set the Goat to
  */
 void PlayerGoat::setCell(Cell *cell)
 {
@@ -74,8 +74,8 @@ void PlayerGoat::setCell(Cell *cell)
 }
 
 /**
- * @brief Checks if any Goat can make any valid moves
- * @return True if any Goat can make any valid moves, else false
+ * @brief Checks if any goat can make any valid moves
+ * @return True if any goat can make any valid moves, else false
  */
 bool PlayerGoat::canMove()
 {
@@ -96,12 +96,12 @@ bool PlayerGoat::canMove()
 }
 
 /**
- * @brief Checks if any Goat can be moved from src to dst
- * @param src The Cell the Goat should reside on
- * @param dst The Cell to be checked if the Goat residing on src could be moved to
+ * @brief Checks if any goat can be moved from src to dst
+ * @param src - The Cell the Goat should reside on
+ * @param dst - The Cell to be checked if the goat residing on src could be moved to
  * @return True if a valid move is possble, else false
  *
- * If src is NULL, canMoveThere checks if an unplaced Goat could be placed on dst.
+ * If src is NULL, canMoveThere() checks if an unplaced goat could be placed on dst.
  */
 bool PlayerGoat::canMoveThere(Cell *src, Cell *dst)
 {
@@ -137,12 +137,12 @@ bool PlayerGoat::canMoveThere(Cell *src, Cell *dst)
 }
 
 /**
- * @brief Moves Goat residing on src to dst if possible
- * @param src The Cell the Goat should reside on
- * @param dst The Cell the Goat should be moved to
- * @exception CanNotMoveException Is thrown when a move from src to dst is not possible
+ * @brief Moves a goat residing on src to dst if possible
+ * @param src - The Cell which the goat should reside on
+ * @param dst - The Cell which the goat should be moved to
+ * @exception CanNotMoveException is thrown when a move from src to dst is not possible
  *
- * If src is NULL, an unplaced Goat will be placed on dst if possible.
+ * If src is NULL, an unplaced goat will be placed on dst if possible.
  */
 void PlayerGoat::move(Cell *src, Cell *dst)
 {
@@ -188,8 +188,8 @@ void PlayerGoat::move(Cell *src, Cell *dst)
 }
 
 /**
- * @brief Setter for the array of Goats controlled by PlayerGoat
- * @param goats Array of pointers to instances of Goat
+ * @brief Setter for the array of goats controlled by PlayerGoat
+ * @param goats - Array of pointers to instances of Goat
  */
 void PlayerGoat::setGoats(Goat **goats)
 {
@@ -197,7 +197,7 @@ void PlayerGoat::setGoats(Goat **goats)
 }
 
 /**
- * @brief Getter for the array of Goats controlled by PlayerGoat
+ * @brief Getter for the array of goats controlled by PlayerGoat
  * @return Array of pointers to instances of Goat
  */
 Goat **PlayerGoat::getGoats()
@@ -206,8 +206,8 @@ Goat **PlayerGoat::getGoats()
 }
 
 /**
- * @brief Setter for the index in the array of the Goat to be placed next
- * @param number Index of the Goat to be placed next
+ * @brief Setter for the index in the array of the goats to be placed next
+ * @param number - Index of the goat to be placed next
  */
 void PlayerGoat::setNextGoat(int number)
 {
@@ -215,8 +215,8 @@ void PlayerGoat::setNextGoat(int number)
 }
 
 /**
- * @brief Getter for the index in the array of the Goat to be placed next
- * @return Index of the Goat to be placed next
+ * @brief Getter for the index in the array of the goats to be placed next
+ * @return Index of the goat to be placed next
  */
 int PlayerGoat::getNextGoat()
 {
@@ -225,7 +225,7 @@ int PlayerGoat::getNextGoat()
 
 /**
  * @brief Setter for the pointer to the opponent player
- * @param playerTiger Pointer to the opponent player
+ * @param playerTiger - Pointer to the opponent player
  */
 void PlayerGoat::setPlayerTiger(PlayerTiger *playerTiger)
 {
@@ -234,7 +234,7 @@ void PlayerGoat::setPlayerTiger(PlayerTiger *playerTiger)
 
 /**
  * @brief Getter for the pointer to the opponent player
- * @return playerTiger Pointer to the opponent player
+ * @return playerTiger - Pointer to the opponent player
  */
 PlayerTiger *PlayerGoat::getPlayerTiger()
 {

@@ -14,7 +14,7 @@
 class PlayerGoat;
 
 /**
- * @brief Class representing Player controlling the Tigers
+ * @brief Class representing Player controlling the tigers
  */
 class PlayerTiger
 {
@@ -38,7 +38,7 @@ public:
 private:
     Tiger **tigers;			/**< Array containing pointers to all instances of Tiger */
     int score;  			/**< Number of goats eaten by all tigers */
-    PlayerGoat *opponent;	/**< Pointer to the opponent */
+    PlayerGoat *opponent;	        /**< Pointer to the opponent */
 };
 
 #endif

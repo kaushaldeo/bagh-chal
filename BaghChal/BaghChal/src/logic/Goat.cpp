@@ -18,9 +18,9 @@ Goat::Goat()
 
 /**
  * @brief Setter for cellPtr
- * @param cell The cell to set goat on
+ * @param cell - The cell to set goat on
  *
- * Only sets cellPtr to cell, doesn't register goat in Cell.
+ * Only sets cellPtr to cell, doesn't register goat in the cell.
  */
 void Goat::setCell(Cell *cell)
 {
@@ -30,7 +30,7 @@ void Goat::setCell(Cell *cell)
 /**
  * @brief Set cellPtr to NULL
  *
- * Only sets cellPtr to NULL, doesn't unregister goat in Cell.
+ * Only sets cellPtr to NULL, doesn't unregister goat in the cell.
  */
 void Goat::removeCell()
 {
@@ -39,7 +39,7 @@ void Goat::removeCell()
 
 /**
  * @brief Returns pointer to the Cell the goat resides on
- * @return Pointer to the Cell the goat resides on or NULL if the goat has not been set or
+ * @return Pointer to the cell which the goat resides on or NULL if the goat has not been set or
  *  has been removed
  */
 Cell *Goat::getCell()
@@ -84,11 +84,11 @@ bool Goat::canMove()
 
 /**
  * @brief Checks if a move to a certain Cell would be possible
- * @param cell The cell to check if a valid move to would be possible
+ * @param cell - Check the cell if a valid move to would be possible
  * @return True if a move would be valid, else false
  *
- * Checks if the Cell the Goat resides on and the cell passed as parameter are next
- * to each other in the Grid and if the destination cells status is empty.
+ * Checks if the cell which the goat resides on and the cell passed as parameter are next
+ * to each other in the grid and if the destination cells status is empty.
  */
 bool Goat::canMoveThere(Cell *cell)
 {
@@ -110,11 +110,11 @@ bool Goat::canMoveThere(Cell *cell)
 }
 
 /**
- * @brief Moves the Goat to the Cell passed as argument
- * @param cell The Cell to move the Goat to
+ * @brief Moves the goat to the cell passed as argument
+ * @param cell - The cell to move the goat to
  * @exception CanNotMoveException is thrown when a valid move to cell is not possible
  *
- * Checks if a valid move would be possible, then moves the Goat. Updates the affected cells.
+ * Checks if a valid move would be possible, then moves the goat. Updates the affected cells.
  */
 void Goat::move(Cell *cell)
 {

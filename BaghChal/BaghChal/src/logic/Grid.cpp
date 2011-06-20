@@ -6,14 +6,14 @@
 * @author Julian Bayer
 */
 
-#include "Grid.h"
 #include "Cell.h"
+#include "Grid.h"
 
 /**
  * @fn Grid()
- * @brief Constructs a Grid of 5*5 Cells
+ * @brief Constructs a grid of 5*5 Cells
  *
- * Constructor for Grid
+ * This is the Constructor for the grid.
  */
 Grid::Grid() : cells(new Cell **[5])
 {
@@ -30,7 +30,7 @@ Grid::Grid() : cells(new Cell **[5])
 
 /**
  * @fn ~Grid()
- * @brief Default destructor for Grid
+ * @brief Default destructor for grid
  */
 Grid::~Grid()
 {
@@ -49,18 +49,18 @@ Grid::~Grid()
 
 /**
  * @fn getCell()
- * @brief get a Cell by its coordinates
- * @param x the x coordinate
- * @param y the y coordinate
+ * @brief get a cell by its coordinates
+ * @param x - The x coordinate
+ * @param y - The y coordinate
  * @returns pointer to the cell in question
  *
- * Get a cell by its x and y coordinates
+ * Get a cell by its x and y coordinates.
  */
 Cell *Grid::getCell(int x, int y)
 {
     if (x > 4 || y > 4)
     {
-        return 0;    //again an exception would be the better solution
+        return 0;
     }
 
     return cells[x][y];

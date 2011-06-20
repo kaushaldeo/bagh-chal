@@ -15,7 +15,7 @@ class Cell;
 * @class Grid
 * @brief Class of the playing field
 *
-* The Grid class controls the 5*5 Playing field
+* The Grid class controls the 5*5 playing field
 */
 class Grid
 {

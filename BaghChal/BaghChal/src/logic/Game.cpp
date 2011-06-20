@@ -10,7 +10,7 @@
  * @fn Game()
  * @brief Default-constructor for class Game
  *
- * Constructs a PlayerTiger, PlayerGoat, as well as the grid
+ * Constructs a PlayerTiger, PlayerGoat, as well as the grid.
  */
 Game::Game() : grid(), goatP(), changed(false), turn(goat), lastEatenGoatCell(NULL)
 {
@@ -24,10 +24,10 @@ Game *Game::game = 0;
 
 /**
  * @fn getInstance()
- * @brief static function returning game singleton object
+ * @brief Static function returning game singleton object
  * @returns Game*
  *
- * Returns the game singleton object. If there is none, creates it.
+ * Returns the game singleton object. If there is none, the method creates it.
  */
 Game *Game::getInstance()
 {
@@ -41,7 +41,7 @@ Game *Game::getInstance()
 
 /**
  * @fn setChanged
- * @brief set changed flag
+ * @brief Set changed flag
  * @param newChanged - bool
  */
 void Game::setChanged(bool newChanged)
@@ -51,7 +51,7 @@ void Game::setChanged(bool newChanged)
 
 /**
  * @fn getChanged
- * @brief return changed flag
+ * @brief Return changed flag
  * @returns bool
  */
 bool Game::getChanged()
@@ -61,7 +61,7 @@ bool Game::getChanged()
 
 /**
  * @fn getTurn
- * @brief returns which player's turn it is
+ * @brief Returns which player's turn it is
  * @returns CellStatus
  * @see CellStatus
  */
@@ -72,7 +72,7 @@ CellStatus Game::getTurn()
 
 /**
  * @fn setTurn
- * @brief sets which player's turn it is
+ * @brief Sets which player's turn it is
  * @param newturn - CellStatus
  * @see CellStatus
  */
@@ -83,7 +83,7 @@ void Game::setTurn(CellStatus newturn)
 
 /**
  * @fn getGrid
- * @brief returns reference on grid object
+ * @brief Returns reference on grid object
  * @returns Grid&
  */
 Grid &Game::getGrid()
@@ -93,7 +93,7 @@ Grid &Game::getGrid()
 
 /**
  * @fn getTiger
- * @brief returns reference on PlayerTiger object
+ * @brief Returns reference on PlayerTiger object
  * @returns PlayerTiger&
  */
 PlayerTiger &Game::getTiger()
@@ -103,7 +103,7 @@ PlayerTiger &Game::getTiger()
 
 /**
  * @fn getGoat
- * @brief returns reference on PlayerGoat object
+ * @brief Returns reference on PlayerGoat object
  * @returns PlayerGoat&
  */
 PlayerGoat &Game::getGoat()
@@ -113,9 +113,9 @@ PlayerGoat &Game::getGoat()
 
 /**
  * @fn startNewGame
- * @brief static function to start a new game
+ * @brief Static function to start a new game
  *
- * Deletes old game-Singleton and creates a new one
+ * Deletes old game-Singleton and creates a new one.
  */
 void Game::startNewGame()
 {
@@ -126,7 +126,7 @@ void Game::startNewGame()
 
 /**
  * @fn getLastEatenGoatCell()
- * @brief returns pointer on cell, on which the last eaten goat was sitting
+ * @brief Returns pointer on cell, on which the last eaten goat was
  * @returns Cell*
  */
 Cell *Game::getLastEatenGoatCell()
@@ -138,7 +138,7 @@ Cell *Game::getLastEatenGoatCell()
 
 /**
  * @fn getLastEatenGoatCell()
- * @brief sets pointer on cell, on which the last eaten goat was sitting
+ * @brief Sets pointer on cell, on which the last eaten goat was
  * @param cell - Cell*
  */
 void Game::setLastEatenGoatCell(Cell *cell)

@@ -14,7 +14,7 @@ using namespace std;
  * @fn saveGame()
  * @brief Saves the game to a textfile.
  *
- * Saves the Data from game into a textfile.
+ * Saves the data from game into a textfile.
  */
 void FileIO::saveGame()
 {
@@ -148,7 +148,7 @@ void FileIO::loadGame()
  * @fn convertFromInt
  * @param state - int to be converted to CellStatus
  * @see CellStatus
- * @brief converts an int to a member of baghchal::CellStatus
+ * @brief Converts an int to a member of baghchal::CellStatus
  * @exception InvalidStateException
  */
 CellStatus FileIO::convertFromInt(int state)
@@ -170,7 +170,7 @@ CellStatus FileIO::convertFromInt(int state)
  * @fn convertToInt
  * @param state - CellStatus to be converted to int
  * @see CellStatus
- * @brief converts a member of baghchal::CellStatus into an integer
+ * @brief Converts a member of baghchal::CellStatus into an integer
  * @exception std::exception
  */
 int FileIO::convertToInt(CellStatus state)

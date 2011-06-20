@@ -4,16 +4,16 @@
  * @author Steffen Dittmar
  */
 
-#include "Tiger.h"
 #include "Game.h"
+#include "Tiger.h"
 
 using namespace baghchal;
 
 /**
  * @brief Overloaded constructor for class Tiger
- * @param cell Cell this Tiger should be placed on
+ * @param cell - Cell this Tiger should be placed on
  *
- * Sets Tiger on and registers it in cell.
+ * Sets tiger on and registers it in cell.
  */
 Tiger::Tiger(Cell *cell)
 {
@@ -69,8 +69,8 @@ bool Tiger::canMove()
 }
 
 /**
- * @brief Checks if a move to a certain Cell would be possible
- * @param cell The cell to check if a valid move to would be possible
+ * @brief Checks if a move to a certain cell would be possible
+ * @param cell - The cell to check if a valid move to would be possible
  * @return True if a move would be valid, else false
  */
 bool Tiger::canMoveThere(Cell *cell)
@@ -112,11 +112,11 @@ bool Tiger::canMoveThere(Cell *cell)
 }
 
 /**
- * @brief Moves the Tiger to the Cell passed as argument
- * @param cell The Cell to move the Tiger to
+ * @brief Moves the tiger to the cell passed as argument
+ * @param cell - The cell to move the Tiger to
  * @exception CanNotMoveException is thrown when a valid move to cell is not possible
  *
- * Checks if a valid move would be possible, then moves the Tiger. Updates the affected cells.
+ * Checks if a valid move would be possible, then moves the tiger. Updates the affected cells.
  */
 int Tiger::move(Cell *cell, bool mustEat)
 {
@@ -174,9 +174,9 @@ int Tiger::move(Cell *cell, bool mustEat)
 
 /**
  * @brief Setter for cellPtr
- * @param cell The cell to set tiger on
+ * @param cell - The cell to set tiger on
  *
- * Only sets cellPtr to cell, doesnt register tiger in Cell.
+ * Only sets cellPtr to cell, doesnt register tiger in cell.
  */
 void Tiger::setCell(Cell *cell)
 {
@@ -187,7 +187,7 @@ void Tiger::setCell(Cell *cell)
  * @brief Getter for cellPtr
  * @return The cell to set tiger on
  *
- * Only sets cellPtr to cell, doesnt register tiger in Cell.
+ * Only sets cellPtr to cell, doesnt register tiger in cell.
  */
 Cell *Tiger::getCell()
 {
