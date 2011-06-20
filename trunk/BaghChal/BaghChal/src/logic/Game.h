@@ -18,7 +18,7 @@
 * @class Game
 * @brief Central class for game logic
 *
-* The Game Class oversees all members of the game logic
+* The Game class oversees all members of the game logic
 */
 class Game
 {

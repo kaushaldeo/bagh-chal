@@ -2,9 +2,9 @@
 #define TIGER_H
 
 #include "Cell.h"
-#include "Goat.h"
-#include "Exceptions.h"
 #include "Enums.h"
+#include "Exceptions.h"
+#include "Goat.h"
 
 /** @file Tiger.h
  *  @brief Headerfile for Tiger class
@@ -28,6 +28,5 @@ public:
 private:
     Cell *cellPtr;			/**< Pointer to the Cell the tiger resides on */
 };
-
 
 #endif

@@ -45,7 +45,7 @@ public:
  * @brief Is thrown when it's the tiger's turn but a goat is moved or vice versa.
  * @extends std::exception
  *
- * The object trying to be moved must be pointet to in the current players Goat or Tiger array.
+ * The object trying to be moved must be pointet to in the current players goat or tiger array.
  */
 class InvalidSourceException : public exception
 {
@@ -58,7 +58,7 @@ public:
 
 /**
  * @class InvalidDirectionException
- * @brief Is thrown if an invalid direction is specified, or if an integer not representing a Direction is used
+ * @brief Is thrown if an invalid direction is specified, or if an integer not representing a direction is used
  * @extends std::exception
  */
 class InvalidDirectionException : public exception
@@ -115,10 +115,10 @@ public:
 
 /**
  * @class GoatWonException
- * @brief Is thrown when PlayerGoat has won.
+ * @brief Is thrown when PlayerGoat has won
  * @extends std::exception
  *
- * The goats turn is finished and no Tiger is able to perform any valid moves.
+ * The goats turn is finished and no tiger is able to perform any valid moves.
  */
 class GoatWonException : public exception
 {
@@ -131,7 +131,7 @@ public:
 
 /**
  * @class TigerWonException
- * @brief Is thrown when PlayerTiger has won.
+ * @brief Is thrown when PlayerTiger has won
  * @extends std::exception
  *
  * The tigers turn is finished and he has eaten 5 goats.
@@ -147,7 +147,7 @@ public:
 
 /**
  * @class TigerEatGoatException
- * @brief Is thrown when PlayerTiger eats a Goat.
+ * @brief Is thrown when PlayerTiger eats a goat
  * @extends std::exception
  *
  * The tigers turn eats a goat.
@@ -163,10 +163,10 @@ public:
 
 /**
  * @class GameEvenException
- * @brief Is thrown when the GoatPlayer has no more valid moves.
+ * @brief Is thrown when the GoatPlayer has no more valid moves
  * @extends std::exception
  *
- * The tigers turn is finished and no Goat is able to perform any valid moves.
+ * The tigers turn is finished and no goat is able to perform any valid moves.
  */
 class GameEvenException : public exception
 {
@@ -191,6 +191,10 @@ public:
     }
 };
 
+/**
+ * @class MustEatException
+ * @brief Is thrown when a tiger can eat a goat
+ */
 class MustEatException : public exception
 {
 public:
