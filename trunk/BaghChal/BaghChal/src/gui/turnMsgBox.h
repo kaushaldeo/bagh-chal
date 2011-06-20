@@ -13,23 +13,22 @@
 
 /**
  * @class TurnMsgBox
- * @brief Derived Class of QWidget for the Turn Message Box
+ * @brief This is a derived class of QWidget for the turn message box
  *
- * The TurnMsgBox Class is a message box, which tells the user whose turn is it. It also tells the user if a the game is over.
+ * The TurnMsgBox class is a message box, which tells the user whose turn is it. It also tells the user when the game is over.
  */
 class TurnMsgBox : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit TurnMsgBox(QWidget *parent = 0);
 
 protected:
-    void mousePressEvent(QMouseEvent *event);  /**< Overloaded Qt mousePressEvent Funktion */
+    void mousePressEvent(QMouseEvent *event);  /**< Overloaded Qt mousePressEvent function */
 
 signals:
     void clicked();
-
-public slots:
 
 };
 
