@@ -6,13 +6,11 @@
 * @author Simon Schneeberger
 */
 #include <QtGui>
-#include <iostream>
 
-#include "avatarWidget.h"
+#include "AvatarWidget.h"
 #include "BaghChal.h"
 #include "../logic/Game.h"
 
-using namespace std;
 using namespace baghchal;
 
 /**
@@ -38,7 +36,6 @@ AvatarWidget::AvatarWidget(QWidget *parent) :
  */
 void AvatarWidget::mousePressEvent(QMouseEvent *event)
 {
-
     //clean old avatars
     cleanAvatars();
 
@@ -99,7 +96,7 @@ void AvatarWidget::mousePressEvent(QMouseEvent *event)
  * @brief Clean Widgets in boxes
  * @see mousePressEvent
  *
- * Source Avatars and Images needs to be closed when dropping to a new box.
+ * Old Avatars and images needs to be closed when dropping to a new box.
  * This couldn't be done in the dropEvent cause of segmentation fault in Qt event functions.
  */
 void AvatarWidget::cleanAvatars()

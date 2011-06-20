@@ -6,14 +6,14 @@
  * @author Mirko Indlekofer
  */
 
-#include "helpWindow.h"
+#include "HelpWindow.h"
 
 /**
  * @fn HelpWindow()
  * @brief Constructor
  * @param parent - The parent QWidget element
  *
- * After setting the parent of HelpWindow, this function sets up the Help Window.
+ * After setting the parent of HelpWindow, this function sets up the help window.
  */
 HelpWindow::HelpWindow(QWidget *parent) :
     QWidget(parent)

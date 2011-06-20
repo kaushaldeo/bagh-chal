@@ -10,7 +10,7 @@
 
 #include <QWidget>
 #include "../logic/Cell.h"
-#include "avatarWidget.h"
+#include "AvatarWidget.h"
 
 class QDragEnterEvent;
 class QDropEvent;
@@ -19,34 +19,32 @@ class QDragLeaveEvent;
 
 /**
 * @class BoxWidget
-* @brief Derived Class from QWidget of a Cell in the playing field
+* @brief This is a derived class from QWidget which represents a cell in the playing field
 *
-* The BoxWidget class represents a single field on the playing field as a derived class from QWidget. The class places an avatar and communicates with the underlying logic layer.
+* The BoxWidget class represents a single field called box on the playing field as a derived class from QWidget.
+* The class places an avatar and communicates with the underlying logic layer.
 */
 class BoxWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit BoxWidget(QWidget *parent = 0);
-    Cell *getCell();
-    void setCell(Cell *cell);
-    void placeAvatar();
-    void placeGoatInRippedField(int eatenGoats);  /**< Places an eaten goat in the ripped field */
+    explicit BoxWidget(QWidget *parent = 0);       /**< Constructor */
+    Cell *getCell();                               /**< Getter for a cell */
+    void setCell(Cell *cell);                      /**< Setter for a cell */
+    void placeAvatar();                            /**< Place an avatar in a field */
+    void placeGoatInRippedField(int eatenGoats);   /**< Place an eaten goat in the ripped field */
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event);
-    void dropEvent(QDropEvent *event);
-    void dragMoveEvent(QDragMoveEvent *event);
-    void dragLeaveEvent(QDragLeaveEvent *event);
+    void dragEnterEvent(QDragEnterEvent *event);   /**< Overloaded Qt dragEnterEvent function */
+    void dropEvent(QDropEvent *event);             /**< Overloaded Qt dropEvent function */
+    void dragMoveEvent(QDragMoveEvent *event);     /**< Overloaded Qt dragMoveEvent function */
+    void dragLeaveEvent(QDragLeaveEvent *event);   /**< Overloaded Qt dragLeaveEvent function */
 
 private:
-    bool handleGameAction(AvatarWidget *avatar);   /**< Communicates with the logic layer */
-    void removeGoatFromBox(Cell *cell);  /**< Removes a goat from a single field in the grid, needed for eating a goat */
+    bool handleGameAction(AvatarWidget *avatar);   /**< Communicate with the logic layer */
+    void removeGoatFromBox(Cell *cell);            /**< Remove a goat from a single field in the grid, needed for eating a goat */
     Cell *cell;
-signals:
-
-public slots:
 
 };
 

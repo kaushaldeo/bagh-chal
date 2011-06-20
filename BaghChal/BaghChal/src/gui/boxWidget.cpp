@@ -7,15 +7,12 @@
 */
 
 #include <QtGui>
-#include <iostream>
 
-#include "boxWidget.h"
 #include "BaghChal.h"
+#include "BoxWidget.h"
 #include "../logic/Game.h"
 
-using namespace std;
 using namespace baghchal;
-
 
 /**
  * @fn BoxWidget()
@@ -188,7 +185,7 @@ void BoxWidget::dropEvent(QDropEvent *event)
  */
 bool BoxWidget::handleGameAction(AvatarWidget *avatar)
 {
-    //desination cell is the droppable box
+    //destination cell is the droppable box
     Cell *dst = this->getCell();
 
     //source cell has to be found out now, the source cell could be out of the grid
@@ -304,7 +301,7 @@ bool BoxWidget::handleGameAction(AvatarWidget *avatar)
 /**
  * @fn removeGoatFromBox()
  * @brief Removes an avatar from a box
- * @param Cell - The Cell from which a goat has to be removed
+ * @param Cell - The cell from which a goat has to be removed
  * @see handleGameAction()
  *
  * Removes a goat from a box. This is called if a goat is eaten by a tiger.
@@ -384,7 +381,7 @@ void BoxWidget::placeGoatInRippedField(int score)
  * @see dropEvent()
  * @see renderGame()
  *
- * Places a avatar in a box in the grid.
+ * Places an avatar in a box in the playing field.
  */
 void BoxWidget::placeAvatar()
 {

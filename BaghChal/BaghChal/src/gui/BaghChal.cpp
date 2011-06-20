@@ -6,15 +6,16 @@
  * @author Mirko Indlekofer
  */
 
-#include "BaghChal.h"
-#include "../../ui_BaghChal.h"
 #include "QEventLoop"
 #include "QFileDialog"
 #include "QMessageBox"
-#include <iostream>
+
+#include "BaghChal.h"
+#include "../logic/Cell.h"
 #include "../logic/FileIO.h"
 #include "../logic/Game.h"
-#include "../logic/Cell.h"
+#include "../../ui_BaghChal.h"
+
 #include <iterator>
 
 using namespace baghchal;
@@ -24,8 +25,8 @@ using namespace baghchal;
  * @brief Constructor
  * @param parent - The parent QWidget element
  *
- * This function sets up the UI and creates an instance of class Game. It also connects all menue items to their corresponding Slots.
- * Every BoxWidget of the playing field gets added to a list.
+ * This function sets up the UI and creates an instance of the class Game. It also connects all menue items to their corresponding slots.
+ * Every object of the BoxWidget class are added to a list.
  */
 BaghChal::BaghChal(QWidget *parent) :
     QMainWindow(parent),
@@ -52,7 +53,6 @@ BaghChal::BaghChal(QWidget *parent) :
     connect(ui->actionHelp, SIGNAL(triggered()), this, SLOT(openHelpWindow()));
     connect(ui->actionInfo, SIGNAL(triggered()), this, SLOT(openInfoWindow()));
 
-
     boxes.push_back(ui->box_00);
     boxes.push_back(ui->box_01);
     boxes.push_back(ui->box_02);
@@ -78,7 +78,6 @@ BaghChal::BaghChal(QWidget *parent) :
     boxes.push_back(ui->box_42);
     boxes.push_back(ui->box_43);
     boxes.push_back(ui->box_44);
-
 }
 
 /**
@@ -118,10 +117,10 @@ BaghChal *BaghChal::getInstance()
 
 /**
  * @fn getBoxes()
- * @brief Returns a List containing all BoxWidgets
+ * @brief Returns a list containing all objects of the Boxwidget class
  * @return list<BoxWidget *> 
  *
- * Returns a List containing all the BoxWidgets of the playing field
+ * Returns a list containing all objects of the BoxWidget class.
  */
 list<BoxWidget *> BaghChal::getBoxes()
 {
@@ -134,8 +133,8 @@ list<BoxWidget *> BaghChal::getBoxes()
  * @param event - QCloseEvent value
  * @see openQuitGame()
  *
- * This function is called, when the user clicks on the Close Button of the Window (the 'X' Button).
- * This function simply ignores the QCloseEvent and calls the openQuitGame() function to avoid closing the game without showing the Save Game Dialogue.
+ * This function is called, when the user clicks on the close button of the window (the 'X' button).
+ * This function simply ignores the QCloseEvent and calls the openQuitGame() function to avoid closing the game without showing the save game dialogue.
  */
 void BaghChal::closeEvent(QCloseEvent *event)
 {
@@ -145,11 +144,11 @@ void BaghChal::closeEvent(QCloseEvent *event)
 
 /**
  * @fn askSaveDialog()
- * @brief Opens the Save Game Dialogue
+ * @brief Opens the save game dialogue
  * @see openSaveGame()
  * @return bool
  *
- * Opens the Save Game Dialogue and returns if the Game was saved or not. Calls openSaveGame() if the user wants to save.
+ * Opens the save game dialogue and returns if the game was saved or not. Calls openSaveGame() if the user wants to save.
  */
 bool BaghChal::askSaveDialog()
 {
@@ -195,7 +194,7 @@ bool BaghChal::askSaveDialog()
  * @brief Opens a new game
  * @see askSaveDialog()
  *
- * If the current game was changed the Save Game Dialogue opens. If the game was successfully saved or discarded, the function creates a new game.
+ * If the current game was changed the save game dialogue opens. If the game was successfully saved or discarded, the function creates a new game.
  */
 void BaghChal::openNewGame()
 {
@@ -221,7 +220,7 @@ void BaghChal::openNewGame()
  * @see loadGame()
  * @see renderGame()
  *
- * Opens the Load Game Dialogue and calls the function loadGame() to load a saved game into the logical layer. After loading the game it calls the renderGame() function to set up the game.
+ * Opens the load game dialogue and calls the function loadGame() to load a saved game into the logical layer. After loading the game it calls the renderGame() function to set up the game.
  */
 void BaghChal::openLoadGame()
 {
@@ -250,11 +249,11 @@ void BaghChal::openLoadGame()
 
 /**
  * @fn openSaveGame()
- * @brief Opens the Save Game Dialogue
+ * @brief Opens the save game dialogue
  * @see saveGame()
  * @return bool
  *
- * Opens the Save Game Dialogue and calls the function saveGame() to create a Savegame File. Return if the game was successfully saved or not.
+ * Opens the save game dialogue and calls the function saveGame() to create a save game file. Return if the game was successfully saved or not.
  */
 bool BaghChal::openSaveGame()
 {
@@ -297,7 +296,7 @@ void BaghChal::openQuitGame()
  * @fn openHelpWindow()
  * @brief Opens the Help Window
  *
- * Funktion opens the Help Window
+ * This function opens the help window.
  */
 void BaghChal::openHelpWindow()
 {
@@ -312,7 +311,7 @@ void BaghChal::openHelpWindow()
  * @fn openInfoWindow()
  * @brief Opens the Info Window
  *
- * Funktion opens the Info Window
+ * This funktion opens the info window.
  */
 void BaghChal::openInfoWindow()
 {
@@ -325,8 +324,8 @@ void BaghChal::openInfoWindow()
 
 /**
  * @fn setStatusMsg
- * @brief Sets the Message of the Statusbar
- * @param msg - The Message for the Statusbar
+ * @brief Sets the message of the statusbar
+ * @param msg - The message for the statusbar
  *
  * This function sets the statusbar message to the string which is passed by the parameter.
  */
@@ -337,7 +336,7 @@ void BaghChal::setStatusMsg(QString msg)
 
 /**
  * @fn clearStatusMsg()
- * @brief Clears the Statusmessage
+ * @brief Clears the status message
  *
  * This function clears the content of the statusbar.
  */
@@ -349,10 +348,10 @@ void BaghChal::clearStatusMsg()
 /**
  * @fn showMessage()
  * @brief Shows a Message Notification
- * @param messageCase - The Case, if message is a Notification, a statusbar message or both of them. 
- * @param msg - Content of the Message as String.
+ * @param messageCase - The case, if message is a notification, a statusbar message or both of them
+ * @param msg - Content of the message as a string
  *
- * Shows a Message as a Notification or as a Statusbar Message or both of them with and without timer.
+ * Shows a message as a notification or as a statusbar message or both of them with and without timer.
  */
 void BaghChal::showMessage(MessageState messageCase, QString msg)
 {
@@ -403,11 +402,11 @@ void BaghChal::hideTurnNotification()
 
 /**
  * @fn showTurnArrowAndMessage
- * @brief Shows, whose turn is it. 
- * @param turn - int Value containing, whose turn is it.
+ * @brief Shows, whose turn is it.
+ * @param turn - int value containing, whose turn is it
  * @see showMessage
  *
- * Shows the Arrow and the Statusbarmessage, which notifies whose turn is it.
+ * Shows the arrow and the statusbar message, which notifies whose turn is it.
  */
 void BaghChal::showTurnArrowAndMessage(int turn)
 {
@@ -438,7 +437,7 @@ void BaghChal::showTurnArrowAndMessage(int turn)
  * @see placeGoatInRippedField()
  * @see showTurnArrowAndMessage()
  *
- * Setting up a saved Game, after loading it into the logical layer. After resetting the current game, all the avatars are placed on their correct position in the playing field.
+ * Setting up a saved game, after loading it into the logical layer. After resetting the current game, all the avatars are placed on their correct position in the playing field.
  */
 void BaghChal::renderGame()
 {

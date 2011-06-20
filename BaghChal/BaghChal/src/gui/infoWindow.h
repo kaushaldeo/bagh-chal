@@ -9,15 +9,15 @@
 #ifndef INFOWINDOW_H
 #define INFOWINDOW_H
 
-#include "../../ui_infoWindow.h"
+#include "../../ui_InfoWindow.h"
 
 #include <QWidget>
 
 /**
  * @class InfoWindow
- * @brief Derived Class of QWidget for the Info Window
+ * @brief This is a derived class of QWidget for the info window
  *
- * The InfoWindow Class represents the Info Window, which contains information about the program and their developers.
+ * The InfoWindow class represents the Info Window, which contains information about the program and their developers.
  */
 class InfoWindow : public QWidget, public Ui::infoPopup
 {
