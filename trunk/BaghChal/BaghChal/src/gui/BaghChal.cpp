@@ -520,7 +520,19 @@ void BaghChal::renderGame()
         (*it)->placeAvatar();
     }
 
-    //call a method to place or reset eaten goats
+    //reset eaten goats
+    for (int i = 0; i < 5; ++i)
+    {
+        QWidget *rippedField = qFindChild<QWidget *>(this, "rippedGoat_0" + QString::number(i));
+        QLabel *label = rippedField->findChild<QLabel *>();
+
+        if (label)
+        {
+            delete label;
+        }
+    }
+
+    //place eaten goats
     (*boxes.begin())->placeGoatInRippedField(game->getTiger().getScore());
 
     //show message
