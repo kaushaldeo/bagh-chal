@@ -235,12 +235,17 @@ void BaghChal::openLoadGame()
         {
             file.loadGame();
             this->renderGame();
+            showMessage(NotificationWithTimer, QString::fromUtf8("Spiel geladen."));
         }
         catch (OccupiedCellException *e)
         {
             showMessage(NotificationWithoutTimer, QString::fromUtf8(e->what()));
         }
         catch (InvalidInputFileException *e)
+        {
+            showMessage(NotificationWithoutTimer, QString::fromUtf8(e->what()));
+        }
+        catch (InvalidStateException *e)
         {
             showMessage(NotificationWithoutTimer, QString::fromUtf8(e->what()));
         }
@@ -263,8 +268,17 @@ bool BaghChal::openSaveGame()
     if (fileName != "")
     {
         FileIO file(fileName.toStdString());
-        file.saveGame();
-        return true;
+        try
+        {
+            file.saveGame();
+            showMessage(NotificationWithTimer, QString::fromUtf8("Spiel gespeichert."));
+            return true;
+        }
+        catch (exception)
+        {
+            showMessage(NotificationWithTimer, QString::fromUtf8("Speichern fehlgeschlagen."));
+            return false;
+        }
     }
     else
     {
