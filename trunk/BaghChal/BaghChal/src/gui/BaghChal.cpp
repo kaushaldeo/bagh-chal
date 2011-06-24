@@ -148,7 +148,7 @@ void BaghChal::closeEvent(QCloseEvent *event)
  * @see openSaveGame()
  * @return bool
  *
- * Opens the save game dialogue and returns if the game was saved or not. Calls openSaveGame() if the user wants to save.
+ * Opens the save game dialogue and returns if the game was saved/discarded or cancled. Calls openSaveGame() if the user wants to save.
  */
 bool BaghChal::askSaveDialog()
 {
@@ -224,6 +224,11 @@ void BaghChal::openNewGame()
  */
 void BaghChal::openLoadGame()
 {
+    if (this->game->getChanged() && !askSaveDialog())
+    {
+        return;
+    }
+
     QString filePath = QFileDialog::getOpenFileName(this, tr("Spiel laden"), "",
                        tr("Text Files (*.txt)"));
 
