@@ -24,7 +24,19 @@ class HelpWindow : public QWidget, public Ui::helpPopup
     Q_OBJECT
 
 public:
+    /**
+     * @fn HelpWindow()
+     * @brief Constructor
+     * @param parent - The parent QWidget element
+     *
+     * After setting the parent of HelpWindow, this function sets up the help window.
+     */
     explicit HelpWindow(QWidget *parent = 0);
+    
+    /**
+     * @fn ~HelpWindow()
+     * @brief Destructor
+     */
     ~HelpWindow();
 
 };
