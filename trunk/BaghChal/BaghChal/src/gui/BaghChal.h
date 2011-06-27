@@ -101,7 +101,7 @@ public:
     list<BoxWidget *> getBoxes();                             
 
 private:
-    static BaghChal *baghchal;  
+    static BaghChal *baghchal;  /**< Singleton of the BaghChal class */
     
     /**
      * @fn BaghChal()
@@ -113,13 +113,13 @@ private:
      */   
     explicit BaghChal(QWidget *parent = 0); 
     
-    Ui::BaghChal *ui;                                         
+    Ui::BaghChal *ui;            /**< UI instance, which includes all existing UI elements */                                       
     HelpWindow hw;
     InfoWindow iw;
-    QLabel statusMsg;                                           
+    QLabel statusMsg;            /**< Includes the message, which is shown in the statusbar */                                        
     QTimer *timer;
-    Game *game;                                                 
-    list<BoxWidget *> boxes;
+    Game *game;                  /**< Instance of class Game, which is the central class for the game logic */                                
+    list<BoxWidget *> boxes;     /**< Contains all fields of the playing field */
     
     /**
      * @fn askSaveDialog()

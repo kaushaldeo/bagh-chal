@@ -7,22 +7,10 @@
 #include "Game.h"
 #include "PlayerTiger.h"
 
-/**
- * @brief Default constructor for PlayerTiger
- *
- * Does nothing at all.
- */
 PlayerTiger::PlayerTiger()
 {
 }
 
-/**
- * @brief Overloaded constructor for PlayerTiger
- * @param tigerCells - Array of 4 pointers to the cells the tigers should be placed on
- *
- * Creates 4 new instances of Tiger and places them on the cells passed as parameter,
- * which should be the corners of the grid.
- */
 PlayerTiger::PlayerTiger(Cell *tigerCells[])
 {
     tigers = new Tiger* [4];
@@ -35,14 +23,6 @@ PlayerTiger::PlayerTiger(Cell *tigerCells[])
     score = 0;
 }
 
-/**
- * @brief Overloaded constructor for PlayerTiger
- * @param tigerCells - Array of 4 pointers to the cells the tigers should be placed on
- * @param playerGoat - A pointer to the opponent Player
- *
- * Creates 4 new instances of Tiger and places them on the cells passed as parameter,
- * which should be the corners of the grid and registers playerGoat as the opponent.
- */
 PlayerTiger::PlayerTiger(Cell **tigerCells, PlayerGoat *playerGoat)
 {
     opponent = playerGoat;
@@ -57,11 +37,6 @@ PlayerTiger::PlayerTiger(Cell **tigerCells, PlayerGoat *playerGoat)
     score = 0;
 }
 
-/**
- * @brief Default destructor for PlayerTiger
- *
- * Deletes all instances of Tiger and the array containing them.
- */
 PlayerTiger::~PlayerTiger()
 {
     for (int i = 0; i < 4; i++)
@@ -72,11 +47,6 @@ PlayerTiger::~PlayerTiger()
     delete[] tigers;
 }
 
-/**
- * @brief Overloaded operator = for PlayerTiger
- *
- * Deep copies the array of tigers and copies score and opponent.
- */
 PlayerTiger &PlayerTiger::operator=(const PlayerTiger &src)
 {
     this->tigers = new Tiger* [4];
@@ -96,10 +66,7 @@ PlayerTiger &PlayerTiger::operator=(const PlayerTiger &src)
 
     return *this;
 }
-/**
- * @brief Checks if any tiger can make any valid moves
- * @return True if any tiger can make any valid moves, else false
- */
+
 bool PlayerTiger::canMove()
 {
     if (Game::getInstance()->getTurn() != tiger)
@@ -120,12 +87,6 @@ bool PlayerTiger::canMove()
     return false;
 }
 
-/**
- * @brief Checks if any tiger can be moved from src to dst
- * @param src - The Cell which the tiger should reside on
- * @param dst - The Cell which to be checked if the tiger residing on src could be moved to
- * @return True if a valid move is possible, else false
- */
 bool PlayerTiger::canMoveThere(Cell *src, Cell *dst)
 {
     Tiger *thisTiger;
@@ -142,12 +103,6 @@ bool PlayerTiger::canMoveThere(Cell *src, Cell *dst)
     return thisTiger->canMoveThere(dst);
 }
 
-/**
- * @brief Moves tiger residing on src to dst if possible
- * @param src - The Cell the Tiger should reside on
- * @param dst - The Cell the Tiger should be moved to
- * @exception CanNotMoveException is thrown when a move from src to dst is not possible
- */
 void PlayerTiger::move(Cell *src, Cell *dst)
 {
     if (!canMoveThere(src, dst))
@@ -197,63 +152,36 @@ void PlayerTiger::move(Cell *src, Cell *dst)
     }
 }
 
-/**
- * @brief Getter for the number of goats eaten by all tigers
- * @returns Number of goats eaten by all tigers
- */
 int PlayerTiger::getScore()
 {
     return score;
 }
 
-/**
- * @brief Setter for the number of goats eaten by all tigers
- * @param score - Number of goats eaten by all tigers
- */
 void PlayerTiger::setScore(int score)
 {
     this->score = score;
 }
 
-/**
- * @brief Setter for the array of tigers controlled by PlayerTiger
- * @param tigers - Array of pointers to instances of Tiger
- */
 void PlayerTiger::setTigers(Tiger **tigers)
 {
     this->tigers = tigers;
 }
 
-/**
- * @brief Getter for the array of tigers controlled by PlayerTiger
- * @return Array of pointers to instances of Tiger
- */
 Tiger **PlayerTiger::getTigers()
 {
     return tigers;
 }
 
-/**
- * @brief Setter for the pointer to the opponent player
- * @param playerGoat - Pointer to the opponent player
- */
 void PlayerTiger::setPlayerGoat(PlayerGoat *playerGoat)
 {
     opponent = playerGoat;
 }
-/**
- * @brief Getter for the pointer to the opponent player
- * @return Pointer to the opponent player
- */
+
 PlayerGoat *PlayerTiger::getPlayerGoat()
 {
     return opponent;
 }
 
-/**
- * @brief Checks if any tiger could eat a goat
- * @return True if any tiger could eat a goat, else false
- */
 bool PlayerTiger::couldEat()
 {
     for (int i = 0; i < 4; ++i)
