@@ -20,8 +20,29 @@ class Cell;
 class Grid
 {
 public:
+    /**
+     * @fn Grid()
+     * @brief Constructs a grid of 5*5 Cells
+     *
+     * This is the Constructor for the grid.
+     */
     Grid();
+
+    /**
+     * @fn ~Grid()
+     * @brief Default destructor for grid
+     */
     ~Grid();
+
+    /**
+     * @fn getCell()
+     * @brief get a cell by its coordinates
+     * @param x - The x coordinate
+     * @param y - The y coordinate
+     * @returns pointer to the cell in question
+     *
+     * Get a cell by its x and y coordinates.
+     */
     Cell *getCell(int, int);
 
 private:

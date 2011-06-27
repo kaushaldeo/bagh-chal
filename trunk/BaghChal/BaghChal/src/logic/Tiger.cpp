@@ -1,7 +1,7 @@
 /**
  * @file Tiger.cpp
  * @brief Implementation of Tiger Class
- * @author Steffen Dittmar
+ * @author Simon Schneeberger
  */
 
 #include "Game.h"
@@ -9,12 +9,6 @@
 
 using namespace baghchal;
 
-/**
- * @brief Overloaded constructor for class Tiger
- * @param cell - Cell this Tiger should be placed on
- *
- * Sets tiger on and registers it in cell.
- */
 Tiger::Tiger(Cell *cell)
 {
     cellPtr = cell;
@@ -22,10 +16,6 @@ Tiger::Tiger(Cell *cell)
     cell->setStatus(tiger);
 }
 
-/**
- * @brief Checks if this tiger can make any valid moves
- * @return True if a valid move is possible, else false
- */
 bool Tiger::canMove()
 {
     for (int i = 0; i < 8; i++)
@@ -68,11 +58,6 @@ bool Tiger::canMove()
     return false;
 }
 
-/**
- * @brief Checks if a move to a certain cell would be possible
- * @param cell - The cell to check if a valid move to would be possible
- * @return True if a move would be valid, else false
- */
 bool Tiger::canMoveThere(Cell *cell)
 {
     Direction dir;
@@ -111,13 +96,6 @@ bool Tiger::canMoveThere(Cell *cell)
     return false;
 }
 
-/**
- * @brief Moves the tiger to the cell passed as argument
- * @param cell - The cell to move the Tiger to
- * @exception CanNotMoveException is thrown when a valid move to cell is not possible
- *
- * Checks if a valid move would be possible, then moves the tiger. Updates the affected cells.
- */
 int Tiger::move(Cell *cell, bool mustEat)
 {
     if (!canMoveThere(cell))
@@ -172,32 +150,16 @@ int Tiger::move(Cell *cell, bool mustEat)
     throw new CanNotMoveException();
 }
 
-/**
- * @brief Setter for cellPtr
- * @param cell - The cell to set tiger on
- *
- * Only sets cellPtr to cell, doesnt register tiger in cell.
- */
 void Tiger::setCell(Cell *cell)
 {
     cellPtr = cell;
 }
 
-/**
- * @brief Getter for cellPtr
- * @return The cell to set tiger on
- *
- * Only sets cellPtr to cell, doesnt register tiger in cell.
- */
 Cell *Tiger::getCell()
 {
     return cellPtr;
 }
 
-/**
- * @brief Cecks if this tiger could eat a goat
- * @return True if tiger could eat a goat, else false
- */
 bool Tiger::couldEat()
 {
     Direction allDirections[8] = {baghchal::right, baghchal::below, baghchal::left, baghchal::above, baghchal::rightAbove, baghchal::rightBelow, baghchal::leftBelow, baghchal::leftAbove};

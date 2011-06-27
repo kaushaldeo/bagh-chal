@@ -22,9 +22,39 @@ public:
     FileIO() : path("bagh-chal-save.txt") {};
     FileIO(std::string filename) : path(filename) {};
     ~FileIO() {};
+
+    /**
+     * @fn saveGame()
+     * @brief Saves the game to a textfile.
+     *
+     * Saves the data from game into a textfile.
+     */
     void saveGame();
+
+    /**
+     * @fn loadGame()
+     * @brief Loads the game from a textfile.
+     *
+     * Loads data from a textfile and loads it into a game class.
+     */
     void loadGame();
+
+    /**
+     * @fn convertToInt
+     * @param state - CellStatus to be converted to int
+     * @see CellStatus
+     * @brief Converts a member of baghchal::CellStatus into an integer
+     * @exception std::exception
+     */
     int convertToInt(CellStatus);
+
+    /**
+     * @fn convertFromInt
+     * @param state - int to be converted to CellStatus
+     * @see CellStatus
+     * @brief Converts an int to a member of baghchal::CellStatus
+     * @exception InvalidStateException
+     */
     CellStatus convertFromInt(int);
 
 private:
