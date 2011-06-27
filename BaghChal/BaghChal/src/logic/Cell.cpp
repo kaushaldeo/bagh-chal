@@ -11,36 +11,17 @@
 #include "Goat.h"
 #include "Tiger.h"
 
-/**
-* @fn getStatus()
-* @brief Get Status of Cell
-* @returns int Status: 0 = empty, 1 = tiger, 2 = goat
-*
-* Get the status of the cell.
-*/
+
 CellStatus Cell::getStatus()
 {
     return status;
 }
 
-/**
- * @fn setStatus()
- * @brief Sets the status of the cell
- * @param newState - unsigned integer value indicating the new status
- */
 void Cell::setStatus(CellStatus newState)
 {
     status = newState;
 }
 
-
-/**
-* @fn getPosition()
-* @brief Get Position of cell on grid
-* @returns std::pair\<int, int> with first as x-position and second as y-position
-*
-* Get the position of the cell on grid.
-*/
 pair <int, int> Cell::getPosition()
 {
     pair <int, int> pos;
@@ -49,15 +30,6 @@ pair <int, int> Cell::getPosition()
     return pos;
 }
 
-/**
-* @fn getNeighbor()
-* @brief Get neighboring cell on grid as indicated by direction
-* @param direction - member of baghchal::Direction indicating direction
-* @exception CanNotMoveException
-*
-* The function checks wether there is a neighbor as indicated by the direction.
-* If there is none, the function throws a CanNotMoveException.
-*/
 Cell *Cell::getNeighbor(Direction direction)
 {
     switch (direction)
@@ -138,30 +110,11 @@ Cell *Cell::getNeighbor(Direction direction)
     }
 }
 
-/**
- * @fn canMoveDiagonally()
- * @brief Tests, if player can move diagonally from this cell
- * @returns bool
- *
- * A piece can move diagonally if both his coordinates are odd or if both are even.
- * If this is not the case, a diagonal move is not permitted.
- */
 bool Cell::canMoveDiagonally()
 {
     return positionX % 2 == positionY % 2;
 }
 
-/**
- * @fn getTiger()
- * @brief Gets tiger
- * @returns Tiger*
- * @exception UnoccupiedCellException
- * @exception InvalidOccupantException
- *
- * Returns a pointer on tiger currently occupying this cell.
- * Throws UnoccupiedCellException if the cell is unoccupied.
- * Throws InvalidOccupantException if the cell is occupied by a goat.
- */
 Tiger *Cell::getTiger()
 {
     if (status == empty)
@@ -176,17 +129,6 @@ Tiger *Cell::getTiger()
     return tigerPtr;
 }
 
-/**
- * @fn getGoat()
- * @brief Gets the occupying goat
- * @returns Goat*
- * @exception UnoccupiedCellException
- * @exception InvalidOccupantException
- *
- * Returns a pointer on goat currently occupying this cell.
- * Throws UnoccupiedCellException if the cell is unoccupied.
- * Throws InvalidOccupantException if the cell is occupied by a tiger.
- */
 Goat *Cell::getGoat()
 {
     if (status == empty)
@@ -201,14 +143,6 @@ Goat *Cell::getGoat()
     return goatPtr;
 }
 
-/**
- * @fn setTiger()
- * @brief Sets Tiger
- * @exception OccupiedCellException
- *
- * Sets tigerPtr to a pointer on the tiger currently occupying the cell.
- * If the cell is already occupied, throws OccupiedCellException.
- */
 void Cell::setTiger(Tiger *tiger)
 {
     if (status != empty)
@@ -219,26 +153,11 @@ void Cell::setTiger(Tiger *tiger)
     this->tigerPtr = tiger;
 }
 
-/**
- * @fn overrideTiger()
- * @brief setsTiger
- *
- * Sets tigerPtr to a pointer on the tiger currently occupying the cell.
- * Ignores status of cell!
- */
 void Cell::overrideTiger(Tiger *tiger)
 {
     this->tigerPtr = tiger;
 }
 
-/**
- * @fn setGoat()
- * @brief Sets new goat
- * @exception OccupiedCellException
- *
- * Sets goatPtr to a pointer on the goat currently occupying the cell.
- * If the cell is already occupied, throws OccupiedCellException.
- */
 void Cell::setGoat(Goat *goat)
 {
     if (status != empty)
@@ -249,29 +168,11 @@ void Cell::setGoat(Goat *goat)
     this->goatPtr = goat;
 }
 
-
-/**
- * @fn overrideTiger()
- * @brief Sets Tiger
- *
- * Sets goatPtr to a pointer on the goat currently occupying the cell.
- * Ignores status of cell!
- */
 void Cell::overrideGoat(Goat *goat)
 {
     this->goatPtr = goat;
 }
 
-/**
- * @fn removeGoat()
- * @brief Removes goat from cell
- * @exception UnoccupiedCellException
- * @exception InvalidOccupantException
- *
- * Removes goat from cell.
- * Throws UnoccupiedCellException if the cell is unoccupied.
- * Throws InvalidOccupantException if the cell is occupied by a tiger.
- */
 void Cell::removeGoat()
 {
     if (status == empty)
@@ -288,16 +189,6 @@ void Cell::removeGoat()
     status = empty;
 }
 
-/**
- * @fn removeTiger()
- * @brief Removes tiger from cell
- * @exception UnoccupiedCellException
- * @exception InvalidOccupantException
- *
- * Removes tiger from cell.
- * Throws UnoccupiedCellException if the cell is unoccupied.
- * Throws InvalidOccupantException if the cell is occupied by a goat.
- */
 void Cell::removeTiger()
 {
     if (status == empty)
@@ -314,16 +205,6 @@ void Cell::removeTiger()
     status = empty;
 }
 
-/**
- * @fn isNeighbor()
- * @brief Tests, if a cell is neighbor to this cell
- * @returns Direction - direction of the cell
- * @param cell - The cell to be tested
- * @see getNeighbor()
- * @exception InvalidDirectionException
- *
- * Checks whether the cell is neighbour of this cell, using getNeighbor().
- */
 Direction Cell::isNeighbor(Cell *cell)
 {
     Direction allDirections[8] = {baghchal::right, baghchal::below, baghchal::left, baghchal::above, baghchal::rightAbove, baghchal::rightBelow, baghchal::leftBelow, baghchal::leftAbove};
@@ -350,17 +231,6 @@ Direction Cell::isNeighbor(Cell *cell)
     throw InvalidDirectionException();
 }
 
-/**
- * @fn isJumpOverNeighbor()
- * @brief Tests, if a cell is a neighboring cell of a cell containing a goat and neighboring this
- *  cell in the same direction
- * @returns int - direction of the cell
- * @param cell - The cell to be tested
- * @see getNeighbor()
- * @exception InvalidDirectionException
- *
- * The function uses getNeighbor().
- */
 Direction Cell::isJumpOverNeighbor(Cell *cell)
 {
     Direction allDirections[8] = {baghchal::right, baghchal::below, baghchal::left, baghchal::above, baghchal::rightAbove, baghchal::rightBelow, baghchal::leftBelow, baghchal::leftAbove};

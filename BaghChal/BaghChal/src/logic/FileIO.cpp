@@ -10,12 +10,6 @@
 
 using namespace std;
 
-/**
- * @fn saveGame()
- * @brief Saves the game to a textfile.
- *
- * Saves the data from game into a textfile.
- */
 void FileIO::saveGame()
 {
     Game *game = Game::getInstance();
@@ -49,13 +43,6 @@ void FileIO::saveGame()
     fileStream.close();
 }
 
-
-/**
- * @fn loadGame()
- * @brief Loads the game from a textfile.
- *
- * Loads data from a textfile and loads it into a game class.
- */
 void FileIO::loadGame()
 {
     ifstream fileStream(path.c_str());
@@ -144,13 +131,6 @@ void FileIO::loadGame()
     fileStream.close();
 }
 
-/**
- * @fn convertFromInt
- * @param state - int to be converted to CellStatus
- * @see CellStatus
- * @brief Converts an int to a member of baghchal::CellStatus
- * @exception InvalidStateException
- */
 CellStatus FileIO::convertFromInt(int state)
 {
     switch (state)
@@ -166,13 +146,6 @@ CellStatus FileIO::convertFromInt(int state)
     }
 }
 
-/**
- * @fn convertToInt
- * @param state - CellStatus to be converted to int
- * @see CellStatus
- * @brief Converts a member of baghchal::CellStatus into an integer
- * @exception std::exception
- */
 int FileIO::convertToInt(CellStatus state)
 {
     switch (state)
