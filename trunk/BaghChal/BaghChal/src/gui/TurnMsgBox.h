@@ -22,10 +22,24 @@ class TurnMsgBox : public QWidget
     Q_OBJECT
 
 public:
+    /**
+     * @fn TurnMsgBox()
+     * @brief Constructor
+     * @param parent - The parent QWidget element
+     *
+     * The function sets the parent of TurnMsgBox.
+     */
     explicit TurnMsgBox(QWidget *parent = 0);
 
 protected:
-    void mousePressEvent(QMouseEvent *event);  /**< Overloaded Qt mousePressEvent function */
+    /**
+     * @fn mousePressEvent()
+     * @brief Overloaded Qt mousePressEvent Funktion
+     * @param event - QMouseEvent value 
+     * 
+     * This function ignores the QMouseEvent parameter and emits an clicked signal.
+     */
+    void mousePressEvent(QMouseEvent *event);  
 
 signals:
     void clicked();

@@ -29,21 +29,116 @@ class BoxWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit BoxWidget(QWidget *parent = 0);       /**< Constructor */
-    Cell *getCell();                               /**< Getter for a cell */
-    void setCell(Cell *cell);                      /**< Setter for a cell */
-    void placeAvatar();                            /**< Place an avatar in a field */
-    void placeGoatInRippedField(int eatenGoats);   /**< Place an eaten goat in the ripped field */
+    /**
+     * @fn BoxWidget()
+     * @brief Constructor
+     * @param parent - The parent QWidget element
+     *
+     * The function sets the parent of BoxWidget and cell to NULL
+     */
+    explicit BoxWidget(QWidget *parent = 0);   
+    
+    /**
+     * @fn getCell()
+     * @brief Set and returns cell
+     * @param parent - The parent QWidget element
+     * @return cell
+     *
+     * If no cell is set yet, retrieve the correspondending cell from the logic layer and set them to cell
+     */
+    Cell *getCell();
+
+    /**
+     * @fn setCell()
+     * @brief Set cell
+     * @param cell - Cell* value to set the cell
+     * @see renderGame()
+     */    
+    void setCell(Cell *cell);  
+
+    /**
+     * @fn placeAvatar()
+     * @brief Places a goat in a box
+     * @see dropEvent()
+     * @see renderGame()
+     *
+     * Places an avatar in a box in the playing field.
+     */    
+    void placeAvatar();      
+
+    /**
+     * @fn placeGoatInRippedField()
+     * @brief Places an eaten goat in the ripped field
+     * @param eatenGoats - int value
+     * @see handleGameAction()
+     * @see renderGame()
+     *
+     * Places an eaten goat in one of the ripped field out of the grid. Notify the tiger player if he has eaten 5 goats.
+     * If score is 0 the method deletes all goat images, this is especially used for loading a new game.
+     */    
+    void placeGoatInRippedField(int eatenGoats);  
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event);   /**< Overloaded Qt dragEnterEvent function */
-    void dropEvent(QDropEvent *event);             /**< Overloaded Qt dropEvent function */
-    void dragMoveEvent(QDragMoveEvent *event);     /**< Overloaded Qt dragMoveEvent function */
-    void dragLeaveEvent(QDragLeaveEvent *event);   /**< Overloaded Qt dragLeaveEvent function */
+    /**
+     * @fn dragEnterEvent()
+     * @brief The drag start event from Qt
+     * @param event - QDragEnterEvent value
+     *
+     * If a drag is started over the BoxWidget, hover the BoxWidget with a grey color.
+     */
+    void dragEnterEvent(QDragEnterEvent *event); 
+
+    /**
+     * @fn dropEvent()
+     * @brief The drop event from Qt
+     * @param event - QDropEvent value
+     *
+     * Checks wether the drop is allowed or not. If it is allowed drop the avatar.
+     */    
+    void dropEvent(QDropEvent *event);   
+
+    /**
+     * @fn dragMoveEvent()
+     * @brief The drag move event from Qt
+     * @param event - QDragMoveEvent value
+     *
+     * The standard drag move event.
+     */    
+    void dragMoveEvent(QDragMoveEvent *event);  
+    
+    /**
+     * @fn dragLeaveEvent()
+     * @brief The leave drag event from Qt
+     * @param event - QDragLeaveEvent value
+     *
+     * Delete the hover effect.
+     */    
+    void dragLeaveEvent(QDragLeaveEvent *event);   
 
 private:
-    bool handleGameAction(AvatarWidget *avatar);   /**< Communicate with the logic layer */
-    void removeGoatFromBox(Cell *cell);            /**< Remove a goat from a single field in the grid, needed for eating a goat */
+
+    /**
+     * @fn handleGameAction()
+     * @brief The game handler
+     * @param avatar - AvatarWidget value
+     * @see dropEvent()
+     * @return bool
+     *
+     * Checks wether the avatar can move or not via the logic layer. Moves the avatar from the source cell to the destination cell.
+     * Catch exceptions thrown by the logic layer (e.g. the goat has won).
+     */
+    bool handleGameAction(AvatarWidget *avatar); 
+
+    /**
+     * @fn removeGoatFromBox()
+     * @brief Removes an avatar from a box
+     * @param Cell - The cell from which a goat has to be removed
+     * @see handleGameAction()
+     *
+     * Removes a goat from a box. This is called if a goat is eaten by a tiger.
+     */
+    void removeGoatFromBox(Cell *cell);
+    
     Cell *cell;
 
 };

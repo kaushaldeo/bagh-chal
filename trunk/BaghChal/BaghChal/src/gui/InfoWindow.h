@@ -24,7 +24,19 @@ class InfoWindow : public QWidget, public Ui::infoPopup
     Q_OBJECT
 
 public:
+    /**
+     * @fn InfoWindow()
+     * @brief Constructor
+     * @param parent - The parent QWidget element
+     *
+     * After setting the parent of info window, this function sets up the info window.
+     */
     explicit InfoWindow(QWidget *parent = 0);
+    
+    /**
+     * @fn ~InfoWindow()
+     * @brief Destructor
+     */
     ~InfoWindow();
 
 };

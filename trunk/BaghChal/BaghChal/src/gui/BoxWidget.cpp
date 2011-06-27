@@ -14,27 +14,12 @@
 
 using namespace baghchal;
 
-/**
- * @fn BoxWidget()
- * @brief Constructor
- * @param parent - The parent QWidget element
- *
- * The function sets the parent of BoxWidget and cell to NULL
- */
 BoxWidget::BoxWidget(QWidget *parent) :
     QWidget(parent)
 {
     this->cell = NULL;
 }
 
-/**
- * @fn getCell()
- * @brief Set and returns cell
- * @param parent - The parent QWidget element
- * @return cell
- *
- * If no cell is set yet, retrieve the correspondending cell from the logic layer and set them to cell
- */
 Cell *BoxWidget::getCell()
 {
     if (this->cell == NULL)
@@ -45,24 +30,11 @@ Cell *BoxWidget::getCell()
     return this->cell;
 }
 
-/**
- * @fn setCell()
- * @brief Set cell
- * @param cell - Cell* value to set the cell
- * @see renderGame()
- */
 void BoxWidget::setCell(Cell *cell)
 {
     this->cell = cell;
 }
 
-/**
- * @fn dragEnterEvent()
- * @brief The drag start event from Qt
- * @param event - QDragEnterEvent value
- *
- * If a drag is started over the BoxWidget, hover the BoxWidget with a grey color.
- */
 void BoxWidget::dragEnterEvent(QDragEnterEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata"))
@@ -79,13 +51,6 @@ void BoxWidget::dragEnterEvent(QDragEnterEvent *event)
     }
 }
 
-/**
- * @fn dragMoveEvent()
- * @brief The drag move event from Qt
- * @param event - QDragMoveEvent value
- *
- * The standard drag move event.
- */
 void BoxWidget::dragMoveEvent(QDragMoveEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata"))
@@ -98,26 +63,12 @@ void BoxWidget::dragMoveEvent(QDragMoveEvent *event)
     }
 }
 
-/**
- * @fn dragLeaveEvent()
- * @brief The leave drag event from Qt
- * @param event - QDragLeaveEvent value
- *
- * Delete the hover effect.
- */
 void BoxWidget::dragLeaveEvent(QDragLeaveEvent *event)
 {
     Q_UNUSED(event);
     this->setAutoFillBackground(false);
 }
 
-/**
- * @fn dropEvent()
- * @brief The drop event from Qt
- * @param event - QDropEvent value
- *
- * Checks wether the drop is allowed or not. If it is allowed drop the avatar.
- */
 void BoxWidget::dropEvent(QDropEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata"))
@@ -173,16 +124,6 @@ void BoxWidget::dropEvent(QDropEvent *event)
     }
 }
 
-/**
- * @fn handleGameAction()
- * @brief The game handler
- * @param avatar - AvatarWidget value
- * @see dropEvent()
- * @return bool
- *
- * Checks wether the avatar can move or not via the logic layer. Moves the avatar from the source cell to the destination cell.
- * Catch exceptions thrown by the logic layer (e.g. the goat has won).
- */
 bool BoxWidget::handleGameAction(AvatarWidget *avatar)
 {
     //destination cell is the droppable box
@@ -298,14 +239,6 @@ bool BoxWidget::handleGameAction(AvatarWidget *avatar)
     return true;
 }
 
-/**
- * @fn removeGoatFromBox()
- * @brief Removes an avatar from a box
- * @param Cell - The cell from which a goat has to be removed
- * @see handleGameAction()
- *
- * Removes a goat from a box. This is called if a goat is eaten by a tiger.
- */
 void BoxWidget::removeGoatFromBox(Cell *cell)
 {
     int x = cell->getPosition().first;
@@ -325,16 +258,6 @@ void BoxWidget::removeGoatFromBox(Cell *cell)
     }
 }
 
-/**
- * @fn placeGoatInRippedField()
- * @brief Places an eaten goat in the ripped field
- * @param eatenGoats - int value
- * @see handleGameAction()
- * @see renderGame()
- *
- * Places an eaten goat in one of the ripped field out of the grid. Notify the tiger player if he has eaten 5 goats.
- * If score is 0 the method deletes all goat images, this is especially used for loading a new game.
- */
 void BoxWidget::placeGoatInRippedField(int score)
 {
     QWidget *boxParent = this->parentWidget()->parentWidget();
@@ -375,14 +298,6 @@ void BoxWidget::placeGoatInRippedField(int score)
     }
 }
 
-/**
- * @fn placeAvatar()
- * @brief Places a goat in a box
- * @see dropEvent()
- * @see renderGame()
- *
- * Places an avatar in a box in the playing field.
- */
 void BoxWidget::placeAvatar()
 {
     QString name;
