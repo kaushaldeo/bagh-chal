@@ -19,7 +19,7 @@ class QDragLeaveEvent;
 
 /**
 * @class BoxWidget
-* @brief This is a subclass of QWidget which represents a cell in the playing field
+* @brief This is a subclass of QWidget which represents a cell in the playing field (grid)
 *
 * The BoxWidget class represents a single field called box on the playing field as a subclass of QWidget.
 * The class places an avatar and communicates with the underlying logic layer.
@@ -34,7 +34,7 @@ public:
      * @brief Constructor
      * @param parent - The parent QWidget element
      *
-     * The function sets the parent of BoxWidget and cell to NULL
+     * The function sets the parent of BoxWidget and cell to NULL.
      */
     explicit BoxWidget(QWidget *parent = 0);   
     
@@ -42,8 +42,10 @@ public:
      * @fn *getCell()
      * @brief Set and returns cell
      * @return cell
+     * @see handleGameAction()
      *
-     * If no cell is set yet, retrieve the correspondending cell from the logic layer and set them to cell
+     * If no cell is set yet, retrieve the correspondending cell in the grid from the logic layer and set them to the member cell.
+     * This is used to check if a move is valid or not.
      */
     Cell *getCell();
 
@@ -72,7 +74,7 @@ public:
      * @see handleGameAction()
      * @see BaghChal::renderGame()
      *
-     * Places an eaten goat in one of the ripped field out of the grid. Notify the tiger player if he has eaten 5 goats.
+     * Places an eaten goat in one of the ripped field out of the grid.
      * If score is 0 the method deletes all goat images, this is especially used for loading a new game.
      */    
     void placeGoatInRippedField(int eatenGoats);  
@@ -92,7 +94,9 @@ protected:
      * @brief The drop event from Qt
      * @param event - QDropEvent value
      *
-     * Checks wether the drop is allowed or not. If it is allowed drop the avatar.
+     * Checks wether the drop is allowed or not. The real check is done in the handleGameAction() which is called here.
+     * If it is allowed (true result from handleGameAction()), the method places the avatar on this box and sets the source box from which the avatar was dragged to droppable again.
+     * Notify the Qt event if the move is allowed or not.
      */    
     void dropEvent(QDropEvent *event);   
 
@@ -101,7 +105,7 @@ protected:
      * @brief The drag move event from Qt
      * @param event - QDragMoveEvent value
      *
-     * The standard drag move event.
+     * The standard drag move event. This method checks the drag event of its correct mime type.
      */    
     void dragMoveEvent(QDragMoveEvent *event);  
     
@@ -110,7 +114,7 @@ protected:
      * @brief The leave drag event from Qt
      * @param event - QDragLeaveEvent value
      *
-     * Delete the hover effect.
+     * Deletes the hover effect.
      */    
     void dragLeaveEvent(QDragLeaveEvent *event);   
 
@@ -123,8 +127,9 @@ private:
      * @see dropEvent()
      * @return bool
      *
-     * Checks wether the avatar can move or not via the logic layer. Moves the avatar from the source cell to the destination cell.
-     * Catch exceptions thrown by the logic layer (e.g. the goat has won).
+     * Checks wether the avatar can move or not via the logic layer. Moves the avatar from the source cell to the destination cell and shows
+     * an appropriate game message.
+     * Catch exceptions thrown by the logic layer (e.g. the goat has won). Returns true if the move is allowed or false if the move is not allowed.
      */
     bool handleGameAction(AvatarWidget *avatar); 
 
@@ -138,7 +143,7 @@ private:
      */
     void removeGoatFromBox(Cell *cell);
     
-    Cell *cell;             /**< Pointer to the cell from the logic layer */
+    Cell *cell;             /**< Pointer to the correspondening cell of the grind in the logic layer */
 
 };
 

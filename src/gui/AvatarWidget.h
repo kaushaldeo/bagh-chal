@@ -17,7 +17,7 @@ class QMouseEvent;
 * @class AvatarWidget
 * @brief This is a subclass of QWidget and represents an avatar
 *
-* The AvatarWidget class represents a player avatar goat or tiger.
+* The AvatarWidget class represents a player avatar of a goat or a tiger.
 */
 class AvatarWidget : public QWidget
 {
@@ -38,8 +38,10 @@ protected:
      * @brief The mouse press event from Qt
      * @param event - QMouseEvent value
      *
-     * If a mouse is pressed on an avatar check wether the avatar is moveable or not via the logic layer.
-     * If it is moveable, create a drag object.
+     * If a mouse is pressed on an avatar check wether the avatar is moveable or not. This is checked by the turn state of the game.
+     * If it is moveable, create a drag object and hide the the object from which is dragged.
+     * If the avatar is dropped to a cell (BoxWidget) the source object and drag object has to be closed and deleted.
+     * If the avatar can not be dropped, the drag object will be destroyed and the source object will be shown again.
      */
     void mousePressEvent(QMouseEvent *event);    
 
@@ -49,8 +51,9 @@ private:
      * @brief Clean Widgets in boxes
      * @see mousePressEvent
      *
-     * Old Avatars and images needs to be closed when dropping to a new box.
-     * This couldn't be done in the dropEvent cause of segmentation fault in Qt event functions.
+     * Avatars and images needs to be destroyed when dropping to a new cell (BoxWidget) was successfully.
+     * Normally deleting old objects can be done at the end of Qt event handling, but this leads to a segmentation fault.
+     * Therefore there is this clean method to delete unused objects on the grid, which is called by a click on an avatar.
      */
     void cleanAvatars();                      
 
