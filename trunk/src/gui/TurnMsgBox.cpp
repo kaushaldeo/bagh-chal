@@ -14,9 +14,9 @@ TurnMsgBox::TurnMsgBox(QWidget *parent) :
 
 void TurnMsgBox::mousePressEvent(QMouseEvent *event)
 {   
-    //ignote event
+    //ignore event
     (void) event;
-    
+
     //emit a clicked signal
     emit clicked();
 }

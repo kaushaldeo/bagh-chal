@@ -37,6 +37,7 @@ public:
     /**
     * @fn ~Cell()
     * @brief Destructor
+    */
     ~Cell() {};
 
     /**
