@@ -15,16 +15,16 @@ class QMouseEvent;
 
 /**
 * @class AvatarWidget
-* @brief This is a derived class from QWidget of an avatar
+* @brief This is a subclass of QWidget and represents an avatar
 *
-* The AvatarWidget class represents a player avatar goat or tiger
+* The AvatarWidget class represents a player avatar goat or tiger.
 */
 class AvatarWidget : public QWidget
 {
     Q_OBJECT
 public:
    /**
-    * @fn AvatarWidget()
+    * @fn AvatarWidget(QWidget *parent = 0)
     * @brief Constructor
     * @param parent - The parent QWidget element
     *
@@ -34,7 +34,7 @@ public:
 
 protected:
     /**
-     * @fn mousePressEvent()
+     * @fn mousePressEvent(QMouseEvent *event)
      * @brief The mouse press event from Qt
      * @param event - QMouseEvent value
      *

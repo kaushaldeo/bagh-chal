@@ -19,9 +19,9 @@ class QDragLeaveEvent;
 
 /**
 * @class BoxWidget
-* @brief This is a derived class from QWidget which represents a cell in the playing field
+* @brief This is a subclass of QWidget which represents a cell in the playing field
 *
-* The BoxWidget class represents a single field called box on the playing field as a derived class from QWidget.
+* The BoxWidget class represents a single field called box on the playing field as a subclass of QWidget.
 * The class places an avatar and communicates with the underlying logic layer.
 */
 class BoxWidget : public QWidget
@@ -30,7 +30,7 @@ class BoxWidget : public QWidget
 
 public:
     /**
-     * @fn BoxWidget()
+     * @fn BoxWidget(QWidget *parent = 0)
      * @brief Constructor
      * @param parent - The parent QWidget element
      *
@@ -39,9 +39,8 @@ public:
     explicit BoxWidget(QWidget *parent = 0);   
     
     /**
-     * @fn getCell()
+     * @fn *getCell()
      * @brief Set and returns cell
-     * @param parent - The parent QWidget element
      * @return cell
      *
      * If no cell is set yet, retrieve the correspondending cell from the logic layer and set them to cell
@@ -49,10 +48,10 @@ public:
     Cell *getCell();
 
     /**
-     * @fn setCell()
+     * @fn setCell(Cell *cell)
      * @brief Set cell
      * @param cell - Cell* value to set the cell
-     * @see renderGame()
+     * @see BaghChal::renderGame()
      */    
     void setCell(Cell *cell);  
 
@@ -60,18 +59,18 @@ public:
      * @fn placeAvatar()
      * @brief Places a goat in a box
      * @see dropEvent()
-     * @see renderGame()
+     * @see BaghChal::renderGame()
      *
      * Places an avatar in a box in the playing field.
      */    
     void placeAvatar();      
 
     /**
-     * @fn placeGoatInRippedField()
+     * @fn placeGoatInRippedField(int eatenGoats)
      * @brief Places an eaten goat in the ripped field
      * @param eatenGoats - int value
      * @see handleGameAction()
-     * @see renderGame()
+     * @see BaghChal::renderGame()
      *
      * Places an eaten goat in one of the ripped field out of the grid. Notify the tiger player if he has eaten 5 goats.
      * If score is 0 the method deletes all goat images, this is especially used for loading a new game.
@@ -80,7 +79,7 @@ public:
 
 protected:
     /**
-     * @fn dragEnterEvent()
+     * @fn dragEnterEvent(QDragEnterEvent *event)
      * @brief The drag start event from Qt
      * @param event - QDragEnterEvent value
      *
@@ -89,7 +88,7 @@ protected:
     void dragEnterEvent(QDragEnterEvent *event); 
 
     /**
-     * @fn dropEvent()
+     * @fn dropEvent(QDropEvent *event)
      * @brief The drop event from Qt
      * @param event - QDropEvent value
      *
@@ -98,7 +97,7 @@ protected:
     void dropEvent(QDropEvent *event);   
 
     /**
-     * @fn dragMoveEvent()
+     * @fn dragMoveEvent(QDragMoveEvent *event)
      * @brief The drag move event from Qt
      * @param event - QDragMoveEvent value
      *
@@ -107,7 +106,7 @@ protected:
     void dragMoveEvent(QDragMoveEvent *event);  
     
     /**
-     * @fn dragLeaveEvent()
+     * @fn dragLeaveEvent(QDragLeaveEvent *event)
      * @brief The leave drag event from Qt
      * @param event - QDragLeaveEvent value
      *
@@ -118,7 +117,7 @@ protected:
 private:
 
     /**
-     * @fn handleGameAction()
+     * @fn handleGameAction(AvatarWidget *avatar)
      * @brief The game handler
      * @param avatar - AvatarWidget value
      * @see dropEvent()
@@ -130,16 +129,16 @@ private:
     bool handleGameAction(AvatarWidget *avatar); 
 
     /**
-     * @fn removeGoatFromBox()
+     * @fn removeGoatFromBox(Cell *cell)
      * @brief Removes an avatar from a box
-     * @param Cell - The cell from which a goat has to be removed
+     * @param cell - The cell from which a goat has to be removed
      * @see handleGameAction()
      *
      * Removes a goat from a box. This is called if a goat is eaten by a tiger.
      */
     void removeGoatFromBox(Cell *cell);
     
-    Cell *cell;
+    Cell *cell;             /**< Pointer to the cell from the logic layer */
 
 };
 

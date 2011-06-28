@@ -23,7 +23,7 @@ class TurnMsgBox : public QWidget
 
 public:
     /**
-     * @fn TurnMsgBox()
+     * @fn TurnMsgBox(QWidget *parent = 0)
      * @brief Constructor
      * @param parent - The parent QWidget element
      *
@@ -33,7 +33,7 @@ public:
 
 protected:
     /**
-     * @fn mousePressEvent()
+     * @fn mousePressEvent(QMouseEvent *event)
      * @brief Overloaded Qt mousePressEvent Funktion
      * @param event - QMouseEvent value 
      * 

@@ -25,7 +25,7 @@ class HelpWindow : public QWidget, public Ui::helpPopup
 
 public:
     /**
-     * @fn HelpWindow()
+     * @fn HelpWindow(QWidget *parent = 0)
      * @brief Constructor
      * @param parent - The parent QWidget element
      *

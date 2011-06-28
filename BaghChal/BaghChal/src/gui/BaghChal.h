@@ -38,9 +38,9 @@ enum MessageState
 
 /**
  * @class BaghChal
- * @brief Derived class of QMainWindow for the Mainwindow
+ * @brief Subclass of QMainWindow
  *
- * The BaghChal class represents the GUI of the game as a derived class of QMainWindow including a menuebar, a statusbar and several QWidgets.
+ * The BaghChal class represents the GUI of the game as a subclass of QMainWindow including a menuebar, a statusbar and several QWidgets.
  */
 class BaghChal : public QMainWindow
 {
@@ -48,7 +48,7 @@ class BaghChal : public QMainWindow
 
 public:
     /**
-     * @fn showMessage()
+     * @fn showMessage(MessageState messageCase, QString msg)
      * @brief Shows a Message Notification
      * @param messageCase - The case, if message is a notification, a statusbar message or both of them
      * @param msg - Content of the message as a string
@@ -66,7 +66,7 @@ public:
     void clearStatusMsg();
     
     /**
-     * @fn showTurnArrowAndMessage
+     * @fn showTurnArrowAndMessage(int turn)
      * @brief Shows, whose turn is it.
      * @param turn - int value containing, whose turn is it
      * @see showMessage
@@ -76,7 +76,7 @@ public:
     void showTurnArrowAndMessage(int turn); 
     
     /**
-     * @fn getInstance()
+     * @fn *getInstance()
      * @brief Returns the singleton baghchal
      *
      * Creates a singleton, if it doesn't already exist, and returns the singleton.
@@ -104,7 +104,7 @@ private:
     static BaghChal *baghchal;  /**< Singleton of the BaghChal class */
     
     /**
-     * @fn BaghChal()
+     * @fn BaghChal(QWidget *parent = 0)
      * @brief Constructor
      * @param parent - The parent QWidget element
      *
@@ -132,7 +132,7 @@ private:
     bool askSaveDialog();
     
     /**
-     * @fn closeEvent()
+     * @fn closeEvent(QCloseEvent *event)
      * @brief The close event from Qt
      * @param event - QCloseEvent value
      * @see openQuitGame()
@@ -143,7 +143,7 @@ private:
     void closeEvent(QCloseEvent *event);
     
     /**
-     * @fn setStatusMsg
+     * @fn setStatusMsg(QString msg)
      * @brief Sets the message of the statusbar
      * @param msg - The message for the statusbar
      *
@@ -154,7 +154,7 @@ private:
     /**
      * @fn renderGame()
      * @brief Sets up a saved Game
-     * @see placeGoatInRippedField()
+     * @see BoxWidget::placeGoatInRippedField()
      * @see showTurnArrowAndMessage()
      *
      * Setting up a saved game, after loading it into the logical layer. After resetting the current game, all the avatars are placed on their correct position in the playing field.
@@ -174,7 +174,7 @@ private slots:
     /**
      * @fn openLoadGame()
      * @brief Opens the Load Game Dialogue
-     * @see loadGame()
+     * @see FileIO::loadGame()
      * @see renderGame()
      *
      * Opens the load game dialogue and calls the function loadGame() to load a saved game into the logical layer. After loading the game it calls the renderGame() function to set up the game.
@@ -217,7 +217,7 @@ private slots:
     void openInfoWindow();
     
     /**
-     * @fn hideTurnNotification
+     * @fn hideTurnNotification()
      * @brief Makes the turn notification disappear
      *
      * If the game did not end, the turn notification can disappear. Otherwise, if the game did end, it is not possible to let the turn notification disappear.

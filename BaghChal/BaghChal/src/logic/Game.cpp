@@ -6,12 +6,6 @@
  */
 #include "Game.h"
 
-/**
- * @fn Game()
- * @brief Default-constructor for class Game
- *
- * Constructs a PlayerTiger, PlayerGoat, as well as the grid.
- */
 Game::Game() : grid(), goatP(), changed(false), turn(goat), lastEatenGoatCell(NULL)
 {
     Cell *tigerCells[] = {grid.getCell(0, 0), grid.getCell(0, 4), grid.getCell(4, 4), grid.getCell(4, 0)};
