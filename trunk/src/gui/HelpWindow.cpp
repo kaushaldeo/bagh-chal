@@ -11,7 +11,10 @@
 HelpWindow::HelpWindow(QWidget *parent) :
     QWidget(parent)
 {
+    //set up the popup window
     setupUi(this);
+    
+    //close the window
     connect(closeWindow, SIGNAL(clicked()), this, SLOT(close()));
 }
 

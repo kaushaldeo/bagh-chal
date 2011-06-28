@@ -6,7 +6,7 @@
  * @author Mirko Indlekofer
  */
 
-#include "QEventLoop"
+ #include "QEventLoop"
 #include "QFileDialog"
 #include "QMessageBox"
 
@@ -24,7 +24,8 @@ BaghChal::BaghChal(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::BaghChal)
 {
-    ui->setupUi(this);
+    //Setting up the Ui
+    ui->setupUi(this);              
 
     Game *game = Game::getInstance();
     this->game = game;
@@ -34,18 +35,23 @@ BaghChal::BaghChal(QWidget *parent) :
     this->showTurnArrowAndMessage(goat);
 
     timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(hideTurnNotification()));
+    
+    //Slots for Turn Message Box
+    connect(timer, SIGNAL(timeout()), this, SLOT(hideTurnNotification()));              
     connect(ui->turnMsgBox, SIGNAL(clicked()), this, SLOT(hideTurnNotification()));
-
-    connect(ui->actionNewGame, SIGNAL(triggered()), this, SLOT(openNewGame()));
+    
+    //Slots for the GameMenu
+    connect(ui->actionNewGame, SIGNAL(triggered()), this, SLOT(openNewGame()));         
     connect(ui->actionLoadGame, SIGNAL(triggered()), this, SLOT(openLoadGame()));
     connect(ui->actionSaveGame, SIGNAL(triggered()), this, SLOT(openSaveGame()));
     connect(ui->actionQuitGame, SIGNAL(triggered()), this, SLOT(openQuitGame()));
-
-    connect(ui->actionHelp, SIGNAL(triggered()), this, SLOT(openHelpWindow()));
+    
+    //Slots for the HelpMenu
+    connect(ui->actionHelp, SIGNAL(triggered()), this, SLOT(openHelpWindow()));         
     connect(ui->actionInfo, SIGNAL(triggered()), this, SLOT(openInfoWindow()));
 
-    boxes.push_back(ui->box_00);
+    //adding all BoxWidgets into List
+    boxes.push_back(ui->box_00);            
     boxes.push_back(ui->box_01);
     boxes.push_back(ui->box_02);
     boxes.push_back(ui->box_03);
@@ -87,7 +93,8 @@ BaghChal::~BaghChal()
 
 BaghChal *BaghChal::getInstance()
 {
-    if (!baghchal)
+    //if not existing, create one
+    if (!baghchal)          
     {
         baghchal = new BaghChal(0);
     }
@@ -102,12 +109,13 @@ list<BoxWidget *> BaghChal::getBoxes()
 
 void BaghChal::closeEvent(QCloseEvent *event)
 {
-    event->ignore();
+    //ignore closeEvent and call openQuitGame() so that the askSaveDialog appears
+    event->ignore();            
     this->openQuitGame();
 }
 
 bool BaghChal::askSaveDialog()
-{
+{   
     QMessageBox askSave;
     QIcon icon;
     icon.addFile(QString::fromUtf8(":/new/Files/icons/Help-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -120,22 +128,25 @@ bool BaghChal::askSaveDialog()
     askImage.setPixmap(QPixmap(QString::fromUtf8(":/new/Files/icons/Help-icon.png")));
 
     askSave.setText(QString::fromUtf8("\n  Möchten Sie den Spielstand zuvor speichern?\n"));
-    QPushButton *saveButton = askSave.addButton(tr("Speichern"), QMessageBox::AcceptRole);
+    QPushButton *saveButton = askSave.addButton(tr("Speichern"), QMessageBox::AcceptRole);              // Buttons
     QPushButton *discardButton = askSave.addButton(tr("Verwerfen"), QMessageBox::DestructiveRole);
     QPushButton *cancelButton = askSave.addButton(tr("Abbrechen"), QMessageBox::RejectRole);
     askSave.setDefaultButton(saveButton);
 
     askSave.exec();
 
-    if (askSave.clickedButton() == saveButton)
+    //call openSaveGame() if user wants to save
+    if (askSave.clickedButton() == saveButton)          
     {
         return openSaveGame();
     }
-    else if (askSave.clickedButton() == discardButton)
+    //just return true if the user wants to discard
+    else if (askSave.clickedButton() == discardButton)  
     {
         return true;
     }
-    else if (askSave.clickedButton() == cancelButton)
+    // if the user wants to cancle, return false
+    else if (askSave.clickedButton() == cancelButton)   
     {
         return false;
     }
@@ -149,23 +160,29 @@ void BaghChal::openNewGame()
 {
     this->setStatusMsg(tr("Neues Spiel starten."));
 
-    if (this->game->getChanged() && !askSaveDialog())
+    //if the current game was changed, ask the user if he wants to save
+    if (this->game->getChanged() && !askSaveDialog())   
     {
         this->clearStatusMsg();
         return;
     }
 
     delete game;
-    Game *game = Game::getInstance();
+    
+    //get the Game instance
+    Game *game = Game::getInstance();           
     this->game = game;
-    this->renderGame();
+    
+    //setting up the Savegame into the Ui Layer
+    this->renderGame();                         
     this->showMessage(NotificationWithTimer, QString::fromUtf8("Spiel beginnt."));
     QApplication::restoreOverrideCursor();
 }
 
 void BaghChal::openLoadGame()
 {
-    if (this->game->getChanged() && !askSaveDialog())
+    //if the current game was changed, ask the user if he wants to save
+    if (this->game->getChanged() && !askSaveDialog())   
     {
         return;
     }
@@ -179,11 +196,14 @@ void BaghChal::openLoadGame()
 
         try
         {
-            file.loadGame();
-            this->renderGame();
+            //Load the game into the logical layer
+            file.loadGame();    
+            
+            //setting up the Savegame into the Ui Layer
+            this->renderGame();                     
             showMessage(NotificationWithTimer, QString::fromUtf8("Spiel geladen."));
         }
-        catch (OccupiedCellException *e)
+        catch (OccupiedCellException *e)                                         
         {
             showMessage(NotificationWithoutTimer, QString::fromUtf8(e->what()));
         }
@@ -207,7 +227,8 @@ bool BaghChal::openSaveGame()
     {
         FileIO file(fileName.toStdString());
         try
-        {
+        {   
+            //saving the game
             file.saveGame();
             showMessage(NotificationWithTimer, QString::fromUtf8("Spiel gespeichert."));
             return true;
@@ -227,7 +248,8 @@ bool BaghChal::openSaveGame()
 void BaghChal::openQuitGame()
 {
     this->setStatusMsg(tr("Spiel beenden."));
-
+    
+    //if the current game was changed, ask the user if he wants to save
     if (this->game->getChanged() && !askSaveDialog())
     {
         this->clearStatusMsg();
@@ -315,11 +337,13 @@ void BaghChal::showTurnArrowAndMessage(int turn)
         ui->arrowTiger->hide();
         break;
     case tiger:
+        //show the tiger arrow
         ui->arrowGoat->hide();
         ui->arrowTiger->show();
         this->showMessage(OnlyStatusBar, QString::fromUtf8("Tiger ist an der Reihe."));
         break;
     case goat:
+        //show the goat arrow
         ui->arrowGoat->show();
         ui->arrowTiger->hide();
         this->showMessage(OnlyStatusBar, QString::fromUtf8("Ziege ist an der Reihe."));
