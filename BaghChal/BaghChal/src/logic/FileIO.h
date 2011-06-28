@@ -1,7 +1,7 @@
 /**
 * FileIO
 * @file FileIO.h
-* @brief Headerfile for File I/O
+* @brief Headerfile for FileIO Class
 * @see FileIO
 * @author Julian Bayer
 */

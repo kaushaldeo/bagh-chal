@@ -1,5 +1,5 @@
 /** @file PlayerTiger.h
- *  @brief Headerfile for PlayerTiger class
+ *  @brief Headerfile for PlayerTiger Class
  *  @author Steffen Dittmar
  */
 #ifndef PLAYERTIGER_H

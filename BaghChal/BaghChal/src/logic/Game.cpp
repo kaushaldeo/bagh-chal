@@ -1,6 +1,6 @@
 /**
  * @file Game.cpp
- * @brief Implementation File for class Game
+ * @brief Implementation File for Game Class
  * @see Game.h
  * @author Julian Bayer
  */
