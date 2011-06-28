@@ -1,7 +1,6 @@
 /**
- * @file Game.cpp
- * @brief Implementation file for class Goat
- * @see Game.h
+ * @file Goat.cpp
+ * @brief Implementation file for Goat Class
  * @author Simon Schneeberger
  */
 

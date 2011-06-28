@@ -1,7 +1,7 @@
 /**
 * FileIO
 * @file FileIO.cpp
-* @brief Implementation file for File I/O
+* @brief Implementation file for FileIO Class
 * @see FileIO
 * @author Julian Bayer
 */

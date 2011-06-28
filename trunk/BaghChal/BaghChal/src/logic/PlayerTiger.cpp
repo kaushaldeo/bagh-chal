@@ -1,6 +1,6 @@
 /**
  * @file PlayerTiger.cpp
- * @brief Implementation of TigerPlayer Class
+ * @brief Implementation of PlayerTiger Class
  * @author Steffen Dittmar
  */
 

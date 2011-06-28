@@ -1,5 +1,5 @@
 /** @file PlayerGoat.h
- *  @brief Headerfile for PlayerGoat class
+ *  @brief Headerfile for PlayerGoat Class
  *  @author Steffen Dittmar
  */
  

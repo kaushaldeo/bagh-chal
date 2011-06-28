@@ -1,5 +1,5 @@
 /** @file Goat.h
- *  @brief Headerfile for goat class
+ *  @brief Headerfile for Goat Class
  *  @author Simon Schneeberger
  */
 #ifndef GOAT_H

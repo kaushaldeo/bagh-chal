@@ -1,5 +1,5 @@
 /** @file Tiger.h
- *  @brief Headerfile for Tiger class
+ *  @brief Headerfile for Tiger Class
  *  @author Simon Schneeberger
  */
 #ifndef TIGER_H
