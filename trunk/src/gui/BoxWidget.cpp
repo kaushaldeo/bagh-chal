@@ -24,6 +24,7 @@ Cell *BoxWidget::getCell()
 {
     if (this->cell == NULL)
     {
+        //get the appropriate cell of the grid
         this->cell = Game::getInstance()->getGrid().getCell(this->property("positionX").toInt(), this->property("positionY").toInt());
     }
 
