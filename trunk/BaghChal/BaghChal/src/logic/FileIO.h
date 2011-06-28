@@ -40,18 +40,16 @@ public:
     void loadGame();
 
     /**
-     * @fn convertToInt
+     * @fn convertToInt(CellStatus)
      * @param state - CellStatus to be converted to int
-     * @see CellStatus
      * @brief Converts a member of baghchal::CellStatus into an integer
      * @exception std::exception
      */
     int convertToInt(CellStatus);
 
     /**
-     * @fn convertFromInt
+     * @fn convertFromInt(int)
      * @param state - int to be converted to CellStatus
-     * @see CellStatus
      * @brief Converts an int to a member of baghchal::CellStatus
      * @exception InvalidStateException
      */

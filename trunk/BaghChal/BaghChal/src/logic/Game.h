@@ -16,7 +16,7 @@
 
 /**
 * @class Game
-* @brief Singleton class for game logic
+* @brief Singleton class for the game
 *
 * The Game class oversees all members of the game logic.
 */
@@ -24,9 +24,9 @@ class Game
 {
 public:
     /**
-     * @fn ~Game
+     * @fn ~Game()
      * @brief Destructor
-     * @see openNewGame
+     * @see BaghChal::openNewGame
      *
      * A public destructor of game. This is used to create a new game.
      */
@@ -36,58 +36,56 @@ public:
     };
 
     /**
-     * @fn getGrid
+     * @fn &getGrid()
      * @brief Returns reference on grid object
      * @returns Grid&
      */
     Grid &getGrid();
 
     /**
-     * @fn getTiger
+     * @fn &getTiger()
      * @brief Returns reference on PlayerTiger object
      * @returns PlayerTiger&
      */
     PlayerTiger &getTiger();
 
     /**
-     * @fn getGoat
+     * @fn &getGoat()
      * @brief Returns reference on PlayerGoat object
      * @returns PlayerGoat&
      */
     PlayerGoat &getGoat();
 
     /**
-     * @fn setChanged
+     * @fn setChanged(bool)
      * @brief Set changed flag
      * @param newChanged - bool
      */
     void setChanged(bool);
 
     /**
-     * @fn getChanged
+     * @fn getChanged()
      * @brief Return changed flag
      * @returns bool
      */
     bool getChanged();
 
     /**
-     * @fn getTurn
+     * @fn getTurn()
      * @brief Returns which player's turn it is
      * @returns CellStatus
-     * @see CellStatus
      */
     CellStatus getTurn();
 
     /**
-     * @fn setTurn
+     * @fn setTurn(CellStatus)
      * @brief Sets which player's turn it is
      * @param newturn - CellStatus
-     * @see CellStatus
      */
     void setTurn(CellStatus);
 
     /**
-     * @fn getInstance()
+     * @fn *getInstance()
      * @brief Static function returning game singleton object
      * @returns Game*
      *
@@ -96,7 +94,7 @@ public:
     static Game *getInstance();
 
     /**
-     * @fn startNewGame
+     * @fn startNewGame()
      * @brief Static function to start a new game
      *
      * Deletes old game-Singleton and creates a new one.
@@ -104,14 +102,14 @@ public:
     static void startNewGame();
 
     /**
-     * @fn getLastEatenGoatCell()
+     * @fn *getLastEatenGoatCell()
      * @brief Returns pointer on cell, on which the last eaten goat was
      * @returns Cell*
      */
     Cell *getLastEatenGoatCell();
 
     /**
-     * @fn getLastEatenGoatCell()
+     * @fn setLastEatenGoatCell(Cell *cell)
      * @brief Sets pointer on cell, on which the last eaten goat was
      * @param cell - Cell*
      */

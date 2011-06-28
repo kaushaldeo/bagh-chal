@@ -15,7 +15,7 @@ class Cell;
 * @class Grid
 * @brief Class of the playing field
 *
-* The Grid class controls the 5*5 playing field
+* The Grid class controls the 5*5 playing field.
 */
 class Grid
 {
@@ -35,7 +35,7 @@ public:
     ~Grid();
 
     /**
-     * @fn getCell()
+     * @fn *getCell(int x, int y)
      * @brief get a cell by its coordinates
      * @param x - The x coordinate
      * @param y - The y coordinate
@@ -43,7 +43,7 @@ public:
      *
      * Get a cell by its x and y coordinates.
      */
-    Cell *getCell(int, int);
+    Cell *getCell(int x, int y);
 
 private:
     Cell *** cells;   /**< Pointer to a 5x5-array of Cell-Object-Pointers, represents the 25 fields on the grid */

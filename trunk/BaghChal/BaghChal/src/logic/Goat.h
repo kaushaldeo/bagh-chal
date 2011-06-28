@@ -19,6 +19,7 @@ class Goat
 {
 public:
     /**
+     * @fn Goat()
      * @brief Default constructor for class Goat
      *
      * Sets cellPtr to NULL, since a goat has to be placed manually.
@@ -26,6 +27,7 @@ public:
     Goat();
 
     /**
+     * @fn setCell(Cell *cell)
      * @brief Setter for cellPtr
      * @param cell - The cell to set goat on
      *
@@ -34,6 +36,7 @@ public:
     void setCell(Cell *cell);
 
     /**
+     * @fn removeCell()
      * @brief Set cellPtr to NULL
      *
      * Only sets cellPtr to NULL, doesn't unregister goat in the cell.
@@ -41,6 +44,7 @@ public:
     void removeCell();
 
     /**
+     * @fn canMove()
      * @brief Checks if this goat can make any valid moves
      * @return True if a valid move is possible, else false
      *
@@ -49,6 +53,7 @@ public:
     bool canMove();
 
     /**
+     * @fn *getCell()
      * @brief Returns pointer to the Cell the goat resides on
      * @return Pointer to the cell which the goat resides on or NULL if the goat has not been set or
      *  has been removed
@@ -56,6 +61,7 @@ public:
     Cell *getCell();
 
     /**
+     * @fn canMoveThere(Cell *cell)
      * @brief Checks if a move to a certain Cell would be possible
      * @param cell - Check the cell if a valid move to would be possible
      * @return True if a move would be valid, else false
@@ -66,6 +72,7 @@ public:
     bool canMoveThere(Cell *cell);
 
     /**
+     * @fn move(Cell *cell)
      * @brief Moves the goat to the cell passed as argument
      * @param cell - The cell to move the goat to
      * @exception CanNotMoveException is thrown when a valid move to cell is not possible

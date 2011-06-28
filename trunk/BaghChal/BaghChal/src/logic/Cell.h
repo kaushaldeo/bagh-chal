@@ -19,14 +19,24 @@ using namespace baghchal;
 
 /**
 * @class Cell
-* @brief Class of the single cell on the playing field
+* @brief Class of a single cell on the playing field
 *
 * The Cell class represents a single field on the playing field and can be taken by either a tiger or a goat or can be neutral.
 */
 class Cell
 {
 public:
+    /**
+    * @fn Cell(int x, int y, Grid *gridPtr)
+    * @brief Constructor
+    *
+    * Set up a cell.
+    */
     Cell(int x, int y, Grid *gridPtr) : status(empty), positionX(x), positionY(y), grid(gridPtr), tigerPtr(0), goatPtr(0) {};
+
+    /**
+    * @fn ~Cell()
+    * @brief Destructor
     ~Cell() {};
 
     /**
@@ -48,7 +58,7 @@ public:
     std::pair<int, int> getPosition();
 
     /**
-    * @fn getNeighbor()
+    * @fn getNeighbor(Direction)
     * @brief Get neighboring cell on grid as indicated by direction
     * @param direction - member of baghchal::Direction indicating direction
     * @exception CanNotMoveException
@@ -59,14 +69,14 @@ public:
     Cell *getNeighbor(Direction);
 
     /**
-     * @fn setStatus()
+     * @fn setStatus(CellStatus)
      * @brief Sets the status of the cell
      * @param newState - unsigned integer value indicating the new status
      */
     void setStatus(CellStatus);
 
     /**
-     * @fn getTiger()
+     * @fn *getTiger()
      * @brief Gets tiger
      * @returns Tiger*
      * @exception UnoccupiedCellException
@@ -79,7 +89,7 @@ public:
     Tiger *getTiger();
 
     /**
-     * @fn getGoat()
+     * @fn *getGoat()
      * @brief Gets the occupying goat
      * @returns Goat*
      * @exception UnoccupiedCellException
@@ -92,7 +102,7 @@ public:
     Goat *getGoat();
 
     /**
-     * @fn setTiger()
+     * @fn setTiger(Tiger *)
      * @brief Sets Tiger
      * @exception OccupiedCellException
      *
@@ -102,7 +112,7 @@ public:
     void setTiger(Tiger *);
 
     /**
-     * @fn setGoat()
+     * @fn setGoat(Goat *)
      * @brief Sets new goat
      * @exception OccupiedCellException
      *
@@ -112,7 +122,7 @@ public:
     void setGoat(Goat *);
 
     /**
-     * @fn overrideTiger()
+     * @fn overrideTiger(Tiger *)
      * @brief Override tiger
      *
      * Sets tigerPtr to a pointer on the tiger currently occupying the cell.
@@ -121,7 +131,7 @@ public:
     void overrideTiger(Tiger *);
 
     /**
-     * @fn overrideGoat()
+     * @fn overrideGoat(Goat *)
      * @brief Override goat
      *
      * Sets goatPtr to a pointer on the goat currently occupying the cell.
@@ -154,7 +164,7 @@ public:
     void removeTiger();
 
     /**
-     * @fn isNeighbor()
+     * @fn isNeighbor(Cell *)
      * @brief Tests, if a cell is neighbor to this cell
      * @returns Direction - direction of the cell
      * @param cell - The cell to be tested
@@ -166,7 +176,7 @@ public:
     Direction isNeighbor(Cell *);
 
     /**
-     * @fn isJumpOverNeighbor()
+     * @fn isJumpOverNeighbor(Cell *)
      * @brief Tests, if a cell is a neighboring cell of a cell containing a goat and neighboring this
      *  cell in the same direction
      * @returns int - direction of the cell
