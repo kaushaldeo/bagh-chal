@@ -171,7 +171,7 @@ public:
      * @see getNeighbor()
      * @exception InvalidDirectionException
      *
-     * Checks whether the cell is neighbour of this cell, using getNeighbor().
+     * Checks whether the cell is neighbour of this cell, using getNeighbor(). If it is a neighbor, it returns the direction on which the tested cell lies.
      */
     Direction isNeighbor(Cell *);
 

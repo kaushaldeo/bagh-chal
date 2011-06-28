@@ -8,15 +8,16 @@
 
 Game::Game() : grid(), goatP(), changed(false), turn(goat), lastEatenGoatCell(NULL)
 {
-    Cell *tigerCells[] = {grid.getCell(0, 0), grid.getCell(0, 4), grid.getCell(4, 4), grid.getCell(4, 0)};
-    tigerP = PlayerTiger(tigerCells, &goatP);
-    goatP.setPlayerTiger(&tigerP);
+    Cell *tigerCells[] = {grid.getCell(0, 0), grid.getCell(0, 4), grid.getCell(4, 4), grid.getCell(4, 0)};  //Tigers should be put in the four corners
+    tigerP = PlayerTiger(tigerCells, &goatP);   //Construct PlayerTiger
+    goatP.setPlayerTiger(&tigerP);              //Make PlayerTiger known to Player Goat
 }
 
-Game *Game::game = 0;
+Game *Game::game = 0;       //Singleton object
 
 Game *Game::getInstance()
 {
+    //If we don't have a singleton object, create one.
     if (!game)
     {
         game = new Game();
