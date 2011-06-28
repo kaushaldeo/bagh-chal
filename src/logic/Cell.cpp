@@ -36,7 +36,7 @@ Cell *Cell::getNeighbor(Direction direction)
     {
     case baghchal::right: //Right
 
-        if (positionX == 4)
+        if (positionX == 4)     //Are we at the right edge of grid?
         {
             throw moveEx;
         }
@@ -45,7 +45,7 @@ Cell *Cell::getNeighbor(Direction direction)
 
     case baghchal::below: //Down
 
-        if (positionY == 4)
+        if (positionY == 4)     //Are we at the lower edge of grid?
         {
             throw moveEx;
         }
@@ -54,7 +54,7 @@ Cell *Cell::getNeighbor(Direction direction)
 
     case baghchal::left: //Left
 
-        if (positionX == 0)
+        if (positionX == 0)     //Are we at the left edge of grid?
         {
             throw moveEx;
         }
@@ -63,7 +63,7 @@ Cell *Cell::getNeighbor(Direction direction)
 
     case baghchal::above: //Up
 
-        if (positionY == 0)
+        if (positionY == 0)     //Are we at the upper edge of grid?
         {
             throw moveEx;
         }
@@ -72,7 +72,7 @@ Cell *Cell::getNeighbor(Direction direction)
 
     case baghchal::rightAbove: //Right+Up
 
-        if (positionX == 4  || positionY == 0 || !canMoveDiagonally())
+        if (positionX == 4  || positionY == 0 || !canMoveDiagonally())  //Are we in the upper right corner of grid or are we not allowed to move diagonally?
         {
             throw moveEx;
         }
@@ -81,7 +81,7 @@ Cell *Cell::getNeighbor(Direction direction)
 
     case baghchal::rightBelow: //Right+Down
 
-        if (positionX == 4  || positionY == 4 || !canMoveDiagonally())
+        if (positionX == 4  || positionY == 4 || !canMoveDiagonally())  //Are we in the lower right corner of grid or are we not allowed to move diagonally?
         {
             throw moveEx;
         }
@@ -90,7 +90,7 @@ Cell *Cell::getNeighbor(Direction direction)
 
     case baghchal::leftBelow: //Left+Down
 
-        if (positionX == 0  || positionY == 4 || !canMoveDiagonally())
+        if (positionX == 0  || positionY == 4 || !canMoveDiagonally())  //Are we in the lower left corner of grid or are we not allowed to move diagonally?
         {
             throw moveEx;
         }
@@ -99,7 +99,7 @@ Cell *Cell::getNeighbor(Direction direction)
 
     case baghchal::leftAbove: //Left+Up
 
-        if (positionX == 0  || positionY == 0 || !canMoveDiagonally())
+        if (positionX == 0  || positionY == 0 || !canMoveDiagonally())  //Are we in the upper left corner of grid or are we not allowed to move diagonally?
         {
             throw moveEx;
         }
@@ -112,7 +112,7 @@ Cell *Cell::getNeighbor(Direction direction)
 
 bool Cell::canMoveDiagonally()
 {
-    return positionX % 2 == positionY % 2;
+    return positionX % 2 == positionY % 2;  //If both the coordinates are odd, or both are even, we can move diagonally.
 }
 
 Tiger *Cell::getTiger()
@@ -207,55 +207,62 @@ void Cell::removeTiger()
 
 Direction Cell::isNeighbor(Cell *cell)
 {
+    //Create array with all possible directions
     Direction allDirections[8] = {baghchal::right, baghchal::below, baghchal::left, baghchal::above, baghchal::rightAbove, baghchal::rightBelow, baghchal::leftBelow, baghchal::leftAbove};
-
+    
+    //For each direction...
     for (int i = 0; i < 8; i++)
     {
         try
         {
+            //... get neighbor in that direction
             Cell *test = getNeighbor(allDirections[i]);
 
+            //Is the cell we got the same as the cell we look for?
             if (test == cell)
             {
-                return allDirections[i];
+                return allDirections[i];    //If it is, return current direction
             }
 
-            continue;
+            continue;   //If it is not, continue searching
         }
-        catch (CanNotMoveException e)
+        catch (CanNotMoveException e)   //If we can't move in that direction, continue with next direction.
         {
             continue;
         }
     }
 
-    throw InvalidDirectionException();
+    throw InvalidDirectionException();  //If we haven't found the cell, it's not a neighbor and we throw this exception.
 }
 
 Direction Cell::isJumpOverNeighbor(Cell *cell)
 {
+    //Create array with all possible directions
     Direction allDirections[8] = {baghchal::right, baghchal::below, baghchal::left, baghchal::above, baghchal::rightAbove, baghchal::rightBelow, baghchal::leftBelow, baghchal::leftAbove};
-
+    
+    //For each direction...
     for (int i = 0; i < 8; i++)
     {
         try
         {
+            //... get neighbor in that direction
             Cell *test = getNeighbor(allDirections[i]);
 
             if (test)
             {
-                if (test->getStatus() == goat && test->getNeighbor(allDirections[i]) == cell)
+                if (test->getStatus() == goat && test->getNeighbor(allDirections[i]) == cell)   //Is the neighboring cell occupoed by a goat and the next cell in this direction the cell we look for?
                 {
-                    return allDirections[i];
+                    return allDirections[i]; //Return current direction
                 }
             }
 
-            continue;
+            continue;   //If that's not the case, continue the search
         }
-        catch (CanNotMoveException e)
+        catch (CanNotMoveException e)   //If we can't move in that direction, continue with next direction.
         {
             continue;
         }
     }
 
-    throw InvalidDirectionException();
+    throw InvalidDirectionException(); //If we haven't found the cell, it's not a jump-over-neighbor and we throw this exception.
 }
