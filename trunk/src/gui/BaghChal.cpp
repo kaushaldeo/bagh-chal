@@ -220,6 +220,11 @@ void BaghChal::openLoadGame()
 
 bool BaghChal::openSaveGame()
 {
+    if(this->game->getTurn() == empty)
+    {
+        showMessage(NotificationWithoutTimer, QString::fromUtf8("Spielende! Speichern nicht möglich"));
+        return false;
+    }
     QString fileName = QFileDialog::getSaveFileName(this, tr("Spiel Speichern"), "",
                        tr("Text Files (*.txt)"));
 
