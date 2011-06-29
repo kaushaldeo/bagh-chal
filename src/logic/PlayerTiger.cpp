@@ -53,10 +53,14 @@ PlayerTiger &PlayerTiger::operator=(const PlayerTiger &src)
 
     Tiger **srcTigers = src.tigers;
 
+	//Deep-copy all Tigers
     for (int i = 0; i < 4; ++i)
     {
-
+		//Set status of the cell this tiger resides on to empty
+		//to avoid setCell(), which is called by the constructor
+		//of Tiger, to throw an exception
         srcTigers[i]->getCell()->setStatus(empty);
+		//Will set the status of the cell to tiger again
         tigers[i] = new Tiger(srcTigers[i]->getCell());
     }
 
@@ -77,13 +81,13 @@ bool PlayerTiger::canMove()
     for (int i = 0; i < 4; i++)
     {
         if (tigers[i]->canMove())
-            //at least one tiger can move
         {
+            //At least one tiger can move
             return true;
         }
     }
 
-    //no tiger can move
+    //No tiger can move
     return false;
 }
 
@@ -97,6 +101,7 @@ bool PlayerTiger::canMoveThere(Cell *src, Cell *dst)
     }
     catch (exception e)
     {
+		//No tiger resides on cell src
         return false;
     }
 
@@ -118,34 +123,41 @@ void PlayerTiger::move(Cell *src, Cell *dst)
     }
     catch (exception e)
     {
+		//No tiger resides on cell src
         throw new CanNotMoveException();
     }
 
+	//If any goat could be eaten, it has to be eaten
     bool mustEat = couldEat();
 
     if (thisTiger->move(dst, mustEat))
     {
+		//A goat has been eaten
         score++;
 
         if (score > 0 && score < 5)
         {
+			//Tiger has not yet won, it's PlayerGoats turn now
             Game::getInstance()->setTurn(goat);
             Game::getInstance()->setChanged(true);
             throw new TigerEatGoatException();
         }
         else if (score == 5)
         {
+			//Tiger has won
             Game::getInstance()->setTurn(empty);
             Game::getInstance()->setChanged(false);
             throw new TigerWonException();
         }
     }
 
+	//Move successfull, no goat has been eaten, it's PlayerGoats turn now
     Game::getInstance()->setTurn(goat);
     Game::getInstance()->setChanged(true);
 
     if (!opponent->canMove())
     {
+		//PlayerGoat can't make any valid moves anymore, the game is even
         Game::getInstance()->setTurn(empty);
         Game::getInstance()->setChanged(false);
         throw new GameEvenException();
