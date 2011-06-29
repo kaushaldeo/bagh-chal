@@ -225,6 +225,7 @@ bool BaghChal::openSaveGame()
         showMessage(NotificationWithoutTimer, QString::fromUtf8("Spielende! Speichern nicht möglich"));
         return false;
     }
+    
     QString fileName = QFileDialog::getSaveFileName(this, tr("Spiel Speichern"), "",
                        tr("Text Files (*.txt)"));
 

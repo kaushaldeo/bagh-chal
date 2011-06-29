@@ -14,11 +14,6 @@ void FileIO::saveGame()
 {
     Game *game = Game::getInstance();   //Get current game
 
-    if (!game->getChanged())    //If the game hasn't changed, do nothing!
-    {
-        return;
-    }
-
     ofstream fileStream(path.c_str());                      //Open Output File Stream to file indicated in constructor.
     fileStream << convertToInt(game->getTurn()) << " ";     //Convert the turn-flag to int and write to file.
     Grid &grid = game->getGrid();
