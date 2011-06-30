@@ -1,6 +1,6 @@
 /** @file Tiger.h
  *  @brief Headerfile for Tiger Class
- *  @author Simon Schneeberger
+ *  @author Steffen Dittmar
  */
 #ifndef TIGER_H
 #define TIGER_H
