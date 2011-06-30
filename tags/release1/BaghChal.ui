@@ -1,0 +1,1887 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BaghChal</class>
+ <widget class="QMainWindow" name="BaghChal">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>BaghChal</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="FileContainer.qrc">
+    <normaloff>:/new/Files/icons/icon.ico</normaloff>:/new/Files/icons/icon.ico</iconset>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>48</width>
+    <height>48</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">#centralWidget{
+	background-color: rgb(85, 85, 255);
+}</string>
+   </property>
+   <widget class="QWidget" name="unusedGoatsField" native="true">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>15</y>
+      <width>102</width>
+      <height>521</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="unusedGoat_00" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>34</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_00" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_00">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_01" native="true">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>34</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_01" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_01">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_19" native="true">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>480</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_19" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_19">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_02" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>84</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_02" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_02">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_03" native="true">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>84</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_03" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_03">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_18" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>480</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_18" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_18">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_04" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>134</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_04" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_04">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_05" native="true">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>134</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_05" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_05">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_17" native="true">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>432</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_17" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_17">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_06" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>184</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_06" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_06">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_07" native="true">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>184</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_07" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_07">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_16" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>432</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_16" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_16">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_08" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>234</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_08" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_08">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_09" native="true">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>234</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_09" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_09">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_15" native="true">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>382</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_15" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_15">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_10" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>284</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_10" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_10">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_11" native="true">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>284</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_11" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_11">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_14" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>382</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_14" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_14">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_12" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>334</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_12" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_12">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="unusedGoat_13" native="true">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>334</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <widget class="AvatarWidget" name="goat_13" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="goatImage_13">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_ziege.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="title_00">
+     <property name="geometry">
+      <rect>
+       <x>17</x>
+       <y>-3</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Ziegen</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="playingField" native="true">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>92</y>
+      <width>431</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#playingField {
+	background-image: url(:/new/Files/icons/Spielfeld_klein.png);
+}</string>
+    </property>
+    <widget class="BoxWidget" name="box_00" native="true">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>18</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>0</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>0</number>
+     </property>
+     <widget class="AvatarWidget" name="tiger_00" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>false</bool>
+      </property>
+      <widget class="QLabel" name="tigerImage_00">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="acceptDrops">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_tiger.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="BoxWidget" name="box_01" native="true">
+     <property name="geometry">
+      <rect>
+       <x>107</x>
+       <y>18</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>1</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_02" native="true">
+     <property name="geometry">
+      <rect>
+       <x>196</x>
+       <y>18</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_03" native="true">
+     <property name="geometry">
+      <rect>
+       <x>285</x>
+       <y>18</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>3</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_04" native="true">
+     <property name="geometry">
+      <rect>
+       <x>374</x>
+       <y>18</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>4</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>0</number>
+     </property>
+     <widget class="AvatarWidget" name="tiger_01" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>false</bool>
+      </property>
+      <widget class="QLabel" name="tigerImage_01">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>-1</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_tiger.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="BoxWidget" name="box_10" native="true">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>107</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>0</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_11" native="true">
+     <property name="geometry">
+      <rect>
+       <x>107</x>
+       <y>107</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>1</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_12" native="true">
+     <property name="geometry">
+      <rect>
+       <x>196</x>
+       <y>107</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_13" native="true">
+     <property name="geometry">
+      <rect>
+       <x>285</x>
+       <y>107</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>3</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_14" native="true">
+     <property name="geometry">
+      <rect>
+       <x>374</x>
+       <y>107</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>4</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_20" native="true">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>196</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>0</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>2</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_21" native="true">
+     <property name="geometry">
+      <rect>
+       <x>107</x>
+       <y>196</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>1</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>2</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_22" native="true">
+     <property name="geometry">
+      <rect>
+       <x>196</x>
+       <y>196</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>2</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_23" native="true">
+     <property name="geometry">
+      <rect>
+       <x>285</x>
+       <y>196</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>3</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>2</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_24" native="true">
+     <property name="geometry">
+      <rect>
+       <x>374</x>
+       <y>196</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>4</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>2</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_30" native="true">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>285</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>0</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>3</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_31" native="true">
+     <property name="geometry">
+      <rect>
+       <x>107</x>
+       <y>285</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>1</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>3</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_32" native="true">
+     <property name="geometry">
+      <rect>
+       <x>196</x>
+       <y>285</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>3</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_33" native="true">
+     <property name="geometry">
+      <rect>
+       <x>285</x>
+       <y>285</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>3</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>3</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_34" native="true">
+     <property name="geometry">
+      <rect>
+       <x>374</x>
+       <y>285</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>4</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>3</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_40" native="true">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>374</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>0</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>4</number>
+     </property>
+     <widget class="AvatarWidget" name="tiger_02" native="true">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>false</bool>
+      </property>
+      <widget class="QLabel" name="tigerImage_02">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_tiger.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="BoxWidget" name="box_41" native="true">
+     <property name="geometry">
+      <rect>
+       <x>107</x>
+       <y>374</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>1</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>4</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_42" native="true">
+     <property name="geometry">
+      <rect>
+       <x>196</x>
+       <y>374</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>2</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>4</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_43" native="true">
+     <property name="geometry">
+      <rect>
+       <x>285</x>
+       <y>374</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>3</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>4</number>
+     </property>
+    </widget>
+    <widget class="BoxWidget" name="box_44" native="true">
+     <property name="geometry">
+      <rect>
+       <x>373</x>
+       <y>374</y>
+       <width>39</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="positionX" stdset="0">
+      <number>4</number>
+     </property>
+     <property name="positionY" stdset="0">
+      <number>4</number>
+     </property>
+     <widget class="AvatarWidget" name="tiger_03" native="true">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="goat" stdset="0">
+       <bool>false</bool>
+      </property>
+      <widget class="QLabel" name="tigerImage_03">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="FileContainer.qrc">:/new/Files/icons/spielfigur_tiger.png</pixmap>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <zorder>box_00</zorder>
+    <zorder>box_02</zorder>
+    <zorder>box_03</zorder>
+    <zorder>box_04</zorder>
+    <zorder>box_10</zorder>
+    <zorder>box_11</zorder>
+    <zorder>box_12</zorder>
+    <zorder>box_13</zorder>
+    <zorder>box_14</zorder>
+    <zorder>box_20</zorder>
+    <zorder>box_21</zorder>
+    <zorder>box_22</zorder>
+    <zorder>box_23</zorder>
+    <zorder>box_24</zorder>
+    <zorder>box_30</zorder>
+    <zorder>box_31</zorder>
+    <zorder>box_32</zorder>
+    <zorder>box_33</zorder>
+    <zorder>box_34</zorder>
+    <zorder>box_40</zorder>
+    <zorder>box_41</zorder>
+    <zorder>box_42</zorder>
+    <zorder>box_43</zorder>
+    <zorder>box_44</zorder>
+    <zorder>box_01</zorder>
+   </widget>
+   <widget class="QWidget" name="rippedGoatsField" native="true">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>15</y>
+      <width>161</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="title_01">
+     <property name="geometry">
+      <rect>
+       <x>56</x>
+       <y>-3</y>
+       <width>60</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Tiger</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="rippedGoat_00" native="true">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>60</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">.QWidget{	
+	background-color: rgb(170, 170, 255);
+}</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="rippedGoat_01" native="true">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>120</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">.QWidget{	
+	background-color: rgb(170, 170, 255);
+}</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="rippedGoat_02" native="true">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>180</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">.QWidget{	
+	background-color: rgb(170, 170, 255);
+}</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="rippedGoat_03" native="true">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>240</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">.QWidget{	
+	background-color: rgb(170, 170, 255);
+}</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="rippedGoat_04" native="true">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>300</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">.QWidget {
+	background-color: rgb(170, 170, 255);
+}</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="arrowGoat">
+    <property name="geometry">
+     <rect>
+      <x>166</x>
+      <y>6</y>
+      <width>81</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="FileContainer.qrc">:/new/Files/icons/arrowGoat.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="arrowTiger">
+    <property name="geometry">
+     <rect>
+      <x>606</x>
+      <y>6</y>
+      <width>75</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="FileContainer.qrc">:/new/Files/icons/arrowTiger.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QWidget" name="turnNotification" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>801</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <widget class="TurnMsgBox" name="turnMsgBox" native="true">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>140</y>
+       <width>801</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="215">
+           <red>80</red>
+           <green>80</green>
+           <blue>80</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="215">
+           <red>80</red>
+           <green>80</green>
+           <blue>80</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="215">
+           <red>80</red>
+           <green>80</green>
+           <blue>80</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="215">
+           <red>80</red>
+           <green>80</green>
+           <blue>80</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="QLabel" name="turnMsg">
+      <property name="geometry">
+       <rect>
+        <x>1</x>
+        <y>100</y>
+        <width>801</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>28</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(80, 80, 80);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuGame">
+    <property name="title">
+     <string>Spiel</string>
+    </property>
+    <addaction name="actionNewGame"/>
+    <addaction name="separator"/>
+    <addaction name="actionLoadGame"/>
+    <addaction name="actionSaveGame"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuitGame"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>?</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="separator"/>
+    <addaction name="actionInfo"/>
+   </widget>
+   <addaction name="menuGame"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionNewGame">
+   <property name="icon">
+    <iconset resource="FileContainer.qrc">
+     <normaloff>:/new/Files/icons/Positive-icon.png</normaloff>:/new/Files/icons/Positive-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Neues Spiel</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionLoadGame">
+   <property name="icon">
+    <iconset resource="FileContainer.qrc">
+     <normaloff>:/new/Files/icons/Open-icon.png</normaloff>:/new/Files/icons/Open-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Spiel laden</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionSaveGame">
+   <property name="icon">
+    <iconset resource="FileContainer.qrc">
+     <normaloff>:/new/Files/icons/Save-icon.png</normaloff>:/new/Files/icons/Save-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Spiel speichern</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionQuitGame">
+   <property name="icon">
+    <iconset resource="FileContainer.qrc">
+     <normaloff>:/new/Files/icons/Sign-Shutdown-icon.png</normaloff>:/new/Files/icons/Sign-Shutdown-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Spiel beenden</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="icon">
+    <iconset resource="FileContainer.qrc">
+     <normaloff>:/new/Files/icons/Help-icon.png</normaloff>:/new/Files/icons/Help-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Hilfe</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="icon">
+    <iconset resource="FileContainer.qrc">
+     <normaloff>:/new/Files/icons/Information-icon.png</normaloff>:/new/Files/icons/Information-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>AvatarWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">src/gui/avatarWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>BoxWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">src/gui/boxWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TurnMsgBox</class>
+   <extends>QWidget</extends>
+   <header location="global">src/gui/turnMsgBox.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="FileContainer.qrc"/>
+ </resources>
+ <connections/>
+</ui>

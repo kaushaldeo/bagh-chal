@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/new/Files">
+        <file>icons/icon.ico</file>
+        <file>icons/Spielfeld_klein.png</file>
+        <file>icons/spielfigur_tiger.png</file>
+        <file>icons/spielfigur_ziege.png</file>
+        <file>icons/Check-icon.png</file>
+        <file>icons/Help-icon.png</file>
+        <file>icons/Information-icon.png</file>
+        <file>icons/Open-icon.png</file>
+        <file>icons/Positive-icon.png</file>
+        <file>icons/Remove-icon.png</file>
+        <file>icons/Save-icon.png</file>
+        <file>icons/Sign-Shutdown-icon.png</file>
+        <file>icons/Logo.png</file>
+        <file>icons/arrowGoat.png</file>
+        <file>icons/arrowTiger.png</file>
+    </qresource>
+</RCC>
