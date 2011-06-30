@@ -52,14 +52,14 @@ public:
     /**
     * @fn getPosition()
     * @brief Get Position of cell on grid
-    * @returns std::pair\<int, int> with first as x-position and second as y-position
+    * @returns std::pair<int, int> with first as x-position and second as y-position
     *
     * Get the position of the cell on grid.
     */
     std::pair<int, int> getPosition();
 
     /**
-    * @fn getNeighbor(Direction)
+    * @fn *getNeighbor(Direction)
     * @brief Get neighboring cell on grid as indicated by direction
     * @param direction - member of baghchal::Direction indicating direction
     * @exception CanNotMoveException
@@ -67,14 +67,14 @@ public:
     * The function checks wether there is a neighbor as indicated by the direction.
     * If there is none, the function throws a CanNotMoveException.
     */
-    Cell *getNeighbor(Direction);
+    Cell *getNeighbor(Direction direction);
 
     /**
      * @fn setStatus(CellStatus)
      * @brief Sets the status of the cell
-     * @param newState - unsigned integer value indicating the new status
+     * @param newstate - unsigned integer value indicating the new baghchal::CellStatus
      */
-    void setStatus(CellStatus);
+    void setStatus(CellStatus newstate);
 
     /**
      * @fn *getTiger()

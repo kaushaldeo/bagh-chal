@@ -54,23 +54,23 @@ void PlayerGoat::setCell(Cell *cell)
 
 bool PlayerGoat::canMove()
 {
-	//Not all goats have been set
+    //Not all goats have been set
     if (nextGoat < 20)
     {
         return true;
     }
 
-	//For every goat
+    //For every goat
     for (int i = 0; i < 20; i++)
     {
         if (goats[i]->canMove())
         {
-			//At least one goat can move
+            //At least one goat can move
             return true;
         }
     }
 
-	//No goat can make any valid moves anymore
+    //No goat can make any valid moves anymore
     return false;
 }
 
@@ -80,23 +80,23 @@ bool PlayerGoat::canMoveThere(Cell *src, Cell *dst)
 
     if (src == NULL)
     {
-		//Set an unset Goat
+        //Set an unset Goat
         if (dst->getStatus() != empty || nextGoat >= 20)
         {
-			//The cell the goat is tried to be set on is not empty
-			//or all goats have already been set
+            //The cell the goat is tried to be set on is not empty
+            //or all goats have already been set
             return false;
         }
 
-		//Goat can be set on dst
+        //Goat can be set on dst
         return true;
     }
     else
     {
-		//Move an already set goat
+        //Move an already set goat
         if (nextGoat < 20)
         {
-			//Not all goats have been set yet
+            //Not all goats have been set yet
             return false;
         }
     }
@@ -107,7 +107,7 @@ bool PlayerGoat::canMoveThere(Cell *src, Cell *dst)
     }
     catch (exception e)
     {
-		//No goat resides on cell src
+        //No goat resides on cell src
         return false;
     }
 
@@ -123,10 +123,10 @@ void PlayerGoat::move(Cell *src, Cell *dst)
 
     if (src == NULL)
     {
-		//Set an unset Goat
+        //Set an unset Goat
         if (dst->getStatus() != empty)
         {
-			//The cell the goat is tried to be set on is not empty
+            //The cell the goat is tried to be set on is not empty
             throw new CanNotMoveException();
         }
 
@@ -142,20 +142,20 @@ void PlayerGoat::move(Cell *src, Cell *dst)
         }
         catch (exception e)
         {
-			//No goat resides on cell src
+            //No goat resides on cell src
             throw new CanNotMoveException();
         }
 
         thisGoat->move(dst);
     }
 
-	//Move successfull, it's PlayerTigers turn now
+    //Move successfull, it's PlayerTigers turn now
     Game::getInstance()->setTurn(tiger);
     Game::getInstance()->setChanged(true);
 
     if (!opponent->canMove())
     {
-		//PlayerTiger can't make any valid moves anymore, PlayerGoat won
+        //PlayerTiger can't make any valid moves anymore, PlayerGoat won
         Game::getInstance()->setTurn(empty);
         Game::getInstance()->setChanged(false);
         throw new GoatWonException();
