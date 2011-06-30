@@ -1,10 +1,11 @@
 /**
 * Test program
-* @file LogicMain.cpp
-* @brief A test program
-* @author Julian Bayer
+*
+* IMPORTANT: This is all commented out due to compiling error without Qt Creator
+*
 */
 
+/*
 #include "PlayerTiger.h"
 #include "Game.h"
 #include "Grid.h"
@@ -14,13 +15,6 @@
 
 using namespace std;
 
-/**
- * @fn void printGrid(Game *game)
- * @brief Prints the game on the console
- * @param game - The game pointer
- *
- * Printing out the grid and shows the status (empty, tiger, goat).
- */
 void printGrid(Game *game)
 {
 	cout << "Printing entire Grid:\n";
@@ -36,12 +30,6 @@ void printGrid(Game *game)
 	}
 }
 
-/**
- * @fn main()
- * @brief Different test cases
- *
- * Tests the game with different cases and situations.
- */
 int main()
 {
 	Game *myGame = Game::getInstance();
@@ -157,3 +145,4 @@ int main()
 	
 	printGrid(myGame);        
 }
+*/

@@ -28,13 +28,13 @@ Cell *Goat::getCell()
 
 bool Goat::canMove()
 {
-	//Goat has not been set or has already been eaten
+    //Goat has not been set or has already been eaten
     if (cellPtr == NULL)
     {
         return false;
     }
 
-	//for every possible direction
+    //for every possible direction
     for (int i = 0; i < 8; i++)
     {
         Cell *temp;
@@ -45,18 +45,18 @@ bool Goat::canMove()
         }
         catch (CanNotMoveException e)
         {
-			//Goat can not move in direction i, proceed to the next direction
+            //Goat can not move in direction i, proceed to the next direction
             continue;
         }
 
-		//Goat can move in at least one direction
+        //Goat can move in at least one direction
         if (temp->getStatus() == empty)
         {
             return true;
         }
     }
 
-	//Goat can't move in any direction
+    //Goat can't move in any direction
     return false;
 }
 
