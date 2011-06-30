@@ -1,7 +1,7 @@
 /**
  * @file Goat.cpp
  * @brief Implementation file for Goat Class
- * @author Simon Schneeberger
+ * @author Steffen Dittmar
  */
 
 #include "Goat.h"

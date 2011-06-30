@@ -1,6 +1,6 @@
 /** @file Goat.h
  *  @brief Headerfile for Goat Class
- *  @author Simon Schneeberger
+ *  @author Steffen Dittmar
  */
 #ifndef GOAT_H
 #define GOAT_H

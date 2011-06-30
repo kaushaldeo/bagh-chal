@@ -1,7 +1,7 @@
 /**
  * @file Tiger.cpp
  * @brief Implementation of Tiger Class
- * @author Simon Schneeberger
+ * @author Steffen Dittmar
  */
 
 #include "Game.h"
